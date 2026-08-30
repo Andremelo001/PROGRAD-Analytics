@@ -1,0 +1,41 @@
+# Ambiente virtual
+.venv/
+venv/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# Poetry
+# (poetry.lock deve ser versionado; mantido fora do ignore de propósito)
+
+# Ferramentas / cache
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.dmypy.json
+.import_linter_cache/
+.coverage
+htmlcov/
+coverage.xml
+
+# Ambiente
+.env
+.env.*
+!.env.example
+
+# Jupyter
+.ipynb_checkpoints/
+
+# IDE / SO
+.vscode/*
+!.vscode/settings.json
+.idea/
+.DS_Store
