@@ -1,0 +1,77 @@
+from app.modules.dashboard.domain.section import DashboardContext
+from app.modules.dashboard.domain.services import course_profile
+from app.modules.dashboard.domain.services.course_profile import CourseProfileSection
+from app.modules.dashboard.domain.shared import ScopedData
+
+
+def test_build_evolucao_cpc_has_one_row_per_year(scoped_data: ScopedData) -> None:
+    rows = course_profile.build_evolucao_cpc(scoped_data)
+    curso_10 = [r for r in rows if r["codigo_curso"] == 10]
+    assert [r["ano"] for r in curso_10] == [2017, 2019]
+    assert curso_10[1]["cpc_continuo"] == 3.8
+
+
+def test_build_perfil_radar_uses_latest_year_only(scoped_data: ScopedData) -> None:
+    rows = course_profile.build_perfil_radar(scoped_data)
+    curso_10 = next(r for r in rows if r["codigo_curso"] == 10)
+    assert curso_10["formacao_geral"] == 4.0  # ano 2019, não 2017
+    assert set(course_profile.RADAR_FIELDS) <= curso_10.keys()
+
+
+def test_build_kpis_por_curso_uses_most_recent_cohort_most_recent_year(
+    scoped_data: ScopedData,
+) -> None:
+    kpis = {
+        row["codigo_curso"]: row
+        for row in course_profile.build_kpis_por_curso(scoped_data)
+    }
+
+    # curso 10: coorte mais recente é 2020 (não 2018), acompanhada até 2020
+    curso_10 = kpis[10]
+    assert curso_10["ano_ingresso_referencia"] == 2020
+    assert curso_10["ano_referencia"] == 2020
+    assert curso_10["qt_ingressante"] == 60
+    assert curso_10["cpc_continuo"] == 3.8  # qualidade mais recente (2019)
+
+    # curso 20: só tem qualidade, sem trajetória
+    curso_20 = kpis[20]
+    assert curso_20["cpc_continuo"] == 2.0
+    assert curso_20["ano_ingresso_referencia"] is None
+    assert curso_20["qt_ingressante"] is None
+
+    # curso 30: só tem trajetória, sem qualidade
+    curso_30 = kpis[30]
+    assert curso_30["cpc_continuo"] is None
+    assert curso_30["qt_ingressante"] == 30
+
+
+def test_build_funil_por_coorte_keeps_latest_state_per_cohort(
+    scoped_data: ScopedData,
+) -> None:
+    rows = course_profile.build_funil_por_coorte(scoped_data)
+    curso_10_coortes = {r["ano_ingresso"]: r for r in rows if r["codigo_curso"] == 10}
+    assert set(curso_10_coortes) == {2018, 2020}
+    # coorte 2018 tem 2 anos de acompanhamento (2018, 2019) -> fica com o de 2019
+    assert curso_10_coortes[2018]["ano_referencia"] == 2019
+    assert curso_10_coortes[2018]["qt_desistencia"] == 5
+
+
+def test_build_curva_sobrevivencia_returns_full_series(scoped_data: ScopedData) -> None:
+    rows = course_profile.build_curva_sobrevivencia(scoped_data)
+    curso_10_rows = [r for r in rows if r["codigo_curso"] == 10]
+    assert len(curso_10_rows) == 3  # 2018/2018, 2018/2019, 2020/2020
+    curso_20_rows = [r for r in rows if r["codigo_curso"] == 20]
+    assert curso_20_rows == []  # curso 20 não tem trajetória
+
+
+def test_section_build_assembles_full_payload(
+    dashboard_context: DashboardContext,
+) -> None:
+    payload = CourseProfileSection().build(dashboard_context)
+    assert set(payload) == {
+        "kpis",
+        "evolucao_cpc",
+        "perfil_radar",
+        "funil_coortes",
+        "curva_sobrevivencia",
+    }

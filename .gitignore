@@ -39,3 +39,9 @@ coverage.xml
 !.vscode/settings.json
 .idea/
 .DS_Store
+
+#docs
+docs/
+
+# dados brutos baixados (só app/data/processed/ é versionado)
+app/data/raw/

@@ -5,7 +5,7 @@ description = ""
 authors = []
 readme = "README.md"
 requires-python = ">=3.12,<4.0"
-dependencies = ["pydantic-settings (>=2.7.0,<3.0.0)", "loguru (>=0.7.3,<0.8.0)"]
+dependencies = ["pydantic-settings (>=2.7.0,<3.0.0)", "loguru (>=0.7.3,<0.8.0)", "pandas (>=3.0.5,<4.0.0)", "httpx (>=0.28.1,<0.29.0)", "beautifulsoup4 (>=4.15.0,<5.0.0)", "lxml (>=6.1.3,<7.0.0)", "certifi (>=2026.7.22,<2027.0.0)", "python-calamine (>=0.8.2,<0.9.0)"]
 
 [tool.poetry.group.dev.dependencies]
 ruff = "^0.5.0"
@@ -13,6 +13,9 @@ mypy = "^1.10.1"
 black = "^24.4.2"
 pre-commit = "^3.7.1"
 import-linter = "^2.11"
+pytest = "^9.1.1"
+pytest-cov = "^7.1.0"
+openpyxl = "^3.1.5"
 
 [tool.isort]
 profile = "black"
@@ -99,9 +102,10 @@ max-complexity = 10
 
 [tool.ruff.lint.per-file-ignores]
 "tests/*" = [
-    "S101",   # Use of assert detected
-    "ANN",    # Type annotations not required in tests
-    "SLF001", # Self checks are not required in tests
+    "S101",    # Use of assert detected
+    "ANN",     # Type annotations not required in tests
+    "SLF001",  # Self checks are not required in tests
+    "PLR2004", # Magic values in assertions are fine in tests
 ]
 
 [tool.ruff.lint.pydocstyle]
@@ -111,9 +115,58 @@ ignore-decorators = ["typing.overload"]
 [tool.ruff.lint.pylint]
 allow-magic-value-types = ["int", "str", "float", "bytes"]
 
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+
 [tool.importlinter]
 root_packages = ["app"]
 include_external_packages = true
+
+# 1 — módulos de negócio não se importam entre si
+[[tool.importlinter.contracts]]
+name = "Módulos independentes"
+type = "independence"
+modules = [
+    "app.modules.qualidade",
+    "app.modules.trajetoria",
+    "app.modules.dashboard",
+]
+
+# 2 — a camada domain não depende de I/O (web / http / html / banco)
+[[tool.importlinter.contracts]]
+name = "Domain sem frameworks de I/O"
+type = "forbidden"
+source_modules = [
+    "app.core.domain",
+    "app.modules.qualidade.domain",
+    "app.modules.trajetoria.domain",
+    "app.modules.dashboard.domain",
+]
+forbidden_modules = [
+    "httpx",
+    "bs4",
+    "lxml",
+    "sqlalchemy",
+    "fastapi",
+    "starlette",
+]
+
+# 3 — application não depende de infra concreta pesada (banco / fila / storage)
+[[tool.importlinter.contracts]]
+name = "Application sem infra concreta"
+type = "forbidden"
+source_modules = [
+    "app.modules.qualidade.application",
+    "app.modules.trajetoria.application",
+    "app.modules.dashboard.application",
+]
+forbidden_modules = [
+    "sqlalchemy",
+    "redis",
+    "boto3",
+    "aio_pika",
+]
 
 [build-system]
 requires = ["poetry-core>=2.0.0,<3.0.0"]
