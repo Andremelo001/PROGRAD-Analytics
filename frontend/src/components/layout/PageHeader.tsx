@@ -1,26 +1,31 @@
-import type { ReactNode } from "react";
+import { useContext, type ReactNode } from "react";
+import { createPortal } from "react-dom";
 
-/** Cabeçalho das páginas: título + subtítulo à esquerda e um slot à direita
- * (a busca, na home). Em lg+ tem a altura do bloco do logo (h-16), pra que as
- * duas colunas do layout fiquem alinhadas. */
+import { PageHeaderSlotContext } from "@/context/page-header-slot";
+
+/** Saudação/título das páginas, em branco sobre a faixa escura. É desenhado
+ * no topo fixo do ``AppLayout`` (via portal), junto com o logo, a busca e as
+ * abas; em lg+ as abas ficam à direita desta linha, então o texto reserva
+ * esse espaço. Fora do layout (sem slot), aparece no próprio lugar. */
 export function PageHeader({
     title,
     subtitle,
-    aside,
 }: {
     title: string;
-    subtitle?: string;
-    aside?: ReactNode;
+    subtitle?: ReactNode;
 }) {
-    return (
-        <header className="flex shrink-0 flex-col gap-3 lg:h-16 lg:flex-row lg:items-center lg:gap-8">
-            <div className="min-w-0 flex-1">
-                <h1 className="text-[22px] leading-tight">{title}</h1>
-                {subtitle && (
-                    <p className="text-[15px] leading-snug text-white/80">{subtitle}</p>
-                )}
-            </div>
-            {aside}
+    const slot = useContext(PageHeaderSlotContext);
+    const header = (
+        <header className="min-w-0 shrink-0 lg:max-w-[calc(100%-520px)]">
+            <h1 className="text-[26px] leading-tight font-semibold tracking-[-0.02em] text-white lg:text-[30px]">
+                {title}
+            </h1>
+            {subtitle && (
+                <p className="mt-2 text-[14px] leading-snug text-white/65">
+                    {subtitle}
+                </p>
+            )}
         </header>
     );
+    return slot ? createPortal(header, slot) : header;
 }

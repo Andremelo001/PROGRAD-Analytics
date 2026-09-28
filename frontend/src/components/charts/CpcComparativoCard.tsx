@@ -1,8 +1,10 @@
+import { ArrowDown, ArrowUp, Minus } from "lucide-react";
 import { useMemo, useState } from "react";
 import {
-    CartesianGrid,
     Line,
     LineChart,
+    ReferenceDot,
+    ReferenceLine,
     ResponsiveContainer,
     Tooltip,
     XAxis,
@@ -10,13 +12,21 @@ import {
 } from "recharts";
 
 import { Card } from "@/components/cards/Card";
+import { FocusMarker, YearTick } from "@/components/charts/ChartMarks";
+import { ChartSelect } from "@/components/charts/ChartSelect";
 import { CHART } from "@/components/charts/chart-theme";
-import { ChartTooltipMulti, SeriesSwatch } from "@/components/charts/ChartTooltip";
-import { DataTable, ViewToggle } from "@/components/charts/ViewToggle";
-import { formatDate, formatDecimal, formatInteger, toTitleCase } from "@/lib/format";
-import type { EvolucaoCpcNacionalPonto, EvolucaoCpcPonto } from "@/types/dashboard";
+import { DataTable } from "@/components/charts/DataTable";
+import { formatDecimal, formatInteger, toTitleCase } from "@/lib/format";
+import { cn } from "@/lib/utils";
+import type {
+    Curso,
+    EvolucaoCpcNacionalPonto,
+    EvolucaoCpcPonto,
+} from "@/types/dashboard";
 
-const CPC_TICKS = [0, 1, 2, 3, 4, 5];
+/** Linha da média nacional: cinza (o "resto" do design), mais escura que a
+ * cor de fundo de trecho fora de foco pra não confundir com ela. */
+const NACIONAL = "#b4b5bc";
 
 interface Row {
     ano: number;
@@ -25,268 +35,375 @@ interface Row {
     cursosConsiderados: number | null;
 }
 
-interface CursoOption {
-    codigo: number;
-    nome: string;
-    area: string;
-}
-
-/** Cursos que têm CPC em algum ano, ordenados pelo nome. */
-function buildOptions(evolucao: EvolucaoCpcPonto[]): CursoOption[] {
-    const byCodigo = new Map<number, CursoOption>();
-    for (const p of evolucao) {
-        if (!byCodigo.has(p.codigo_curso)) {
-            byCodigo.set(p.codigo_curso, {
-                codigo: p.codigo_curso,
-                nome: toTitleCase(p.nome_curso),
-                area: p.area_avaliacao,
-            });
-        }
-    }
-    return [...byCodigo.values()].sort((a, b) => a.nome.localeCompare(b.nome, "pt-BR"));
-}
-
-/** Junta, por ano, o CPC do curso com a média nacional da mesma área de
- * avaliação — a comparação é sempre com os cursos-pares, nunca com o Brasil
- * inteiro misturado. */
+/** Um ano por linha, do primeiro ao último ano com avaliação (anos sem
+ * ciclo do Enade ficam vazios — o espaçamento entre avaliações é real). O
+ * CPC do curso vem de ``curso_perfil.evolucao_cpc``; a média, dos cursos da
+ * mesma área de avaliação (``medias_nacionais.evolucao_cpc``). */
 function buildRows(
-    curso: CursoOption,
+    codigo: number,
     evolucao: EvolucaoCpcPonto[],
     nacional: EvolucaoCpcNacionalPonto[]
-): Row[] {
-    const rows = new Map<number, Row>();
-    const row = (ano: number) => {
-        const existing = rows.get(ano);
-        if (existing) return existing;
-        const created: Row = {
+): { area: string | null; rows: Row[] } {
+    const doCurso = evolucao.filter(
+        (p) => p.codigo_curso === codigo && p.cpc_continuo !== null
+    );
+    const area = doCurso.at(-1)?.area_avaliacao ?? null;
+    const daArea = nacional.filter((n) => n.area_avaliacao === area);
+    const anos = [...doCurso.map((p) => p.ano), ...daArea.map((n) => n.ano)];
+    if (anos.length === 0) return { area, rows: [] };
+
+    const rows: Row[] = [];
+    for (let ano = Math.min(...anos); ano <= Math.max(...anos); ano++) {
+        const media = daArea.find((n) => n.ano === ano);
+        rows.push({
             ano,
-            curso: null,
-            nacional: null,
-            cursosConsiderados: null,
-        };
-        rows.set(ano, created);
-        return created;
-    };
-    for (const p of evolucao) {
-        if (p.codigo_curso === curso.codigo) row(p.ano).curso = p.cpc_continuo;
+            curso: doCurso.find((p) => p.ano === ano)?.cpc_continuo ?? null,
+            nacional: media?.cpc_continuo_medio_nacional ?? null,
+            cursosConsiderados: media?.quantidade_cursos_considerados ?? null,
+        });
     }
-    for (const p of nacional) {
-        // só os anos em que o curso foi avaliado: o eixo é o do curso
-        if (p.area_avaliacao === curso.area && rows.has(p.ano)) {
-            const r = row(p.ano);
-            r.nacional = p.cpc_continuo_medio_nacional;
-            r.cursosConsiderados = p.quantidade_cursos_considerados;
-        }
-    }
-    return [...rows.values()].sort((a, b) => a.ano - b.ano);
+    return { area, rows };
 }
 
-const fmt = (value: number | null) => (value === null ? "—" : formatDecimal(value));
+/** Eixo Y em passos de 0,5 com folga em volta das duas séries, dentro da
+ * escala 0-5 do CPC (linha codifica posição, não precisa partir do zero). */
+function buildTicks(rows: Row[]): number[] {
+    const values = rows.flatMap((r) =>
+        [r.curso, r.nacional].filter((v): v is number => v !== null)
+    );
+    if (values.length === 0) return [0, 5];
+    const lo = Math.max(0, Math.floor(Math.min(...values) * 2) / 2 - 0.5);
+    const hi = Math.min(5, Math.ceil(Math.max(...values) * 2) / 2 + 0.5);
+    return Array.from(
+        { length: Math.round((hi - lo) * 2) + 1 },
+        (_, i) => lo + i * 0.5
+    );
+}
 
-/** CPC contínuo de um curso escolhido x média nacional da mesma área
- * (``curso_perfil.evolucao_cpc`` + ``medias_nacionais.evolucao_cpc``). */
+const fmt = (v: number | null) => (v === null ? "—" : formatDecimal(v));
+
+/** CPC contínuo do curso escolhido x média nacional dos cursos da mesma
+ * área, em duas linhas no estilo do gráfico de ingressantes: o ano em foco
+ * ganha a pílula limão no eixo, anéis nas duas linhas e a etiqueta escura
+ * com o valor do curso. Passar o mouse muda o foco (só anos avaliados). */
 export function CpcComparativoCard({
     evolucao,
     nacional,
-    atualizadoEm,
+    cursos,
     className,
 }: {
     evolucao: EvolucaoCpcPonto[];
     nacional: EvolucaoCpcNacionalPonto[];
-    atualizadoEm: string | null;
+    cursos: Curso[];
     className?: string;
 }) {
-    const options = useMemo(() => buildOptions(evolucao), [evolucao]);
-    const [codigo, setCodigo] = useState<number | null>(options[0]?.codigo ?? null);
-    const [showTable, setShowTable] = useState(false);
-
-    const selected = options.find((o) => o.codigo === codigo) ?? options[0];
-    const rows = useMemo(
-        () => (selected ? buildRows(selected, evolucao, nacional) : []),
-        [selected, evolucao, nacional]
+    const opcoes = cursos.filter((c) =>
+        evolucao.some(
+            (p) => p.codigo_curso === c.codigo_curso && p.cpc_continuo !== null
+        )
     );
-    const latest = [...rows].reverse().find((r) => r.curso !== null);
+    const semCpc = cursos.length - opcoes.length;
+    const [codigo, setCodigo] = useState(opcoes[0]?.codigo_curso ?? null);
+    const [hover, setHover] = useState<number | null>(null);
+
+    const { area, rows } = useMemo(
+        () =>
+            codigo === null
+                ? { area: null, rows: [] }
+                : buildRows(codigo, evolucao, nacional),
+        [codigo, evolucao, nacional]
+    );
+    const ticks = buildTicks(rows);
+    const avaliados = rows.filter((r) => r.curso !== null || r.nacional !== null);
+    const ultimoDoCurso = [...rows].reverse().find((r) => r.curso !== null);
+    // foco: o ano avaliado mais perto do mouse; sem mouse, a última avaliação
+    const foco =
+        hover === null
+            ? ultimoDoCurso
+            : avaliados.reduce<Row | undefined>(
+                  (best, r) =>
+                      !best || Math.abs(r.ano - hover) < Math.abs(best.ano - hover)
+                          ? r
+                          : best,
+                  undefined
+              );
+    const diff =
+        foco?.curso != null && foco.nacional !== null
+            ? foco.curso - foco.nacional
+            : null;
+    const topo =
+        foco === undefined
+            ? null
+            : Math.max(foco.curso ?? -Infinity, foco.nacional ?? -Infinity);
 
     return (
         <Card
             title="CPC: curso x média nacional"
-            subtitle="Média dos cursos da mesma área de avaliação no Brasil"
+            subtitle={
+                area
+                    ? `Média dos cursos de ${toTitleCase(area)} no Brasil`
+                    : "Média dos cursos da mesma área no Brasil"
+            }
             action={
-                options.length > 0 && (
-                    <ViewToggle
-                        showTable={showTable}
-                        onToggle={() => setShowTable((v) => !v)}
+                opcoes.length > 0 && (
+                    <ChartSelect
+                        label="Curso comparado"
+                        value={String(codigo ?? "")}
+                        options={opcoes.map((c) => ({
+                            value: String(c.codigo_curso),
+                            label: toTitleCase(c.nome_curso),
+                        }))}
+                        onChange={(value) => {
+                            setCodigo(Number(value));
+                            setHover(null);
+                        }}
                     />
                 )
             }
             className={className}
         >
-            {!selected ? (
-                <p className="text-text-secondary mt-3 text-[13px]">
+            {opcoes.length === 0 || !foco ? (
+                <p className="text-text-secondary mt-6 text-[13px]">
                     Nenhum curso do campus com CPC avaliado.
                 </p>
             ) : (
                 <>
-                    <div className="mt-2.5 flex flex-wrap items-center gap-x-3 gap-y-1.5">
-                        <select
-                            aria-label="Curso para comparar"
-                            value={selected.codigo}
-                            onChange={(event) => setCodigo(Number(event.target.value))}
-                            className="text-ink focus-visible:ring-brand/40 max-w-full min-w-0 rounded-full border border-black/10 bg-white px-2.5 py-0.5 text-[13px] outline-none focus-visible:ring-2"
-                        >
-                            {options.map((o) => (
-                                <option key={o.codigo} value={o.codigo}>
-                                    {o.nome}
-                                </option>
-                            ))}
-                        </select>
-                        <div className="text-text-secondary flex items-center gap-3 text-xs">
-                            <span className="flex items-center gap-1.5">
-                                <SeriesSwatch color={CHART.brand} />
-                                Curso
-                            </span>
-                            <span className="flex items-center gap-1.5">
-                                <SeriesSwatch color={CHART.deemphasis} dashed />
-                                Média nacional
-                            </span>
+                    <div className="mt-4 flex flex-wrap items-end justify-between gap-x-6 gap-y-3">
+                        <div>
+                            <div className="flex items-center gap-3">
+                                <p className="text-[26px] leading-none font-semibold tracking-[-0.02em]">
+                                    {fmt(foco.curso)}
+                                </p>
+                                {diff !== null && <DiffBadge diff={diff} />}
+                            </div>
+                            <p className="text-text-secondary mt-2 text-[13px] leading-snug">
+                                {foco.curso === null
+                                    ? `Curso sem avaliação em ${foco.ano}`
+                                    : `CPC do curso em ${foco.ano}`}
+                                {foco.nacional !== null && (
+                                    <>
+                                        {" · "}
+                                        <span className="text-ink font-semibold">
+                                            {fmt(foco.nacional)}
+                                        </span>{" "}
+                                        na média nacional
+                                        {foco.cursosConsiderados !== null &&
+                                            ` (${formatInteger(foco.cursosConsiderados)} cursos)`}
+                                    </>
+                                )}
+                            </p>
                         </div>
+                        <ul className="flex items-center gap-4 text-[12px]">
+                            <li className="text-text-secondary flex items-center gap-1.5">
+                                <span
+                                    aria-hidden
+                                    className="bg-brand h-[3px] w-4 rounded-full"
+                                />
+                                Curso
+                            </li>
+                            <li className="text-text-secondary flex items-center gap-1.5">
+                                <span
+                                    aria-hidden
+                                    className="h-[3px] w-4 rounded-full"
+                                    style={{ background: NACIONAL }}
+                                />
+                                Média nacional
+                            </li>
+                        </ul>
                     </div>
 
-                    {showTable ? (
+                    <div className="mt-2 min-h-[250px] flex-1">
+                        <ResponsiveContainer width="100%" height="100%">
+                            <LineChart
+                                data={rows}
+                                margin={{ top: 48, right: 8, bottom: 0, left: 0 }}
+                                onMouseMove={(state) => {
+                                    const index = state?.activeTooltipIndex;
+                                    if (index !== undefined && index !== null) {
+                                        setHover(rows[Number(index)]?.ano ?? null);
+                                    }
+                                }}
+                                onMouseLeave={() => setHover(null)}
+                            >
+                                <XAxis
+                                    dataKey="ano"
+                                    type="category"
+                                    tickLine={false}
+                                    axisLine={false}
+                                    interval={0}
+                                    height={40}
+                                    padding={{ left: 28, right: 28 }}
+                                    tick={(props) => (
+                                        <YearTick
+                                            visible
+                                            x={Number(props.x)}
+                                            y={Number(props.y)}
+                                            ano={Number(props.payload?.value)}
+                                            active={
+                                                Number(props.payload?.value) ===
+                                                foco.ano
+                                            }
+                                        />
+                                    )}
+                                />
+                                <YAxis
+                                    domain={[ticks[0], ticks.at(-1)!]}
+                                    ticks={ticks}
+                                    tickLine={false}
+                                    axisLine={false}
+                                    tick={{
+                                        fill: CHART.textMuted,
+                                        fontSize: CHART.tickFont,
+                                    }}
+                                    tickFormatter={(v: number) => formatDecimal(v, 1)}
+                                    width={36}
+                                />
+                                {/* invisível: só faz o gráfico reportar o índice sob o mouse */}
+                                <Tooltip content={() => null} cursor={false} />
+                                {topo !== null && (
+                                    <ReferenceLine
+                                        segment={[
+                                            { x: foco.ano, y: topo },
+                                            { x: foco.ano, y: ticks[0] },
+                                        ]}
+                                        stroke={CHART.textMuted}
+                                        strokeDasharray="3 4"
+                                    />
+                                )}
+                                <Line
+                                    type="linear"
+                                    dataKey="nacional"
+                                    stroke={NACIONAL}
+                                    strokeWidth={2.5}
+                                    strokeLinecap="round"
+                                    connectNulls
+                                    dot={(props) => (
+                                        <SeriesDot
+                                            {...props}
+                                            color={NACIONAL}
+                                            focoAno={foco.ano}
+                                        />
+                                    )}
+                                    activeDot={false}
+                                    isAnimationActive={false}
+                                />
+                                <Line
+                                    type="linear"
+                                    dataKey="curso"
+                                    stroke={CHART.brand}
+                                    strokeWidth={2.5}
+                                    strokeLinecap="round"
+                                    connectNulls
+                                    dot={(props) => (
+                                        <SeriesDot
+                                            {...props}
+                                            color={CHART.brand}
+                                            focoAno={foco.ano}
+                                        />
+                                    )}
+                                    activeDot={false}
+                                    isAnimationActive={false}
+                                />
+                                {foco.nacional !== null && (
+                                    <ReferenceDot
+                                        x={foco.ano}
+                                        y={foco.nacional}
+                                        shape={(props: {
+                                            cx?: number;
+                                            cy?: number;
+                                        }) => (
+                                            <FocusMarker
+                                                cx={props.cx ?? 0}
+                                                cy={props.cy ?? 0}
+                                                ring={NACIONAL}
+                                            />
+                                        )}
+                                    />
+                                )}
+                                {foco.curso !== null && (
+                                    <ReferenceDot
+                                        x={foco.ano}
+                                        y={foco.curso}
+                                        shape={(props: {
+                                            cx?: number;
+                                            cy?: number;
+                                        }) => (
+                                            <FocusMarker
+                                                cx={props.cx ?? 0}
+                                                cy={props.cy ?? 0}
+                                                label={fmt(foco.curso)}
+                                            />
+                                        )}
+                                    />
+                                )}
+                            </LineChart>
+                        </ResponsiveContainer>
+                    </div>
+
+                    {semCpc > 0 && (
+                        <p className="text-text-muted mt-2 text-[11px]">
+                            {semCpc} {semCpc === 1 ? "curso" : "cursos"} do campus ainda
+                            sem CPC (sem ciclo do Enade) não{" "}
+                            {semCpc === 1 ? "aparece" : "aparecem"} na lista.
+                        </p>
+                    )}
+
+                    <div className="sr-only">
                         <DataTable
-                            columns={["Ano", "Curso", "Média nacional"]}
-                            rows={rows.map((r) => [
+                            columns={["Ano", "CPC do curso", "Média nacional"]}
+                            rows={avaliados.map((r) => [
                                 String(r.ano),
                                 fmt(r.curso),
                                 fmt(r.nacional),
                             ])}
                         />
-                    ) : (
-                        <div className="mt-2 min-h-0 flex-1">
-                            <ResponsiveContainer width="100%" height="100%">
-                                <LineChart
-                                    data={rows}
-                                    margin={{ top: 12, right: 12, bottom: 0, left: 0 }}
-                                >
-                                    <CartesianGrid
-                                        vertical={false}
-                                        stroke={CHART.grid}
-                                    />
-                                    <XAxis
-                                        dataKey="ano"
-                                        type="category"
-                                        tickLine={false}
-                                        axisLine={{ stroke: CHART.axis }}
-                                        tick={{
-                                            fill: CHART.textMuted,
-                                            fontSize: CHART.tickFont,
-                                        }}
-                                        tickMargin={6}
-                                        padding={{ left: 24, right: 24 }}
-                                    />
-                                    <YAxis
-                                        domain={[0, 5]}
-                                        ticks={CPC_TICKS}
-                                        tickLine={false}
-                                        axisLine={false}
-                                        tick={{
-                                            fill: CHART.textMuted,
-                                            fontSize: CHART.tickFont,
-                                        }}
-                                        width={24}
-                                    />
-                                    <Tooltip
-                                        cursor={{ stroke: CHART.axis, strokeWidth: 1 }}
-                                        content={({ active, payload }) => {
-                                            const r = payload?.[0]?.payload as
-                                                Row | undefined;
-                                            return active && r ? (
-                                                <ChartTooltipMulti
-                                                    title={`CPC em ${r.ano}`}
-                                                    items={[
-                                                        {
-                                                            label: "Curso",
-                                                            value: fmt(r.curso),
-                                                            color: CHART.brand,
-                                                        },
-                                                        {
-                                                            label: "Média nacional",
-                                                            value: fmt(r.nacional),
-                                                            color: CHART.deemphasis,
-                                                            dashed: true,
-                                                        },
-                                                    ]}
-                                                />
-                                            ) : null;
-                                        }}
-                                    />
-                                    <Line
-                                        type="linear"
-                                        dataKey="nacional"
-                                        stroke={CHART.deemphasis}
-                                        strokeWidth={2}
-                                        strokeDasharray="5 4"
-                                        dot={{
-                                            r: 3.5,
-                                            fill: CHART.deemphasis,
-                                            strokeWidth: 0,
-                                        }}
-                                        activeDot={{
-                                            r: 4.5,
-                                            fill: CHART.deemphasis,
-                                            strokeWidth: 0,
-                                        }}
-                                        connectNulls
-                                        isAnimationActive={false}
-                                    />
-                                    {/* Curso por cima da média: é a série principal. */}
-                                    <Line
-                                        type="linear"
-                                        dataKey="curso"
-                                        stroke={CHART.brand}
-                                        strokeWidth={2}
-                                        strokeLinejoin="round"
-                                        strokeLinecap="round"
-                                        dot={{
-                                            r: 4,
-                                            fill: CHART.brand,
-                                            stroke: CHART.surface,
-                                            strokeWidth: 2,
-                                        }}
-                                        activeDot={{
-                                            r: 5,
-                                            fill: CHART.brand,
-                                            stroke: CHART.surface,
-                                            strokeWidth: 2,
-                                        }}
-                                        connectNulls
-                                        isAnimationActive={false}
-                                    />
-                                </LineChart>
-                            </ResponsiveContainer>
-                        </div>
-                    )}
-
-                    {latest && (
-                        <p className="text-text-secondary mt-2 text-[13px] leading-snug">
-                            Em {latest.ano}:{" "}
-                            <span className="text-ink font-bold">
-                                {fmt(latest.curso)}
-                            </span>{" "}
-                            no curso
-                            {latest.nacional !== null &&
-                                ` · ${fmt(latest.nacional)} na média nacional`}
-                            {latest.cursosConsiderados !== null &&
-                                ` (${formatInteger(latest.cursosConsiderados)} cursos)`}
-                            .
-                        </p>
-                    )}
+                    </div>
                 </>
             )}
-            <p className="text-text-muted mt-1 text-xs">
-                Fonte: INEP, Indicadores de Qualidade (CPC)
-                {atualizadoEm && ` · atualizado em ${formatDate(atualizadoEm)}`}
-            </p>
         </Card>
+    );
+}
+
+/** Ponto de cada avaliação; some no ano em foco, onde o anel toma o lugar. */
+function SeriesDot({
+    cx,
+    cy,
+    value,
+    payload,
+    color,
+    focoAno,
+}: {
+    cx?: number;
+    cy?: number;
+    value?: unknown;
+    payload?: Row;
+    color: string;
+    focoAno: number;
+}) {
+    if (value == null || cx == null || cy == null || payload?.ano === focoAno) {
+        return <g />;
+    }
+    return <circle cx={cx} cy={cy} r={3.5} fill={color} />;
+}
+
+/** Pílula da diferença curso - média: limão acima, vermelha abaixo. */
+function DiffBadge({ diff }: { diff: number }) {
+    const same = Math.abs(diff) < 0.005;
+    const Icon = same ? Minus : diff > 0 ? ArrowUp : ArrowDown;
+    return (
+        <span
+            className={cn(
+                "flex items-center gap-1 rounded-lg px-2.5 py-1.5 text-[12px] leading-none font-semibold",
+                same
+                    ? "bg-page text-text-secondary"
+                    : diff > 0
+                      ? "bg-lime text-ink"
+                      : "bg-status-critical text-white"
+            )}
+        >
+            {diff > 0 ? "+" : diff < 0 ? "−" : ""}
+            {formatDecimal(Math.abs(diff))}
+            <Icon size={13} strokeWidth={2.5} aria-hidden />
+        </span>
     );
 }

@@ -4,23 +4,27 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-    /* Identidade do design (Figma "Desktop - 1"). */
-    --brand: #016bae; /* fundo da aplicação, item ativo, botão de busca */
-    --ink: #1e1e1e; /* divisórias da sidebar, títulos dentro dos cards */
-    --icon: #0a0b0d; /* ícones da sidebar */
+    /* Identidade (design de referência em designs_pages/): faixa escura no
+     * topo, plano cinza-claro embaixo, cards brancos e um verde-limão como
+     * acento. */
+    --band: #19191b; /* faixa escura do topo */
+    --band-soft: #2a2a2d; /* busca e controles sobre a faixa */
+    --page: #f2f3f5; /* plano da aplicação, atrás dos cards */
+    --surface: #ffffff; /* cards */
+    --ink: #1b1b1d; /* títulos, valores, botões escuros */
+    --lime: #dcf366; /* pílulas/realces de destaque */
+    --olive: #a2b82e; /* linha principal dos gráficos */
+    --olive-text: #6b8212; /* texto positivo (sobre branco) */
+    --brand: var(--olive);
 
-    /* Tinta de texto e cromo de gráfico (skill dataviz): texto nunca usa a cor
-     * da série; grade e eixos são hairlines recessivas. */
-    --text-secondary: #52514e;
-    --text-muted: #898781;
-    --chart-grid: #e1e0d9;
-    --chart-axis: #c3c2b7;
+    /* Tinta de texto (skill dataviz): texto nunca usa a cor da série. */
+    --text-secondary: #5f6068;
+    --text-muted: #9a9ba3;
 
-    /* Status — reservados pra significado (bom/atenção/crítico), sempre com
-     * ícone + rótulo, nunca cor sozinha. */
-    --status-good-text: #006300;
-    --status-warning: #fab219;
-    --status-critical: #d03b3b;
+    /* Status "ruim" — reservado pra significado, sempre com seta ou rótulo
+     * junto, nunca cor sozinha. */
+    --status-critical: #e5484d;
+    --status-critical-text: #b42318;
 
     --background: hsl(0 0% 100%);
     --foreground: hsl(222.2 84% 4.9%);
@@ -67,18 +71,20 @@
  * text-foreground, border-border, etc.), igual o tailwind.config.ts fazia
  * antes via theme.extend.colors. */
 @theme inline {
-    --font-sans: "Jaldi", ui-sans-serif, system-ui, sans-serif;
+    --font-sans: "Plus Jakarta Sans Variable", ui-sans-serif, system-ui, sans-serif;
 
-    --color-brand: var(--brand);
+    --color-band: var(--band);
+    --color-band-soft: var(--band-soft);
+    --color-page: var(--page);
+    --color-surface: var(--surface);
     --color-ink: var(--ink);
-    --color-icon: var(--icon);
+    --color-lime: var(--lime);
+    --color-olive-text: var(--olive-text);
+    --color-brand: var(--brand);
     --color-text-secondary: var(--text-secondary);
     --color-text-muted: var(--text-muted);
-    --color-chart-grid: var(--chart-grid);
-    --color-chart-axis: var(--chart-axis);
-    --color-status-good-text: var(--status-good-text);
-    --color-status-warning: var(--status-warning);
     --color-status-critical: var(--status-critical);
+    --color-status-critical-text: var(--status-critical-text);
 
     --color-background: var(--background);
     --color-foreground: var(--foreground);
@@ -108,6 +114,34 @@
         @apply border-border;
     }
     body {
-        @apply bg-brand font-sans text-white antialiased;
+        @apply bg-page text-ink font-sans antialiased;
+        /* o espaço da Plus Jakarta Sans é estreito (~0,19em): abre um pouco */
+        word-spacing: 0.08em;
+    }
+    input,
+    select,
+    button,
+    textarea {
+        word-spacing: inherit;
+    }
+
+    /* Página rola normalmente (roda, touchpad, teclado, toque), mas sem a
+     * barra de rolagem visível. */
+    html {
+        scrollbar-width: none; /* Firefox */
+    }
+    html::-webkit-scrollbar {
+        display: none; /* Chrome, Edge, Safari */
+    }
+
+    /* O SVG do Recharts é focável (navegação por teclado): sem o contorno
+     * preto padrão ao clicar, com um anel discreto só pelo teclado. */
+    .recharts-surface:focus {
+        outline: none;
+    }
+    .recharts-surface:focus-visible {
+        outline: 2px solid var(--olive);
+        outline-offset: 4px;
+        border-radius: 8px;
     }
 }

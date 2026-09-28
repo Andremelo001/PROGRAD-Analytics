@@ -223,7 +223,7 @@ poetry install
 $ cd backend
 $ poetry run pre-commit run --all-files    # black · ruff · mypy
 $ poetry run lint-imports                  # Contracts: 3 kept, 0 broken.
-$ poetry run pytest                        # 104 passed
+$ poetry run pytest                        # 107 passed
 ```
 
 ---
@@ -265,7 +265,7 @@ Saída esperada num run com tudo novo:
 app/data/processed/
 ├── qualidade.csv        (~26 MB,  ~68 mil linhas, 8 anos: 2015-2019, 2021-2023)
 ├── trajetoria.csv.gz    (~68 MB, ~2,7 milhões de linhas, 11 faixas: 2010-2024)
-├── dashboard.json       (~400 KB — recorte da UFC Campus Quixadá + médias nacionais, ver 4.4)
+├── dashboard.json       (~430 KB — recorte da UFC Campus Quixadá + médias nacionais, ver 4.4)
 └── _meta.json           (fonte, data de geração, nº de linhas, colunas — por módulo)
 ```
 
@@ -352,6 +352,7 @@ comparar) e decide como exibir.
 | `curva_sobrevivencia` | A5 / C1 | `nome_cine_area_geral` + `anos_desde_ingresso` (não ano calendário — alinha coortes de anos diferentes) |
 | `heatmap_evasao_anual` | C2 | `nome_cine_area_geral` + `ano_referencia` (ano calendário direto) |
 | `campus` | D | — (já agregado, calculado só com os cursos-pares das áreas do campus) |
+| `distribuicao_uf` | — (mapa "Presença no Brasil" da home) | `codigo_curso` do campus → `estados[]` por `sigla_uf` |
 
 Cada linha nacional também traz `quantidade_cursos_considerados`, pra
 transparência de quantos cursos entraram na média. **A1** (KPIs por curso),
@@ -361,7 +362,18 @@ instituições de tamanhos diferentes) ou não têm um ponto de coorte alinhado
 nacionalmente — o front usa `curva_sobrevivencia` no mesmo
 `anos_desde_ingresso` do curso local para comparar de forma justa.
 
-**Alertas automáticos (F)**: alimenta os cards de destaque da tela inicial —
+`distribuicao_uf` é a exceção de formato: um item por curso do campus, com
+os estados onde existe o **mesmo curso** — quantidade de cursos, ingressantes
+e evasão média da turma mais recente, e CPC médio da avaliação mais recente.
+O recorte é mais estreito que o das outras médias: além da área, exige a
+mesma modalidade (curso EaD é registrado na sede e inflaria o estado dela) e,
+na trajetória, o mesmo grau acadêmico (a área CINE "Sistemas de informação"
+junta o bacharelado com Análise e Desenvolvimento de Sistemas). O código IBGE
+da UF (`codigo_uf`, trajetória) vira sigla por `UF_SIGLAS` pra casar com
+`sigla_uf` (qualidade). Detalhe dos campos em `docs/dashboard_dados.md`.
+
+**Alertas automáticos (F)**: pensado para a tela inicial (a versão atual da
+home não exibe alertas; o bloco segue no JSON pras próximas páginas) —
 `alertas.itens` é uma lista (pode vir vazia) de heurísticas já calculadas,
 cada uma com `tipo`, `severidade` (`atencao`/`critico`), `mensagem` (texto
 pronto, com decimal em pt-BR) e `cursos` (quais cursos motivaram o alerta):

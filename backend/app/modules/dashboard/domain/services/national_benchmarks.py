@@ -1,8 +1,20 @@
+import numbers
+from dataclasses import dataclass, field
+
 import pandas as pd
 
 from app.modules.dashboard.domain.section import DashboardContext
 from app.modules.dashboard.domain.services import course_profile
 from app.modules.dashboard.domain.shared import ScopedData, records
+
+# Código IBGE da UF (``codigo_uf`` da trajetória) -> sigla (``sigla_uf`` da
+# qualidade): as duas fontes identificam o estado de jeitos diferentes.
+UF_SIGLAS: dict[int, str] = {
+    11: "RO", 12: "AC", 13: "AM", 14: "RR", 15: "PA", 16: "AP", 17: "TO",
+    21: "MA", 22: "PI", 23: "CE", 24: "RN", 25: "PB", 26: "PE", 27: "AL",
+    28: "SE", 29: "BA", 31: "MG", 32: "ES", 33: "RJ", 35: "SP", 41: "PR",
+    42: "SC", 43: "RS", 50: "MS", 51: "MT", 52: "GO", 53: "DF",
+}  # fmt: skip
 
 _RATE_COLUMNS = (
     "taxa_permanencia",
@@ -29,6 +41,9 @@ def build(
         "curva_sobrevivencia": _curva_sobrevivencia_nacional(pares_trajetoria),
         "heatmap_evasao_anual": _heatmap_evasao_nacional(pares_trajetoria),
         "campus": _campus_nacional(pares_qualidade, pares_trajetoria),
+        "distribuicao_uf": _distribuicao_uf(
+            qualidade_nacional, trajetoria_nacional, data
+        ),
     }
 
 
@@ -192,6 +207,173 @@ def _distribuicao_cpc_faixa_nacional(
         {"cpc_faixa": faixa, "percentual_nacional": round(100 * int(count) / total, 1)}
         for faixa, count in counts.sort_index().items()
     ]
+
+
+def _distribuicao_uf(
+    qualidade_nacional: pd.DataFrame,
+    trajetoria_nacional: pd.DataFrame,
+    data: ScopedData,
+) -> list[dict[str, object]]:
+    """Onde, no Brasil, existem cursos-pares de cada curso do campus.
+
+    Um item por curso do campus, com os estados que oferecem o mesmo curso:
+    na trajetória, mesma área CINE geral, modalidade e grau acadêmico; no
+    CPC, mesma área de avaliação e modalidade. A modalidade entra porque um
+    curso EaD é registrado no município-sede e inflaria o estado da sede; o
+    grau, porque a área CINE junta bacharelado e tecnólogo (ex.: Sistemas de
+    Informação com Análise e Desenvolvimento de Sistemas).
+    """
+    return [
+        _distribuicao_uf_curso(
+            int(codigo), qualidade_nacional, trajetoria_nacional, data
+        )
+        for codigo in data.cursos["codigo_curso"]
+    ]
+
+
+def _distribuicao_uf_curso(
+    codigo_curso: int,
+    qualidade_nacional: pd.DataFrame,
+    trajetoria_nacional: pd.DataFrame,
+    data: ScopedData,
+) -> dict[str, object]:
+    local_t = _rows_of(data.trajetoria, codigo_curso)
+    local_q = _rows_of(data.qualidade, codigo_curso)
+
+    area_cine = _first(local_t, "nome_cine_area_geral")
+    uf_campus = _first(local_t, "codigo_uf")
+    trajetoria = _uf_trajetoria(trajetoria_nacional, local_t)
+    qualidade = _uf_qualidade(qualidade_nacional, local_q)
+
+    estados: dict[str, dict[str, object]] = {}
+    for resumo in (trajetoria, qualidade):
+        for sigla, valores in resumo.estados.items():
+            estados.setdefault(sigla, _estado_vazio(sigla)).update(valores)
+
+    return {
+        "codigo_curso": codigo_curso,
+        "nome_cine_area_geral": area_cine,
+        "area_avaliacao": qualidade.area,
+        "sigla_uf_campus": _sigla_uf(uf_campus),
+        "ano_ingresso": trajetoria.ano,
+        "ano_cpc": qualidade.ano,
+        "estados": [estados[sigla] for sigla in sorted(estados)],
+    }
+
+
+@dataclass(frozen=True, slots=True)
+class _ResumoUf:
+    """Uma fonte (trajetória ou qualidade) resumida por UF."""
+
+    area: object | None = None
+    ano: int | None = None
+    estados: dict[str, dict[str, object]] = field(default_factory=dict)
+
+
+def _sigla_uf(codigo_uf: object) -> str | None:
+    if not isinstance(codigo_uf, numbers.Real):
+        return None
+    return UF_SIGLAS.get(int(float(codigo_uf)))
+
+
+def _estado_vazio(sigla: str) -> dict[str, object]:
+    return {
+        "sigla_uf": sigla,
+        "quantidade_cursos": 0,
+        "qt_ingressante": None,
+        "taxa_desistencia_media": None,
+        "cpc_continuo_medio": None,
+        "quantidade_cursos_cpc": 0,
+    }
+
+
+def _uf_trajetoria(nacional: pd.DataFrame, local: pd.DataFrame) -> _ResumoUf:
+    """Por UF: cursos-pares com turma no ano de ingresso mais recente.
+
+    Junto, os ingressantes dessa turma e a evasão média dela no último ano
+    acompanhado (mesmo recorte dos KPIs do campus).
+    """
+    needed = {"nome_cine_area_geral", "codigo_uf", "ano_ingresso", "codigo_curso"}
+    if local.empty or nacional.empty or not needed <= set(nacional.columns):
+        return _ResumoUf()
+    pares = nacional[
+        nacional["nome_cine_area_geral"] == _first(local, "nome_cine_area_geral")
+    ]
+    pares = _same_value(pares, local, "tp_modalidade_ensino_desc")
+    pares = _same_value(pares, local, "tp_grau_academico_desc")
+    pares = pares.dropna(subset=["codigo_uf"])
+    if pares.empty:
+        return _ResumoUf()
+
+    ano = int(pares["ano_ingresso"].max())
+    turma = pares[pares["ano_ingresso"] == ano]
+    idx = turma.groupby("codigo_curso")["ano_referencia"].idxmax()
+    ultimo = turma.loc[idx]
+    ingressantes = turma.drop_duplicates("codigo_curso")
+
+    estados: dict[str, dict[str, object]] = {}
+    for codigo_uf, grupo in ultimo.groupby("codigo_uf"):
+        sigla = _sigla_uf(codigo_uf)
+        if sigla is None:
+            continue
+        cursos = set(grupo["codigo_curso"])
+        qt = ingressantes[ingressantes["codigo_curso"].isin(cursos)]["qt_ingressante"]
+        estados[sigla] = {
+            "quantidade_cursos": len(cursos),
+            "qt_ingressante": int(qt.sum()),
+            "taxa_desistencia_media": _safe_mean(grupo["taxa_desistencia_acumulada"]),
+        }
+    return _ResumoUf(ano=ano, estados=estados)
+
+
+def _uf_qualidade(nacional: pd.DataFrame, local: pd.DataFrame) -> _ResumoUf:
+    """Por UF: CPC contínuo médio dos cursos-pares na avaliação mais recente.
+
+    A área é a ``area_avaliacao`` do ano mais recente do curso do campus.
+    """
+    if local.empty or nacional.empty or "sigla_uf" not in nacional.columns:
+        return _ResumoUf()
+    area = local.sort_values("ano")["area_avaliacao"].iloc[-1]
+    pares = nacional[nacional["area_avaliacao"] == area]
+    pares = _same_value(pares, local, "modalidade_ensino")
+    pares = pares.dropna(subset=["cpc_continuo", "sigla_uf"])
+    if pares.empty:
+        return _ResumoUf(area=area)
+
+    ano = int(pares["ano"].max())
+    ultimo = pares[pares["ano"] == ano]
+    estados: dict[str, dict[str, object]] = {
+        str(sigla): {
+            "cpc_continuo_medio": _safe_mean(grupo["cpc_continuo"]),
+            "quantidade_cursos_cpc": int(grupo["codigo_curso"].nunique()),
+        }
+        for sigla, grupo in ultimo.groupby("sigla_uf")
+    }
+    return _ResumoUf(area=area, ano=ano, estados=estados)
+
+
+def _rows_of(frame: pd.DataFrame, codigo_curso: int) -> pd.DataFrame:
+    if frame.empty or "codigo_curso" not in frame.columns:
+        return frame.iloc[0:0]
+    return frame[frame["codigo_curso"] == codigo_curso]
+
+
+def _first(frame: pd.DataFrame, column: str) -> object | None:
+    if frame.empty or column not in frame.columns:
+        return None
+    values = frame[column].dropna()
+    return None if values.empty else values.iloc[0]
+
+
+def _same_value(pares: pd.DataFrame, local: pd.DataFrame, column: str) -> pd.DataFrame:
+    """Restringe ``pares`` ao mesmo valor de ``column`` do curso local.
+
+    Só quando a coluna existe nas duas pontas e o curso local tem valor.
+    """
+    valor = _first(local, column)
+    if valor is None or column not in pares.columns:
+        return pares
+    return pares[pares[column] == valor]
 
 
 class NationalBenchmarksSection:

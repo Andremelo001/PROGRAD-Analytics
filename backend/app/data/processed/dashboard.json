@@ -1,5 +1,5 @@
 {
-  "gerado_em": "2026-09-27T16:38:56+00:00",
+  "gerado_em": "2026-09-28T00:54:46+00:00",
   "escopo": {
     "codigo_ies": 583,
     "nome_ies": "UNIVERSIDADE FEDERAL DO CEARÁ",
@@ -11910,7 +11910,1013 @@
           "percentual_nacional": 8.0
         }
       ]
-    }
+    },
+    "distribuicao_uf": [
+      {
+        "codigo_curso": 106167,
+        "nome_cine_area_geral": "Sistemas de informação",
+        "area_avaliacao": "SISTEMAS DE INFORMAÇÃO",
+        "sigla_uf_campus": "CE",
+        "ano_ingresso": 2020,
+        "ano_cpc": 2021,
+        "estados": [
+          {
+            "sigla_uf": "AC",
+            "quantidade_cursos": 2,
+            "qt_ingressante": 111,
+            "taxa_desistencia_media": 49.15,
+            "cpc_continuo_medio": 3.18,
+            "quantidade_cursos_cpc": 2
+          },
+          {
+            "sigla_uf": "AL",
+            "quantidade_cursos": 6,
+            "qt_ingressante": 311,
+            "taxa_desistencia_media": 56.47,
+            "cpc_continuo_medio": 2.7,
+            "quantidade_cursos_cpc": 4
+          },
+          {
+            "sigla_uf": "AM",
+            "quantidade_cursos": 9,
+            "qt_ingressante": 322,
+            "taxa_desistencia_media": 45.7,
+            "cpc_continuo_medio": 3.08,
+            "quantidade_cursos_cpc": 4
+          },
+          {
+            "sigla_uf": "BA",
+            "quantidade_cursos": 18,
+            "qt_ingressante": 712,
+            "taxa_desistencia_media": 67.48,
+            "cpc_continuo_medio": 2.86,
+            "quantidade_cursos_cpc": 22
+          },
+          {
+            "sigla_uf": "CE",
+            "quantidade_cursos": 13,
+            "qt_ingressante": 436,
+            "taxa_desistencia_media": 60.24,
+            "cpc_continuo_medio": 2.75,
+            "quantidade_cursos_cpc": 14
+          },
+          {
+            "sigla_uf": "DF",
+            "quantidade_cursos": 12,
+            "qt_ingressante": 364,
+            "taxa_desistencia_media": 75.16,
+            "cpc_continuo_medio": 2.65,
+            "quantidade_cursos_cpc": 11
+          },
+          {
+            "sigla_uf": "ES",
+            "quantidade_cursos": 10,
+            "qt_ingressante": 424,
+            "taxa_desistencia_media": 49.9,
+            "cpc_continuo_medio": 2.91,
+            "quantidade_cursos_cpc": 11
+          },
+          {
+            "sigla_uf": "GO",
+            "quantidade_cursos": 18,
+            "qt_ingressante": 546,
+            "taxa_desistencia_media": 61.41,
+            "cpc_continuo_medio": 2.43,
+            "quantidade_cursos_cpc": 19
+          },
+          {
+            "sigla_uf": "MA",
+            "quantidade_cursos": 5,
+            "qt_ingressante": 250,
+            "taxa_desistencia_media": 49.56,
+            "cpc_continuo_medio": 3.08,
+            "quantidade_cursos_cpc": 6
+          },
+          {
+            "sigla_uf": "MG",
+            "quantidade_cursos": 71,
+            "qt_ingressante": 3027,
+            "taxa_desistencia_media": 59.29,
+            "cpc_continuo_medio": 2.82,
+            "quantidade_cursos_cpc": 66
+          },
+          {
+            "sigla_uf": "MS",
+            "quantidade_cursos": 7,
+            "qt_ingressante": 351,
+            "taxa_desistencia_media": 73.22,
+            "cpc_continuo_medio": 3.19,
+            "quantidade_cursos_cpc": 7
+          },
+          {
+            "sigla_uf": "MT",
+            "quantidade_cursos": 9,
+            "qt_ingressante": 230,
+            "taxa_desistencia_media": 52.95,
+            "cpc_continuo_medio": 2.48,
+            "quantidade_cursos_cpc": 8
+          },
+          {
+            "sigla_uf": "PA",
+            "quantidade_cursos": 12,
+            "qt_ingressante": 448,
+            "taxa_desistencia_media": 48.92,
+            "cpc_continuo_medio": 2.53,
+            "quantidade_cursos_cpc": 2
+          },
+          {
+            "sigla_uf": "PB",
+            "quantidade_cursos": 4,
+            "qt_ingressante": 167,
+            "taxa_desistencia_media": 40.9,
+            "cpc_continuo_medio": 2.54,
+            "quantidade_cursos_cpc": 3
+          },
+          {
+            "sigla_uf": "PE",
+            "quantidade_cursos": 11,
+            "qt_ingressante": 837,
+            "taxa_desistencia_media": 62.51,
+            "cpc_continuo_medio": 2.82,
+            "quantidade_cursos_cpc": 10
+          },
+          {
+            "sigla_uf": "PI",
+            "quantidade_cursos": 5,
+            "qt_ingressante": 168,
+            "taxa_desistencia_media": 58.84,
+            "cpc_continuo_medio": 2.66,
+            "quantidade_cursos_cpc": 6
+          },
+          {
+            "sigla_uf": "PR",
+            "quantidade_cursos": 19,
+            "qt_ingressante": 653,
+            "taxa_desistencia_media": 53.45,
+            "cpc_continuo_medio": 2.62,
+            "quantidade_cursos_cpc": 23
+          },
+          {
+            "sigla_uf": "RJ",
+            "quantidade_cursos": 29,
+            "qt_ingressante": 1412,
+            "taxa_desistencia_media": 59.22,
+            "cpc_continuo_medio": 2.78,
+            "quantidade_cursos_cpc": 26
+          },
+          {
+            "sigla_uf": "RN",
+            "quantidade_cursos": 5,
+            "qt_ingressante": 150,
+            "taxa_desistencia_media": 56.29,
+            "cpc_continuo_medio": 2.59,
+            "quantidade_cursos_cpc": 3
+          },
+          {
+            "sigla_uf": "RO",
+            "quantidade_cursos": 6,
+            "qt_ingressante": 196,
+            "taxa_desistencia_media": 67.62,
+            "cpc_continuo_medio": 2.61,
+            "quantidade_cursos_cpc": 4
+          },
+          {
+            "sigla_uf": "RR",
+            "quantidade_cursos": 0,
+            "qt_ingressante": null,
+            "taxa_desistencia_media": null,
+            "cpc_continuo_medio": 3.27,
+            "quantidade_cursos_cpc": 1
+          },
+          {
+            "sigla_uf": "RS",
+            "quantidade_cursos": 11,
+            "qt_ingressante": 323,
+            "taxa_desistencia_media": 64.92,
+            "cpc_continuo_medio": 2.79,
+            "quantidade_cursos_cpc": 20
+          },
+          {
+            "sigla_uf": "SC",
+            "quantidade_cursos": 23,
+            "qt_ingressante": 1103,
+            "taxa_desistencia_media": 62.74,
+            "cpc_continuo_medio": 2.74,
+            "quantidade_cursos_cpc": 24
+          },
+          {
+            "sigla_uf": "SE",
+            "quantidade_cursos": 5,
+            "qt_ingressante": 254,
+            "taxa_desistencia_media": 52.26,
+            "cpc_continuo_medio": 3.15,
+            "quantidade_cursos_cpc": 4
+          },
+          {
+            "sigla_uf": "SP",
+            "quantidade_cursos": 82,
+            "qt_ingressante": 4705,
+            "taxa_desistencia_media": 62.8,
+            "cpc_continuo_medio": 2.54,
+            "quantidade_cursos_cpc": 65
+          },
+          {
+            "sigla_uf": "TO",
+            "quantidade_cursos": 3,
+            "qt_ingressante": 136,
+            "taxa_desistencia_media": 63.42,
+            "cpc_continuo_medio": 2.95,
+            "quantidade_cursos_cpc": 5
+          }
+        ]
+      },
+      {
+        "codigo_curso": 150117,
+        "nome_cine_area_geral": "Engenharia de software",
+        "area_avaliacao": null,
+        "sigla_uf_campus": "CE",
+        "ano_ingresso": 2020,
+        "ano_cpc": null,
+        "estados": [
+          {
+            "sigla_uf": "AM",
+            "quantidade_cursos": 3,
+            "qt_ingressante": 80,
+            "taxa_desistencia_media": 21.56,
+            "cpc_continuo_medio": null,
+            "quantidade_cursos_cpc": 0
+          },
+          {
+            "sigla_uf": "BA",
+            "quantidade_cursos": 2,
+            "qt_ingressante": 102,
+            "taxa_desistencia_media": 52.08,
+            "cpc_continuo_medio": null,
+            "quantidade_cursos_cpc": 0
+          },
+          {
+            "sigla_uf": "CE",
+            "quantidade_cursos": 2,
+            "qt_ingressante": 157,
+            "taxa_desistencia_media": 46.87,
+            "cpc_continuo_medio": null,
+            "quantidade_cursos_cpc": 0
+          },
+          {
+            "sigla_uf": "DF",
+            "quantidade_cursos": 4,
+            "qt_ingressante": 435,
+            "taxa_desistencia_media": 54.77,
+            "cpc_continuo_medio": null,
+            "quantidade_cursos_cpc": 0
+          },
+          {
+            "sigla_uf": "GO",
+            "quantidade_cursos": 4,
+            "qt_ingressante": 182,
+            "taxa_desistencia_media": 42.9,
+            "cpc_continuo_medio": null,
+            "quantidade_cursos_cpc": 0
+          },
+          {
+            "sigla_uf": "MA",
+            "quantidade_cursos": 1,
+            "qt_ingressante": 57,
+            "taxa_desistencia_media": 52.63,
+            "cpc_continuo_medio": null,
+            "quantidade_cursos_cpc": 0
+          },
+          {
+            "sigla_uf": "MG",
+            "quantidade_cursos": 4,
+            "qt_ingressante": 276,
+            "taxa_desistencia_media": 49.45,
+            "cpc_continuo_medio": null,
+            "quantidade_cursos_cpc": 0
+          },
+          {
+            "sigla_uf": "MS",
+            "quantidade_cursos": 2,
+            "qt_ingressante": 132,
+            "taxa_desistencia_media": 34.95,
+            "cpc_continuo_medio": null,
+            "quantidade_cursos_cpc": 0
+          },
+          {
+            "sigla_uf": "PA",
+            "quantidade_cursos": 2,
+            "qt_ingressante": 54,
+            "taxa_desistencia_media": 36.69,
+            "cpc_continuo_medio": null,
+            "quantidade_cursos_cpc": 0
+          },
+          {
+            "sigla_uf": "PE",
+            "quantidade_cursos": 1,
+            "qt_ingressante": 19,
+            "taxa_desistencia_media": 100.0,
+            "cpc_continuo_medio": null,
+            "quantidade_cursos_cpc": 0
+          },
+          {
+            "sigla_uf": "PI",
+            "quantidade_cursos": 1,
+            "qt_ingressante": 28,
+            "taxa_desistencia_media": 35.71,
+            "cpc_continuo_medio": null,
+            "quantidade_cursos_cpc": 0
+          },
+          {
+            "sigla_uf": "PR",
+            "quantidade_cursos": 20,
+            "qt_ingressante": 911,
+            "taxa_desistencia_media": 58.66,
+            "cpc_continuo_medio": null,
+            "quantidade_cursos_cpc": 0
+          },
+          {
+            "sigla_uf": "RJ",
+            "quantidade_cursos": 2,
+            "qt_ingressante": 107,
+            "taxa_desistencia_media": 56.73,
+            "cpc_continuo_medio": null,
+            "quantidade_cursos_cpc": 0
+          },
+          {
+            "sigla_uf": "RN",
+            "quantidade_cursos": 2,
+            "qt_ingressante": 42,
+            "taxa_desistencia_media": 40.94,
+            "cpc_continuo_medio": null,
+            "quantidade_cursos_cpc": 0
+          },
+          {
+            "sigla_uf": "RS",
+            "quantidade_cursos": 4,
+            "qt_ingressante": 214,
+            "taxa_desistencia_media": 60.85,
+            "cpc_continuo_medio": null,
+            "quantidade_cursos_cpc": 0
+          },
+          {
+            "sigla_uf": "SC",
+            "quantidade_cursos": 6,
+            "qt_ingressante": 315,
+            "taxa_desistencia_media": 54.6,
+            "cpc_continuo_medio": null,
+            "quantidade_cursos_cpc": 0
+          },
+          {
+            "sigla_uf": "SP",
+            "quantidade_cursos": 6,
+            "qt_ingressante": 178,
+            "taxa_desistencia_media": 49.83,
+            "cpc_continuo_medio": null,
+            "quantidade_cursos_cpc": 0
+          },
+          {
+            "sigla_uf": "TO",
+            "quantidade_cursos": 2,
+            "qt_ingressante": 29,
+            "taxa_desistencia_media": 90.91,
+            "cpc_continuo_medio": null,
+            "quantidade_cursos_cpc": 0
+          }
+        ]
+      },
+      {
+        "codigo_curso": 1127191,
+        "nome_cine_area_geral": "Redes de computadores",
+        "area_avaliacao": "TECNOLOGIA EM REDES DE COMPUTADORES",
+        "sigla_uf_campus": "CE",
+        "ano_ingresso": 2020,
+        "ano_cpc": 2021,
+        "estados": [
+          {
+            "sigla_uf": "AL",
+            "quantidade_cursos": 1,
+            "qt_ingressante": 36,
+            "taxa_desistencia_media": 68.57,
+            "cpc_continuo_medio": 3.04,
+            "quantidade_cursos_cpc": 1
+          },
+          {
+            "sigla_uf": "AM",
+            "quantidade_cursos": 2,
+            "qt_ingressante": 80,
+            "taxa_desistencia_media": 87.01,
+            "cpc_continuo_medio": 2.61,
+            "quantidade_cursos_cpc": 1
+          },
+          {
+            "sigla_uf": "AP",
+            "quantidade_cursos": 4,
+            "qt_ingressante": 121,
+            "taxa_desistencia_media": 76.39,
+            "cpc_continuo_medio": 2.59,
+            "quantidade_cursos_cpc": 3
+          },
+          {
+            "sigla_uf": "BA",
+            "quantidade_cursos": 5,
+            "qt_ingressante": 90,
+            "taxa_desistencia_media": 77.54,
+            "cpc_continuo_medio": 2.45,
+            "quantidade_cursos_cpc": 3
+          },
+          {
+            "sigla_uf": "CE",
+            "quantidade_cursos": 11,
+            "qt_ingressante": 415,
+            "taxa_desistencia_media": 75.56,
+            "cpc_continuo_medio": 2.56,
+            "quantidade_cursos_cpc": 8
+          },
+          {
+            "sigla_uf": "DF",
+            "quantidade_cursos": 3,
+            "qt_ingressante": 118,
+            "taxa_desistencia_media": 76.09,
+            "cpc_continuo_medio": 2.2,
+            "quantidade_cursos_cpc": 3
+          },
+          {
+            "sigla_uf": "ES",
+            "quantidade_cursos": 2,
+            "qt_ingressante": 23,
+            "taxa_desistencia_media": 100.0,
+            "cpc_continuo_medio": null,
+            "quantidade_cursos_cpc": 0
+          },
+          {
+            "sigla_uf": "GO",
+            "quantidade_cursos": 1,
+            "qt_ingressante": 23,
+            "taxa_desistencia_media": 91.3,
+            "cpc_continuo_medio": 2.08,
+            "quantidade_cursos_cpc": 4
+          },
+          {
+            "sigla_uf": "MA",
+            "quantidade_cursos": 6,
+            "qt_ingressante": 203,
+            "taxa_desistencia_media": 61.44,
+            "cpc_continuo_medio": 2.47,
+            "quantidade_cursos_cpc": 3
+          },
+          {
+            "sigla_uf": "MG",
+            "quantidade_cursos": 6,
+            "qt_ingressante": 169,
+            "taxa_desistencia_media": 69.8,
+            "cpc_continuo_medio": 2.37,
+            "quantidade_cursos_cpc": 7
+          },
+          {
+            "sigla_uf": "MS",
+            "quantidade_cursos": 1,
+            "qt_ingressante": 35,
+            "taxa_desistencia_media": 97.14,
+            "cpc_continuo_medio": 2.53,
+            "quantidade_cursos_cpc": 1
+          },
+          {
+            "sigla_uf": "MT",
+            "quantidade_cursos": 4,
+            "qt_ingressante": 96,
+            "taxa_desistencia_media": 85.48,
+            "cpc_continuo_medio": 2.0,
+            "quantidade_cursos_cpc": 3
+          },
+          {
+            "sigla_uf": "PA",
+            "quantidade_cursos": 5,
+            "qt_ingressante": 200,
+            "taxa_desistencia_media": 78.13,
+            "cpc_continuo_medio": 2.27,
+            "quantidade_cursos_cpc": 1
+          },
+          {
+            "sigla_uf": "PB",
+            "quantidade_cursos": 3,
+            "qt_ingressante": 140,
+            "taxa_desistencia_media": 79.49,
+            "cpc_continuo_medio": 3.27,
+            "quantidade_cursos_cpc": 2
+          },
+          {
+            "sigla_uf": "PE",
+            "quantidade_cursos": 6,
+            "qt_ingressante": 231,
+            "taxa_desistencia_media": 71.05,
+            "cpc_continuo_medio": 2.87,
+            "quantidade_cursos_cpc": 3
+          },
+          {
+            "sigla_uf": "PR",
+            "quantidade_cursos": 2,
+            "qt_ingressante": 26,
+            "taxa_desistencia_media": 57.69,
+            "cpc_continuo_medio": 2.99,
+            "quantidade_cursos_cpc": 2
+          },
+          {
+            "sigla_uf": "RJ",
+            "quantidade_cursos": 5,
+            "qt_ingressante": 146,
+            "taxa_desistencia_media": 74.63,
+            "cpc_continuo_medio": 2.74,
+            "quantidade_cursos_cpc": 6
+          },
+          {
+            "sigla_uf": "RN",
+            "quantidade_cursos": 3,
+            "qt_ingressante": 144,
+            "taxa_desistencia_media": 81.13,
+            "cpc_continuo_medio": 2.94,
+            "quantidade_cursos_cpc": 3
+          },
+          {
+            "sigla_uf": "RO",
+            "quantidade_cursos": 2,
+            "qt_ingressante": 63,
+            "taxa_desistencia_media": 69.05,
+            "cpc_continuo_medio": 2.67,
+            "quantidade_cursos_cpc": 2
+          },
+          {
+            "sigla_uf": "RS",
+            "quantidade_cursos": 5,
+            "qt_ingressante": 146,
+            "taxa_desistencia_media": 68.48,
+            "cpc_continuo_medio": 3.17,
+            "quantidade_cursos_cpc": 11
+          },
+          {
+            "sigla_uf": "SC",
+            "quantidade_cursos": 5,
+            "qt_ingressante": 156,
+            "taxa_desistencia_media": 90.69,
+            "cpc_continuo_medio": 2.93,
+            "quantidade_cursos_cpc": 4
+          },
+          {
+            "sigla_uf": "SE",
+            "quantidade_cursos": 2,
+            "qt_ingressante": 51,
+            "taxa_desistencia_media": 72.93,
+            "cpc_continuo_medio": 2.57,
+            "quantidade_cursos_cpc": 3
+          },
+          {
+            "sigla_uf": "SP",
+            "quantidade_cursos": 32,
+            "qt_ingressante": 1257,
+            "taxa_desistencia_media": 75.65,
+            "cpc_continuo_medio": 2.27,
+            "quantidade_cursos_cpc": 18
+          }
+        ]
+      },
+      {
+        "codigo_curso": 1270596,
+        "nome_cine_area_geral": "Ciência da computação",
+        "area_avaliacao": "CIÊNCIA DA COMPUTAÇÃO (BACHARELADO)",
+        "sigla_uf_campus": "CE",
+        "ano_ingresso": 2020,
+        "ano_cpc": 2021,
+        "estados": [
+          {
+            "sigla_uf": "AL",
+            "quantidade_cursos": 4,
+            "qt_ingressante": 254,
+            "taxa_desistencia_media": 60.27,
+            "cpc_continuo_medio": 2.61,
+            "quantidade_cursos_cpc": 4
+          },
+          {
+            "sigla_uf": "AM",
+            "quantidade_cursos": 6,
+            "qt_ingressante": 474,
+            "taxa_desistencia_media": 56.7,
+            "cpc_continuo_medio": 2.69,
+            "quantidade_cursos_cpc": 5
+          },
+          {
+            "sigla_uf": "AP",
+            "quantidade_cursos": 3,
+            "qt_ingressante": 128,
+            "taxa_desistencia_media": 68.78,
+            "cpc_continuo_medio": 2.48,
+            "quantidade_cursos_cpc": 2
+          },
+          {
+            "sigla_uf": "BA",
+            "quantidade_cursos": 9,
+            "qt_ingressante": 389,
+            "taxa_desistencia_media": 61.6,
+            "cpc_continuo_medio": 3.04,
+            "quantidade_cursos_cpc": 7
+          },
+          {
+            "sigla_uf": "CE",
+            "quantidade_cursos": 15,
+            "qt_ingressante": 1051,
+            "taxa_desistencia_media": 47.43,
+            "cpc_continuo_medio": 2.89,
+            "quantidade_cursos_cpc": 13
+          },
+          {
+            "sigla_uf": "DF",
+            "quantidade_cursos": 8,
+            "qt_ingressante": 674,
+            "taxa_desistencia_media": 47.58,
+            "cpc_continuo_medio": 3.0,
+            "quantidade_cursos_cpc": 7
+          },
+          {
+            "sigla_uf": "ES",
+            "quantidade_cursos": 6,
+            "qt_ingressante": 339,
+            "taxa_desistencia_media": 54.3,
+            "cpc_continuo_medio": 3.34,
+            "quantidade_cursos_cpc": 6
+          },
+          {
+            "sigla_uf": "GO",
+            "quantidade_cursos": 12,
+            "qt_ingressante": 568,
+            "taxa_desistencia_media": 58.66,
+            "cpc_continuo_medio": 3.14,
+            "quantidade_cursos_cpc": 8
+          },
+          {
+            "sigla_uf": "MA",
+            "quantidade_cursos": 4,
+            "qt_ingressante": 270,
+            "taxa_desistencia_media": 45.05,
+            "cpc_continuo_medio": 2.73,
+            "quantidade_cursos_cpc": 4
+          },
+          {
+            "sigla_uf": "MG",
+            "quantidade_cursos": 45,
+            "qt_ingressante": 2187,
+            "taxa_desistencia_media": 51.5,
+            "cpc_continuo_medio": 3.07,
+            "quantidade_cursos_cpc": 34
+          },
+          {
+            "sigla_uf": "MS",
+            "quantidade_cursos": 3,
+            "qt_ingressante": 227,
+            "taxa_desistencia_media": 59.0,
+            "cpc_continuo_medio": 2.91,
+            "quantidade_cursos_cpc": 4
+          },
+          {
+            "sigla_uf": "MT",
+            "quantidade_cursos": 7,
+            "qt_ingressante": 256,
+            "taxa_desistencia_media": 43.86,
+            "cpc_continuo_medio": 2.33,
+            "quantidade_cursos_cpc": 8
+          },
+          {
+            "sigla_uf": "PA",
+            "quantidade_cursos": 7,
+            "qt_ingressante": 267,
+            "taxa_desistencia_media": 42.22,
+            "cpc_continuo_medio": 2.25,
+            "quantidade_cursos_cpc": 1
+          },
+          {
+            "sigla_uf": "PB",
+            "quantidade_cursos": 8,
+            "qt_ingressante": 784,
+            "taxa_desistencia_media": 57.66,
+            "cpc_continuo_medio": 2.68,
+            "quantidade_cursos_cpc": 7
+          },
+          {
+            "sigla_uf": "PE",
+            "quantidade_cursos": 14,
+            "qt_ingressante": 1386,
+            "taxa_desistencia_media": 52.99,
+            "cpc_continuo_medio": 2.82,
+            "quantidade_cursos_cpc": 13
+          },
+          {
+            "sigla_uf": "PI",
+            "quantidade_cursos": 7,
+            "qt_ingressante": 305,
+            "taxa_desistencia_media": 46.49,
+            "cpc_continuo_medio": 2.55,
+            "quantidade_cursos_cpc": 6
+          },
+          {
+            "sigla_uf": "PR",
+            "quantidade_cursos": 21,
+            "qt_ingressante": 972,
+            "taxa_desistencia_media": 52.84,
+            "cpc_continuo_medio": 3.04,
+            "quantidade_cursos_cpc": 19
+          },
+          {
+            "sigla_uf": "RJ",
+            "quantidade_cursos": 20,
+            "qt_ingressante": 1566,
+            "taxa_desistencia_media": 50.05,
+            "cpc_continuo_medio": 2.97,
+            "quantidade_cursos_cpc": 17
+          },
+          {
+            "sigla_uf": "RN",
+            "quantidade_cursos": 5,
+            "qt_ingressante": 192,
+            "taxa_desistencia_media": 54.65,
+            "cpc_continuo_medio": 3.34,
+            "quantidade_cursos_cpc": 5
+          },
+          {
+            "sigla_uf": "RO",
+            "quantidade_cursos": 0,
+            "qt_ingressante": null,
+            "taxa_desistencia_media": null,
+            "cpc_continuo_medio": 2.47,
+            "quantidade_cursos_cpc": 1
+          },
+          {
+            "sigla_uf": "RR",
+            "quantidade_cursos": 2,
+            "qt_ingressante": 60,
+            "taxa_desistencia_media": 46.29,
+            "cpc_continuo_medio": 2.64,
+            "quantidade_cursos_cpc": 2
+          },
+          {
+            "sigla_uf": "RS",
+            "quantidade_cursos": 29,
+            "qt_ingressante": 1449,
+            "taxa_desistencia_media": 60.58,
+            "cpc_continuo_medio": 2.97,
+            "quantidade_cursos_cpc": 30
+          },
+          {
+            "sigla_uf": "SC",
+            "quantidade_cursos": 18,
+            "qt_ingressante": 1144,
+            "taxa_desistencia_media": 62.89,
+            "cpc_continuo_medio": 2.95,
+            "quantidade_cursos_cpc": 17
+          },
+          {
+            "sigla_uf": "SE",
+            "quantidade_cursos": 3,
+            "qt_ingressante": 249,
+            "taxa_desistencia_media": 54.24,
+            "cpc_continuo_medio": 3.04,
+            "quantidade_cursos_cpc": 2
+          },
+          {
+            "sigla_uf": "SP",
+            "quantidade_cursos": 104,
+            "qt_ingressante": 8481,
+            "taxa_desistencia_media": 61.5,
+            "cpc_continuo_medio": 2.53,
+            "quantidade_cursos_cpc": 91
+          },
+          {
+            "sigla_uf": "TO",
+            "quantidade_cursos": 3,
+            "qt_ingressante": 109,
+            "taxa_desistencia_media": 64.51,
+            "cpc_continuo_medio": 2.78,
+            "quantidade_cursos_cpc": 3
+          }
+        ]
+      },
+      {
+        "codigo_curso": 1299933,
+        "nome_cine_area_geral": "Engenharia de computação",
+        "area_avaliacao": "ENGENHARIA DA COMPUTAÇÃO",
+        "sigla_uf_campus": "CE",
+        "ano_ingresso": 2020,
+        "ano_cpc": 2019,
+        "estados": [
+          {
+            "sigla_uf": "AL",
+            "quantidade_cursos": 2,
+            "qt_ingressante": 100,
+            "taxa_desistencia_media": 44.07,
+            "cpc_continuo_medio": 2.87,
+            "quantidade_cursos_cpc": 1
+          },
+          {
+            "sigla_uf": "AM",
+            "quantidade_cursos": 7,
+            "qt_ingressante": 348,
+            "taxa_desistencia_media": 50.8,
+            "cpc_continuo_medio": 2.57,
+            "quantidade_cursos_cpc": 4
+          },
+          {
+            "sigla_uf": "AP",
+            "quantidade_cursos": 1,
+            "qt_ingressante": 22,
+            "taxa_desistencia_media": 59.09,
+            "cpc_continuo_medio": null,
+            "quantidade_cursos_cpc": 0
+          },
+          {
+            "sigla_uf": "BA",
+            "quantidade_cursos": 12,
+            "qt_ingressante": 475,
+            "taxa_desistencia_media": 53.35,
+            "cpc_continuo_medio": 2.9,
+            "quantidade_cursos_cpc": 7
+          },
+          {
+            "sigla_uf": "CE",
+            "quantidade_cursos": 6,
+            "qt_ingressante": 407,
+            "taxa_desistencia_media": 52.38,
+            "cpc_continuo_medio": 2.79,
+            "quantidade_cursos_cpc": 5
+          },
+          {
+            "sigla_uf": "DF",
+            "quantidade_cursos": 3,
+            "qt_ingressante": 199,
+            "taxa_desistencia_media": 43.1,
+            "cpc_continuo_medio": 3.28,
+            "quantidade_cursos_cpc": 3
+          },
+          {
+            "sigla_uf": "ES",
+            "quantidade_cursos": 7,
+            "qt_ingressante": 261,
+            "taxa_desistencia_media": 63.52,
+            "cpc_continuo_medio": 3.46,
+            "quantidade_cursos_cpc": 4
+          },
+          {
+            "sigla_uf": "GO",
+            "quantidade_cursos": 5,
+            "qt_ingressante": 232,
+            "taxa_desistencia_media": 68.99,
+            "cpc_continuo_medio": 2.64,
+            "quantidade_cursos_cpc": 5
+          },
+          {
+            "sigla_uf": "MA",
+            "quantidade_cursos": 5,
+            "qt_ingressante": 174,
+            "taxa_desistencia_media": 41.93,
+            "cpc_continuo_medio": 2.55,
+            "quantidade_cursos_cpc": 3
+          },
+          {
+            "sigla_uf": "MG",
+            "quantidade_cursos": 30,
+            "qt_ingressante": 1388,
+            "taxa_desistencia_media": 54.71,
+            "cpc_continuo_medio": 2.59,
+            "quantidade_cursos_cpc": 21
+          },
+          {
+            "sigla_uf": "MS",
+            "quantidade_cursos": 6,
+            "qt_ingressante": 244,
+            "taxa_desistencia_media": 72.39,
+            "cpc_continuo_medio": 2.96,
+            "quantidade_cursos_cpc": 5
+          },
+          {
+            "sigla_uf": "MT",
+            "quantidade_cursos": 4,
+            "qt_ingressante": 169,
+            "taxa_desistencia_media": 57.31,
+            "cpc_continuo_medio": 2.63,
+            "quantidade_cursos_cpc": 3
+          },
+          {
+            "sigla_uf": "PA",
+            "quantidade_cursos": 6,
+            "qt_ingressante": 342,
+            "taxa_desistencia_media": 32.23,
+            "cpc_continuo_medio": 2.52,
+            "quantidade_cursos_cpc": 6
+          },
+          {
+            "sigla_uf": "PB",
+            "quantidade_cursos": 2,
+            "qt_ingressante": 174,
+            "taxa_desistencia_media": 51.78,
+            "cpc_continuo_medio": 3.11,
+            "quantidade_cursos_cpc": 1
+          },
+          {
+            "sigla_uf": "PE",
+            "quantidade_cursos": 6,
+            "qt_ingressante": 451,
+            "taxa_desistencia_media": 51.67,
+            "cpc_continuo_medio": 2.72,
+            "quantidade_cursos_cpc": 4
+          },
+          {
+            "sigla_uf": "PR",
+            "quantidade_cursos": 14,
+            "qt_ingressante": 771,
+            "taxa_desistencia_media": 57.29,
+            "cpc_continuo_medio": 2.94,
+            "quantidade_cursos_cpc": 11
+          },
+          {
+            "sigla_uf": "RJ",
+            "quantidade_cursos": 14,
+            "qt_ingressante": 616,
+            "taxa_desistencia_media": 50.38,
+            "cpc_continuo_medio": 3.08,
+            "quantidade_cursos_cpc": 11
+          },
+          {
+            "sigla_uf": "RN",
+            "quantidade_cursos": 3,
+            "qt_ingressante": 101,
+            "taxa_desistencia_media": 43.69,
+            "cpc_continuo_medio": 2.75,
+            "quantidade_cursos_cpc": 3
+          },
+          {
+            "sigla_uf": "RO",
+            "quantidade_cursos": 3,
+            "qt_ingressante": 95,
+            "taxa_desistencia_media": 56.22,
+            "cpc_continuo_medio": null,
+            "quantidade_cursos_cpc": 0
+          },
+          {
+            "sigla_uf": "RS",
+            "quantidade_cursos": 19,
+            "qt_ingressante": 644,
+            "taxa_desistencia_media": 66.81,
+            "cpc_continuo_medio": 3.12,
+            "quantidade_cursos_cpc": 16
+          },
+          {
+            "sigla_uf": "SC",
+            "quantidade_cursos": 7,
+            "qt_ingressante": 337,
+            "taxa_desistencia_media": 64.29,
+            "cpc_continuo_medio": 2.8,
+            "quantidade_cursos_cpc": 6
+          },
+          {
+            "sigla_uf": "SE",
+            "quantidade_cursos": 1,
+            "qt_ingressante": 64,
+            "taxa_desistencia_media": 31.25,
+            "cpc_continuo_medio": 3.67,
+            "quantidade_cursos_cpc": 1
+          },
+          {
+            "sigla_uf": "SP",
+            "quantidade_cursos": 75,
+            "qt_ingressante": 3507,
+            "taxa_desistencia_media": 56.67,
+            "cpc_continuo_medio": 2.45,
+            "quantidade_cursos_cpc": 49
+          }
+        ]
+      },
+      {
+        "codigo_curso": 1304876,
+        "nome_cine_area_geral": "Criação digital",
+        "area_avaliacao": null,
+        "sigla_uf_campus": "CE",
+        "ano_ingresso": 2020,
+        "ano_cpc": null,
+        "estados": [
+          {
+            "sigla_uf": "CE",
+            "quantidade_cursos": 3,
+            "qt_ingressante": 177,
+            "taxa_desistencia_media": 28.2,
+            "cpc_continuo_medio": null,
+            "quantidade_cursos_cpc": 0
+          },
+          {
+            "sigla_uf": "RS",
+            "quantidade_cursos": 1,
+            "qt_ingressante": 22,
+            "taxa_desistencia_media": 45.45,
+            "cpc_continuo_medio": null,
+            "quantidade_cursos_cpc": 0
+          }
+        ]
+      }
+    ]
   },
   "alertas": {
     "itens": [

@@ -3,10 +3,9 @@ import { createRoot } from "react-dom/client";
 
 import { App } from "@/App";
 
-// Jaldi (fonte do design no Figma) empacotada junto com o site — sem depender
-// do CDN do Google em produção (GitHub Pages).
-import "@fontsource/jaldi/latin-400.css";
-import "@fontsource/jaldi/latin-700.css";
+// Plus Jakarta Sans (variável) empacotada junto com o site — sem depender do CDN do
+// Google em produção (GitHub Pages).
+import "@fontsource-variable/plus-jakarta-sans";
 import "@/index.css";
 
 const rootElement = document.getElementById("root");

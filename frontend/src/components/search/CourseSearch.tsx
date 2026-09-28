@@ -8,7 +8,7 @@ import type { Curso } from "@/types/dashboard";
 
 const MAX_RESULTS = 6;
 
-/** Pílula de busca do header: procura cursos do escopo pelo nome e leva pra
+/** Pílula de busca da faixa escura: procura cursos do escopo pelo nome e leva pra
  * página de detalhe do curso. */
 export function CourseSearch({ cursos }: { cursos: Curso[] }) {
     const navigate = useNavigate();
@@ -56,8 +56,14 @@ export function CourseSearch({ cursos }: { cursos: Curso[] }) {
         <form
             role="search"
             onSubmit={onSubmit}
-            className="relative h-12 w-full shrink-0 lg:w-[340px]"
+            className="relative h-11 w-full max-w-[360px] min-w-0"
         >
+            <Search
+                size={17}
+                strokeWidth={2}
+                aria-hidden
+                className="pointer-events-none absolute top-1/2 left-4 -translate-y-1/2 text-white/50"
+            />
             <input
                 type="search"
                 value={query}
@@ -78,24 +84,17 @@ export function CourseSearch({ cursos }: { cursos: Curso[] }) {
                 aria-activedescendant={
                     showList && results.length > 0 ? `${listId}-${active}` : undefined
                 }
-                className="text-ink placeholder:text-text-muted h-full w-full rounded-full bg-white pr-14 pl-5 text-base outline-none focus-visible:ring-4 focus-visible:ring-white/40 [&::-webkit-search-cancel-button]:hidden"
+                className="bg-band-soft focus-visible:ring-lime/40 h-full w-full rounded-full border border-white/10 pr-4 pl-11 text-[13px] text-white outline-none placeholder:text-white/45 focus-visible:ring-2 [&::-webkit-search-cancel-button]:hidden"
             />
-            <button
-                type="submit"
-                aria-label="Buscar"
-                className="bg-brand absolute top-1 right-1 flex h-10 w-10 items-center justify-center rounded-full text-white"
-            >
-                <Search size={18} strokeWidth={2} aria-hidden />
-            </button>
 
             {showList && (
                 <ul
                     id={listId}
                     role="listbox"
-                    className="text-ink absolute top-[calc(100%+8px)] right-0 left-0 z-20 overflow-hidden rounded-2xl bg-white py-1.5 shadow-lg"
+                    className="text-ink absolute top-[calc(100%+8px)] right-0 left-0 z-30 overflow-hidden rounded-2xl bg-white p-1.5 shadow-[0_16px_40px_rgb(0_0_0/0.18)]"
                 >
                     {results.length === 0 ? (
-                        <li className="text-text-secondary px-5 py-2.5 text-[15px]">
+                        <li className="text-text-secondary px-3 py-2 text-[13px]">
                             Nenhum curso encontrado
                         </li>
                     ) : (
@@ -112,13 +111,13 @@ export function CourseSearch({ cursos }: { cursos: Curso[] }) {
                                 }}
                                 onMouseEnter={() => setActive(index)}
                                 className={cn(
-                                    "cursor-pointer px-5 py-2 text-[15px]",
-                                    index === active && "bg-brand/10"
+                                    "flex cursor-pointer items-center justify-between gap-3 rounded-xl px-3 py-2 text-[13px]",
+                                    index === active && "bg-page"
                                 )}
                             >
                                 {toTitleCase(curso.nome_curso)}
                                 {curso.grau_academico && (
-                                    <span className="text-text-muted ml-2 text-xs">
+                                    <span className="text-text-muted text-[11px]">
                                         {curso.grau_academico}
                                     </span>
                                 )}

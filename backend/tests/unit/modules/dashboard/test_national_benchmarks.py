@@ -1,7 +1,7 @@
 import pandas as pd
 
 from app.modules.dashboard.domain.services import national_benchmarks
-from app.modules.dashboard.domain.shared import ScopedData
+from app.modules.dashboard.domain.shared import ScopedData, build_scoped_data
 
 
 def _peer_qualidade_row() -> pd.DataFrame:
@@ -72,6 +72,7 @@ def test_build_returns_all_sections(
         "curva_sobrevivencia",
         "heatmap_evasao_anual",
         "campus",
+        "distribuicao_uf",
     }
 
 
@@ -162,3 +163,64 @@ def test_build_handles_empty_national_frames(scoped_data: ScopedData) -> None:
     assert result["heatmap_evasao_anual"] == []
     assert result["campus"]["kpis"]["quantidade_cursos_considerados"] == 0
     assert result["campus"]["distribuicao_cpc_faixa"] == []
+
+
+def _with_uf(
+    frame: pd.DataFrame, por_curso: dict[int, tuple[int, str]]
+) -> pd.DataFrame:
+    """Põe ``codigo_uf``/``sigla_uf`` nas linhas: CE (23) salvo ``por_curso``."""
+    frame = frame.copy()
+    frame["codigo_uf"] = 23
+    frame["sigla_uf"] = "CE"
+    for codigo, (codigo_uf, sigla) in por_curso.items():
+        mask = frame["codigo_curso"] == codigo
+        frame.loc[mask, "codigo_uf"] = codigo_uf
+        frame.loc[mask, "sigla_uf"] = sigla
+    return frame
+
+
+def test_distribuicao_uf_has_one_item_per_campus_course(
+    qualidade_raw: pd.DataFrame, trajetoria_raw: pd.DataFrame, scoped_data: ScopedData
+) -> None:
+    result = national_benchmarks.build(qualidade_raw, trajetoria_raw, scoped_data)
+    codigos = [item["codigo_curso"] for item in result["distribuicao_uf"]]
+    assert codigos == [int(c) for c in scoped_data.cursos["codigo_curso"]]
+
+
+def test_distribuicao_uf_counts_peers_per_state(
+    qualidade_raw: pd.DataFrame, trajetoria_raw: pd.DataFrame
+) -> None:
+    # curso-par (700) em SP, com turma no mesmo ano mais recente do curso 10
+    par = _peer_trajetoria_row().assign(ano_ingresso=2020, ano_referencia=2021)
+    trajetoria = _with_uf(
+        pd.concat([trajetoria_raw, par], ignore_index=True), {700: (35, "SP")}
+    )
+    qualidade = _with_uf(
+        pd.concat([qualidade_raw, _peer_qualidade_row()], ignore_index=True),
+        {700: (35, "SP")},
+    )
+    scoped = build_scoped_data(qualidade, trajetoria)
+    result = national_benchmarks.build(qualidade, trajetoria, scoped)
+
+    item = next(i for i in result["distribuicao_uf"] if i["codigo_curso"] == 10)
+    assert item["sigla_uf_campus"] == "CE"
+    assert item["nome_cine_area_geral"] == "Ciência da computação"
+    assert item["area_avaliacao"] == "Ciência da Computação"
+    assert item["ano_ingresso"] == 2020
+    assert item["ano_cpc"] == 2019
+    estados = {e["sigla_uf"]: e for e in item["estados"]}
+    assert set(estados) == {"CE", "SP"}
+    assert estados["CE"]["quantidade_cursos"] == 1  # o próprio curso do campus
+    assert estados["SP"]["quantidade_cursos"] == 1
+    assert estados["SP"]["qt_ingressante"] == 40
+    assert estados["SP"]["taxa_desistencia_media"] == 20.0
+    assert estados["SP"]["cpc_continuo_medio"] == 4.2
+    assert estados["SP"]["quantidade_cursos_cpc"] == 1
+
+
+def test_distribuicao_uf_without_state_columns_has_no_states(
+    qualidade_raw: pd.DataFrame, trajetoria_raw: pd.DataFrame, scoped_data: ScopedData
+) -> None:
+    # fixtures sem codigo_uf/sigla_uf: ainda um item por curso, sem estados
+    result = national_benchmarks.build(qualidade_raw, trajetoria_raw, scoped_data)
+    assert all(item["estados"] == [] for item in result["distribuicao_uf"])

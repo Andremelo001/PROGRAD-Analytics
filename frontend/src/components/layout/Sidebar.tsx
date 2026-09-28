@@ -1,4 +1,3 @@
-import { Award, House, Route, Settings, type LucideIcon } from "lucide-react";
 import { NavLink } from "react-router-dom";
 
 import { cn } from "@/lib/utils";
@@ -6,56 +5,45 @@ import { cn } from "@/lib/utils";
 interface NavItem {
     to: string;
     label: string;
-    icon: LucideIcon;
     end?: boolean;
 }
 
-const MAIN_ITEMS: NavItem[] = [
-    { to: "/", label: "Início", icon: House, end: true },
-    { to: "/qualidade", label: "Qualidade", icon: Award },
-    { to: "/trajetoria", label: "Trajetória", icon: Route },
+const NAV_ITEMS: NavItem[] = [
+    { to: "/", label: "Início", end: true },
+    { to: "/qualidade", label: "Qualidade" },
+    { to: "/trajetoria", label: "Trajetória" },
+    { to: "/configuracoes", label: "Configurações" },
 ];
 
-const SETTINGS_ITEM: NavItem = {
-    to: "/configuracoes",
-    label: "Configurações",
-    icon: Settings,
-};
-
-/** Pílula de navegação só com ícones; o nome da aba aparece no tooltip
- * (``title``) e é lido por leitor de tela (``aria-label``). Configurações fica
- * no rodapé, separada das abas de conteúdo. */
+/** Navegação principal em abas sobre a faixa escura: texto claro, a aba
+ * ativa em branco com sublinhado limão sobre uma hairline contínua. Rola na
+ * horizontal em telas estreitas. */
 export function Sidebar() {
     return (
-        <aside className="flex min-h-0 flex-1 flex-col items-center rounded-full bg-white py-3">
-            <nav aria-label="Navegação principal" className="flex flex-col gap-3">
-                {MAIN_ITEMS.map((item) => (
-                    <SidebarLink key={item.to} item={item} />
-                ))}
-            </nav>
-            <div className="mt-auto pt-3">
-                <SidebarLink item={SETTINGS_ITEM} />
-            </div>
-        </aside>
-    );
-}
-
-function SidebarLink({ item }: { item: NavItem }) {
-    const { to, label, icon: Icon, end } = item;
-    return (
-        <NavLink
-            to={to}
-            end={end}
-            aria-label={label}
-            title={label}
-            className={({ isActive }) =>
-                cn(
-                    "flex h-11 w-11 items-center justify-center rounded-full transition-colors",
-                    isActive ? "bg-brand text-white" : "text-icon hover:bg-brand/10"
-                )
-            }
+        <nav
+            aria-label="Navegação principal"
+            className="-mx-1 [scrollbar-width:none] overflow-x-auto"
         >
-            <Icon size={22} strokeWidth={1.75} aria-hidden />
-        </NavLink>
+            <ul className="flex min-w-max border-b border-white/15 px-1">
+                {NAV_ITEMS.map(({ to, label, end }) => (
+                    <li key={to}>
+                        <NavLink
+                            to={to}
+                            end={end}
+                            className={({ isActive }) =>
+                                cn(
+                                    "relative -mb-px block border-b-2 px-3.5 pb-3 text-[15px] transition-colors outline-none focus-visible:text-white sm:px-5",
+                                    isActive
+                                        ? "border-lime font-semibold text-white"
+                                        : "border-transparent text-white/50 hover:text-white/80"
+                                )
+                            }
+                        >
+                            {label}
+                        </NavLink>
+                    </li>
+                ))}
+            </ul>
+        </nav>
     );
 }

@@ -1,0 +1,185 @@
+import { Check, ChevronDown } from "lucide-react";
+import { useEffect, useId, useRef, useState, type KeyboardEvent } from "react";
+
+import { cn } from "@/lib/utils";
+
+interface Option {
+    value: string;
+    label: string;
+}
+
+/** Seletor em pílula escura dos cards (o "Weekly" do design de referência):
+ * escolhe a série exibida no gráfico. A lista é um painel próprio (o
+ * ``<select>`` nativo abre no estilo do sistema e não aceita CSS), no mesmo
+ * estilo da lista da busca: painel branco, opção ativa em cinza-claro e a
+ * selecionada com ✓. Teclado: ↑/↓, Home/End, Enter/Espaço, Esc. ``size="sm"``
+ * é a versão compacta, pra cards estreitos. */
+export function ChartSelect({
+    label,
+    value,
+    options,
+    onChange,
+    size = "md",
+}: {
+    label: string;
+    value: string;
+    options: Option[];
+    onChange: (value: string) => void;
+    size?: "sm" | "md";
+}) {
+    const sm = size === "sm";
+    const listId = useId();
+    const rootRef = useRef<HTMLDivElement>(null);
+    const buttonRef = useRef<HTMLButtonElement>(null);
+    const listRef = useRef<HTMLUListElement>(null);
+    const [open, setOpen] = useState(false);
+    const [active, setActive] = useState(0);
+
+    const selectedIndex = Math.max(
+        options.findIndex((o) => o.value === value),
+        0
+    );
+    const selected = options[selectedIndex];
+    const optionId = (index: number) => `${listId}-${index}`;
+
+    function openList() {
+        setActive(selectedIndex);
+        setOpen(true);
+    }
+
+    function close(focusButton: boolean) {
+        setOpen(false);
+        if (focusButton) buttonRef.current?.focus();
+    }
+
+    function choose(index: number) {
+        const option = options[index];
+        if (option && option.value !== value) onChange(option.value);
+        close(true);
+    }
+
+    // aberto: foco vai pra lista (é ela que trata o teclado) e a opção ativa
+    // fica visível; clique fora fecha sem escolher
+    useEffect(() => {
+        if (!open) return;
+        listRef.current?.focus();
+        const onPointerDown = (event: PointerEvent) => {
+            if (!rootRef.current?.contains(event.target as Node)) setOpen(false);
+        };
+        document.addEventListener("pointerdown", onPointerDown);
+        return () => document.removeEventListener("pointerdown", onPointerDown);
+    }, [open]);
+
+    useEffect(() => {
+        if (open)
+            document
+                .getElementById(optionId(active))
+                ?.scrollIntoView({ block: "nearest" });
+    });
+
+    function onButtonKeyDown(event: KeyboardEvent<HTMLButtonElement>) {
+        if (["ArrowDown", "ArrowUp", "Enter", " "].includes(event.key)) {
+            event.preventDefault();
+            openList();
+        }
+    }
+
+    function onListKeyDown(event: KeyboardEvent<HTMLUListElement>) {
+        const last = options.length - 1;
+        const moves: Record<string, () => void> = {
+            ArrowDown: () => setActive((i) => Math.min(i + 1, last)),
+            ArrowUp: () => setActive((i) => Math.max(i - 1, 0)),
+            Home: () => setActive(0),
+            End: () => setActive(last),
+            Enter: () => choose(active),
+            " ": () => choose(active),
+            Escape: () => close(true),
+        };
+        if (event.key === "Tab") {
+            setOpen(false);
+            return;
+        }
+        const move = moves[event.key];
+        if (move) {
+            event.preventDefault();
+            move();
+        }
+    }
+
+    return (
+        <div ref={rootRef} className="relative min-w-0">
+            <button
+                ref={buttonRef}
+                type="button"
+                aria-haspopup="listbox"
+                aria-expanded={open}
+                aria-controls={listId}
+                aria-label={`${label}: ${selected?.label ?? ""}`}
+                onClick={() => (open ? close(false) : openList())}
+                onKeyDown={onButtonKeyDown}
+                className={cn(
+                    "bg-ink focus-visible:ring-lime/60 flex w-full items-center gap-2 font-medium text-white outline-none focus-visible:ring-2",
+                    sm
+                        ? "h-8 max-w-[150px] rounded-lg pr-2 pl-3 text-[12px]"
+                        : "h-9 max-w-[240px] rounded-xl pr-3 pl-4 text-[13px]"
+                )}
+            >
+                <span className="min-w-0 flex-1 truncate text-left">
+                    {selected?.label}
+                </span>
+                <ChevronDown
+                    size={sm ? 14 : 15}
+                    strokeWidth={2}
+                    aria-hidden
+                    className={cn(
+                        "shrink-0 transition-transform",
+                        open && "rotate-180"
+                    )}
+                />
+            </button>
+
+            {open && (
+                <ul
+                    ref={listRef}
+                    id={listId}
+                    role="listbox"
+                    tabIndex={-1}
+                    aria-label={label}
+                    aria-activedescendant={optionId(active)}
+                    onKeyDown={onListKeyDown}
+                    className="text-ink absolute top-[calc(100%+6px)] right-0 z-40 max-h-72 w-max max-w-[280px] min-w-full overflow-y-auto rounded-xl bg-white p-1.5 shadow-[0_16px_40px_rgb(0_0_0/0.18)] outline-none"
+                >
+                    {options.map((option, index) => {
+                        const isSelected = index === selectedIndex;
+                        return (
+                            <li
+                                key={option.value}
+                                id={optionId(index)}
+                                role="option"
+                                aria-selected={isSelected}
+                                onPointerEnter={() => setActive(index)}
+                                onClick={() => choose(index)}
+                                className={cn(
+                                    "flex cursor-pointer items-center justify-between gap-4 rounded-lg px-3 py-2 text-[13px]",
+                                    index === active && "bg-page",
+                                    isSelected && "font-semibold"
+                                )}
+                            >
+                                <span className="truncate">{option.label}</span>
+                                <Check
+                                    size={15}
+                                    strokeWidth={2.5}
+                                    aria-hidden
+                                    className={cn(
+                                        "text-olive-text shrink-0",
+                                        !isSelected && "invisible"
+                                    )}
+                                />
+                            </li>
+                        );
+                    })}
+                </ul>
+            )}
+        </div>
+    );
+}

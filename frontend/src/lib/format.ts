@@ -29,11 +29,6 @@ export function formatInteger(value: number): string {
     return value.toLocaleString(PT_BR, { maximumFractionDigits: 0 });
 }
 
-/** ISO -> "17/09/2026". */
-export function formatDate(iso: string): string {
-    return new Date(iso).toLocaleDateString(PT_BR);
-}
-
 const LOWERCASE_WORDS = new Set(["de", "da", "do", "das", "dos", "e", "em", "a", "o"]);
 
 /** Nomes do INEP vêm em caixa alta ("ENGENHARIA DE SOFTWARE") ->

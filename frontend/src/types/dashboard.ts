@@ -245,6 +245,29 @@ export interface CampusNacional {
     distribuicao_cpc_faixa: DistribuicaoCpcFaixaNacionalItem[];
 }
 
+/** Cursos-pares de um curso do campus em uma UF. Contagem, ingressantes e
+ * evasão vêm da trajetória (turma de ``ano_ingresso``); o CPC, da avaliação
+ * de ``ano_cpc``. */
+export interface DistribuicaoUfEstado {
+    sigla_uf: string;
+    quantidade_cursos: number;
+    qt_ingressante: number | null;
+    taxa_desistencia_media: number | null;
+    cpc_continuo_medio: number | null;
+    quantidade_cursos_cpc: number;
+}
+
+/** Onde existe, no Brasil, o mesmo curso (mesma área e modalidade). */
+export interface DistribuicaoUfCurso {
+    codigo_curso: number;
+    nome_cine_area_geral: string | null;
+    area_avaliacao: string | null;
+    sigla_uf_campus: string | null;
+    ano_ingresso: number | null;
+    ano_cpc: number | null;
+    estados: DistribuicaoUfEstado[];
+}
+
 /** Médias só do grupo de pares (mesma área/classificação de curso do
  * campus) — nunca o Brasil inteiro misturado. Ver docs/dashboard_dados.md. */
 export interface MediasNacionais {
@@ -253,6 +276,7 @@ export interface MediasNacionais {
     curva_sobrevivencia: CurvaSobrevivenciaNacionalPonto[];
     heatmap_evasao_anual: HeatmapEvasaoNacionalCelula[];
     campus: CampusNacional;
+    distribuicao_uf: DistribuicaoUfCurso[];
 }
 
 // --- F. alertas ----------------------------------------------------------------

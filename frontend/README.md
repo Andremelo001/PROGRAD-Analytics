@@ -58,7 +58,7 @@ npm run sync-data  # só copia o dashboard.json de novo (ex.: depois de rodar o 
 | Recharts                                                                  | `^3.10`  | gráficos                                                           |
 | lucide-react                                                              | `^1.48`  | ícones                                                             |
 | React Router                                                              | `^7.18`  | rotas (`createHashRouter`, ver 5)                                  |
-| `@fontsource/jaldi`                                                       | `^5.3`   | fonte Jaldi self-hosted (só subset latin, pesos 400/700)           |
+| `@fontsource-variable/plus-jakarta-sans`                                  | `^5.3`   | fonte Plus Jakarta Sans (variável) self-hosted                     |
 | ESLint                                                                    | `^10.11` | lint (flat config, `react-hooks` + `react-refresh`)                |
 | Prettier                                                                  | `^3.9`   | formatação (`printWidth` 88, plugin do Tailwind ordena as classes) |
 
@@ -73,30 +73,32 @@ frontend/
 ├── tsconfig.json · tsconfig.node.json
 ├── eslint.config.js · .prettierrc.json
 ├── components.json          # config do shadcn/ui
-├── index.html               # favicon = src/assets/logo.png
+├── index.html               # favicon = src/assets/brasao.png
 ├── .gitignore
 ├── scripts/
-│   └── sync-data.mjs        # copia backend/.../dashboard.json → public/data/
+│   ├── sync-data.mjs        # copia backend/.../dashboard.json → public/data/
+│   └── build-brazil-dots.mjs # gera src/assets/brazil-dots.json (roda uma vez, ver 6)
 ├── public/
 │   └── data/                # dashboard.json copiado (gitignored, gerado pelo sync-data)
-├── designs_pages/           # PNGs exportados do Figma, referência de layout (gitignored)
+├── designs_pages/           # imagem do design de referência (gitignored)
 └── src/
-    ├── main.tsx             # entrada: fonte Jaldi + CSS + RouterProvider
-    ├── App.tsx
+    ├── main.tsx             # entrada: fonte + CSS + <App />
+    ├── App.tsx              # DashboardDataProvider + RouterProvider
     ├── router.tsx           # rotas
     ├── index.css            # Tailwind + tokens de cor/fonte
-    ├── assets/              # logo.png (importado pelo código, passa pelo bundler)
+    ├── assets/              # brasao.png (logo) · brazil-dots.json (mapa em pontos)
     ├── types/
     │   └── dashboard.ts     # tipos que espelham o dashboard.json
-    ├── context/             # DashboardDataProvider (fetch único) + contexto
+    ├── context/             # DashboardDataProvider (fetch único) + contexto · slot do PageHeader
     ├── hooks/               # useDashboardData
     ├── lib/
     │   ├── utils.ts         # cn()
-    │   └── format.ts        # formatPercent, formatPoints, formatInteger, formatDate, toTitleCase, normalizeForSearch
+    │   └── format.ts        # formatPercent, formatPoints, formatDecimal, formatInteger, toTitleCase, normalizeForSearch
     ├── components/
-    │   ├── layout/          # AppLayout, Sidebar (pílula de ícones), PageHeader, DataState (loading/erro)
-    │   ├── cards/           # Card, StatTile, AlertsCard
-    │   ├── charts/          # chart-theme, ChartTooltip, ViewToggle (+DataTable), CpcFaixaCard, IngressantesTrendCard, CpcComparativoCard
+    │   ├── layout/          # AppLayout (faixa escura + header), Sidebar (abas), PageHeader, DataState (loading/erro)
+    │   ├── cards/           # Card, StatTile (taxa + sparkline)
+    │   ├── charts/          # IngressantesTrendCard, CpcComparativoCard, BrasilMapaCard,
+    │   │                    # ChartMarks, ChartSelect, DataTable, chart-theme
     │   └── search/          # CourseSearch (busca de curso no header)
     └── pages/               # uma por rota (ver 5)
 ```
@@ -114,7 +116,7 @@ no nome no build); `public/` é pra arquivos servidos como estão — por isso o
 1. O backend gera `backend/app/data/processed/dashboard.json` (versionado).
 2. `scripts/sync-data.mjs` copia para `frontend/public/data/dashboard.json` —
    roda sozinho antes de `dev` e `build` (`predev`/`prebuild`).
-3. `DashboardDataProvider` (em `AppLayout`) faz **um único `fetch`** de
+3. `DashboardDataProvider` (em `App.tsx`) faz **um único `fetch`** de
    `${import.meta.env.BASE_URL}data/dashboard.json` — o `BASE_URL` já inclui o
    prefixo do GitHub Pages no build de produção, então a mesma URL funciona em
    dev e em produção.
@@ -131,14 +133,14 @@ Não há backend em runtime: o site é só HTML/JS/CSS + um JSON estático.
 
 ## 5. Rotas e páginas
 
-| Rota                   | Página                                                                                                              | Na sidebar                               |
-| ---------------------- | ------------------------------------------------------------------------------------------------------------------- | ---------------------------------------- |
-| `/`                    | `HomePage` — visão geral do campus (KPIs, alertas, ingressantes por ano, faixas de CPC, CPC curso x média nacional) | Início                                   |
-| `/qualidade`           | `QualidadePage`                                                                                                     | Qualidade                                |
-| `/trajetoria`          | `TrajetoriaPage`                                                                                                    | Trajetória                               |
-| `/cursos/:codigoCurso` | `CursoDetalhePage` — aberta pela busca do header                                                                    | —                                        |
-| `/campus`              | `CampusPage`                                                                                                        | — (rota existe, ainda fora da navegação) |
-| `/configuracoes`       | `ConfiguracoesPage`                                                                                                 | Configurações (rodapé da sidebar)        |
+| Rota                   | Página                                                                                                        | Nas abas                                 |
+| ---------------------- | ------------------------------------------------------------------------------------------------------------- | ---------------------------------------- |
+| `/`                    | `HomePage` — visão geral do campus (ingressantes, taxas de conclusão/evasão, presença no Brasil, CPC x média) | Início                                   |
+| `/qualidade`           | `QualidadePage` (placeholder)                                                                                 | Qualidade                                |
+| `/trajetoria`          | `TrajetoriaPage` (placeholder)                                                                                | Trajetória                               |
+| `/cursos/:codigoCurso` | `CursoDetalhePage` (placeholder) — aberta pela busca do header                                                | —                                        |
+| `/campus`              | `CampusPage` (placeholder)                                                                                    | — (rota existe, ainda fora da navegação) |
+| `/configuracoes`       | `ConfiguracoesPage` (placeholder)                                                                             | Configurações                            |
 
 O router é `createHashRouter` (URLs do tipo `/#/qualidade`) de propósito: o
 GitHub Pages é hospedagem estática pura, e um refresh em
@@ -149,37 +151,55 @@ servidor. Com hash, a rota nunca vai pro servidor.
 
 ## 6. Design
 
-- **Referência**: as imagens em `designs_pages/`. Visual compacto e
-  minimalista: logo em branco direto sobre o fundo, no canto, navegação numa pílula estreita,
-  cards brancos com raio de 16px sobre o fundo `brand`.
-- **Sem scroll no desktop**: em `lg+` (≥ 1024px) o layout ocupa exatamente
-  `100dvh` — header da página com a mesma altura do bloco do logo (64px) e a
-  grade da Home preenchendo o resto: 3 colunas × 2 linhas. Linha 1 = cards
-  pequenos (taxa de conclusão, taxa de evasão, alertas), na altura dos stat
-  tiles — o de alertas não estica a linha e rola por dentro se tiver muitos
-  itens; linha 2 = gráficos (ingressantes por ano, cursos por faixa de CPC,
-  CPC curso x média nacional) com o que sobra. Abaixo de `lg`: 2 colunas
-  (`md`) ou 1, e a página rola, com a sidebar presa na altura da tela.
-  Conferido em 1920×1080, 1440×900, 1366×768, 1280×720, 1024×768 e 390×844.
+- **Referência**: a imagem em `designs_pages/` (gitignored). Faixa escura no
+  topo com linhas onduladas finas, plano cinza-claro embaixo, cards brancos
+  de cantos bem arredondados e sombra difusa, verde-limão como acento.
+- **Header** (`AppLayout`): brasão da UFC + "Analytics" em texto branco à
+  esquerda, só a busca à direita. Abaixo, a saudação (`PageHeader`) e as abas
+  de navegação (`Sidebar` — o nome ficou do layout anterior, hoje são abas
+  horizontais com sublinhado limão). A faixa escura desce até cobrir só o
+  topo da primeira linha de cards. A partir de `md` (≥ 768px) esse topo
+  inteiro — logo, busca, saudação e abas — fica preso ao rolar (os cards
+  passam por baixo, com uma sombra); no celular ele rola junto, porque
+  ocuparia quase um terço da tela. A saudação é o `PageHeader` da página,
+  desenhado dentro do topo via portal (`context/page-header-slot.ts`).
+- **Home** (`lg+`, grade de 12 colunas): linha 1 = Ingressantes (8) + taxas de
+  conclusão e evasão empilhadas (4); linha 2 = Presença no Brasil (4) + CPC
+  curso x média nacional (8). Abaixo de `lg` tudo vira uma coluna (as duas
+  taxas ficam lado a lado em `sm`). Conferido em 1280, 900 e 390px de largura.
 - **Tokens** (`src/index.css`, expostos ao Tailwind via `@theme inline`):
-  `brand` `#016bae` (fundo, item ativo, série dos gráficos), `ink`, `icon`,
-  `text-secondary`/`text-muted`, `chart-grid`/`chart-axis` e
-  `status-good`/`status-warning`/`status-critical`. Cor nova entra aqui, não
-  como hex solto no componente.
-- **Fonte**: Jaldi (400/700) como `--font-sans`.
-- **Sidebar**: pílula de 64px só com ícones lucide (`House`, `Award`, `Route`,
-  `Settings`, 22px); item ativo num círculo `brand`; o nome da aba aparece no
-  tooltip e no `aria-label`.
+  `band`/`band-soft` (faixa escura e controles sobre ela), `page`, `surface`,
+  `ink`, `lime`, `olive`/`olive-text`, `text-secondary`/`text-muted` e
+  `status-critical`/`status-critical-text`. Os tokens `primary`, `muted`,
+  `card` etc. são do scaffolding do shadcn/ui. Cor nova entra aqui, não como
+  hex solto no componente (exceção: `chart-theme.ts`, ver abaixo).
+- **Fonte**: Plus Jakarta Sans (variável) como `--font-sans`, com
+  `word-spacing` levemente aberto (o espaço da fonte é estreito).
+- **Mapa do Brasil**: `src/assets/brazil-dots.json` é a malha de UFs do IBGE
+  rasterizada numa grade de pontos (56 colunas). É versionado; pra gerar de
+  novo (ex.: mudar a densidade), `node scripts/build-brazil-dots.mjs` — busca
+  a malha na API do IBGE, então precisa de internet.
 
 ### Convenções dos gráficos
 
-- Série principal na cor `brand`, linha de 2px, área com 10% de opacidade e
-  ponto final destacado; grade em linha fina (`chart-theme.ts` centraliza isso).
-- Série de referência (média nacional) em cinza tracejado, com legenda — nunca
-  só a cor diferenciando as duas.
-- Todo gráfico tem tooltip (`ChartTooltip`) e alternância **Gráfico/Tabela**
-  (`ViewToggle` + `DataTable`), pra leitura acessível dos valores exatos.
-- Cor de status nunca aparece sozinha: sempre com ícone + rótulo.
+- Cores em hex em `chart-theme.ts` (atributos de SVG não resolvem
+  `var(--...)` de forma confiável): série principal em oliva, trecho fora de
+  foco / referência em cinza, rampa ordinal oliva no mapa (validada com o
+  validador de paleta da skill dataviz).
+- Gráficos de linha (Ingressantes, CPC) seguem o design: ano em foco numa
+  pílula limão no eixo, anel no ponto e etiqueta escura com o valor
+  (`ChartMarks`); passar o mouse muda o foco. O seletor de série é o
+  `ChartSelect`: pílula escura com lista própria (painel branco, ✓ na opção
+  selecionada) — o `<select>` nativo abre no estilo do sistema e não aceita
+  CSS.
+- Série de referência (média nacional) sempre com legenda — nunca só a cor
+  diferenciando as duas.
+- Não há alternância gráfico/tabela na tela: cada gráfico tem uma
+  `DataTable` dentro de um `sr-only`, pra leitor de tela ler os valores
+  exatos.
+- O SVG do Recharts é focável: sem contorno ao clicar, anel oliva só no foco
+  por teclado (`index.css`).
+- Cor de status nunca aparece sozinha: sempre com seta ou texto junto.
 - Números formatados em pt-BR pelos helpers de `lib/format.ts`.
 
 ---
@@ -209,4 +229,7 @@ No repositório, **Settings → Pages → Source** precisa estar em
 - O bundle JS passa de 500 KB (o Vite avisa no build), quase todo pelo
   Recharts. Resolver com code-splitting por rota (`lazy`) quando houver mais
   páginas.
-- A rota `/campus` existe, mas ainda não está na sidebar.
+- A rota `/campus` existe, mas ainda não está nas abas.
+- Qualidade, Trajetória, Curso e Configurações ainda são placeholders.
+- O CPC de cada curso tem no máximo 2 avaliações nos dados atuais (ciclos do
+  Enade, 2020 adiado), então o gráfico de CPC tem poucos pontos por curso.

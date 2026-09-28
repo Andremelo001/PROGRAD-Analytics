@@ -9,11 +9,19 @@ export function DataState({ render }: { render: (data: DashboardData) => ReactNo
     const { data, loading, error } = useDashboardData();
 
     if (loading) {
-        return <p className="text-white/80">Carregando dados do painel…</p>;
+        return (
+            <p className="flex items-center gap-2 text-[14px] text-white/70">
+                <span
+                    aria-hidden
+                    className="border-t-lime h-4 w-4 animate-spin rounded-full border-2 border-white/20"
+                />
+                Carregando dados do painel…
+            </p>
+        );
     }
     if (error) {
         return (
-            <p className="font-bold text-white">
+            <p className="text-status-critical rounded-xl border border-current/20 bg-white px-4 py-3 text-[14px] font-medium">
                 Erro ao carregar dashboard.json: {error}
             </p>
         );

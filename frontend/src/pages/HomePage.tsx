@@ -1,79 +1,96 @@
-import { AlertsCard } from "@/components/cards/AlertsCard";
-import { StatTile } from "@/components/cards/StatTile";
+import { StatTile, type StatTilePoint } from "@/components/cards/StatTile";
+import { BrasilMapaCard } from "@/components/charts/BrasilMapaCard";
 import { CpcComparativoCard } from "@/components/charts/CpcComparativoCard";
-import { CpcFaixaCard } from "@/components/charts/CpcFaixaCard";
 import { IngressantesTrendCard } from "@/components/charts/IngressantesTrendCard";
 import { DataState } from "@/components/layout/DataState";
 import { PageHeader } from "@/components/layout/PageHeader";
-import { CourseSearch } from "@/components/search/CourseSearch";
+import type { CurvaSobrevivenciaPonto, DashboardData } from "@/types/dashboard";
 
 export function HomePage() {
-    return (
-        <DataState
-            render={(data) => (
-                <div className="flex flex-col gap-4 lg:h-full lg:min-h-0 lg:gap-5">
-                    <PageHeader
-                        title="Olá, Bem-Vindo ao PROGRAD Analytics"
-                        subtitle="Visualize dados, insights a partir de painéis estruturados e de fácil visualização"
-                        aside={<CourseSearch cursos={data.cursos} />}
-                    />
+    return <DataState render={(data) => <Home data={data} />} />;
+}
 
-                    {/* lg+: 3 colunas x 2 linhas, e a grade ocupa exatamente o que
-                        sobra da altura da tela (sem scroll). Linha 1 = cards pequenos
-                        (altura dos stat tiles; o de alertas não estica a linha —
-                        h-0 + min-h-full — e rola por dentro se precisar), linha 2 =
-                        gráficos (o resto). Abaixo de lg: 2 colunas (md) ou 1, e a
-                        página rola. */}
-                    <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:min-h-0 lg:flex-1 lg:grid-cols-3 lg:grid-rows-[auto_minmax(0,1fr)] lg:gap-5">
-                        <AlertsCard
-                            className="md:col-span-2 lg:col-span-1 lg:col-start-3 lg:row-start-1 lg:h-0 lg:min-h-full"
-                            itens={data.alertas.itens}
-                        />
-                        <StatTile
-                            className="lg:col-start-1 lg:row-start-1"
-                            label="Taxa de conclusão"
-                            caption="Média dos cursos, coorte mais recente"
-                            value={data.campus.kpis.taxa_conclusao_media}
-                            nationalValue={
-                                data.medias_nacionais.campus.kpis
-                                    .taxa_conclusao_media_nacional
-                            }
-                            higherIsBetter
-                        />
-                        <StatTile
-                            className="lg:col-start-2 lg:row-start-1"
-                            label="Taxa de evasão"
-                            caption="Média dos cursos, coorte mais recente"
-                            value={data.campus.kpis.taxa_desistencia_media}
-                            nationalValue={
-                                data.medias_nacionais.campus.kpis
-                                    .taxa_desistencia_media_nacional
-                            }
-                            higherIsBetter={false}
-                        />
-                        <CpcFaixaCard
-                            className="min-h-[340px] lg:col-start-2 lg:row-start-2 lg:min-h-0"
-                            dist={data.campus.distribuicao_cpc_faixa}
-                            distNacional={
-                                data.medias_nacionais.campus.distribuicao_cpc_faixa
-                            }
-                            totalCursos={data.campus.kpis.total_cursos}
-                            atualizadoEm={data.fontes.qualidade?.gerado_em ?? null}
-                        />
-                        <IngressantesTrendCard
-                            className="min-h-[340px] lg:col-start-1 lg:row-start-2 lg:min-h-0"
-                            data={data.campus.tendencia_ingressantes}
-                            atualizadoEm={data.fontes.trajetoria?.gerado_em ?? null}
-                        />
-                        <CpcComparativoCard
-                            className="min-h-[340px] md:col-span-2 lg:col-span-1 lg:col-start-3 lg:row-start-2 lg:min-h-0"
-                            evolucao={data.curso_perfil.evolucao_cpc}
-                            nacional={data.medias_nacionais.evolucao_cpc}
-                            atualizadoEm={data.fontes.qualidade?.gerado_em ?? null}
-                        />
-                    </div>
+/** Histórico de uma taxa na mesma "idade" de turma (``anos`` desde o
+ * ingresso), por ano de ingresso, na média dos cursos — assim cada ponto é
+ * comparável e o último é exatamente o KPI do campus. */
+function historicoTaxa(
+    curva: CurvaSobrevivenciaPonto[],
+    anos: number,
+    campo: "taxa_conclusao_acumulada" | "taxa_desistencia_acumulada"
+): StatTilePoint[] {
+    const porAno = new Map<number, number[]>();
+    for (const p of curva) {
+        const v = p[campo];
+        if (p.anos_desde_ingresso !== anos || v === null) continue;
+        porAno.set(p.ano_ingresso, [...(porAno.get(p.ano_ingresso) ?? []), v]);
+    }
+    return [...porAno.entries()]
+        .map(([ano, vs]) => ({ ano, valor: vs.reduce((a, b) => a + b, 0) / vs.length }))
+        .sort((a, b) => a.ano - b.ano);
+}
+
+function Home({ data }: { data: DashboardData }) {
+    const { campus, cursos, curso_perfil: perfil } = data;
+    const nacional = data.medias_nacionais.campus.kpis;
+
+    // os KPIs do campus são da turma mais recente, nesta "idade" de curso
+    const ref = perfil.kpis.find(
+        (k) => k.ano_ingresso_referencia !== null && k.ano_referencia !== null
+    );
+    const anos = ref ? ref.ano_referencia! - ref.ano_ingresso_referencia! : null;
+    const serie = (campo: Parameters<typeof historicoTaxa>[2]) =>
+        anos === null ? [] : historicoTaxa(perfil.curva_sobrevivencia, anos, campo);
+    const infoTurma = ref
+        ? `Média dos cursos para a turma de ${ref.ano_ingresso_referencia}, ${anos} anos após o ingresso. A linha mostra a mesma taxa nas turmas anteriores.`
+        : "Média dos cursos, turma mais recente.";
+
+    return (
+        <>
+            <PageHeader
+                title="Olá, bem-vindo ao PROGRAD Analytics!"
+                subtitle={`Acompanhe os indicadores da graduação do ${data.escopo.municipio}.`}
+            />
+
+            <div className="grid grid-cols-1 gap-5 lg:grid-cols-12 lg:gap-6">
+                <IngressantesTrendCard
+                    className="lg:col-span-8"
+                    tendencia={campus.tendencia_ingressantes}
+                    demanda={data.trajetoria_comparada.demanda_ingressantes}
+                    cursos={cursos}
+                />
+                <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:col-span-4 lg:grid-cols-1 lg:gap-6">
+                    <StatTile
+                        label="Taxa de conclusão"
+                        info={infoTurma}
+                        value={campus.kpis.taxa_conclusao_media}
+                        nationalValue={nacional.taxa_conclusao_media_nacional}
+                        higherIsBetter
+                        serie={serie("taxa_conclusao_acumulada")}
+                        serieLabel="Conclusão por turma de ingresso"
+                    />
+                    <StatTile
+                        label="Taxa de evasão"
+                        info={infoTurma}
+                        value={campus.kpis.taxa_desistencia_media}
+                        nationalValue={nacional.taxa_desistencia_media_nacional}
+                        higherIsBetter={false}
+                        serie={serie("taxa_desistencia_acumulada")}
+                        serieLabel="Evasão por turma de ingresso"
+                    />
                 </div>
-            )}
-        />
+
+                <BrasilMapaCard
+                    className="lg:col-span-4"
+                    distribuicao={data.medias_nacionais.distribuicao_uf}
+                    cursos={cursos}
+                />
+                <CpcComparativoCard
+                    className="lg:col-span-8"
+                    evolucao={perfil.evolucao_cpc}
+                    nacional={data.medias_nacionais.evolucao_cpc}
+                    cursos={cursos}
+                />
+            </div>
+        </>
     );
 }
