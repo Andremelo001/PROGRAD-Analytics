@@ -193,7 +193,7 @@ export function EvasaoHeatmapCard({
                                 }
                             />
                         ))}
-                        <span className="bg-surface sticky left-0 z-[1] self-stretch" />
+                        <span />
                         {anos.map((ano) => (
                             <span key={ano} className="flex justify-center pt-[5px]">
                                 <span
@@ -245,14 +245,16 @@ function Row({
 }) {
     return (
         <>
+            {/* Nome fixo à esquerda quando a grade rola no celular, sem fundo:
+                só o texto, com as células passando por trás dele. */}
             <span
                 className={cn(
-                    "bg-surface sticky left-0 z-[1] truncate pr-3 text-[12px]",
+                    "sticky left-0 z-[1] flex min-w-0 items-center self-stretch pr-3 text-[12px]",
                     ativo ? "text-ink font-semibold" : "text-text-secondary"
                 )}
                 title={linha.nome}
             >
-                {linha.nome}
+                <span className="truncate">{linha.nome}</span>
             </span>
             {anos.map((ano) => {
                 const cor = colorOf(linha.celulas.get(ano));

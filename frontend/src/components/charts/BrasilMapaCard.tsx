@@ -198,7 +198,7 @@ export function BrasilMapaCard({
                             {formatInteger(campus.quantidade_cursos)}{" "}
                             {campus.quantidade_cursos === 1 ? "curso" : "cursos"}
                         </span>{" "}
-                        · {posicao}º estado em oferta
+                        | {posicao}º estado com mais cursos
                     </>
                 ) : (
                     <span className="text-text-secondary">

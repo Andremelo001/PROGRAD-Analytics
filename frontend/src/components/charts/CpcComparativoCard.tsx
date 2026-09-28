@@ -179,7 +179,7 @@ export function CpcComparativoCard({
                                     : `CPC do curso em ${foco.ano}`}
                                 {foco.nacional !== null && (
                                     <>
-                                        {" · "}
+                                        {" | "}
                                         <span className="text-ink font-semibold">
                                             {fmt(foco.nacional)}
                                         </span>{" "}
