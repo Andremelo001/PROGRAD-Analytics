@@ -1,6 +1,7 @@
 import { StatTile, type StatTilePoint } from "@/components/cards/StatTile";
 import { BrasilMapaCard } from "@/components/charts/BrasilMapaCard";
 import { CpcComparativoCard } from "@/components/charts/CpcComparativoCard";
+import { EvasaoHeatmapCard } from "@/components/charts/EvasaoHeatmapCard";
 import { IngressantesTrendCard } from "@/components/charts/IngressantesTrendCard";
 import { DataState } from "@/components/layout/DataState";
 import { PageHeader } from "@/components/layout/PageHeader";
@@ -89,6 +90,12 @@ function Home({ data }: { data: DashboardData }) {
                     evolucao={perfil.evolucao_cpc}
                     nacional={data.medias_nacionais.evolucao_cpc}
                     cursos={cursos}
+                />
+                <EvasaoHeatmapCard
+                    className="lg:col-span-12"
+                    cursos={cursos}
+                    local={data.trajetoria_comparada.heatmap_evasao_anual}
+                    nacional={data.medias_nacionais.heatmap_evasao_anual}
                 />
             </div>
         </>

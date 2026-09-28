@@ -14,7 +14,6 @@ import {
 import { Card } from "@/components/cards/Card";
 import { FocusMarker, YearTick } from "@/components/charts/ChartMarks";
 import { ChartSelect } from "@/components/charts/ChartSelect";
-import { CHART } from "@/components/charts/chart-theme";
 import { DataTable } from "@/components/charts/DataTable";
 import { formatDecimal, formatInteger, toTitleCase } from "@/lib/format";
 import { cn } from "@/lib/utils";
@@ -23,10 +22,7 @@ import type {
     EvolucaoCpcNacionalPonto,
     EvolucaoCpcPonto,
 } from "@/types/dashboard";
-
-/** Linha da média nacional: cinza (o "resto" do design), mais escura que a
- * cor de fundo de trecho fora de foco pra não confundir com ela. */
-const NACIONAL = "#b4b5bc";
+import { useChartTheme } from "@/hooks/useChartTheme";
 
 interface Row {
     ano: number;
@@ -97,6 +93,7 @@ export function CpcComparativoCard({
     cursos: Curso[];
     className?: string;
 }) {
+    const CHART = useChartTheme();
     const opcoes = cursos.filter((c) =>
         evolucao.some(
             (p) => p.codigo_curso === c.codigo_curso && p.cpc_continuo !== null
@@ -205,7 +202,7 @@ export function CpcComparativoCard({
                                 <span
                                     aria-hidden
                                     className="h-[3px] w-4 rounded-full"
-                                    style={{ background: NACIONAL }}
+                                    style={{ background: CHART.reference }}
                                 />
                                 Média nacional
                             </li>
@@ -273,14 +270,14 @@ export function CpcComparativoCard({
                                 <Line
                                     type="linear"
                                     dataKey="nacional"
-                                    stroke={NACIONAL}
+                                    stroke={CHART.reference}
                                     strokeWidth={2.5}
                                     strokeLinecap="round"
                                     connectNulls
                                     dot={(props) => (
                                         <SeriesDot
                                             {...props}
-                                            color={NACIONAL}
+                                            color={CHART.reference}
                                             focoAno={foco.ano}
                                         />
                                     )}
@@ -315,7 +312,7 @@ export function CpcComparativoCard({
                                             <FocusMarker
                                                 cx={props.cx ?? 0}
                                                 cy={props.cy ?? 0}
-                                                ring={NACIONAL}
+                                                ring={CHART.reference}
                                             />
                                         )}
                                     />
@@ -397,7 +394,7 @@ function DiffBadge({ diff }: { diff: number }) {
                 same
                     ? "bg-page text-text-secondary"
                     : diff > 0
-                      ? "bg-lime text-ink"
+                      ? "bg-lime text-on-lime"
                       : "bg-status-critical text-white"
             )}
         >

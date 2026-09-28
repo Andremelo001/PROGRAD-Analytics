@@ -13,7 +13,7 @@ import {
 import { Card } from "@/components/cards/Card";
 import { FocusMarker, YearTick } from "@/components/charts/ChartMarks";
 import { ChartSelect } from "@/components/charts/ChartSelect";
-import { CHART } from "@/components/charts/chart-theme";
+import { yearTickFilter } from "@/components/charts/chart-theme";
 import { DataTable } from "@/components/charts/DataTable";
 import { formatInteger, toTitleCase } from "@/lib/format";
 import type {
@@ -21,6 +21,7 @@ import type {
     DemandaIngressantesPonto,
     TendenciaIngressantesPonto,
 } from "@/types/dashboard";
+import { useChartTheme } from "@/hooks/useChartTheme";
 
 const CAMPUS = "campus";
 
@@ -78,6 +79,7 @@ export function IngressantesTrendCard({
     cursos: Curso[];
     className?: string;
 }) {
+    const CHART = useChartTheme();
     const [escolha, setEscolha] = useState(CAMPUS);
     const [hover, setHover] = useState<number | null>(null);
     const [width, setWidth] = useState(0);
@@ -93,14 +95,7 @@ export function IngressantesTrendCard({
         resto: i >= sel ? p.valor : null,
     }));
     const foco = serie.at(sel);
-    // cada ano precisa de ~52px: em telas estreitas mostra um a cada ``step``,
-    // contando a partir do último, e sempre o ano em foco (sem vizinhos colados)
-    const step =
-        width > 0
-            ? Math.max(1, Math.ceil((52 * serie.length) / Math.max(width - 60, 1)))
-            : 1;
-    const showTick = (i: number) =>
-        i === sel || ((serie.length - 1 - i) % step === 0 && Math.abs(i - sel) >= step);
+    const showTick = yearTickFilter(serie.length, sel, width);
     const ticks = serie.length > 0 ? buildTicks(serie.map((p) => p.valor)) : [0, 1];
     const nome =
         escolha === CAMPUS

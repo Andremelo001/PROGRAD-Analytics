@@ -1,5 +1,9 @@
 {
     "python.defaultInterpreterPath": "${workspaceFolder}/backend/.venv/bin/python",
     "python-envs.defaultEnvManager": "ms-python.python:system",
-    "python-envs.defaultPackageManager": "ms-python.python:pip"
+    "python-envs.defaultPackageManager": "ms-python.python:pip",
+    "mypy-type-checker.cwd": "${nearestConfig}",
+    "mypy-type-checker.importStrategy": "fromEnvironment",
+    "typescript.tsdk": "frontend/node_modules/typescript/lib",
+    "typescript.enablePromptUseWorkspaceTsdk": true
 }

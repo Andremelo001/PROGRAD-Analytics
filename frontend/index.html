@@ -5,6 +5,23 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="icon" type="image/png" href="/src/assets/brasao.png" />
         <title>PROGRAD Analytics</title>
+        <!-- Aplica o tema antes da primeira pintura (sem "piscar" claro no modo
+             escuro): escolha salva > preferência do sistema. Mesma chave do
+             ThemeProvider. -->
+        <script>
+            (function () {
+                var tema = null;
+                try {
+                    tema = localStorage.getItem("prograd-theme");
+                } catch (e) {}
+                if (tema !== "light" && tema !== "dark") {
+                    tema = matchMedia("(prefers-color-scheme: dark)").matches
+                        ? "dark"
+                        : "light";
+                }
+                if (tema === "dark") document.documentElement.classList.add("dark");
+            })();
+        </script>
     </head>
     <body>
         <div id="root"></div>

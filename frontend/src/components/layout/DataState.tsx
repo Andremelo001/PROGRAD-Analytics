@@ -21,7 +21,7 @@ export function DataState({ render }: { render: (data: DashboardData) => ReactNo
     }
     if (error) {
         return (
-            <p className="text-status-critical rounded-xl border border-current/20 bg-white px-4 py-3 text-[14px] font-medium">
+            <p className="text-status-critical bg-popover rounded-xl border border-current/20 px-4 py-3 text-[14px] font-medium">
                 Erro ao carregar dashboard.json: {error}
             </p>
         );

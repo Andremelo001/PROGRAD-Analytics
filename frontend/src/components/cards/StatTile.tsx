@@ -1,9 +1,9 @@
 import { ArrowDown, ArrowUp, Info, Minus } from "lucide-react";
 
 import { Card } from "@/components/cards/Card";
-import { CHART } from "@/components/charts/chart-theme";
 import { formatPercent, formatPoints } from "@/lib/format";
 import { cn } from "@/lib/utils";
+import { useChartTheme } from "@/hooks/useChartTheme";
 
 export interface StatTilePoint {
     ano: number;
@@ -36,6 +36,7 @@ export function StatTile({
     serieLabel: string;
     className?: string;
 }) {
+    const CHART = useChartTheme();
     const diff =
         value !== null && nationalValue !== null ? value - nationalValue : null;
     const same = diff !== null && Math.abs(diff) < 0.05;
@@ -65,7 +66,7 @@ export function StatTile({
                     <span
                         className={cn(
                             "flex items-center gap-1 rounded-lg px-2.5 py-1.5 text-[12px] leading-none font-semibold",
-                            tone === "good" && "bg-lime text-ink",
+                            tone === "good" && "bg-lime text-on-lime",
                             tone === "bad" && "bg-status-critical text-white",
                             tone === "neutral" && "bg-page text-text-secondary"
                         )}

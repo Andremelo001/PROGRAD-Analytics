@@ -91,7 +91,7 @@ export function CourseSearch({ cursos }: { cursos: Curso[] }) {
                 <ul
                     id={listId}
                     role="listbox"
-                    className="text-ink absolute top-[calc(100%+8px)] right-0 left-0 z-30 overflow-hidden rounded-2xl bg-white p-1.5 shadow-[0_16px_40px_rgb(0_0_0/0.18)]"
+                    className="text-ink bg-popover absolute top-[calc(100%+8px)] right-0 left-0 z-30 overflow-hidden rounded-2xl p-1.5 shadow-[0_16px_40px_rgb(0_0_0/0.18)]"
                 >
                     {results.length === 0 ? (
                         <li className="text-text-secondary px-3 py-2 text-[13px]">

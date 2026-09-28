@@ -4,7 +4,6 @@ import { useMemo, useRef, useState, type MouseEvent } from "react";
 import brazilDots from "@/assets/brazil-dots.json";
 import { Card } from "@/components/cards/Card";
 import { ChartSelect } from "@/components/charts/ChartSelect";
-import { CHART, PRESENCA_UF } from "@/components/charts/chart-theme";
 import { DataTable } from "@/components/charts/DataTable";
 import { formatDecimal, formatInteger, formatPercent, toTitleCase } from "@/lib/format";
 import type {
@@ -12,6 +11,7 @@ import type {
     DistribuicaoUfCurso,
     DistribuicaoUfEstado,
 } from "@/types/dashboard";
+import { useChartTheme } from "@/hooks/useChartTheme";
 
 // Matriz de pontos gerada por scripts/build-brazil-dots.mjs (malha do IBGE):
 // [coluna, linha, sigla da UF] numa grade de ``columns`` x ``rows``.
@@ -41,7 +41,7 @@ interface Bin {
 /** Até 4 faixas de quantidade de cursos (quartis dos estados que oferecem o
  * curso). Com poucos valores distintos, cada valor vira uma faixa. As cores
  * vêm da rampa ordinal, espalhadas quando há menos de 4 faixas. */
-function buildBins(counts: number[]): Bin[] {
+function buildBins(counts: number[], ramp: readonly string[]): Bin[] {
     const sorted = counts.filter((n) => n > 0).sort((a, b) => a - b);
     if (sorted.length === 0) return [];
     const distinct = [...new Set(sorted)];
@@ -58,7 +58,6 @@ function buildBins(counts: number[]): Bin[] {
                       sorted.at(-1)!,
                   ]),
               ];
-    const ramp = PRESENCA_UF.ramp;
     return maxes.map((max, i) => {
         const min = i === 0 ? sorted[0] : maxes[i - 1] + 1;
         const step =
@@ -88,6 +87,7 @@ export function BrasilMapaCard({
     cursos: Curso[];
     className?: string;
 }) {
+    const CHART = useChartTheme();
     const opcoes = cursos.filter((c) =>
         distribuicao.some((d) => d.codigo_curso === c.codigo_curso)
     );
@@ -106,14 +106,18 @@ export function BrasilMapaCard({
         [item]
     );
     const bins = useMemo(
-        () => buildBins([...estados.values()].map((e) => e.quantidade_cursos)),
-        [estados]
+        () =>
+            buildBins(
+                [...estados.values()].map((e) => e.quantidade_cursos),
+                CHART.presenca.ramp
+            ),
+        [estados, CHART.presenca.ramp]
     );
     const colorOf = (uf: string) => {
         const n = estados.get(uf)?.quantidade_cursos ?? 0;
         return n > 0
             ? (bins.find((b) => n <= b.max)?.color ?? CHART.brand)
-            : PRESENCA_UF.none;
+            : CHART.presenca.none;
     };
 
     const comOferta = [...estados.values()].filter((e) => e.quantidade_cursos > 0);
@@ -150,7 +154,7 @@ export function BrasilMapaCard({
     return (
         <Card className={className}>
             <div className="flex items-center justify-between gap-2">
-                <p className="flex items-center gap-1.5 text-[14px] font-medium">
+                <p className="flex shrink-0 items-center gap-1.5 text-[14px] font-medium whitespace-nowrap">
                     Presença no Brasil
                     <span
                         title={
@@ -182,11 +186,11 @@ export function BrasilMapaCard({
                 <p className="text-[26px] leading-none font-semibold tracking-[-0.02em]">
                     {formatInteger(total)}
                 </p>
-                <span className="bg-lime text-ink rounded-lg px-2.5 py-1.5 text-[12px] leading-none font-semibold">
+                <span className="bg-lime text-on-lime rounded-lg px-2.5 py-1.5 text-[12px] leading-none font-semibold">
                     {comOferta.length} {comOferta.length === 1 ? "estado" : "estados"}
                 </span>
             </div>
-            <p className="mt-3 text-[13px] leading-snug">
+            <p className="mt-3 truncate text-[13px] leading-snug">
                 {campus && campus.quantidade_cursos > 0 && posicao !== null ? (
                     <>
                         {ufCampus}:{" "}
@@ -252,38 +256,34 @@ export function BrasilMapaCard({
                 )}
             </div>
 
-            <ul className="mt-auto flex flex-wrap items-center justify-center gap-x-3 gap-y-1.5 pt-4 text-[11px]">
-                {bins.map((b) => (
-                    <li
-                        key={b.label}
-                        className="text-text-secondary flex items-center gap-1.5"
-                    >
-                        <span
-                            aria-hidden
-                            className="h-2.5 w-2.5 rounded-full"
-                            style={{ background: b.color }}
-                        />
-                        {b.label}
+            {/* Legenda em duas linhas fixas (faixas em cima, "sem oferta" e
+                campus embaixo): o nº de faixas muda com o curso (1 a 4) e não
+                pode mudar a altura do card. */}
+            <div className="text-text-secondary mt-auto flex flex-col items-center gap-1.5 pt-4 text-[11px]">
+                <ul className="flex h-4 items-center gap-3 whitespace-nowrap">
+                    {bins.map((b) => (
+                        <li key={b.label} className="flex items-center gap-1.5">
+                            <LegendDot color={b.color} />
+                            {b.label}
+                        </li>
+                    ))}
+                </ul>
+                <ul className="flex h-4 items-center gap-3 whitespace-nowrap">
+                    <li className="flex items-center gap-1.5">
+                        <LegendDot color={CHART.presenca.none} />
+                        Sem oferta
                     </li>
-                ))}
-                <li className="text-text-secondary flex items-center gap-1.5">
-                    <span
-                        aria-hidden
-                        className="h-2.5 w-2.5 rounded-full"
-                        style={{ background: PRESENCA_UF.none }}
-                    />
-                    Sem oferta
-                </li>
-                {pino && (
-                    <li className="text-text-secondary flex items-center gap-1.5">
-                        <span
-                            aria-hidden
-                            className="bg-ink ring-lime h-2.5 w-2.5 rounded-full ring-2 ring-inset"
-                        />
-                        Campus
-                    </li>
-                )}
-            </ul>
+                    {pino && (
+                        <li className="flex items-center gap-1.5">
+                            <span
+                                aria-hidden
+                                className="bg-ink ring-lime h-2.5 w-2.5 rounded-full ring-2 ring-inset"
+                            />
+                            Campus
+                        </li>
+                    )}
+                </ul>
+            </div>
 
             <div className="sr-only">
                 <DataTable
@@ -310,6 +310,16 @@ export function BrasilMapaCard({
                 />
             </div>
         </Card>
+    );
+}
+
+function LegendDot({ color }: { color: string }) {
+    return (
+        <span
+            aria-hidden
+            className="h-2.5 w-2.5 rounded-full"
+            style={{ background: color }}
+        />
     );
 }
 
@@ -367,17 +377,19 @@ function StateTooltip({
 
     return (
         <div
-            className="bg-ink pointer-events-none absolute z-10 w-[176px] -translate-x-1/2 -translate-y-full rounded-xl px-3 py-2.5 text-white shadow-[0_12px_28px_rgb(0_0_0/0.25)]"
+            className="bg-pill text-pill-fg pointer-events-none absolute z-10 w-[176px] -translate-x-1/2 -translate-y-full rounded-xl px-3 py-2.5 shadow-[0_12px_28px_rgb(0_0_0/0.25)]"
             style={{ left, top: y - 12 }}
         >
             <p className="text-[12px] font-semibold">{UF_NOMES[uf] ?? uf}</p>
             {linhas.length === 0 ? (
-                <p className="mt-1 text-[11px] text-white/60">Sem oferta deste curso</p>
+                <p className="text-pill-fg/60 mt-1 text-[11px]">
+                    Sem oferta deste curso
+                </p>
             ) : (
                 <dl className="mt-1.5 flex flex-col gap-1 text-[11px]">
                     {linhas.map(([rotulo, valor]) => (
                         <div key={rotulo} className="flex justify-between gap-3">
-                            <dt className="text-white/60">{rotulo}</dt>
+                            <dt className="text-pill-fg/60">{rotulo}</dt>
                             <dd className="font-semibold tabular-nums">{valor}</dd>
                         </div>
                     ))}

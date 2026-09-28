@@ -16,6 +16,12 @@
     --olive: #a2b82e; /* linha principal dos gráficos */
     --olive-text: #6b8212; /* texto positivo (sobre branco) */
     --brand: var(--olive);
+    --on-lime: #1b1b1d; /* texto sobre o limão — escuro nos dois temas */
+    --popover: #ffffff; /* painéis que abrem por cima (busca, seletores) */
+    --pill: #1b1b1d; /* pílulas escuras e tooltips */
+    --pill-fg: #ffffff;
+    --empty: #d5d6dc; /* contorno tracejado de célula sem dado */
+    --card-ring: transparent; /* borda do card (só no escuro) */
 
     /* Tinta de texto (skill dataviz): texto nunca usa a cor da série. */
     --text-secondary: #5f6068;
@@ -46,7 +52,28 @@
     --radius: 0.5rem;
 }
 
+/* Modo escuro (classe ``dark`` no <html>, ver ThemeProvider): a faixa do
+ * topo segue escura e o plano embaixo também escurece; cards um degrau mais
+ * claros que o plano, com borda sutil no lugar da sombra. */
 .dark {
+    color-scheme: dark;
+    --band: #161618; /* faixa do topo — o plano (--page) usa a mesma cor */
+    --band-soft: #2a2a2e;
+    --page: #161618; /* mesma cor da faixa do topo */
+    --surface: #1f1f24;
+    --ink: #ececef;
+    --olive: #b5cc3a;
+    --olive-text: #bcd64a;
+    --text-secondary: #a9aab3;
+    --text-muted: #7c7d86;
+    --status-critical: #e5484d;
+    --status-critical-text: #ff8e90;
+    --popover: #26262b;
+    --pill: #2e2e34;
+    --pill-fg: #ffffff;
+    --empty: #3a3a41;
+    --card-ring: rgb(255 255 255 / 0.06);
+
     --background: hsl(222.2 84% 4.9%);
     --foreground: hsl(210 40% 98%);
     --card: hsl(222.2 84% 4.9%);
@@ -78,6 +105,12 @@
     --color-page: var(--page);
     --color-surface: var(--surface);
     --color-ink: var(--ink);
+    --color-on-lime: var(--on-lime);
+    --color-popover: var(--popover);
+    --color-pill: var(--pill);
+    --color-pill-fg: var(--pill-fg);
+    --color-empty: var(--empty);
+    --color-card-ring: var(--card-ring);
     --color-lime: var(--lime);
     --color-olive-text: var(--olive-text);
     --color-brand: var(--brand);

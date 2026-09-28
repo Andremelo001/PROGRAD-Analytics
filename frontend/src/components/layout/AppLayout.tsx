@@ -3,6 +3,7 @@ import { Outlet } from "react-router-dom";
 
 import brasao from "@/assets/brasao.png";
 import { Sidebar } from "@/components/layout/Sidebar";
+import { ThemeToggle } from "@/components/layout/ThemeToggle";
 import { CourseSearch } from "@/components/search/CourseSearch";
 import { PageHeaderSlotContext } from "@/context/page-header-slot";
 import { useDashboardData } from "@/hooks/useDashboardData";
@@ -69,6 +70,9 @@ export function AppLayout() {
                             <span className="text-[17px] leading-none font-bold tracking-[-0.01em] text-white sm:text-[19px] lg:text-[21px]">
                                 <span className="sr-only">UFC — PROGRAD </span>
                                 Analytics
+                            </span>
+                            <span className="ml-1 sm:ml-2">
+                                <ThemeToggle />
                             </span>
                         </div>
                         <CourseSearch cursos={data?.cursos ?? []} />

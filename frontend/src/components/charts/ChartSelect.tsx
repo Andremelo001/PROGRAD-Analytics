@@ -118,14 +118,27 @@ export function ChartSelect({
                 onClick={() => (open ? close(false) : openList())}
                 onKeyDown={onButtonKeyDown}
                 className={cn(
-                    "bg-ink focus-visible:ring-lime/60 flex w-full items-center gap-2 font-medium text-white outline-none focus-visible:ring-2",
+                    "bg-pill text-pill-fg focus-visible:ring-lime/60 flex w-full items-center gap-2 font-medium outline-none focus-visible:ring-2",
                     sm
                         ? "h-8 max-w-[150px] rounded-lg pr-2 pl-3 text-[12px]"
                         : "h-9 max-w-[240px] rounded-xl pr-3 pl-4 text-[13px]"
                 )}
             >
-                <span className="min-w-0 flex-1 truncate text-left">
-                    {selected?.label}
+                {/* Todos os rótulos empilhados na mesma célula e só o escolhido
+                    visível: o botão fica com a largura do rótulo mais longo
+                    (como o <select> nativo) e não muda ao trocar de opção. */}
+                <span className="grid min-w-0 flex-1 grid-cols-[minmax(0,1fr)] text-left">
+                    {options.map((option, index) => (
+                        <span
+                            key={option.value}
+                            className={cn(
+                                "col-start-1 row-start-1 truncate",
+                                index !== selectedIndex && "invisible"
+                            )}
+                        >
+                            {option.label}
+                        </span>
+                    ))}
                 </span>
                 <ChevronDown
                     size={sm ? 14 : 15}
@@ -147,7 +160,7 @@ export function ChartSelect({
                     aria-label={label}
                     aria-activedescendant={optionId(active)}
                     onKeyDown={onListKeyDown}
-                    className="text-ink absolute top-[calc(100%+6px)] right-0 z-40 max-h-72 w-max max-w-[280px] min-w-full overflow-y-auto rounded-xl bg-white p-1.5 shadow-[0_16px_40px_rgb(0_0_0/0.18)] outline-none"
+                    className="text-ink bg-popover absolute top-[calc(100%+6px)] right-0 z-40 max-h-72 w-max max-w-[280px] min-w-full overflow-y-auto rounded-xl p-1.5 shadow-[0_16px_40px_rgb(0_0_0/0.18)] outline-none"
                 >
                     {options.map((option, index) => {
                         const isSelected = index === selectedIndex;

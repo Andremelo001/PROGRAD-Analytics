@@ -89,15 +89,15 @@ frontend/
     ├── assets/              # brasao.png (logo) · brazil-dots.json (mapa em pontos)
     ├── types/
     │   └── dashboard.ts     # tipos que espelham o dashboard.json
-    ├── context/             # DashboardDataProvider (fetch único) + contexto · slot do PageHeader
-    ├── hooks/               # useDashboardData
+    ├── context/             # DashboardDataProvider (fetch único) · ThemeProvider (claro/escuro) · slot do PageHeader
+    ├── hooks/               # useDashboardData · useTheme · useChartTheme (paleta dos gráficos do tema)
     ├── lib/
     │   ├── utils.ts         # cn()
     │   └── format.ts        # formatPercent, formatPoints, formatDecimal, formatInteger, toTitleCase, normalizeForSearch
     ├── components/
-    │   ├── layout/          # AppLayout (faixa escura + header), Sidebar (abas), PageHeader, DataState (loading/erro)
+    │   ├── layout/          # AppLayout (faixa escura + header), Sidebar (abas), PageHeader, ThemeToggle, DataState
     │   ├── cards/           # Card, StatTile (taxa + sparkline)
-    │   ├── charts/          # IngressantesTrendCard, CpcComparativoCard, BrasilMapaCard,
+    │   ├── charts/          # IngressantesTrendCard, CpcComparativoCard, BrasilMapaCard, EvasaoHeatmapCard,
     │   │                    # ChartMarks, ChartSelect, DataTable, chart-theme
     │   └── search/          # CourseSearch (busca de curso no header)
     └── pages/               # uma por rota (ver 5)
@@ -133,14 +133,14 @@ Não há backend em runtime: o site é só HTML/JS/CSS + um JSON estático.
 
 ## 5. Rotas e páginas
 
-| Rota                   | Página                                                                                                        | Nas abas                                 |
-| ---------------------- | ------------------------------------------------------------------------------------------------------------- | ---------------------------------------- |
-| `/`                    | `HomePage` — visão geral do campus (ingressantes, taxas de conclusão/evasão, presença no Brasil, CPC x média) | Início                                   |
-| `/qualidade`           | `QualidadePage` (placeholder)                                                                                 | Qualidade                                |
-| `/trajetoria`          | `TrajetoriaPage` (placeholder)                                                                                | Trajetória                               |
-| `/cursos/:codigoCurso` | `CursoDetalhePage` (placeholder) — aberta pela busca do header                                                | —                                        |
-| `/campus`              | `CampusPage` (placeholder)                                                                                    | — (rota existe, ainda fora da navegação) |
-| `/configuracoes`       | `ConfiguracoesPage` (placeholder)                                                                             | Configurações                            |
+| Rota                   | Página                                                                                                                                | Nas abas                                 |
+| ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------- |
+| `/`                    | `HomePage` — visão geral do campus (ingressantes, taxas de conclusão/evasão, presença no Brasil, CPC x média, evasão anual por curso) | Início                                   |
+| `/qualidade`           | `QualidadePage` (placeholder)                                                                                                         | Qualidade                                |
+| `/trajetoria`          | `TrajetoriaPage` (placeholder)                                                                                                        | Trajetória                               |
+| `/cursos/:codigoCurso` | `CursoDetalhePage` (placeholder) — aberta pela busca do header                                                                        | —                                        |
+| `/campus`              | `CampusPage` (placeholder)                                                                                                            | — (rota existe, ainda fora da navegação) |
+| `/configuracoes`       | `ConfiguracoesPage` (placeholder)                                                                                                     | Configurações                            |
 
 O router é `createHashRouter` (URLs do tipo `/#/qualidade`) de propósito: o
 GitHub Pages é hospedagem estática pura, e um refresh em
@@ -165,14 +165,28 @@ servidor. Com hash, a rota nunca vai pro servidor.
   desenhado dentro do topo via portal (`context/page-header-slot.ts`).
 - **Home** (`lg+`, grade de 12 colunas): linha 1 = Ingressantes (8) + taxas de
   conclusão e evasão empilhadas (4); linha 2 = Presença no Brasil (4) + CPC
-  curso x média nacional (8). Abaixo de `lg` tudo vira uma coluna (as duas
+  curso x média nacional (8); linha 3 = Evasão anual por curso — mapa de
+  calor cursos × anos (12); o número do topo segue a célula sob o mouse. Abaixo de `lg` tudo vira uma coluna (as duas
   taxas ficam lado a lado em `sm`). Conferido em 1280, 900 e 390px de largura.
-- **Tokens** (`src/index.css`, expostos ao Tailwind via `@theme inline`):
-  `band`/`band-soft` (faixa escura e controles sobre ela), `page`, `surface`,
-  `ink`, `lime`, `olive`/`olive-text`, `text-secondary`/`text-muted` e
-  `status-critical`/`status-critical-text`. Os tokens `primary`, `muted`,
-  `card` etc. são do scaffolding do shadcn/ui. Cor nova entra aqui, não como
-  hex solto no componente (exceção: `chart-theme.ts`, ver abaixo).
+  Nenhum card muda de altura ao trocar o curso/turma nos seletores: legenda
+  em linhas fixas, subtítulo e frases de contexto em uma linha só (truncam),
+  botão do seletor na largura da opção mais longa.
+- **Tema claro/escuro**: botão sol/lua à direita do logo (`ThemeToggle`). O
+  `ThemeProvider` põe a classe `dark` no `<html>` e guarda a escolha no
+  `localStorage` (`prograd-theme`); sem escolha salva, segue a preferência do
+  sistema. Um script inline no `index.html` aplica o tema antes da primeira
+  pintura (a página não "pisca" clara no modo escuro). A faixa do topo é
+  escura nos dois temas; no escuro, o plano e os cards também escurecem.
+- **Tokens** (`src/index.css`, expostos ao Tailwind via `@theme inline`,
+  redefinidos no bloco `.dark`): `band`/`band-soft` (faixa escura e controles
+  sobre ela), `page`, `surface`, `popover` (painéis que abrem por cima),
+  `pill`/`pill-fg` (pílulas escuras e tooltips), `ink`, `lime` + `on-lime`
+  (texto sobre o limão, escuro nos dois temas), `olive`/`olive-text`,
+  `text-secondary`/`text-muted`, `empty` (contorno de célula sem dado),
+  `card-ring` e `status-critical`/`status-critical-text`. Os tokens
+  `primary`, `muted`, `card` etc. são do scaffolding do shadcn/ui. Cor nova
+  entra aqui (nos dois temas), nunca como `bg-white`/hex solto no componente
+  — exceção: `chart-theme.ts`, ver abaixo.
 - **Fonte**: Plus Jakarta Sans (variável) como `--font-sans`, com
   `word-spacing` levemente aberto (o espaço da fonte é estreito).
 - **Mapa do Brasil**: `src/assets/brazil-dots.json` é a malha de UFs do IBGE
@@ -183,9 +197,12 @@ servidor. Com hash, a rota nunca vai pro servidor.
 ### Convenções dos gráficos
 
 - Cores em hex em `chart-theme.ts` (atributos de SVG não resolvem
-  `var(--...)` de forma confiável): série principal em oliva, trecho fora de
-  foco / referência em cinza, rampa ordinal oliva no mapa (validada com o
-  validador de paleta da skill dataviz).
+  `var(--...)` de forma confiável), numa paleta por tema (`CHART_LIGHT` /
+  `CHART_DARK`, mesmas chaves) — os componentes pegam a do tema atual com
+  `useChartTheme()`. Série principal em oliva, trecho fora de foco /
+  referência em cinza; no mapa e no mapa de calor as rampas do escuro vão do
+  escuro ao claro ("mais" = mais brilhante). Rampas validadas com o
+  validador de paleta da skill dataviz contra o card de cada tema.
 - Gráficos de linha (Ingressantes, CPC) seguem o design: ano em foco numa
   pílula limão no eixo, anel no ponto e etiqueta escura com o valor
   (`ChartMarks`); passar o mouse muda o foco. O seletor de série é o

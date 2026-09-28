@@ -1,7 +1,7 @@
 // Marcas compartilhadas dos gráficos de linha no estilo do design de
 // referência: ano em foco numa pílula limão no eixo X e anel + etiqueta escura
 // no ponto em foco.
-import { CHART } from "@/components/charts/chart-theme";
+import { useChartTheme } from "@/hooks/useChartTheme";
 
 /** Ano no eixo X; o ano em foco vai numa pílula limão. */
 export function YearTick({
@@ -17,6 +17,7 @@ export function YearTick({
     active: boolean;
     visible: boolean;
 }) {
+    const CHART = useChartTheme();
     if (!visible) return <g />;
     return (
         <g transform={`translate(${x},${y + 4})`}>
@@ -29,7 +30,7 @@ export function YearTick({
                 textAnchor="middle"
                 fontSize={11.5}
                 fontWeight={active ? 700 : 400}
-                fill={active ? CHART.ink : CHART.textMuted}
+                fill={active ? CHART.onLime : CHART.textMuted}
             >
                 {ano}
             </text>
@@ -43,13 +44,14 @@ export function FocusMarker({
     cx,
     cy,
     label,
-    ring = CHART.lime,
+    ring,
 }: {
     cx: number;
     cy: number;
     label?: string;
     ring?: string;
 }) {
+    const CHART = useChartTheme();
     const w = (label?.length ?? 0) * 7.5 + 24;
     return (
         <g>
@@ -61,7 +63,7 @@ export function FocusMarker({
                         width={w}
                         height={26}
                         rx={7}
-                        fill={CHART.ink}
+                        fill={CHART.label}
                     />
                     <text
                         x={cx}
@@ -69,7 +71,7 @@ export function FocusMarker({
                         textAnchor="middle"
                         fontSize={11.5}
                         fontWeight={600}
-                        fill="#ffffff"
+                        fill={CHART.labelText}
                     >
                         {label}
                     </text>
@@ -80,7 +82,7 @@ export function FocusMarker({
                 cy={cy}
                 r={6.5}
                 fill={CHART.surface}
-                stroke={ring}
+                stroke={ring ?? CHART.lime}
                 strokeWidth={4}
             />
         </g>
