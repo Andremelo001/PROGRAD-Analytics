@@ -1,0 +1,123 @@
+{
+  "_leia_me": [
+    "Guia completo de manutenção: COLUNAS_INEP.md (na mesma pasta deste arquivo).",
+    "Nomes das colunas dos arquivos do INEP e rótulos das categorias codificadas.",
+    "Em 'colunas': a chave (esquerda) é o nome interno usado pelo sistema — NÃO altere.",
+    "A lista (direita) são os nomes que essa coluna já teve nos arquivos do INEP. O primeiro é o nome atual.",
+    "Se o INEP renomear uma coluna, acrescente o nome novo no INÍCIO da lista (mantenha os antigos: eles ainda valem pros anos anteriores).",
+    "A comparação ignora acentos, maiúsculas/minúsculas, espaços extras e '*' no final.",
+    "Em 'categorias': para cada coluna codificada, o texto de cada código (ex.: \"1\": \"Pública Federal\").",
+    "Depois de editar, rode o pipeline: se algo estiver errado, ele para e diz exatamente o quê."
+  ],
+  "qualidade": {
+    "colunas": {
+      "ano":                                      ["Ano", "Edição"],
+      "codigo_ies":                               ["Código da IES"],
+      "nome_ies":                                 ["Nome da IES"],
+      "sigla_ies":                                ["Sigla da IES"],
+      "organizacao_academica":                    ["Organização Acadêmica"],
+      "categoria_administrativa":                 ["Categoria Administrativa"],
+      "codigo_curso":                             ["Código do Curso"],
+      "codigo_area":                              ["Código da Área"],
+      "area_avaliacao":                           ["Área de Avaliação", "Área de Enquadramento"],
+      "modalidade_ensino":                        ["Modalidade de Ensino"],
+      "codigo_municipio":                         ["Código do Município"],
+      "municipio_curso":                          ["Município do Curso"],
+      "sigla_uf":                                 ["Sigla da UF"],
+      "n_concluintes_inscritos":                  ["Nº de Concluintes Inscritos", "Concluintes Inscritos"],
+      "n_concluintes_participantes":              ["Nº de Concluintes Participantes", "Concluintes Participantes"],
+      "nota_bruta_fg":                            ["Nota Bruta - FG"],
+      "nota_padronizada_fg":                      ["Nota Padronizada - FG"],
+      "nota_bruta_ce":                            ["Nota Bruta - CE"],
+      "nota_padronizada_ce":                      ["Nota Padronizada - CE"],
+      "conceito_enade_continuo":                  ["Conceito Enade (Contínuo)", "Nota Contínua do Enade"],
+      "n_concluintes_com_nota_enem":              ["Concluintes participantes com nota no Enem", "Concluintes Participantes com nota no Enem", "Nº de Concluintes Participantes com nota no Enem"],
+      "proporcao_concluintes_com_nota_enem":      ["Proporção de concluintes participantes com nota no Enem", "Percentual de Concluintes participantes com nota no Enem"],
+      "nota_bruta_idd":                           ["Nota Bruta - IDD"],
+      "nota_padronizada_idd":                     ["Nota Padronizada - IDD"],
+      "nota_bruta_org_didatico_pedagogica":       ["Nota Bruta - Organização Didático-Pedagógica"],
+      "nota_padronizada_org_didatico_pedagogica": ["Nota Padronizada - Organização Didático-Pedagógica"],
+      "nota_bruta_infraestrutura":                ["Nota Bruta - Infraestrutura e Instalações Físicas"],
+      "nota_padronizada_infraestrutura":          ["Nota Padronizada - Infraestrutura e Instalações Físicas"],
+      "nota_bruta_oportunidade_ampliacao":        ["Nota Bruta - Oportunidade de Ampliação da Formação", "Nota Bruta - Oportunidades de Ampliação da Formação"],
+      "nota_padronizada_oportunidade_ampliacao":  ["Nota Padronizada - Oportunidade de Ampliação da Formação", "Nota Padronizada - Oportunidades de Ampliação da Formação"],
+      "nota_bruta_mestres":                       ["Nota Bruta - Mestres"],
+      "nota_padronizada_mestres":                 ["Nota Padronizada - Mestres"],
+      "nota_bruta_doutores":                      ["Nota Bruta - Doutores"],
+      "nota_padronizada_doutores":                ["Nota Padronizada - Doutores"],
+      "nota_bruta_regime_trabalho":               ["Nota Bruta - Regime de Trabalho"],
+      "nota_padronizada_regime_trabalho":         ["Nota Padronizada - Regime de Trabalho"],
+      "cpc_continuo":                             ["CPC (Contínuo)", "CPC Contínuo"],
+      "cpc_faixa":                                ["CPC (Faixa)", "CPC Faixa"]
+    },
+    "categorias": {}
+  },
+  "trajetoria": {
+    "colunas": {
+      "codigo_ies":                  ["Código da Instituição"],
+      "nome_ies":                    ["Nome da Instituição"],
+      "tp_categoria_administrativa": ["Categoria Administrativa"],
+      "tp_organizacao_academica":    ["Organização Acadêmica"],
+      "codigo_curso":                ["Código do Curso de Graduação"],
+      "nome_curso":                  ["Nome do Curso de Graduação"],
+      "codigo_regiao":               ["Código da Região Geográfica do Curso"],
+      "codigo_uf":                   ["Código da Unidade Federativa do Curso"],
+      "codigo_municipio":            ["Código do Município do Curso"],
+      "tp_grau_academico":           ["Grau Acadêmico"],
+      "tp_modalidade_ensino":        ["Modalidade de Ensino"],
+      "codigo_cine_area_geral":      ["Código da área do Curso segundo a classificação CINE BRASIL"],
+      "nome_cine_area_geral":        ["Nome da área do Curso segundo a classificação CINE BRASIL"],
+      "codigo_cine_rotulo":          ["Código da Grande Área do Curso segundo a classificação CINE BRASIL"],
+      "nome_cine_rotulo":            ["Nome da Grande Área do Curso segundo a classificação CINE BRASIL"],
+      "ano_ingresso":                ["Ano de Ingresso"],
+      "ano_referencia":              ["Ano de Referência"],
+      "prazo_integralizacao":        ["Prazo de Integralização em Anos"],
+      "ano_integralizacao":          ["Ano de Integralização do Curso"],
+      "prazo_acompanhamento":        ["Prazo de Acompanhamento do Curso em anos"],
+      "ano_maximo_acompanhamento":   ["Ano Máximo de Acompanhamento do Curso"],
+      "qt_ingressante":              ["Quantidade de Ingressantes no Curso"],
+      "qt_permanencia":              ["Quantidade de Permanência no Curso no ano de referência"],
+      "qt_concluinte":               ["Quantidade de Concluintes no Curso no ano de referência"],
+      "qt_desistencia":              ["Quantidade de Desistência no Curso no ano de referência"],
+      "qt_falecido":                 ["Quantidade de Falecimentos no Curso no ano de referência"],
+      "taxa_permanencia":            ["Taxa de Permanência - TAP"],
+      "taxa_conclusao_acumulada":    ["Taxa de Conclusão Acumulada - TCA"],
+      "taxa_desistencia_acumulada":  ["Taxa de Desistência Acumulada - TDA", "Taxa de Desistência Acumulada - TODA"],
+      "taxa_conclusao_anual":        ["Taxa de Conclusão Anual - TCAN"],
+      "taxa_desistencia_anual":      ["Taxa de Desistência Anual - TADA", "Taxa de Desistência Anual - TDAN"]
+    },
+    "categorias": {
+      "tp_categoria_administrativa": {
+        "1": "Pública Federal",
+        "2": "Pública Estadual",
+        "3": "Pública Municipal",
+        "4": "Privada com fins lucrativos",
+        "5": "Privada sem fins lucrativos",
+        "7": "Especial"
+      },
+      "tp_organizacao_academica": {
+        "1": "Universidade",
+        "2": "Centro Universitário",
+        "3": "Faculdade",
+        "4": "Instituto Federal de Educação, Ciência e Tecnologia",
+        "5": "Centro Federal de Educação Tecnológica"
+      },
+      "codigo_regiao": {
+        "1": "Região Norte",
+        "2": "Região Nordeste",
+        "3": "Região Sudeste",
+        "4": "Região Sul",
+        "5": "Região Centro-Oeste"
+      },
+      "tp_grau_academico": {
+        "1": "Bacharelado",
+        "2": "Licenciatura",
+        "3": "Tecnológico"
+      },
+      "tp_modalidade_ensino": {
+        "1": "Presencial",
+        "2": "Curso a distância"
+      }
+    }
+  }
+}

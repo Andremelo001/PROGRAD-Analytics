@@ -1,38 +1,10 @@
-# Ambiente virtual
-.venv/
-venv/
+# Regras específicas de cada projeto ficam em backend/.gitignore e
+# frontend/.gitignore; aqui só o que vale pro repositório inteiro.
 
-# Python
-__pycache__/
-*.py[cod]
-*$py.class
-*.so
-.Python
-build/
-dist/
-*.egg-info/
-.eggs/
-
-# Poetry
-# (poetry.lock deve ser versionado; mantido fora do ignore de propósito)
-
-# Ferramentas / cache
-.pytest_cache/
-.ruff_cache/
-.mypy_cache/
-.dmypy.json
-.import_linter_cache/
-.coverage
-htmlcov/
-coverage.xml
-
-# Ambiente
+# Ambiente (.env fica na raiz; só o .env.example é versionado)
 .env
 .env.*
 !.env.example
-
-# Jupyter
-.ipynb_checkpoints/
 
 # IDE / SO
 .vscode/*
@@ -40,8 +12,5 @@ coverage.xml
 .idea/
 .DS_Store
 
-#docs
+# docs (notas locais, não versionadas)
 docs/
-
-# dados brutos baixados (só app/data/processed/ é versionado)
-app/data/raw/

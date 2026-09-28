@@ -1,0 +1,28 @@
+# Dependências
+node_modules/
+
+# Build
+dist/
+dist-ssr/
+*.tsbuildinfo
+# `tsc -b` compila o projeto "node" (composite, tsconfig.node.json) e emite
+# esses dois arquivos ao lado do vite.config.ts — gerados, não fonte.
+vite.config.js
+vite.config.d.ts
+
+# dashboard.json copiado de backend/app/data/processed/ pelo sync-data — gerado, não
+# é fonte de verdade (a fonte é backend/app/data/processed/).
+public/data/
+
+# Ambiente local
+.env.local
+.env.*.local
+
+# Editor / SO
+.vscode/*
+!.vscode/extensions.json
+.DS_Store
+*.log
+npm-debug.log*
+
+designs_pages/
