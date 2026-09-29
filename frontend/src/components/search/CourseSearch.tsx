@@ -62,7 +62,7 @@ export function CourseSearch({ cursos }: { cursos: Curso[] }) {
                 size={17}
                 strokeWidth={2}
                 aria-hidden
-                className="pointer-events-none absolute top-1/2 left-4 -translate-y-1/2 text-white/50"
+                className="pointer-events-none absolute top-1/2 left-3 h-4 w-4 -translate-y-1/2 text-white/50 sm:left-4 sm:h-[17px] sm:w-[17px]"
             />
             <input
                 type="search"
@@ -84,7 +84,7 @@ export function CourseSearch({ cursos }: { cursos: Curso[] }) {
                 aria-activedescendant={
                     showList && results.length > 0 ? `${listId}-${active}` : undefined
                 }
-                className="bg-band-soft focus-visible:ring-lime/40 h-full w-full rounded-full border border-white/10 pr-4 pl-11 text-[13px] text-white outline-none placeholder:text-white/45 focus-visible:ring-2 [&::-webkit-search-cancel-button]:hidden"
+                className="bg-band-soft focus-visible:ring-lime/40 h-full w-full rounded-full border border-white/10 pr-3 pl-9 text-[11.5px] text-white outline-none placeholder:text-white/45 focus-visible:ring-2 sm:pr-4 sm:pl-11 sm:text-[13px] [&::-webkit-search-cancel-button]:hidden"
             />
 
             {showList && (

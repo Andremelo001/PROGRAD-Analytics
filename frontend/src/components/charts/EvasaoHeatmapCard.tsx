@@ -62,8 +62,9 @@ const mean = (values: number[]) =>
     values.length === 0 ? null : values.reduce((a, b) => a + b, 0) / values.length;
 
 /** Evasão anual por curso e ano (``trajetoria_comparada.heatmap_evasao_anual``)
- * num mapa de calor: linhas = cursos, colunas = anos, cor = % dos alunos que
- * desistiram no ano (escala de um tom, vermelho claro → escuro). O número do
+ * num mapa de calor: linhas = cursos, colunas = anos, cor = diferença da
+ * evasão do ano para a média nacional da área no mesmo ano (verde abaixo,
+ * vermelho acima, mais escuro quanto maior a distância). O número do
  * topo segue o mouse: a célula sob ele (curso, ano, taxa e diferença para a
  * média nacional da área no mesmo ano — ``medias_nacionais.heatmap_evasao_anual``)
  * ou, sem mouse, a média dos cursos no ano mais recente. */
@@ -84,10 +85,20 @@ export function EvasaoHeatmapCard({
         () => buildLinhas(cursos, local, nacional),
         [cursos, local, nacional]
     );
-    const taxaMax = Math.max(
-        5,
-        Math.ceil(Math.max(...local.map((c) => c.taxa_desistencia_anual ?? 0)) / 5) * 5
-    );
+    // limite de cada lado da escala (múltiplo de 5 p.p.): acima e abaixo da
+    // média têm amplitudes bem diferentes, então cada lado usa a sua
+    const { abaixoMax, acimaMax } = useMemo(() => {
+        const diffs = linhas.flatMap((l) =>
+            [...l.celulas.values()].flatMap((c) =>
+                c.taxa === null || c.nacional === null ? [] : [c.taxa - c.nacional]
+            )
+        );
+        const teto = (v: number) => Math.max(5, Math.ceil(v / 5) * 5);
+        return {
+            abaixoMax: teto(Math.max(0, ...diffs.map((d) => -d))),
+            acimaMax: teto(Math.max(0, ...diffs)),
+        };
+    }, [linhas]);
 
     // destaque do topo: a célula sob o mouse ou a média do ano mais recente
     const ultimo = anos.at(-1);
@@ -122,7 +133,7 @@ export function EvasaoHeatmapCard({
     return (
         <Card
             title="Evasão anual por curso"
-            subtitle="% dos alunos de cada curso que desistiram em cada ano"
+            subtitle="Evasão de cada ano comparada à média nacional da área: verde abaixo, vermelho acima"
             className={className}
         >
             <div className="mt-3 flex flex-wrap items-center justify-between gap-x-6 gap-y-3 sm:flex-nowrap">
@@ -158,7 +169,7 @@ export function EvasaoHeatmapCard({
                         )}
                     </p>
                 </div>
-                <ScaleLegend taxaMax={taxaMax} />
+                <ScaleLegend abaixoMax={abaixoMax} acimaMax={acimaMax} />
             </div>
 
             <div className="relative mt-4" onMouseLeave={() => setHover(null)}>
@@ -183,11 +194,18 @@ export function EvasaoHeatmapCard({
                                 hoverAno={
                                     hover?.codigo === linha.codigo ? hover.ano : null
                                 }
-                                colorOf={(c) =>
-                                    c?.taxa == null
-                                        ? null
-                                        : rampColor(CHART.evasao, c.taxa / taxaMax)
-                                }
+                                colorOf={(c) => {
+                                    if (c?.taxa == null || c.nacional === null) {
+                                        return null;
+                                    }
+                                    const diff = c.taxa - c.nacional;
+                                    return diff >= 0
+                                        ? rampColor(CHART.evasao.acima, diff / acimaMax)
+                                        : rampColor(
+                                              CHART.evasao.abaixo,
+                                              -diff / abaixoMax
+                                          );
+                                }}
                                 onHover={(ano) =>
                                     setHover({ codigo: linha.codigo, ano })
                                 }
@@ -275,20 +293,33 @@ function Row({
     );
 }
 
-/** Barra da escala de cores + a marca de "sem turmas". */
-function ScaleLegend({ taxaMax }: { taxaMax: number }) {
+/** Barra da escala: verde (bem abaixo da média) → claro (perto dela) →
+ * vermelho (bem acima), com um traço na média; + a marca de "sem turmas". */
+function ScaleLegend({ abaixoMax, acimaMax }: { abaixoMax: number; acimaMax: number }) {
     const CHART = useChartTheme();
+    const zero = (abaixoMax / (abaixoMax + acimaMax)) * 100;
+    const stops = [
+        ...[...CHART.evasao.abaixo]
+            .reverse()
+            .map((cor, i, arr) => `${cor} ${(zero * i) / (arr.length - 1)}%`),
+        ...CHART.evasao.acima.map(
+            (cor, i, arr) => `${cor} ${zero + ((100 - zero) * i) / (arr.length - 1)}%`
+        ),
+    ];
     return (
         <div className="text-text-muted flex shrink-0 items-center gap-2 text-[11px] whitespace-nowrap">
-            <span>0%</span>
+            <span>−{abaixoMax} p.p.</span>
             <span
                 aria-hidden
-                className="block h-2.5 w-24 rounded-full sm:w-36"
-                style={{
-                    background: `linear-gradient(to right, ${CHART.evasao.join(", ")})`,
-                }}
-            />
-            <span>{taxaMax}%</span>
+                className="relative block h-2.5 w-24 rounded-full sm:w-36"
+                style={{ background: `linear-gradient(to right, ${stops.join(", ")})` }}
+            >
+                <span
+                    className="bg-ink absolute -top-0.5 -bottom-0.5 w-0.5 -translate-x-1/2 rounded-full"
+                    style={{ left: `${zero}%` }}
+                />
+            </span>
+            <span>+{acimaMax} p.p.</span>
             <span className="ml-1 flex items-center gap-1.5">
                 <span
                     aria-hidden

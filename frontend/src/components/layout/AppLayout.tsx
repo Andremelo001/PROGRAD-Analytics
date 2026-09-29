@@ -7,6 +7,7 @@ import { ThemeToggle } from "@/components/layout/ThemeToggle";
 import { CourseSearch } from "@/components/search/CourseSearch";
 import { PageHeaderSlotContext } from "@/context/page-header-slot";
 import { useDashboardData } from "@/hooks/useDashboardData";
+import { useMediaQuery } from "@/hooks/useMediaQuery";
 import { cn } from "@/lib/utils";
 
 // Mesma altura da faixa escura nos dois lugares em que ela é desenhada (atrás
@@ -14,14 +15,17 @@ import { cn } from "@/lib/utils";
 const BAND_HEIGHT = "h-[340px] md:h-[300px] lg:h-[260px]";
 
 // Faixa escura no topo que desce até cobrir o topo da primeira linha de cards;
-// embaixo, o plano cinza. O topo (logo + busca, saudação + abas) fica preso ao
-// rolar a partir de md — no celular ele ocuparia quase um terço da tela, então
-// rola junto. A saudação é o ``PageHeader`` da página, desenhado aqui via
-// portal (``PageHeaderSlotContext``). As abas ficam à direita da linha da
-// saudação em lg+ e, abaixo de lg, numa linha própria acima dela.
+// embaixo, o plano cinza. O topo fica preso ao rolar: em lg+ inteiro (logo +
+// busca, saudação + abas — saudação e abas dividem a mesma linha); abaixo de
+// lg só até as abas, e a saudação rola junto com a página (fixa, ela tomaria
+// quase um terço da tela do celular). A saudação é o ``PageHeader`` da
+// página, desenhado via portal (``PageHeaderSlotContext``) no slot certo: o
+// de dentro do topo fixo (lg+) ou o de logo abaixo dele (telas menores).
 export function AppLayout() {
     const { data } = useDashboardData();
-    const [slot, setSlot] = useState<HTMLDivElement | null>(null);
+    const [stickySlot, setStickySlot] = useState<HTMLDivElement | null>(null);
+    const [flowSlot, setFlowSlot] = useState<HTMLDivElement | null>(null);
+    const isLg = useMediaQuery("(min-width: 1024px)");
     const scrolled = useScrolled();
 
     return (
@@ -38,8 +42,8 @@ export function AppLayout() {
 
             <div
                 className={cn(
-                    "bg-band relative z-30 transition-shadow md:sticky md:top-0",
-                    scrolled && "md:shadow-[0_10px_30px_rgb(0_0_0/0.18)]"
+                    "bg-band sticky top-0 z-30 transition-shadow",
+                    scrolled && "shadow-[0_10px_30px_rgb(0_0_0/0.18)]"
                 )}
             >
                 {/* ondas recortadas numa camada própria: o bloco não pode ter
@@ -50,28 +54,28 @@ export function AppLayout() {
                     </div>
                 </div>
 
-                <div className="relative mx-auto w-full max-w-[1200px] px-4 pb-8 sm:px-6 lg:px-8 lg:pb-10">
-                    <header className="flex h-20 items-center justify-between gap-4">
+                <div className="relative mx-auto w-full max-w-[1200px] px-4 sm:px-6 lg:px-8 lg:pb-10">
+                    <header className="flex h-20 items-center justify-between gap-3 sm:gap-4">
                         {/* Brasão (brasao.png, recortado do logo antigo, sem fundo) +
                             divisor + "Analytics" em texto branco, imitando o logo:
                             o texto do PNG é escuro e sumiria na faixa. */}
-                        <div className="flex shrink-0 items-center gap-2.5 sm:gap-3 lg:gap-3.5">
+                        <div className="flex shrink-0 items-center gap-2 sm:gap-3 lg:gap-3.5">
                             <img
                                 src={brasao}
                                 alt=""
                                 width={172}
                                 height={207}
-                                className="h-12 w-auto sm:h-14 lg:h-16"
+                                className="h-10 w-auto sm:h-14 lg:h-16"
                             />
                             <span
                                 aria-hidden
-                                className="h-6 w-px bg-white/70 sm:h-7 lg:h-7"
+                                className="h-5 w-px bg-white/70 sm:h-7 lg:h-7"
                             />
-                            <span className="text-[17px] leading-none font-bold tracking-[-0.01em] text-white sm:text-[19px] lg:text-[21px]">
+                            <span className="text-[15px] leading-none font-bold tracking-[-0.01em] text-white sm:text-[19px] lg:text-[21px]">
                                 <span className="sr-only">UFC — PROGRAD </span>
                                 Analytics
                             </span>
-                            <span className="ml-1 sm:ml-2">
+                            <span className="sm:ml-2">
                                 <ThemeToggle />
                             </span>
                         </div>
@@ -79,17 +83,24 @@ export function AppLayout() {
                     </header>
 
                     <div className="relative text-white">
-                        <div className="mb-5 lg:absolute lg:top-6 lg:right-0 lg:mb-0">
+                        <div className="lg:absolute lg:top-6 lg:right-0">
                             <Sidebar />
                         </div>
-                        <div ref={setSlot} />
+                        <div ref={setStickySlot} />
                     </div>
                 </div>
             </div>
 
+            {/* saudação fora do topo fixo, abaixo de lg (rola com a página) */}
+            <div className="relative mx-auto w-full max-w-[1200px] px-4 pt-5 pb-8 text-white sm:px-6 lg:hidden">
+                <div ref={setFlowSlot} />
+            </div>
+
             <div className="relative mx-auto w-full max-w-[1200px] px-4 pb-10 text-white sm:px-6 lg:px-8">
                 <main className="min-w-0">
-                    <PageHeaderSlotContext.Provider value={slot}>
+                    <PageHeaderSlotContext.Provider
+                        value={isLg ? stickySlot : flowSlot}
+                    >
                         <Outlet />
                     </PageHeaderSlotContext.Provider>
                 </main>

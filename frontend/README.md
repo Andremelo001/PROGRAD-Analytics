@@ -90,7 +90,7 @@ frontend/
     ├── types/
     │   └── dashboard.ts     # tipos que espelham o dashboard.json
     ├── context/             # DashboardDataProvider (fetch único) · ThemeProvider (claro/escuro) · slot do PageHeader
-    ├── hooks/               # useDashboardData · useTheme · useChartTheme (paleta dos gráficos do tema)
+    ├── hooks/               # useDashboardData · useTheme · useChartTheme (paleta dos gráficos do tema) · useMediaQuery
     ├── lib/
     │   ├── utils.ts         # cn()
     │   └── format.ts        # formatPercent, formatPoints, formatDecimal, formatInteger, toTitleCase, normalizeForSearch
@@ -158,11 +158,13 @@ servidor. Com hash, a rota nunca vai pro servidor.
   esquerda, só a busca à direita. Abaixo, a saudação (`PageHeader`) e as abas
   de navegação (`Sidebar` — o nome ficou do layout anterior, hoje são abas
   horizontais com sublinhado limão). A faixa escura desce até cobrir só o
-  topo da primeira linha de cards. A partir de `md` (≥ 768px) esse topo
-  inteiro — logo, busca, saudação e abas — fica preso ao rolar (os cards
-  passam por baixo, com uma sombra); no celular ele rola junto, porque
-  ocuparia quase um terço da tela. A saudação é o `PageHeader` da página,
-  desenhado dentro do topo via portal (`context/page-header-slot.ts`).
+  topo da primeira linha de cards. Esse topo fica preso ao rolar (os cards passam por baixo, com uma sombra):
+  em `lg+` inteiro — logo, busca, saudação e abas, que dividem a mesma linha;
+  abaixo de `lg` só até as abas, e a saudação rola com a página (fixa, ela
+  tomaria quase um terço da tela do celular). A saudação é o `PageHeader` da
+  página, desenhado via portal (`context/page-header-slot.ts`) no slot de
+  dentro do topo fixo (`lg+`) ou no de logo abaixo dele (telas menores,
+  escolhido com `useMediaQuery`).
 - **Home** (`lg+`, grade de 12 colunas): linha 1 = Ingressantes (8) + taxas de
   conclusão e evasão empilhadas (4); linha 2 = Presença no Brasil (4) + CPC
   curso x média nacional (8); linha 3 = Evasão anual por curso — mapa de
@@ -200,9 +202,11 @@ servidor. Com hash, a rota nunca vai pro servidor.
   `var(--...)` de forma confiável), numa paleta por tema (`CHART_LIGHT` /
   `CHART_DARK`, mesmas chaves) — os componentes pegam a do tema atual com
   `useChartTheme()`. Série principal em oliva, trecho fora de foco /
-  referência em cinza; no mapa e no mapa de calor as rampas do escuro vão do
-  escuro ao claro ("mais" = mais brilhante). Rampas validadas com o
-  validador de paleta da skill dataviz contra o card de cada tema.
+  referência em cinza. No mapa do Brasil, do mais claro (poucos cursos) ao
+  mais escuro (muitos), nos dois temas. No mapa de calor, a cor é a
+  diferença para a média nacional da área: verde abaixo, vermelho acima,
+  mais escuro quanto maior a distância — cada lado com a sua amplitude
+  (múltiplo de 5 p.p.), mostrada na legenda.
 - Gráficos de linha (Ingressantes, CPC) seguem o design: ano em foco numa
   pílula limão no eixo, anel no ponto e etiqueta escura com o valor
   (`ChartMarks`); passar o mouse muda o foco. O seletor de série é o

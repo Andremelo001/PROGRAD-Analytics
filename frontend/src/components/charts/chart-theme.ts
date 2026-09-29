@@ -16,12 +16,14 @@ export interface ChartPalette {
     textMuted: string; // rótulos de eixo
     surface: string; // cor do card (respiros e anéis)
     tickFont: number;
-    /** Mapa de presença por UF: rampa ordinal (poucos → muitos cursos) e cinza
-     * de "sem oferta". Validada com ``--ordinal`` contra o card do tema. */
+    /** Mapa de presença por UF: rampa ordinal do mais claro (poucos cursos)
+     * ao mais escuro (muitos), nos dois temas, e cinza de "sem oferta". */
     presenca: { ramp: readonly string[]; none: string };
-    /** Mapa de calor da evasão anual: sequencial contínua de um tom, pouca →
-     * muita evasão (a ponta "quase zero" pode fundir com o card). */
-    evasao: readonly string[];
+    /** Mapa de calor da evasão anual, pela diferença para a média nacional:
+     * ``abaixo`` (verde, do claro ao escuro conforme fica menor que a média) e
+     * ``acima`` (vermelho, do claro ao escuro conforme fica maior). Os tons do
+     * meio são o oliva e o vermelho já usados no sistema. */
+    evasao: { abaixo: readonly string[]; acima: readonly string[] };
 }
 
 export const CHART_LIGHT: ChartPalette = {
@@ -41,11 +43,14 @@ export const CHART_LIGHT: ChartPalette = {
         ramp: ["#a4c236", "#86a320", "#678015", "#4a5d0c"],
         none: "#e4e4e8",
     },
-    evasao: ["#fdeeee", "#f5b3b4", "#e0575a", "#9f1f22"],
+    evasao: {
+        abaixo: ["#eef3d0", "#c9d97f", "#a2b82e", "#5d7212"],
+        acima: ["#fbe4e4", "#f5b3b4", "#e5484d", "#9f1f22"],
+    },
 };
 
-/** Escuro: selecionado, não invertido automaticamente — no fundo escuro
- * "mais" é "mais brilhante", então as rampas vão do escuro ao claro. */
+/** Escuro: tons selecionados pro fundo escuro; nas rampas "mais" continua
+ * sendo "mais escuro", como no claro. */
 export const CHART_DARK: ChartPalette = {
     brand: "#a2b82e",
     lime: "#dcf366",
@@ -60,10 +65,13 @@ export const CHART_DARK: ChartPalette = {
     surface: "#1f1f24",
     tickFont: 11,
     presenca: {
-        ramp: ["#5b7115", "#7d9a1e", "#a2bf2e", "#cde26a"],
+        ramp: ["#cde26a", "#a2bf2e", "#7d9a1e", "#5b7115"],
         none: "#303036",
     },
-    evasao: ["#3a2729", "#8f3336", "#cf4648", "#ff7a7c"],
+    evasao: {
+        abaixo: ["#eef3d0", "#c9d97f", "#a2b82e", "#5d7212"],
+        acima: ["#fbe4e4", "#f5b3b4", "#e5484d", "#9f1f22"],
+    },
 };
 
 /** Quais anos do eixo X mostrar: cada ano precisa de ~52px, então em telas

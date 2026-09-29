@@ -16,15 +16,16 @@ const NAV_ITEMS: NavItem[] = [
 ];
 
 /** Navegação principal em abas sobre a faixa escura: texto claro, a aba
- * ativa em branco com sublinhado limão sobre uma hairline contínua. Rola na
- * horizontal em telas estreitas. */
+ * ativa em branco com sublinhado limão sobre uma hairline contínua. Abaixo de
+ * lg (linha própria, largura toda) ficam centralizadas; em lg+ ficam à
+ * direita da saudação. */
 export function Sidebar() {
     return (
         <nav
             aria-label="Navegação principal"
             className="-mx-1 [scrollbar-width:none] overflow-x-auto"
         >
-            <ul className="flex min-w-max border-b border-white/15 px-1">
+            <ul className="flex min-w-max justify-center border-b border-white/15 px-1 lg:justify-start">
                 {NAV_ITEMS.map(({ to, label, end }) => (
                     <li key={to}>
                         <NavLink
@@ -32,7 +33,7 @@ export function Sidebar() {
                             end={end}
                             className={({ isActive }) =>
                                 cn(
-                                    "relative -mb-px block border-b-2 px-3.5 pb-3 text-[15px] transition-colors outline-none focus-visible:text-white sm:px-5",
+                                    "relative -mb-px block border-b-2 px-2 pb-3 text-[13px] whitespace-nowrap transition-colors outline-none focus-visible:text-white sm:px-5 sm:text-[15px]",
                                     isActive
                                         ? "border-lime font-semibold text-white"
                                         : "border-transparent text-white/50 hover:text-white/80"
