@@ -1,13 +1,16 @@
-import { useEffect, useState } from "react";
+import { X } from "lucide-react";
+import { useEffect, useRef, useState, type RefObject } from "react";
 import { Outlet } from "react-router-dom";
 
 import brasao from "@/assets/brasao.png";
+import { PresentationToggle } from "@/components/layout/PresentationToggle";
 import { Sidebar } from "@/components/layout/Sidebar";
 import { ThemeToggle } from "@/components/layout/ThemeToggle";
 import { CourseSearch } from "@/components/search/CourseSearch";
 import { PageHeaderSlotContext } from "@/context/page-header-slot";
 import { useDashboardData } from "@/hooks/useDashboardData";
 import { useMediaQuery } from "@/hooks/useMediaQuery";
+import { usePresentationMode } from "@/hooks/usePresentationMode";
 import { cn } from "@/lib/utils";
 
 // Mesma altura da faixa escura nos dois lugares em que ela é desenhada (atrás
@@ -21,30 +24,69 @@ const BAND_HEIGHT = "h-[340px] md:h-[300px] lg:h-[260px]";
 // quase um terço da tela do celular). A saudação é o ``PageHeader`` da
 // página, desenhado via portal (``PageHeaderSlotContext``) no slot certo: o
 // de dentro do topo fixo (lg+) ou o de logo abaixo dele (telas menores).
+//
+// Modo apresentação (botão ao lado do tema, Ctrl/⌘+K, Esc pra sair): a faixa
+// e o topo sobem até sumir e os cards sobem junto — o topo recolhe a própria
+// altura (margem negativa medida em tempo real) enquanto se desloca pra cima;
+// um X no canto superior esquerdo sai do modo.
+const TRANSICAO = "duration-500 ease-in-out motion-reduce:transition-none";
+
 export function AppLayout() {
     const { data } = useDashboardData();
     const [stickySlot, setStickySlot] = useState<HTMLDivElement | null>(null);
     const [flowSlot, setFlowSlot] = useState<HTMLDivElement | null>(null);
     const isLg = useMediaQuery("(min-width: 1024px)");
     const scrolled = useScrolled();
+    const { presenting, toggle, exit } = usePresentationMode();
+    const topoRef = useRef<HTMLDivElement>(null);
+    const topoAltura = useAltura(topoRef);
+    // a faixa de trás é mais alta que o topo fixo: os dois sobem a altura
+    // dela, no mesmo tempo, pra andarem juntos como um bloco só
+    const faixaRef = useRef<HTMLDivElement>(null);
+    const faixaAltura = useAltura(faixaRef);
 
     return (
         <div className="relative min-h-dvh">
             <div
+                ref={faixaRef}
                 aria-hidden
                 className={cn(
-                    "bg-band absolute inset-x-0 top-0 overflow-hidden",
-                    BAND_HEIGHT
+                    "bg-band absolute inset-x-0 top-0 overflow-hidden transition-[transform,opacity]",
+                    TRANSICAO,
+                    BAND_HEIGHT,
+                    presenting && "opacity-0"
                 )}
+                // mesmo ``transform`` do topo fixo (a classe -translate-y-* do
+                // Tailwind v4 usa a propriedade ``translate``, que a transição
+                // não animava — a faixa saltava e se descolava do topo)
+                style={
+                    presenting
+                        ? { transform: `translateY(-${faixaAltura}px)` }
+                        : undefined
+                }
             >
                 <Waves />
             </div>
 
             <div
+                ref={topoRef}
+                inert={presenting}
                 className={cn(
-                    "bg-band sticky top-0 z-30 transition-shadow",
-                    scrolled && "shadow-[0_10px_30px_rgb(0_0_0/0.18)]"
+                    "bg-band sticky top-0 z-30 transition-[transform,margin,box-shadow,opacity]",
+                    TRANSICAO,
+                    scrolled && !presenting && "shadow-[0_10px_30px_rgb(0_0_0/0.18)]",
+                    // esmaece ao subir: o sublinhado da aba ativa passa 1px da
+                    // borda e deixaria um fio no topo da tela
+                    presenting && "opacity-0"
                 )}
+                style={
+                    presenting
+                        ? {
+                              transform: `translateY(-${faixaAltura}px)`,
+                              marginBottom: -topoAltura,
+                          }
+                        : undefined
+                }
             >
                 {/* ondas recortadas numa camada própria: o bloco não pode ter
                     overflow-hidden, senão corta a lista de resultados da busca */}
@@ -75,8 +117,13 @@ export function AppLayout() {
                                 <span className="sr-only">UFC — PROGRAD </span>
                                 Analytics
                             </span>
-                            <span className="sm:ml-2">
+                            <span className="flex items-center gap-2 sm:ml-2">
                                 <ThemeToggle />
+                                {/* no celular não aparece: o cabeçalho já está no
+                                    limite de largura, e lá não há atalho de teclado */}
+                                <span className="hidden sm:flex">
+                                    <PresentationToggle onClick={toggle} />
+                                </span>
                             </span>
                         </div>
                         <CourseSearch cursos={data?.cursos ?? []} />
@@ -91,12 +138,34 @@ export function AppLayout() {
                 </div>
             </div>
 
-            {/* saudação fora do topo fixo, abaixo de lg (rola com a página) */}
-            <div className="relative mx-auto w-full max-w-[1200px] px-4 pt-5 pb-8 text-white sm:px-6 lg:hidden">
-                <div ref={setFlowSlot} />
+            {/* saudação fora do topo fixo, abaixo de lg (rola com a página);
+                no modo apresentação recolhe (grid 1fr -> 0fr) */}
+            <div
+                inert={presenting}
+                className={cn(
+                    "grid transition-[grid-template-rows,opacity] lg:hidden",
+                    TRANSICAO,
+                    presenting ? "grid-rows-[0fr] opacity-0" : "grid-rows-[1fr]"
+                )}
+            >
+                <div className="min-h-0 overflow-hidden">
+                    <div className="relative mx-auto w-full max-w-[1200px] px-4 pt-5 pb-8 text-white sm:px-6">
+                        <div ref={setFlowSlot} />
+                    </div>
+                </div>
             </div>
 
-            <div className="relative mx-auto w-full max-w-[1200px] px-4 pb-10 text-white sm:px-6 lg:px-8">
+            <div
+                className={cn(
+                    "relative mx-auto w-full max-w-[1200px] px-4 pb-10 text-white transition-[padding] sm:px-6 lg:px-8",
+                    TRANSICAO,
+                    // apresentação: cards na altura do X (topo 20px) no desktop, com
+                    // folga lateral mínima pro X (20px + 34px) quando a margem da
+                    // página é estreita; no celular/tablet, logo abaixo do X
+                    presenting &&
+                        "pt-[62px] lg:px-[max(2rem,calc(62px_-_max(0px,(100vw_-_1200px)/2)))] lg:pt-5"
+                )}
+            >
                 <main className="min-w-0">
                     <PageHeaderSlotContext.Provider
                         value={isLg ? stickySlot : flowSlot}
@@ -105,8 +174,41 @@ export function AppLayout() {
                     </PageHeaderSlotContext.Provider>
                 </main>
             </div>
+
+            <button
+                type="button"
+                onClick={exit}
+                tabIndex={presenting ? 0 : -1}
+                aria-hidden={!presenting}
+                aria-label="Sair do modo apresentação"
+                title="Sair do modo apresentação (Esc ou Ctrl+K)"
+                className={cn(
+                    "bg-pill text-pill-fg focus-visible:ring-lime/60 fixed top-5 left-5 z-40 flex h-[34px] w-[34px] items-center justify-center rounded-full shadow-[0_8px_24px_rgb(0_0_0/0.2)] transition-[opacity,transform] outline-none focus-visible:ring-2",
+                    TRANSICAO,
+                    presenting
+                        ? "scale-100 opacity-100"
+                        : "pointer-events-none scale-75 opacity-0"
+                )}
+            >
+                <X size={16} strokeWidth={2.25} aria-hidden />
+            </button>
         </div>
     );
+}
+
+/** Altura atual de um elemento (acompanha mudanças de tamanho). */
+function useAltura(ref: RefObject<HTMLElement | null>): number {
+    const [altura, setAltura] = useState(0);
+    useEffect(() => {
+        const el = ref.current;
+        if (!el) return;
+        const observer = new ResizeObserver(([entry]) =>
+            setAltura(entry.borderBoxSize?.[0]?.blockSize ?? el.offsetHeight)
+        );
+        observer.observe(el);
+        return () => observer.disconnect();
+    }, [ref]);
+    return altura;
 }
 
 /** ``true`` depois que a página rolou — liga a sombra do topo fixo, que só

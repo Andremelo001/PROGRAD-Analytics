@@ -1,7 +1,7 @@
 # PROGRAD Analytics
 
 O **PROGRAD Analytics** é um painel on-line que reúne, em um só lugar, os
-principais indicadores dos cursos de graduação da **UFC — Campus Quixadá**.
+principais indicadores dos cursos de graduação da **UFC**.
 
 A ideia é simples: dados que hoje estão espalhados em planilhas enormes do
 governo viram gráficos e números fáceis de ler, para ajudar a coordenação e a
@@ -24,6 +24,31 @@ tomar decisões.
 - **Alertas**: o painel aponta sozinho o que merece atenção, como um curso
   sem avaliação recente ou com evasão acima da média do campus.
 - **Busca por curso**: digite o nome do curso para ver os números só dele.
+
+## Modo apresentação
+
+Para mostrar o painel numa reunião ou num telão, o **modo apresentação** tira
+da tela tudo o que não é gráfico (a faixa escura do topo, com o logo, a
+busca, a saudação e as abas) e deixa **só os cards**, com um visual mais
+limpo. Em computadores, o navegador também entra em **tela cheia**, escondendo
+as abas e a barra de endereço.
+
+**Como entrar:**
+
+- clique no botão de apresentação, ao lado do botão de tema (sol/lua), no
+  topo da página; ou
+- aperte **Ctrl + K** (no Mac, **⌘ + K**).
+
+A faixa do topo sobe até sumir, os cards sobem junto e a página volta para o
+começo, para a apresentação começar pelos primeiros gráficos.
+
+**Como sair:**
+
+- clique no **X** no canto superior esquerdo da tela; ou
+- aperte **Ctrl + K** (ou **⌘ + K**) de novo; ou
+- aperte **Esc**.
+
+A faixa do topo volta ao lugar e, em seguida, o navegador sai da tela cheia.
 
 ## De onde vêm os dados
 

@@ -172,6 +172,13 @@
     .recharts-surface:focus {
         outline: none;
     }
+    /* Camadas internas do Recharts (ex.: ``recharts-zIndex-layer_*``, com
+     * tabindex="-1") recebem foco ao clicar nos números dos eixos e ganhavam
+     * o contorno preto padrão do navegador em volta do gráfico. */
+    .recharts-wrapper g:focus,
+    .recharts-wrapper g:focus-visible {
+        outline: none;
+    }
     .recharts-surface:focus-visible {
         outline: 2px solid var(--olive);
         outline-offset: 4px;

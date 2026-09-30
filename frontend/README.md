@@ -91,12 +91,12 @@ frontend/
     ├── types/
     │   └── dashboard.ts     # tipos que espelham o dashboard.json
     ├── context/             # DashboardDataProvider (índice + campus escolhido) · ThemeProvider (claro/escuro) · slot do PageHeader
-    ├── hooks/               # useDashboardData · useTheme · useChartTheme (paleta dos gráficos do tema) · useMediaQuery
+    ├── hooks/               # useDashboardData · useTheme · useChartTheme (paleta dos gráficos do tema) · useMediaQuery · usePresentationMode
     ├── lib/
     │   ├── utils.ts         # cn()
     │   └── format.ts        # formatPercent, formatPoints, formatDecimal, formatInteger, toTitleCase, normalizeForSearch
     ├── components/
-    │   ├── layout/          # AppLayout (faixa escura + header), Sidebar (abas), PageHeader, ThemeToggle, DataState
+    │   ├── layout/          # AppLayout (faixa escura + header), Sidebar (abas), PageHeader, ThemeToggle, PresentationToggle, CampusSelect, DataState
     │   ├── cards/           # Card, StatTile (taxa + sparkline)
     │   ├── charts/          # IngressantesTrendCard, CpcComparativoCard, BrasilMapaCard, EvasaoHeatmapCard,
     │   │                    # ChartMarks, ChartSelect, DataTable, chart-theme
@@ -177,6 +177,18 @@ servidor. Com hash, a rota nunca vai pro servidor.
   página, desenhado via portal (`context/page-header-slot.ts`) no slot de
   dentro do topo fixo (`lg+`) ou no de logo abaixo dele (telas menores,
   escolhido com `useMediaQuery`).
+- **Modo apresentação**: botão ao lado do sol/lua (`PresentationToggle`, a
+  partir de `sm` — no celular o cabeçalho não tem largura pra ele), atalho
+  **Ctrl+K** / **⌘+K** pra entrar e sair, **Esc** pra sair. A faixa escura e
+  o topo sobem até sumir e os cards sobem junto (0,5s; sem animação com
+  "reduzir movimento"), até a altura do X no desktop; o navegador entra em
+  tela cheia depois da animação (e, ao sair, só sai da tela cheia depois de
+  a faixa voltar), só a partir de 1024px de largura (em
+  celular e tablet o modo funciona sem ela; sair da tela cheia pelo
+  navegador também sai do modo). Um X no
+  canto superior esquerdo sai do modo. O topo
+  escondido fica `inert` (o Tab não passa por ele). Estado e atalhos em
+  `hooks/usePresentationMode.ts`; a animação em `AppLayout`.
 - **Home** (`lg+`, grade de 12 colunas): linha 1 = Ingressantes (8) + taxas de
   conclusão e evasão empilhadas (4); linha 2 = Presença no Brasil (4) + CPC
   curso x média nacional (8); linha 3 = Evasão anual por curso — mapa de
