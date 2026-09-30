@@ -4,7 +4,8 @@ import { useDashboardData } from "@/hooks/useDashboardData";
 import type { DashboardData } from "@/types/dashboard";
 
 /** Evita repetir o boilerplate de loading/erro em toda página — só chama
- * `render(data)` quando o `dashboard.json` já carregou com sucesso. */
+ * `render(data)` quando o JSON do campus já carregou. Na troca de campus a
+ * página segue com os dados anteriores até os novos chegarem. */
 export function DataState({ render }: { render: (data: DashboardData) => ReactNode }) {
     const { data, loading, error } = useDashboardData();
 
@@ -19,15 +20,17 @@ export function DataState({ render }: { render: (data: DashboardData) => ReactNo
             </p>
         );
     }
-    if (error) {
-        return (
-            <p className="text-status-critical bg-popover rounded-xl border border-current/20 px-4 py-3 text-[14px] font-medium">
-                Erro ao carregar dashboard.json: {error}
-            </p>
-        );
-    }
-    if (!data) {
-        return null;
-    }
-    return <>{render(data)}</>;
+    const erro = error && (
+        <p className="text-status-critical bg-popover mb-4 rounded-xl border border-current/20 px-4 py-3 text-[14px] font-medium">
+            Erro ao carregar os dados: {error}
+        </p>
+    );
+    if (!data) return erro || null;
+    // troca de campus que falhou: avisa e mantém os dados que já estavam na tela
+    return (
+        <>
+            {erro}
+            {render(data)}
+        </>
+    );
 }

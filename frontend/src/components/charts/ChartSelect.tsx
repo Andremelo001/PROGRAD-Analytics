@@ -13,21 +13,28 @@ interface Option {
  * ``<select>`` nativo abre no estilo do sistema e não aceita CSS), no mesmo
  * estilo da lista da busca: painel branco, opção ativa em cinza-claro e a
  * selecionada com ✓. Teclado: ↑/↓, Home/End, Enter/Espaço, Esc. ``size="sm"``
- * é a versão compacta, pra cards estreitos. */
+ * é a versão compacta, pra cards estreitos. ``variant="inline"`` é a versão
+ * que entra no meio de uma frase (texto em negrito com a seta, sem pílula; lista
+ * alinhada à esquerda); ``busy`` troca a seta por um indicador de carga. */
 export function ChartSelect({
     label,
     value,
     options,
     onChange,
     size = "md",
+    variant = "pill",
+    busy = false,
 }: {
     label: string;
     value: string;
     options: Option[];
     onChange: (value: string) => void;
     size?: "sm" | "md";
+    variant?: "pill" | "inline";
+    busy?: boolean;
 }) {
     const sm = size === "sm";
+    const inline = variant === "inline";
     const listId = useId();
     const rootRef = useRef<HTMLDivElement>(null);
     const buttonRef = useRef<HTMLButtonElement>(null);
@@ -107,7 +114,10 @@ export function ChartSelect({
     }
 
     return (
-        <div ref={rootRef} className="relative min-w-0">
+        <div
+            ref={rootRef}
+            className={cn("relative min-w-0", inline && "inline-block align-baseline")}
+        >
             <button
                 ref={buttonRef}
                 type="button"
@@ -118,37 +128,54 @@ export function ChartSelect({
                 onClick={() => (open ? close(false) : openList())}
                 onKeyDown={onButtonKeyDown}
                 className={cn(
-                    "bg-pill text-pill-fg focus-visible:ring-lime/60 flex w-full items-center gap-2 font-medium outline-none focus-visible:ring-2",
-                    sm
-                        ? "h-8 max-w-[150px] rounded-lg pr-2 pl-3 text-[12px]"
-                        : "h-9 max-w-[240px] rounded-xl pr-3 pl-4 text-[13px]"
+                    "focus-visible:ring-lime/60 outline-none focus-visible:ring-2",
+                    inline
+                        ? "group inline-flex items-center gap-1 rounded-sm font-semibold text-white"
+                        : cn(
+                              "bg-pill text-pill-fg flex w-full items-center gap-2 font-medium",
+                              sm
+                                  ? "h-8 max-w-[150px] rounded-lg pr-2 pl-3 text-[12px]"
+                                  : "h-9 max-w-[240px] rounded-xl pr-3 pl-4 text-[13px]"
+                          )
                 )}
             >
-                {/* Todos os rótulos empilhados na mesma célula e só o escolhido
-                    visível: o botão fica com a largura do rótulo mais longo
-                    (como o <select> nativo) e não muda ao trocar de opção. */}
-                <span className="grid min-w-0 flex-1 grid-cols-[minmax(0,1fr)] text-left">
-                    {options.map((option, index) => (
-                        <span
-                            key={option.value}
-                            className={cn(
-                                "col-start-1 row-start-1 truncate",
-                                index !== selectedIndex && "invisible"
-                            )}
-                        >
-                            {option.label}
-                        </span>
-                    ))}
-                </span>
-                <ChevronDown
-                    size={sm ? 14 : 15}
-                    strokeWidth={2}
-                    aria-hidden
-                    className={cn(
-                        "shrink-0 transition-transform",
-                        open && "rotate-180"
-                    )}
-                />
+                {inline ? (
+                    // no meio da frase: só o nome escolhido (largura do próprio nome)
+                    <span>{selected?.label}</span>
+                ) : (
+                    // Todos os rótulos empilhados na mesma célula e só o escolhido
+                    // visível: o botão fica com a largura do rótulo mais longo
+                    // (como o <select> nativo) e não muda ao trocar de opção.
+                    <span className="grid min-w-0 flex-1 grid-cols-[minmax(0,1fr)] text-left">
+                        {options.map((option, index) => (
+                            <span
+                                key={option.value}
+                                className={cn(
+                                    "col-start-1 row-start-1 truncate",
+                                    index !== selectedIndex && "invisible"
+                                )}
+                            >
+                                {option.label}
+                            </span>
+                        ))}
+                    </span>
+                )}
+                {busy ? (
+                    <span
+                        aria-hidden
+                        className="border-t-lime h-3.5 w-3.5 shrink-0 animate-spin rounded-full border-2 border-current/25"
+                    />
+                ) : (
+                    <ChevronDown
+                        size={sm ? 14 : 15}
+                        strokeWidth={2}
+                        aria-hidden
+                        className={cn(
+                            "shrink-0 transition-transform",
+                            open && "rotate-180"
+                        )}
+                    />
+                )}
             </button>
 
             {open && (
@@ -160,7 +187,10 @@ export function ChartSelect({
                     aria-label={label}
                     aria-activedescendant={optionId(active)}
                     onKeyDown={onListKeyDown}
-                    className="text-ink bg-popover absolute top-[calc(100%+6px)] right-0 z-40 max-h-72 w-max max-w-[280px] min-w-full overflow-y-auto rounded-xl p-1.5 shadow-[0_16px_40px_rgb(0_0_0/0.18)] outline-none"
+                    className={cn(
+                        "text-ink bg-popover absolute top-[calc(100%+6px)] z-40 max-h-72 w-max max-w-[280px] min-w-full overflow-y-auto rounded-xl p-1.5 text-left font-normal shadow-[0_16px_40px_rgb(0_0_0/0.18)] outline-none",
+                        inline ? "left-0" : "right-0"
+                    )}
                 >
                     {options.map((option, index) => {
                         const isSelected = index === selectedIndex;

@@ -5,7 +5,7 @@ on:
     branches: [main]
     paths:
       - "frontend/**"
-      - "backend/app/data/processed/dashboard.json"
+      - "backend/app/data/processed/dashboard/**"
       - ".github/workflows/deploy-frontend.yml"
   workflow_dispatch:
 
@@ -36,8 +36,9 @@ jobs:
 
       - run: npm ci
 
-      # Copia backend/app/data/processed/dashboard.json (já versionado no repo) pro
-      # build estático — GitHub Pages não roda servidor, só serve arquivo.
+      # Copia backend/app/data/processed/dashboard/ (index.json + um JSON por
+      # campus, já versionados) pro build estático — GitHub Pages não roda
+      # servidor, só serve arquivo.
       - run: npm run sync-data
 
       - run: npm run build

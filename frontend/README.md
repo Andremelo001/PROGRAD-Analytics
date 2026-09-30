@@ -1,7 +1,8 @@
 # PROGRAD Analytics — Frontend
 
-SPA React do PROGRAD Analytics: lê o `dashboard.json` gerado pelo
-[backend](../backend/README.md) e mostra os indicadores da UFC Campus Quixadá.
+SPA React do PROGRAD Analytics: lê os JSONs do painel gerados pelo
+[backend](../backend/README.md) — um por campus da UFC — e mostra os
+indicadores do campus escolhido no seletor da saudação (padrão: Quixadá).
 Publicada no GitHub Pages como site estático, sem servidor.
 
 **Todos os comandos `npm ...` deste README rodam de dentro de `frontend/`.**
@@ -13,8 +14,8 @@ Publicada no GitHub Pages como site estático, sem servidor.
 Pré-requisitos:
 
 - **Node 22+** (com npm).
-- O arquivo **`backend/app/data/processed/dashboard.json`**. Ele já vem
-  versionado no repo; se não existir ou se você quiser dados novos, gere com o
+- A pasta **`backend/app/data/processed/dashboard/`** (`index.json` + um JSON
+  por campus). Ela já vem versionada no repo; se não existir ou se você quiser dados novos, gere com o
   backend (`cd backend && poetry run python -m app.cmd all` — ver
   [`../backend/README.md`](../backend/README.md)).
 
@@ -29,9 +30,9 @@ npm install
 npm run dev
 ```
 
-`npm run dev` roda antes o `sync-data` (hook `predev`), que copia o
-`dashboard.json` do backend para `public/data/`. Se o arquivo não existir, ele
-para com uma mensagem dizendo qual comando do backend rodar.
+`npm run dev` roda antes o `sync-data` (hook `predev`), que copia a pasta
+`dashboard/` do backend para `public/data/dashboard/`. Se o `index.json` não
+existir, ele para com uma mensagem dizendo qual comando do backend rodar.
 
 Outros scripts:
 
@@ -40,7 +41,7 @@ npm run build      # sync-data + checagem de tipos (tsc -b) + build de produçã
 npm run preview    # serve o dist/ localmente (http://localhost:4173) pra conferir o build
 npm run lint       # ESLint
 npm run format     # Prettier (formata o projeto inteiro)
-npm run sync-data  # só copia o dashboard.json de novo (ex.: depois de rodar o backend com o dev ligado)
+npm run sync-data  # só copia os JSONs dos campi de novo (ex.: depois de rodar o backend com o dev ligado)
 ```
 
 ---
@@ -76,10 +77,10 @@ frontend/
 ├── index.html               # favicon = src/assets/brasao.png
 ├── .gitignore
 ├── scripts/
-│   ├── sync-data.mjs        # copia backend/.../dashboard.json → public/data/
+│   ├── sync-data.mjs        # copia backend/.../dashboard/ → public/data/dashboard/
 │   └── build-brazil-dots.mjs # gera src/assets/brazil-dots.json (roda uma vez, ver 6)
 ├── public/
-│   └── data/                # dashboard.json copiado (gitignored, gerado pelo sync-data)
+│   └── data/dashboard/      # index.json + JSON de cada campus (gitignored, gerado pelo sync-data)
 ├── designs_pages/           # imagem do design de referência (gitignored)
 └── src/
     ├── main.tsx             # entrada: fonte + CSS + <App />
@@ -89,7 +90,7 @@ frontend/
     ├── assets/              # brasao.png (logo) · brazil-dots.json (mapa em pontos)
     ├── types/
     │   └── dashboard.ts     # tipos que espelham o dashboard.json
-    ├── context/             # DashboardDataProvider (fetch único) · ThemeProvider (claro/escuro) · slot do PageHeader
+    ├── context/             # DashboardDataProvider (índice + campus escolhido) · ThemeProvider (claro/escuro) · slot do PageHeader
     ├── hooks/               # useDashboardData · useTheme · useChartTheme (paleta dos gráficos do tema) · useMediaQuery
     ├── lib/
     │   ├── utils.ts         # cn()
@@ -107,27 +108,38 @@ Critério das pastas: `components/` agrupa por papel (layout, card, gráfico,
 busca), não por página; `pages/` só compõe componentes e escolhe que parte do
 JSON mostrar. `src/assets/` é pra arquivos importados pelo código (ganham hash
 no nome no build); `public/` é pra arquivos servidos como estão — por isso o
-`dashboard.json` fica em `public/data/`.
+JSONs dos campi ficam em `public/data/dashboard/`.
 
 ---
 
 ## 4. Fluxo de dados
 
-1. O backend gera `backend/app/data/processed/dashboard.json` (versionado).
-2. `scripts/sync-data.mjs` copia para `frontend/public/data/dashboard.json` —
-   roda sozinho antes de `dev` e `build` (`predev`/`prebuild`).
-3. `DashboardDataProvider` (em `App.tsx`) faz **um único `fetch`** de
-   `${import.meta.env.BASE_URL}data/dashboard.json` — o `BASE_URL` já inclui o
-   prefixo do GitHub Pages no build de produção, então a mesma URL funciona em
-   dev e em produção.
-4. As páginas leem os dados com `useDashboardData()` (`{ data, loading, error }`)
-   e usam `DataState` pra mostrar carregando/erro.
+1. O backend gera `backend/app/data/processed/dashboard/<campus>.json`
+   (versionados), um por campus, todos com a mesma estrutura.
+   Junto vai um `index.json` com a lista de campi (`slug`, `nome`,
+   `total_cursos`, `arquivo`).
+2. `scripts/sync-data.mjs` copia a pasta inteira para
+   `frontend/public/data/dashboard/` — roda sozinho antes de `dev` e `build`
+   (`predev`/`prebuild`).
+3. `DashboardDataProvider` (em `App.tsx`) busca o `index.json` e o JSON do
+   campus escolhido, em `${import.meta.env.BASE_URL}data/dashboard/` — o
+   `BASE_URL` já inclui o prefixo do GitHub Pages no build de produção. O
+   campus inicial é o último escolhido (`localStorage`, chave
+   `prograd-campus`), senão Quixadá. JSONs já baixados ficam em cache.
+4. O seletor de campus (`CampusSelect`, dentro da frase da saudação) troca o
+   campus; os dados antigos seguem na tela até os novos chegarem (a seta do
+   seletor vira um indicador de carga) e os cards da Home remontam — cursos e
+   focos escolhidos voltam ao padrão do novo campus.
+5. As páginas leem os dados com `useDashboardData()` (`{ data, loading, error,
+campi, campus, setCampus, switching }`) e usam `DataState` pra mostrar
+   carregando/erro.
 
 `types/dashboard.ts` espelha a estrutura do JSON (seções A-F, `fontes`,
 `medias_nacionais` — descritas em [`../backend/README.md`](../backend/README.md),
 seção 4.4). Se o backend mudar uma chave, esse arquivo muda junto.
 
-Não há backend em runtime: o site é só HTML/JS/CSS + um JSON estático.
+Não há backend em runtime: o site é só HTML/JS/CSS + JSONs estáticos. O de
+Fortaleza (~100 cursos) passa de 7 MB — é baixado só quando escolhido.
 
 ---
 
@@ -228,7 +240,8 @@ servidor. Com hash, a rota nunca vai pro servidor.
 ## 7. Deploy (GitHub Pages)
 
 Workflow em `.github/workflows/deploy-frontend.yml` (na raiz do repo). Roda em
-push na `main` que mexa em `frontend/**`, no `dashboard.json` ou no próprio
+push na `main` que mexa em `frontend/**`, nos JSONs de
+`backend/app/data/processed/dashboard/` ou no próprio
 workflow (ou manualmente, via _workflow_dispatch_):
 
 1. `npm ci` → `npm run sync-data` → `npm run build` com `GITHUB_PAGES=true`.
@@ -237,8 +250,8 @@ workflow (ou manualmente, via _workflow_dispatch_):
    Localmente ela não é setada e o `base` fica `/`.
 3. Publica `frontend/dist` no GitHub Pages.
 
-Ou seja: pra atualizar os dados do site, basta rodar o backend, commitar o
-`dashboard.json` novo e dar push — o deploy sai sozinho.
+Ou seja: pra atualizar os dados do site, basta rodar o backend, commitar os
+JSONs novos de `dashboard/` e dar push — o deploy sai sozinho.
 
 No repositório, **Settings → Pages → Source** precisa estar em
 **GitHub Actions**.

@@ -21,9 +21,9 @@ export function PageHeader({
                 {title}
             </h1>
             {subtitle && (
-                <p className="mt-2 text-[14px] leading-snug text-white/65">
+                <div className="mt-2 text-[14px] leading-snug text-white/65">
                     {subtitle}
-                </p>
+                </div>
             )}
         </header>
     );

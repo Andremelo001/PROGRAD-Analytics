@@ -1,7 +1,8 @@
 # PROGRAD Analytics — Backend
 
 Pipeline Python (Poetry) do PROGRAD Analytics: baixa os dados do INEP, limpa,
-gera os CSVs e o `dashboard.json` que o [frontend](../frontend/README.md) consome.
+gera os CSVs e os JSONs do painel (um por campus) que o
+[frontend](../frontend/README.md) consome.
 
 **Todos os comandos `poetry ...` deste README rodam de dentro de `backend/`**
 (ou da raiz com `poetry -C backend ...`). Caminhos como `app/data/processed/`
@@ -26,7 +27,7 @@ poetry run pre-commit install
 # 4. (opcional) configurar o ambiente — o .env fica na raiz do repo
 cp ../.env.example ../.env
 
-# 5. Rodar o pipeline completo: qualidade + trajetória + dashboard.json
+# 5. Rodar o pipeline completo: qualidade + trajetória + JSONs do painel
 poetry run python -m app.cmd all
 ```
 
@@ -38,12 +39,12 @@ Outros comandos da CLI (detalhes na seção 4):
 ```bash
 poetry run python -m app.cmd qualidade                  # só qualidade
 poetry run python -m app.cmd trajetoria                 # só trajetória
-poetry run python -m app.cmd dashboard                  # só o dashboard.json (usa os CSVs já gerados)
+poetry run python -m app.cmd dashboard                  # só os JSONs do painel (usa os CSVs já gerados)
 poetry run python -m app.cmd qualidade --years 2023,2022  # subconjunto de anos
 poetry run python -m app.cmd trajetoria --force         # ignora o cache, baixa tudo de novo
 ```
 
-Depois de gerar o `dashboard.json`, o frontend já consegue subir — ver
+Depois de gerar os JSONs do painel, o frontend já consegue subir — ver
 [`../frontend/README.md`](../frontend/README.md).
 
 ### Usar o ambiente
@@ -116,7 +117,7 @@ backend/
 │   │       └── storage/     # CsvExporter, JsonExporter, MetaWriter, dataset_locator
 │   ├── data/
 │   │   ├── raw/             # baixados brutos — cache local (gitignored)
-│   │   └── processed/       # qualidade.csv, trajetoria.csv[.gz], dashboard.json, _meta.json
+│   │   └── processed/       # qualidade.csv, trajetoria.csv[.gz], _meta.json, dashboard/<campus>.json
 │   └── modules/
 │       ├── qualidade/       # CPC — Indicadores de Qualidade da Educação Superior
 │       ├── trajetoria/      # Indicadores de Trajetória da Educação Superior
@@ -238,7 +239,7 @@ tipos, decodifica categorias, descarta linha com valor que não converte) →
 ### 4.1. Rodando o pipeline completo
 
 Um único comando baixa e processa os dois módulos (Qualidade + Trajetória) e,
-em seguida, gera o `dashboard.json` (ver 4.4) a partir dos CSVs resultantes:
+em seguida, gera os JSONs do painel (ver 4.4) a partir dos CSVs resultantes:
 
 ```bash
 poetry run python -m app.cmd all
@@ -265,7 +266,7 @@ Saída esperada num run com tudo novo:
 app/data/processed/
 ├── qualidade.csv        (~26 MB,  ~68 mil linhas, 8 anos: 2015-2019, 2021-2023)
 ├── trajetoria.csv.gz    (~68 MB, ~2,7 milhões de linhas, 11 faixas: 2010-2024)
-├── dashboard.json       (~430 KB — recorte da UFC Campus Quixadá + médias nacionais, ver 4.4)
+├── dashboard/           (um JSON por campus da UFC + index.json, ver 4.4)
 └── _meta.json           (fonte, data de geração, nº de linhas, colunas — por módulo)
 ```
 
@@ -301,18 +302,37 @@ a intermediária em `app/core/infrastructure/http/certs/inep_ca_chain.pem`
 
 `qualidade.csv`/`trajetoria.csv.gz` continuam com **todas** as instituições e
 cursos do Brasil — isso não muda. O módulo `dashboard` lê esses dois CSVs,
-recorta só a instituição/campus configurados (`DASHBOARD_CODIGO_IES` +
-`DASHBOARD_CODIGO_MUNICIPIO`, ver 4.5) e grava um único
-`app/data/processed/dashboard.json` pronto pro front consumir — sem precisar
-reprocessar CSVs de ~68 mil/2,7 milhões de linhas no browser.
+recorta a instituição configurada (`DASHBOARD_CODIGO_IES`, ver 4.5) **campus por
+campus** e grava um JSON por campus, pronto pro front consumir — sem precisar
+reprocessar CSVs de ~68 mil/2,7 milhões de linhas no browser:
+
+```
+app/data/processed/dashboard/
+├── index.json       # lista de campi: slug, nome, codigo_municipio, total_cursos, arquivo
+├── crateus.json     # ~260 KB
+├── fortaleza.json   # ~7,6 MB (103 cursos)
+├── quixada.json     # ~430 KB — o que o site mostra hoje
+├── russas.json      # ~270 KB
+└── sobral.json      # ~700 KB
+```
+
+Todos os arquivos de campus têm **exatamente a mesma estrutura** (as seções da
+tabela abaixo); muda só o recorte. Os campi **não são configurados**:
+`shared.discover_campi()` pega cada município onde a IES tem curso na
+trajetória — campus novo publicado pelo INEP entra sozinho no próximo run; um
+polo EaD que só aparece na qualidade (sem turma acompanhada) fica de fora. O
+nome ("UFC Campus Crateús") vem da sigla da IES + município da qualidade, e o
+nome do arquivo é o município sem acento. JSON de campus que deixou de existir
+é apagado.
 
 ```bash
 poetry run python -m app.cmd dashboard   # só o dashboard (exige qualidade.csv e trajetoria.csv[.gz] já gerados)
 poetry run python -m app.cmd all         # roda os dois pipelines e o dashboard em seguida
 ```
 
-Tempo aproximado (medido): **~10s**, majoritariamente para calcular as médias
-nacionais sobre os ~2,7 milhões de linhas de `trajetoria.csv.gz`.
+Tempo aproximado (medido): **~50s** para os 5 campi, mais da metade em
+Fortaleza — as médias nacionais e a distribuição por UF são calculadas curso a
+curso sobre os ~2,7 milhões de linhas de `trajetoria.csv.gz`.
 
 Cada seção do JSON tem seu próprio arquivo em
 `app/modules/dashboard/domain/services/`, para ficar fácil de manter e de
@@ -331,8 +351,9 @@ estrutura, não uma seção):
 
 `build_dashboard.py` (em `application/use_cases/`) só orquestra: lê os CSVs +
 o `_meta.json` (via `DashboardSource.read_meta()`, exposto em `fontes` no
-JSON final), monta o `ScopedData` (`shared.build_scoped_data`) e chama cada
-arquivo acima uma vez, reaproveitando os KPIs por curso entre as seções.
+JSON final) uma vez só, descobre os campi (`shared.discover_campi`) e, para
+cada campus, monta o `ScopedData` (`shared.build_scoped_data`) e chama cada
+arquivo acima, reaproveitando os KPIs por curso entre as seções.
 
 **Médias nacionais (E)**: como `qualidade.csv`/`trajetoria.csv.gz` continuam
 com o Brasil inteiro, `national_benchmarks.py` recebe os dois CSVs completos
@@ -404,9 +425,7 @@ e podem ser trocados **sem mexer em código** — copie `.env.example` para `.en
 | `HTTP_USER_AGENT` | `PROGRAD-Analytics/0.1 (data pipeline)` | header enviado ao INEP |
 | `CSV_GZIP_THRESHOLD_MB` | `40` | acima disso o CSV final vira `.csv.gz` |
 | `LOG_LEVEL` | `INFO` | nível de log (`DEBUG`, `INFO`, `WARNING`, ...) |
-| `DASHBOARD_CODIGO_IES` | `583` (UFC) | código INEP da IES que o `dashboard.json` recorta |
-| `DASHBOARD_CODIGO_MUNICIPIO` | `2311306` (Quixadá) | código IBGE do município/campus recortado |
-| `DASHBOARD_NOME_CAMPUS` | `UFC Campus Quixadá` | rótulo exibido no front (chave `escopo.municipio`) |
+| `DASHBOARD_CODIGO_IES` | `583` (UFC) | código INEP da IES; cada campus dela vira um JSON em `dashboard/` |
 | `COLUNAS_INEP_FILE` | `colunas_inep.json` (raiz) | caminho do arquivo de nomes de colunas/categorias (ver 4.6) |
 
 `QUALIDADE_MIN_YEAR=2015` não é um ajuste arbitrário: antes disso o CPC tem

@@ -1,11 +1,26 @@
 import json
+import re
+import unicodedata
 from dataclasses import dataclass
 
 import pandas as pd
 
-from app.core.config.settings import settings
-
 _CATALOG_COLUMNS = ["codigo_curso", "nome_curso", "grau_academico", "modalidade_ensino"]
+_LOWERCASE_WORDS = {"de", "da", "do", "das", "dos", "e"}
+
+
+@dataclass(frozen=True, slots=True)
+class Campus:
+    """Um campus da IES: o recorte (IES + município) de um arquivo do dashboard.
+
+    ``nome`` é o rótulo exibido no front (``escopo.municipio``, ex.: "UFC Campus
+    Quixadá"); ``slug`` é o nome do arquivo (``quixada`` -> ``quixada.json``).
+    """
+
+    codigo_ies: int
+    codigo_municipio: int
+    nome: str
+    slug: str
 
 
 @dataclass(frozen=True, slots=True)
@@ -17,25 +32,103 @@ class ScopedData:
     cursos: pd.DataFrame
 
 
-def build_scoped_data(
-    qualidade_raw: pd.DataFrame, trajetoria_raw: pd.DataFrame
-) -> ScopedData:
-    """Filtra os dois datasets pelo escopo configurado e monta o catálogo.
+def discover_campi(
+    qualidade: pd.DataFrame, trajetoria: pd.DataFrame, codigo_ies: int
+) -> list[Campus]:
+    """Todos os campi da IES: cada município onde ela tem curso na trajetória.
 
-    O escopo vem de ``settings.dashboard_*`` (codigo_ies/codigo_municipio).
+    A trajetória decide quem é campus (tem curso com turma acompanhada); só
+    aparecer na qualidade não basta — é o caso de polo EaD com um curso
+    avaliado uma vez. O nome do município vem da qualidade (a trajetória só
+    tem o código); sem ele, o campus é identificado pelo código.
     """
-    qualidade = _filter_scope(qualidade_raw)
-    trajetoria = _filter_scope(trajetoria_raw)
+    if trajetoria.empty:
+        return []
+    municipios = (
+        trajetoria.loc[trajetoria["codigo_ies"] == codigo_ies, "codigo_municipio"]
+        .dropna()
+        .astype(int)
+        .unique()
+    )
+    da_ies = (
+        qualidade[qualidade["codigo_ies"] == codigo_ies]
+        if not qualidade.empty
+        else qualidade
+    )
+    sigla = _most_common(da_ies, "sigla_ies")
+    campi = []
+    for codigo in sorted(municipios):
+        nome_municipio = _municipio_nome(da_ies, int(codigo))
+        rotulo = nome_municipio or str(codigo)
+        campi.append(
+            Campus(
+                codigo_ies=codigo_ies,
+                codigo_municipio=int(codigo),
+                nome=f"{sigla} Campus {rotulo}" if sigla else f"Campus {rotulo}",
+                slug=slugify(rotulo),
+            )
+        )
+    return campi
+
+
+def _municipio_nome(qualidade: pd.DataFrame, codigo_municipio: int) -> str | None:
+    """Nome do município em caixa de título ("FORTALEZA" -> "Fortaleza").
+
+    O INEP grafa o mesmo município em caixa alta em uns anos e não em outros;
+    vale a grafia mais frequente.
+    """
+    if qualidade.empty or "municipio_curso" not in qualidade.columns:
+        return None
+    nome = _most_common(
+        qualidade[qualidade["codigo_municipio"] == codigo_municipio],
+        "municipio_curso",
+    )
+    return None if nome is None else _title_case(nome)
+
+
+def _most_common(frame: pd.DataFrame, column: str) -> str | None:
+    if frame.empty or column not in frame.columns:
+        return None
+    values = frame[column].dropna().astype(str).str.strip()
+    values = values[values != ""]
+    return None if values.empty else str(values.value_counts().index[0])
+
+
+def _title_case(text: str) -> str:
+    words = text.lower().split()
+    return " ".join(
+        word if index > 0 and word in _LOWERCASE_WORDS else word.capitalize()
+        for index, word in enumerate(words)
+    )
+
+
+def slugify(text: str) -> str:
+    """Nome -> slug de arquivo: "Juazeiro do Norte" -> "juazeiro-do-norte".
+
+    Sem acentos e minúsculo ("Crateús" -> "crateus").
+    """
+    ascii_text = (
+        unicodedata.normalize("NFD", text).encode("ascii", "ignore").decode("ascii")
+    )
+    return re.sub(r"[^a-z0-9]+", "-", ascii_text.lower()).strip("-")
+
+
+def build_scoped_data(
+    qualidade_raw: pd.DataFrame, trajetoria_raw: pd.DataFrame, campus: Campus
+) -> ScopedData:
+    """Filtra os dois datasets para um campus e monta o catálogo de cursos."""
+    qualidade = _filter_scope(qualidade_raw, campus)
+    trajetoria = _filter_scope(trajetoria_raw, campus)
     cursos = _course_catalog(trajetoria, qualidade)
     qualidade = with_course_name(qualidade, cursos)
     return ScopedData(qualidade=qualidade, trajetoria=trajetoria, cursos=cursos)
 
 
-def _filter_scope(frame: pd.DataFrame) -> pd.DataFrame:
+def _filter_scope(frame: pd.DataFrame, campus: Campus) -> pd.DataFrame:
     if frame.empty:
         return frame
-    mask = (frame["codigo_ies"] == settings.dashboard_codigo_ies) & (
-        frame["codigo_municipio"] == settings.dashboard_codigo_municipio
+    mask = (frame["codigo_ies"] == campus.codigo_ies) & (
+        frame["codigo_municipio"] == campus.codigo_municipio
     )
     return frame.loc[mask].reset_index(drop=True)
 
@@ -89,7 +182,7 @@ def with_course_name(frame: pd.DataFrame, cursos: pd.DataFrame) -> pd.DataFrame:
 
 
 def build_escopo(
-    qualidade: pd.DataFrame, trajetoria: pd.DataFrame
+    qualidade: pd.DataFrame, trajetoria: pd.DataFrame, campus: Campus
 ) -> dict[str, object]:
     nome_ies = None
     sigla_ies = None
@@ -99,11 +192,11 @@ def build_escopo(
     elif not trajetoria.empty:
         nome_ies = trajetoria["nome_ies"].iloc[0]
     return {
-        "codigo_ies": settings.dashboard_codigo_ies,
+        "codigo_ies": campus.codigo_ies,
         "nome_ies": nome_ies,
         "sigla_ies": sigla_ies,
-        "codigo_municipio": settings.dashboard_codigo_municipio,
-        "municipio": settings.dashboard_nome_campus,
+        "codigo_municipio": campus.codigo_municipio,
+        "municipio": campus.nome,
     }
 
 

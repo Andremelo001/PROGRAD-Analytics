@@ -58,6 +58,9 @@ function buildLinhas(
     return { anos, linhas };
 }
 
+/** Linhas (cursos) visíveis de uma vez; mais que isso, a grade rola. */
+const LINHAS_VISIVEIS = 6;
+
 const mean = (values: number[]) =>
     values.length === 0 ? null : values.reduce((a, b) => a + b, 0) / values.length;
 
@@ -86,7 +89,9 @@ export function EvasaoHeatmapCard({
         [cursos, local, nacional]
     );
     // limite de cada lado da escala (múltiplo de 5 p.p.): acima e abaixo da
-    // média têm amplitudes bem diferentes, então cada lado usa a sua
+    // média têm amplitudes bem diferentes, então cada lado usa a sua. É o
+    // percentil 95 de cada lado, não o máximo: poucos valores extremos (ex.:
+    // Fortaleza, com ~100 cursos) não apagam o resto; os extremos saturam.
     const { abaixoMax, acimaMax } = useMemo(() => {
         const diffs = linhas.flatMap((l) =>
             [...l.celulas.values()].flatMap((c) =>
@@ -94,9 +99,16 @@ export function EvasaoHeatmapCard({
             )
         );
         const teto = (v: number) => Math.max(5, Math.ceil(v / 5) * 5);
+        const p95 = (values: number[]) => {
+            if (values.length === 0) return 0;
+            const sorted = [...values].sort((a, b) => a - b);
+            return sorted[
+                Math.min(sorted.length - 1, Math.floor(0.95 * sorted.length))
+            ];
+        };
         return {
-            abaixoMax: teto(Math.max(0, ...diffs.map((d) => -d))),
-            acimaMax: teto(Math.max(0, ...diffs)),
+            abaixoMax: teto(p95(diffs.filter((d) => d < 0).map((d) => -d))),
+            acimaMax: teto(p95(diffs.filter((d) => d > 0))),
         };
     }, [linhas]);
 
@@ -174,9 +186,20 @@ export function EvasaoHeatmapCard({
 
             <div className="relative mt-4" onMouseLeave={() => setHover(null)}>
                 {/* folga de 4px em volta (compensada na margem): um container com
-                    rolagem horizontal também corta na vertical, e o contorno da
-                    célula sob o mouse passa 3px pra fora da grade */}
-                <div className="-m-1 [scrollbar-width:none] overflow-x-auto p-1">
+                    rolagem também corta nas bordas, e o contorno da célula sob o
+                    mouse passa 3px pra fora da grade. Com mais de 6 cursos
+                    (ex.: Fortaleza) a grade rola na vertical na altura de 6
+                    linhas, com o eixo dos anos preso embaixo — o card não cresce. */}
+                <div
+                    className={cn(
+                        // altura de 6 linhas sempre: o card tem o mesmo tamanho
+                        // em qualquer campus
+                        "-m-1 h-[201.5px] overflow-x-auto p-1",
+                        linhas.length > LINHAS_VISIVEIS
+                            ? "[scrollbar-width:thin] overflow-y-auto"
+                            : "[scrollbar-width:none]"
+                    )}
+                >
                     <div
                         // coluna dos nomes: 112px no celular (a grade rola dentro
                         // do card), até 200px a partir de sm
@@ -211,9 +234,12 @@ export function EvasaoHeatmapCard({
                                 }
                             />
                         ))}
-                        <span />
+                        <span className="bg-surface sticky bottom-0 left-0 z-[3] self-stretch shadow-[0_4px_0_var(--surface),3px_0_0_var(--surface)]" />
                         {anos.map((ano) => (
-                            <span key={ano} className="flex justify-center pt-[5px]">
+                            <span
+                                key={ano}
+                                className="bg-surface sticky bottom-0 z-[2] flex justify-center self-stretch pt-[5px] shadow-[0_4px_0_var(--surface),3px_0_0_var(--surface)]"
+                            >
                                 <span
                                     className={cn(
                                         "rounded-md px-1.5 py-0.5 text-[11px] tabular-nums",

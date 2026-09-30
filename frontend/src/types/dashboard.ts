@@ -295,6 +295,23 @@ export interface Alertas {
     itens: AlertaItem[];
 }
 
+// --- índice de campi (processed/dashboard/index.json) ---------------------
+
+/** Um campus da IES — cada um tem o seu ``<slug>.json`` (um DashboardData). */
+export interface CampusInfo {
+    slug: string;
+    nome: string;
+    codigo_municipio: number;
+    total_cursos: number;
+    arquivo: string;
+}
+
+export interface CampusIndex {
+    gerado_em: string;
+    codigo_ies: number;
+    campi: CampusInfo[];
+}
+
 // --- raiz ------------------------------------------------------------------
 
 export interface DashboardData {

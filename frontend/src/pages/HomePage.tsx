@@ -3,12 +3,17 @@ import { BrasilMapaCard } from "@/components/charts/BrasilMapaCard";
 import { CpcComparativoCard } from "@/components/charts/CpcComparativoCard";
 import { EvasaoHeatmapCard } from "@/components/charts/EvasaoHeatmapCard";
 import { IngressantesTrendCard } from "@/components/charts/IngressantesTrendCard";
+import { CampusSelect } from "@/components/layout/CampusSelect";
 import { DataState } from "@/components/layout/DataState";
 import { PageHeader } from "@/components/layout/PageHeader";
 import type { CurvaSobrevivenciaPonto, DashboardData } from "@/types/dashboard";
 
 export function HomePage() {
-    return <DataState render={(data) => <Home data={data} />} />;
+    return (
+        <DataState
+            render={(data) => <Home key={data.escopo.codigo_municipio} data={data} />}
+        />
+    );
 }
 
 /** Histórico de uma taxa na mesma "idade" de turma (``anos`` desde o
@@ -49,7 +54,12 @@ function Home({ data }: { data: DashboardData }) {
         <>
             <PageHeader
                 title="Olá, bem-vindo ao PROGRAD Analytics!"
-                subtitle={`Acompanhe os indicadores da graduação do ${data.escopo.municipio}.`}
+                subtitle={
+                    <>
+                        Acompanhe os indicadores da graduação do UFC Campus{" "}
+                        <CampusSelect />
+                    </>
+                }
             />
 
             <div className="grid grid-cols-1 gap-5 lg:grid-cols-12 lg:gap-6">

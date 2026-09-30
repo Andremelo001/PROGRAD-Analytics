@@ -1,7 +1,7 @@
 import pandas as pd
 
 from app.modules.dashboard.domain.services import national_benchmarks
-from app.modules.dashboard.domain.shared import ScopedData, build_scoped_data
+from app.modules.dashboard.domain.shared import Campus, ScopedData, build_scoped_data
 
 
 def _peer_qualidade_row() -> pd.DataFrame:
@@ -188,7 +188,7 @@ def test_distribuicao_uf_has_one_item_per_campus_course(
 
 
 def test_distribuicao_uf_counts_peers_per_state(
-    qualidade_raw: pd.DataFrame, trajetoria_raw: pd.DataFrame
+    qualidade_raw: pd.DataFrame, trajetoria_raw: pd.DataFrame, campus: Campus
 ) -> None:
     # curso-par (700) em SP, com turma no mesmo ano mais recente do curso 10
     par = _peer_trajetoria_row().assign(ano_ingresso=2020, ano_referencia=2021)
@@ -199,7 +199,7 @@ def test_distribuicao_uf_counts_peers_per_state(
         pd.concat([qualidade_raw, _peer_qualidade_row()], ignore_index=True),
         {700: (35, "SP")},
     )
-    scoped = build_scoped_data(qualidade, trajetoria)
+    scoped = build_scoped_data(qualidade, trajetoria, campus)
     result = national_benchmarks.build(qualidade, trajetoria, scoped)
 
     item = next(i for i in result["distribuicao_uf"] if i["codigo_curso"] == 10)

@@ -10,7 +10,7 @@ dist-ssr/
 vite.config.js
 vite.config.d.ts
 
-# dashboard.json copiado de backend/app/data/processed/ pelo sync-data — gerado, não
+# JSONs dos campi copiados de backend/app/data/processed/dashboard/ pelo sync-data — gerado, não
 # é fonte de verdade (a fonte é backend/app/data/processed/).
 public/data/
 

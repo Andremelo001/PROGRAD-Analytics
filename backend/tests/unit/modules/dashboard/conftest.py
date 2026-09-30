@@ -1,9 +1,8 @@
 import pandas as pd
 import pytest
 
-from app.core.config.settings import settings
 from app.modules.dashboard.domain.section import DashboardContext
-from app.modules.dashboard.domain.shared import ScopedData, build_scoped_data
+from app.modules.dashboard.domain.shared import Campus, ScopedData, build_scoped_data
 
 _IES = 1
 _MUNICIPIO = 100
@@ -213,10 +212,14 @@ _TRAJETORIA_RAW = pd.DataFrame(
 )
 
 
-@pytest.fixture(autouse=True)
-def _dashboard_scope(monkeypatch: pytest.MonkeyPatch) -> None:
-    monkeypatch.setattr(settings, "dashboard_codigo_ies", _IES)
-    monkeypatch.setattr(settings, "dashboard_codigo_municipio", _MUNICIPIO)
+@pytest.fixture
+def campus() -> Campus:
+    return Campus(
+        codigo_ies=_IES,
+        codigo_municipio=_MUNICIPIO,
+        nome="UFT Campus Teste",
+        slug="teste",
+    )
 
 
 @pytest.fixture
@@ -231,9 +234,9 @@ def trajetoria_raw() -> pd.DataFrame:
 
 @pytest.fixture
 def scoped_data(
-    qualidade_raw: pd.DataFrame, trajetoria_raw: pd.DataFrame
+    qualidade_raw: pd.DataFrame, trajetoria_raw: pd.DataFrame, campus: Campus
 ) -> ScopedData:
-    return build_scoped_data(qualidade_raw, trajetoria_raw)
+    return build_scoped_data(qualidade_raw, trajetoria_raw, campus)
 
 
 @pytest.fixture

@@ -3,6 +3,7 @@ from pathlib import Path
 
 from loguru import logger
 
+from app.core.config.settings import settings
 from app.core.infrastructure.storage.json_exporter import JsonExporter
 from app.modules.dashboard.application.ports.dashboard_source import DashboardSource
 from app.modules.dashboard.domain import shared
@@ -19,7 +20,10 @@ from app.modules.dashboard.infrastructure.sources.processed_csv_source import (
     ProcessedCsvSource,
 )
 
-_NAME = "dashboard"
+# Um JSON por campus em app/data/processed/dashboard/<slug>.json, mais o
+# index.json com a lista de campi (o front baixa só o campus escolhido).
+_DIR_NAME = "dashboard"
+_INDEX_NAME = "index"
 
 # Ordem = ordem das seções no dashboard.json. Acrescentar uma seção nova
 # é registrar mais uma linha aqui — não editar build_dashboard().
@@ -33,42 +37,82 @@ _SECTIONS: tuple[DashboardSection, ...] = (
 )
 
 
-def build_dashboard(*, source: DashboardSource | None = None) -> Path:
-    """Lê qualidade.csv + trajetoria.csv[.gz] e grava o dashboard.json.
+def build_dashboard(
+    *, source: DashboardSource | None = None, out_dir: Path | None = None
+) -> Path:
+    """Lê qualidade.csv + trajetoria.csv[.gz] e grava um JSON por campus.
 
-    Recorta os dois datasets para o escopo configurado e grava o resultado em
-    ``app/data/processed/dashboard.json``.
+    Os campi são todos os municípios onde a IES configurada
+    (``DASHBOARD_CODIGO_IES``) tem curso na trajetória. Cada campus vira
+    ``<out_dir>/<slug>.json`` com a mesma estrutura, e ``index.json`` lista
+    os campi. JSONs de campus que deixou de existir são apagados. Retorna
+    ``out_dir`` (default: ``app/data/processed/dashboard/``).
     """
     source = source if source is not None else ProcessedCsvSource()
+    out_dir = out_dir if out_dir is not None else settings.processed_dir / _DIR_NAME
     qualidade_nacional = source.read_qualidade()
     trajetoria_nacional = source.read_trajetoria()
-    meta = source.read_meta()
+    fontes = _build_fontes(source.read_meta())
+    gerado_em = datetime.now(UTC).isoformat(timespec="seconds")
 
-    data = shared.build_scoped_data(qualidade_nacional, trajetoria_nacional)
-    if data.cursos.empty:
+    campi = shared.discover_campi(
+        qualidade_nacional, trajetoria_nacional, settings.dashboard_codigo_ies
+    )
+    if not campi:
         logger.warning(
-            "dashboard | nenhum curso encontrado no escopo configurado "
-            "(ver DASHBOARD_CODIGO_IES/DASHBOARD_CODIGO_MUNICIPIO no .env)"
+            "dashboard | nenhum campus encontrado para a IES {} "
+            "(ver DASHBOARD_CODIGO_IES no .env)",
+            settings.dashboard_codigo_ies,
         )
 
-    context = DashboardContext(
-        data=data,
-        qualidade_nacional=qualidade_nacional,
-        trajetoria_nacional=trajetoria_nacional,
+    exporter = JsonExporter(out_dir=out_dir)
+    index: list[dict[str, object]] = []
+    for campus in campi:
+        data = shared.build_scoped_data(qualidade_nacional, trajetoria_nacional, campus)
+        context = DashboardContext(
+            data=data,
+            qualidade_nacional=qualidade_nacional,
+            trajetoria_nacional=trajetoria_nacional,
+        )
+        payload: dict[str, object] = {
+            "gerado_em": gerado_em,
+            "escopo": shared.build_escopo(data.qualidade, data.trajetoria, campus),
+            "cursos": shared.records(data.cursos),
+            "fontes": fontes,
+        }
+        for section in _SECTIONS:
+            payload[section.key] = section.build(context)
+
+        exporter.export(payload, campus.slug)
+        index.append(
+            {
+                "slug": campus.slug,
+                "nome": campus.nome,
+                "codigo_municipio": campus.codigo_municipio,
+                "total_cursos": len(data.cursos),
+                "arquivo": f"{campus.slug}.json",
+            }
+        )
+        logger.info("dashboard | {} | cursos={}", campus.nome, len(data.cursos))
+
+    exporter.export(
+        {
+            "gerado_em": gerado_em,
+            "codigo_ies": settings.dashboard_codigo_ies,
+            "campi": index,
+        },
+        _INDEX_NAME,
     )
+    _remove_stale(out_dir, {f"{c.slug}.json" for c in campi} | {f"{_INDEX_NAME}.json"})
+    return out_dir
 
-    payload: dict[str, object] = {
-        "gerado_em": datetime.now(UTC).isoformat(timespec="seconds"),
-        "escopo": shared.build_escopo(data.qualidade, data.trajetoria),
-        "cursos": shared.records(data.cursos),
-        "fontes": _build_fontes(meta),
-    }
-    for section in _SECTIONS:
-        payload[section.key] = section.build(context)
 
-    path = JsonExporter().export(payload, _NAME)
-    logger.info("dashboard | cursos={} -> {}", len(data.cursos), path)
-    return path
+def _remove_stale(out_dir: Path, keep: set[str]) -> None:
+    """Apaga JSONs de campus que não saíram neste run (ex.: campus extinto)."""
+    for path in out_dir.glob("*.json"):
+        if path.name not in keep:
+            path.unlink()
+            logger.info("dashboard | removido {} (campus fora da lista)", path.name)
 
 
 def _build_fontes(meta: dict[str, object]) -> dict[str, object]:

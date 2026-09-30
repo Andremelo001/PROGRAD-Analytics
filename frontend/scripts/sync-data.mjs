@@ -1,8 +1,10 @@
-// Copia backend/app/data/processed/dashboard.json (gerado pelo pipeline Python) pra
-// frontend/public/data/, de onde o Vite serve como asset estático — tanto em
-// dev quanto no build de produção (GitHub Pages não roda servidor nenhum,
-// só serve arquivo).
-import { copyFileSync, existsSync, mkdirSync } from "node:fs";
+// Copia os JSONs dos campi (gerados pelo pipeline Python em
+// backend/app/data/processed/dashboard/: index.json + <slug>.json de cada
+// campus) pra frontend/public/data/dashboard/, de onde o Vite serve como
+// asset estático — tanto em dev quanto no build de produção (GitHub Pages não
+// roda servidor nenhum, só serve arquivo). O front lê o index.json pra montar
+// o seletor de campus e baixa o <slug>.json do campus escolhido.
+import { cpSync, existsSync, rmSync } from "node:fs";
 import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -15,18 +17,20 @@ const SOURCE = resolve(
     "app",
     "data",
     "processed",
-    "dashboard.json"
+    "dashboard"
 );
-const DEST = resolve(__dirname, "..", "public", "data", "dashboard.json");
+const DEST_ROOT = resolve(__dirname, "..", "public", "data");
+const DEST = resolve(DEST_ROOT, "dashboard");
 
-if (!existsSync(SOURCE)) {
+if (!existsSync(resolve(SOURCE, "index.json"))) {
     console.error(
-        `dashboard.json não encontrado em ${SOURCE}\n` +
+        `index.json não encontrado em ${SOURCE}\n` +
             "Rode o pipeline Python antes: cd backend && poetry run python -m app.cmd dashboard"
     );
     process.exit(1);
 }
 
-mkdirSync(dirname(DEST), { recursive: true });
-copyFileSync(SOURCE, DEST);
-console.log(`dashboard.json sincronizado -> ${DEST}`);
+// recomeça do zero: não sobra campus removido nem o dashboard.json antigo
+rmSync(DEST_ROOT, { recursive: true, force: true });
+cpSync(SOURCE, DEST, { recursive: true });
+console.log(`campi sincronizados -> ${DEST}`);

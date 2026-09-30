@@ -157,7 +157,7 @@ Depois de reprocessar, confira o final do log: o aviso `REVISAR` do arquivo
 que você corrigiu **não deve aparecer mais**. Se ainda aparecer, compare letra
 por letra o nome que você digitou com o que está em `novas_sem_par`.
 
-Pra atualizar o painel (`dashboard.json`) com os dados corrigidos, rode também
+Pra atualizar o painel (os JSONs de `dashboard/`) com os dados corrigidos, rode também
 `poetry run python -m app.cmd dashboard` — ou use `all`, que faz tudo.
 
 ---

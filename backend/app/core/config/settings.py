@@ -42,11 +42,9 @@ class Settings(BaseSettings):
     # código pra que uma coluna renomeada pelo INEP se resolva editando JSON.
     colunas_inep_file: Path = _REPO_ROOT / "colunas_inep.json"
 
-    # Escopo do módulo dashboard: instituição/campus para o qual o JSON final é
-    # recortado (codigo_ies + codigo_municipio, do próprio dado do INEP).
+    # Instituição do módulo dashboard (código INEP). Os campi não são
+    # configurados: cada município onde ela tem curso vira um JSON.
     dashboard_codigo_ies: int = 583
-    dashboard_codigo_municipio: int = 2311306
-    dashboard_nome_campus: str = "UFC Campus Quixadá"
 
     model_config = SettingsConfigDict(
         env_file=_ENV_FILE,
