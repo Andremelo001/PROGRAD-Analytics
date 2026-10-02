@@ -3,6 +3,7 @@ import { useEffect, useRef, useState, type RefObject } from "react";
 import { Outlet } from "react-router-dom";
 
 import brasao from "@/assets/brasao.png";
+import { PresentationBar } from "@/components/layout/PresentationBar";
 import { PresentationToggle } from "@/components/layout/PresentationToggle";
 import { Sidebar } from "@/components/layout/Sidebar";
 import { ThemeToggle } from "@/components/layout/ThemeToggle";
@@ -72,9 +73,13 @@ export function AppLayout() {
                 ref={topoRef}
                 inert={presenting}
                 className={cn(
-                    "bg-band sticky top-0 z-30 transition-[transform,margin,box-shadow,opacity]",
+                    "sticky top-0 z-30 transition-[transform,margin,box-shadow,opacity,background-color,backdrop-filter]",
                     TRANSICAO,
-                    scrolled && !presenting && "shadow-[0_10px_30px_rgb(0_0_0/0.18)]",
+                    // parado no topo: sólido; rolando (cards passando por baixo):
+                    // vidro — fundo escuro translúcido com desfoque
+                    scrolled && !presenting
+                        ? "bg-band/80 shadow-[0_10px_30px_rgb(0_0_0/0.18)] backdrop-blur-xl backdrop-saturate-150"
+                        : "bg-band",
                     // esmaece ao subir: o sublinhado da aba ativa passa 1px da
                     // borda e deixaria um fio no topo da tela
                     presenting && "opacity-0"
@@ -167,6 +172,9 @@ export function AppLayout() {
                 )}
             >
                 <main className="min-w-0">
+                    {/* modo apresentação: frase + seletor de campus + logo num
+                        card baixo, já que a saudação sobe junto com o topo */}
+                    <PresentationBar presenting={presenting} />
                     <PageHeaderSlotContext.Provider
                         value={isLg ? stickySlot : flowSlot}
                     >

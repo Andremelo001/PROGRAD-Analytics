@@ -40,7 +40,10 @@ as abas e a barra de endereço.
 - aperte **Ctrl + K** (no Mac, **⌘ + K**).
 
 A faixa do topo sobe até sumir, os cards sobem junto e a página volta para o
-começo, para a apresentação começar pelos primeiros gráficos.
+começo, para a apresentação começar pelos primeiros gráficos. No lugar da
+faixa aparece uma barra fina, acima dos cards, com a frase "Acompanhe os
+indicadores da graduação do UFC Campus …", o **seletor de campus** e o logo:
+dá para trocar de campus sem sair da apresentação.
 
 **Como sair:**
 
@@ -48,7 +51,8 @@ começo, para a apresentação começar pelos primeiros gráficos.
 - aperte **Ctrl + K** (ou **⌘ + K**) de novo; ou
 - aperte **Esc**.
 
-A faixa do topo volta ao lugar e, em seguida, o navegador sai da tela cheia.
+A barra se desfaz, a faixa do topo volta ao lugar e, em seguida, o navegador
+sai da tela cheia.
 
 ## De onde vêm os dados
 

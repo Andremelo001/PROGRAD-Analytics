@@ -9,8 +9,9 @@ function nomeCurto(nome: string): string {
 
 /** Seletor de campus no meio da saudação ("…da graduação do UFC Campus
  * [Quixadá ▾]"). Troca o JSON carregado (``DashboardDataProvider``); enquanto
- * o novo campus baixa, a seta vira um indicador de carga. */
-export function CampusSelect() {
+ * o novo campus baixa, a seta vira um indicador de carga. ``tone="surface"``
+ * é a versão sobre um card (barra do modo apresentação). */
+export function CampusSelect({ tone = "band" }: { tone?: "band" | "surface" }) {
     const { campi, campus, setCampus, switching } = useDashboardData();
     if (campi.length === 0 || campus === null) return null;
 
@@ -22,6 +23,7 @@ export function CampusSelect() {
             options={campi.map((c) => ({ value: c.slug, label: nomeCurto(c.nome) }))}
             onChange={setCampus}
             busy={switching}
+            tone={tone}
         />
     );
 }

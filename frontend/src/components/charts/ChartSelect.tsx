@@ -24,6 +24,7 @@ export function ChartSelect({
     size = "md",
     variant = "pill",
     busy = false,
+    tone = "band",
 }: {
     label: string;
     value: string;
@@ -32,6 +33,9 @@ export function ChartSelect({
     size?: "sm" | "md";
     variant?: "pill" | "inline";
     busy?: boolean;
+    /** Cor do ``inline``: sobre a faixa escura (texto branco) ou sobre um card
+     * (texto na cor de tinta do tema). */
+    tone?: "band" | "surface";
 }) {
     const sm = size === "sm";
     const inline = variant === "inline";
@@ -130,7 +134,10 @@ export function ChartSelect({
                 className={cn(
                     "focus-visible:ring-lime/60 outline-none focus-visible:ring-2",
                     inline
-                        ? "group inline-flex items-center gap-1 rounded-sm font-semibold text-white"
+                        ? cn(
+                              "group inline-flex items-center gap-1 rounded-sm font-semibold",
+                              tone === "surface" ? "text-ink" : "text-white"
+                          )
                         : cn(
                               "bg-pill text-pill-fg flex w-full items-center gap-2 font-medium",
                               sm

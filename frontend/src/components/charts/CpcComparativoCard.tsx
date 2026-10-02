@@ -166,24 +166,26 @@ export function CpcComparativoCard({
             ) : (
                 <>
                     <div className="mt-4 flex flex-wrap items-end justify-between gap-x-6 gap-y-3">
-                        <div>
+                        <div className="min-w-0">
                             <div className="flex items-center gap-3">
                                 <p className="text-[26px] leading-none font-semibold tracking-[-0.02em]">
                                     {fmt(foco.curso)}
                                 </p>
                                 {diff !== null && <DiffBadge diff={diff} />}
+                                <p className="text-text-secondary min-w-0 truncate text-[13px] leading-snug">
+                                    {foco.curso === null
+                                        ? `Curso sem avaliação em ${foco.ano}`
+                                        : `CPC do curso em ${foco.ano}`}
+                                </p>
                             </div>
-                            <p className="text-text-secondary mt-2 text-[13px] leading-snug">
-                                {foco.curso === null
-                                    ? `Curso sem avaliação em ${foco.ano}`
-                                    : `CPC do curso em ${foco.ano}`}
+                            {/* sempre presente (vazia sem média), pra altura não mudar */}
+                            <p className="text-text-secondary mt-2 min-h-[1lh] text-[13px] leading-snug">
                                 {foco.nacional !== null && (
                                     <>
-                                        {" | "}
+                                        Média nacional:{" "}
                                         <span className="text-ink font-semibold">
                                             {fmt(foco.nacional)}
-                                        </span>{" "}
-                                        na média nacional
+                                        </span>
                                         {foco.cursosConsiderados !== null &&
                                             ` (${formatInteger(foco.cursosConsiderados)} cursos)`}
                                     </>

@@ -96,7 +96,7 @@ frontend/
     │   ├── utils.ts         # cn()
     │   └── format.ts        # formatPercent, formatPoints, formatDecimal, formatInteger, toTitleCase, normalizeForSearch
     ├── components/
-    │   ├── layout/          # AppLayout (faixa escura + header), Sidebar (abas), PageHeader, ThemeToggle, PresentationToggle, CampusSelect, DataState
+    │   ├── layout/          # AppLayout (faixa escura + header), Sidebar (abas), PageHeader, ThemeToggle, PresentationToggle, PresentationBar, CampusSelect, DataState
     │   ├── cards/           # Card, StatTile (taxa + sparkline)
     │   ├── charts/          # IngressantesTrendCard, CpcComparativoCard, BrasilMapaCard, EvasaoHeatmapCard,
     │   │                    # ChartMarks, ChartSelect, DataTable, chart-theme
@@ -170,7 +170,9 @@ servidor. Com hash, a rota nunca vai pro servidor.
   esquerda, só a busca à direita. Abaixo, a saudação (`PageHeader`) e as abas
   de navegação (`Sidebar` — o nome ficou do layout anterior, hoje são abas
   horizontais com sublinhado limão). A faixa escura desce até cobrir só o
-  topo da primeira linha de cards. Esse topo fica preso ao rolar (os cards passam por baixo, com uma sombra):
+  topo da primeira linha de cards. Esse topo fica preso ao rolar (os cards passam por baixo, com uma sombra;
+  parado no topo ele é sólido e, rolando, vira vidro — `bg-band/80` +
+  `backdrop-blur`):
   em `lg+` inteiro — logo, busca, saudação e abas, que dividem a mesma linha;
   abaixo de `lg` só até as abas, e a saudação rola com a página (fixa, ela
   tomaria quase um terço da tela do celular). A saudação é o `PageHeader` da
@@ -186,7 +188,12 @@ servidor. Com hash, a rota nunca vai pro servidor.
   a faixa voltar), só a partir de 1024px de largura (em
   celular e tablet o modo funciona sem ela; sair da tela cheia pelo
   navegador também sai do modo). Um X no
-  canto superior esquerdo sai do modo. O topo
+  canto superior esquerdo sai do modo. No lugar da saudação entra a
+  `PresentationBar`: um card baixo, da largura da grade, com a frase + o
+  seletor de campus (`CampusSelect tone="surface"`) à esquerda e o logo à
+  direita — abre da esquerda pra direita (`clip-path`) enquanto empurra os
+  cards e fecha com a animação inversa; aberta, fica sem recorte e acima dos
+  cards, pra lista do seletor abrir por cima deles. O topo
   escondido fica `inert` (o Tab não passa por ele). Estado e atalhos em
   `hooks/usePresentationMode.ts`; a animação em `AppLayout`.
 - **Home** (`lg+`, grade de 12 colunas): linha 1 = Ingressantes (8) + taxas de
