@@ -157,8 +157,13 @@ function Tile({
     footer: ReactNode;
 }) {
     return (
-        <Card>
-            <div className="flex items-center justify-between gap-2">
+        <Card className="relative overflow-hidden">
+            {/* enfeite: pontinhos à direita, sumindo pra esquerda */}
+            <span
+                aria-hidden
+                className="pontilhado pointer-events-none absolute inset-y-0 right-0 w-3/5"
+            />
+            <div className="relative flex items-center justify-between gap-2">
                 <p className="text-[14px] font-medium">{label}</p>
                 <span
                     title={info}
@@ -168,13 +173,13 @@ function Tile({
                     <Info size={15} strokeWidth={2} aria-hidden />
                 </span>
             </div>
-            <div className="mt-2.5 flex items-center gap-3">
+            <div className="relative mt-2.5 flex items-center gap-3">
                 <p className="text-[26px] leading-none font-semibold tracking-[-0.02em] tabular-nums">
                     {value}
                 </p>
                 {badge}
             </div>
-            <div className="text-text-secondary mt-auto pt-3 text-[12px] leading-snug">
+            <div className="text-text-secondary relative mt-auto pt-3 text-[12px] leading-snug">
                 {footer}
             </div>
         </Card>

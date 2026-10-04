@@ -202,3 +202,18 @@
         animation: none;
     }
 }
+
+/* Malha de pontinhos decorativa no lado direito de um card, sumindo em
+ * direção à esquerda (cards de indicador da Qualidade). Só enfeite: fica
+ * atrás do conteúdo (o card precisa de ``relative overflow-hidden``) e usa a
+ * tinta do tema bem apagada, então funciona no claro e no escuro. */
+.pontilhado {
+    background-image: radial-gradient(
+        circle,
+        color-mix(in srgb, var(--ink) 16%, transparent) 1.4px,
+        transparent 1.6px
+    );
+    background-size: 12px 12px;
+    background-position: right 4px top 4px;
+    mask-image: linear-gradient(to left, black 10%, transparent 85%);
+}

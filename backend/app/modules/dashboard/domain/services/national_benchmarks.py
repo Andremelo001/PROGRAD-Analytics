@@ -44,7 +44,54 @@ def build(
         "distribuicao_uf": _distribuicao_uf(
             qualidade_nacional, trajetoria_nacional, data
         ),
+        "ingressantes": _ingressantes_nacional(trajetoria_nacional, data),
     }
+
+
+def _ingressantes_nacional(
+    trajetoria_nacional: pd.DataFrame, data: ScopedData
+) -> list[dict[str, object]]:
+    """Ingressantes médios por curso-par, por ano de ingresso.
+
+    Um item por (curso do campus, ano): a média de ingressantes dos cursos do
+    Brasil com o mesmo rótulo CINE (o curso em si, ex.: "Ciência da
+    computação" — a área geral juntaria cursos de tamanhos muito diferentes),
+    modalidade e grau acadêmico. Sem o rótulo na base, cai pra área geral.
+    """
+    if data.trajetoria.empty or trajetoria_nacional.empty:
+        return []
+    coluna = (
+        "nome_cine_rotulo"
+        if "nome_cine_rotulo" in trajetoria_nacional.columns
+        and "nome_cine_rotulo" in data.trajetoria.columns
+        else "nome_cine_area_geral"
+    )
+    # ingressantes de cada turma: uma linha por (curso, ano de ingresso)
+    turmas = trajetoria_nacional.drop_duplicates(["codigo_curso", "ano_ingresso"])
+    itens: list[dict[str, object]] = []
+    for codigo in data.cursos["codigo_curso"]:
+        local = _rows_of(data.trajetoria, int(codigo))
+        rotulo = _first(local, coluna)
+        if rotulo is None:
+            continue
+        pares = turmas[turmas[coluna] == rotulo]
+        pares = _same_value(pares, local, "tp_modalidade_ensino_desc")
+        pares = _same_value(pares, local, "tp_grau_academico_desc")
+        pares = pares.dropna(subset=["qt_ingressante"])
+        for ano, grupo in pares.groupby("ano_ingresso"):
+            itens.append(
+                {
+                    "codigo_curso": int(codigo),
+                    "ano_ingresso": int(ano),
+                    "qt_ingressante_media_nacional": round(
+                        float(grupo["qt_ingressante"].mean()), 1
+                    ),
+                    "quantidade_cursos_considerados": int(
+                        grupo["codigo_curso"].nunique()
+                    ),
+                }
+            )
+    return itens
 
 
 def _pares_nacionais(

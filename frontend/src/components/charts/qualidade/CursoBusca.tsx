@@ -15,10 +15,19 @@ export interface OpcaoCurso {
  * busca é que leva ao curso). */
 const MAX_VISIVEIS = 60;
 
+/** Largura máxima da lista na versão compacta e margem até a tela (px). */
+const LISTA_PILULA = 280;
+const MARGEM_TELA = 16;
+
 /** Seletor com busca (combobox) pra listas longas — os cursos de uma área no
  * Brasil inteiro. Fechado, mostra o escolhido (com um ponto da cor da série);
  * aberto, um campo de busca que filtra por nome e detalhe, sem acento.
- * Teclado: ↑/↓, Enter, Esc. */
+ * Teclado: ↑/↓, Enter, Esc.
+ *
+ * ``compacto``: o mesmo desenho no tamanho do seletor pequeno dos cards
+ * (``ChartSelect`` sm, 150px × 32px), pra caber no cabeçalho sem mudar a
+ * altura do card; a lista fica mais larga que ele e abre pro lado que couber
+ * na tela. */
 export function CursoBusca({
     label,
     cor,
@@ -26,6 +35,7 @@ export function CursoBusca({
     options,
     onChange,
     placeholder = "Buscar…",
+    compacto = false,
 }: {
     label: string;
     cor: string;
@@ -33,6 +43,7 @@ export function CursoBusca({
     options: OpcaoCurso[];
     onChange: (value: string) => void;
     placeholder?: string;
+    compacto?: boolean;
 }) {
     const id = useId();
     const rootRef = useRef<HTMLDivElement>(null);
@@ -40,6 +51,19 @@ export function CursoBusca({
     const [open, setOpen] = useState(false);
     const [busca, setBusca] = useState("");
     const [ativo, setAtivo] = useState(0);
+    // compacto: a lista é mais larga que o botão e abre presa à direita dele;
+    // se não couber na tela, presa à esquerda
+    const [lado, setLado] = useState<"left" | "right">("right");
+
+    function abrir() {
+        setAtivo(0);
+        const caixa = rootRef.current?.getBoundingClientRect();
+        if (compacto && caixa) {
+            const largura = Math.min(LISTA_PILULA, window.innerWidth - 2 * MARGEM_TELA);
+            setLado(caixa.right - MARGEM_TELA >= largura ? "right" : "left");
+        }
+        setOpen(true);
+    }
 
     const selecionado = options.find((o) => o.value === value);
     const correspondentes = useMemo(() => {
@@ -96,9 +120,16 @@ export function CursoBusca({
     return (
         <div ref={rootRef} className="relative min-w-0">
             {open ? (
-                <div className="bg-page ring-lime/60 flex h-10 items-center gap-2 rounded-xl px-3 ring-2">
+                <div
+                    className={cn(
+                        "bg-page ring-lime/60 flex items-center gap-2 ring-2",
+                        compacto
+                            ? "h-8 w-[150px] rounded-lg px-2.5"
+                            : "h-10 rounded-xl px-3"
+                    )}
+                >
                     <Search
-                        size={15}
+                        size={compacto ? 13 : 15}
                         className="text-text-muted shrink-0"
                         aria-hidden
                     />
@@ -118,7 +149,12 @@ export function CursoBusca({
                             setAtivo(0);
                         }}
                         onKeyDown={onKeyDown}
-                        className="placeholder:text-text-muted min-w-0 flex-1 bg-transparent text-[13px] outline-none"
+                        // 16px no celular: com letra menor, o navegador (Safari
+                        // no iPhone) aproxima a tela ao focar o campo
+                        className={cn(
+                            "placeholder:text-text-muted min-w-0 flex-1 bg-transparent text-[16px] outline-none",
+                            compacto ? "sm:text-[12px]" : "sm:text-[13px]"
+                        )}
                     />
                 </div>
             ) : (
@@ -126,24 +162,36 @@ export function CursoBusca({
                     type="button"
                     aria-haspopup="listbox"
                     aria-label={`${label}: ${selecionado?.label ?? "nenhum"}`}
-                    onClick={() => {
-                        setAtivo(0);
-                        setOpen(true);
-                    }}
-                    className="bg-page hover:bg-page/70 focus-visible:ring-lime/60 flex h-10 w-full min-w-0 items-center gap-2.5 rounded-xl px-3 text-left outline-none focus-visible:ring-2"
+                    onClick={abrir}
+                    className={cn(
+                        "bg-page hover:bg-page/70 focus-visible:ring-lime/60 flex min-w-0 items-center text-left outline-none focus-visible:ring-2",
+                        compacto
+                            ? "h-8 w-[150px] gap-1.5 rounded-lg pr-2 pl-2.5"
+                            : "h-10 w-full gap-2.5 rounded-xl px-3"
+                    )}
                 >
                     <span
                         aria-hidden
-                        className="h-2.5 w-2.5 shrink-0 rounded-full"
+                        className={cn(
+                            "shrink-0 rounded-full",
+                            compacto ? "h-2 w-2" : "h-2.5 w-2.5"
+                        )}
                         style={{ background: cor }}
                     />
                     <span className="min-w-0 flex-1">
-                        <span className="block truncate text-[13px] font-semibold">
+                        <span
+                            className={cn(
+                                "block truncate",
+                                compacto
+                                    ? "text-[12px] font-medium"
+                                    : "text-[13px] font-semibold"
+                            )}
+                        >
                             {selecionado?.label ?? placeholder}
                         </span>
                     </span>
                     <ChevronDown
-                        size={15}
+                        size={compacto ? 14 : 15}
                         className="text-text-muted shrink-0"
                         aria-hidden
                     />
@@ -155,7 +203,15 @@ export function CursoBusca({
                     id={`${id}-lista`}
                     role="listbox"
                     aria-label={label}
-                    className="bg-popover text-ink absolute top-[calc(100%+6px)] right-0 left-0 z-40 max-h-80 overflow-y-auto rounded-xl p-1.5 shadow-[0_16px_40px_rgb(0_0_0/0.18)]"
+                    className={cn(
+                        "bg-popover text-ink absolute top-[calc(100%+6px)] z-40 max-h-80 overflow-y-auto rounded-xl p-1.5 shadow-[0_16px_40px_rgb(0_0_0/0.18)]",
+                        compacto
+                            ? cn(
+                                  "w-[min(280px,calc(100vw-32px))]",
+                                  lado === "right" ? "right-0" : "left-0"
+                              )
+                            : "right-0 left-0"
+                    )}
                 >
                     {filtradas.length === 0 && (
                         <li className="text-text-secondary px-3 py-2 text-[13px]">

@@ -280,6 +280,15 @@ export interface DistribuicaoUfCurso {
     estados: DistribuicaoUfEstado[];
 }
 
+/** Ingressantes médios dos cursos-pares no Brasil (mesmo rótulo CINE,
+ * modalidade e grau) de um curso do campus, por ano de ingresso. */
+export interface IngressantesNacionalPonto {
+    codigo_curso: number;
+    ano_ingresso: number;
+    qt_ingressante_media_nacional: number;
+    quantidade_cursos_considerados: number;
+}
+
 /** Médias só do grupo de pares (mesma área/classificação de curso do
  * campus) — nunca o Brasil inteiro misturado. Ver docs/dashboard_dados.md. */
 export interface MediasNacionais {
@@ -289,6 +298,7 @@ export interface MediasNacionais {
     heatmap_evasao_anual: HeatmapEvasaoNacionalCelula[];
     campus: CampusNacional;
     distribuicao_uf: DistribuicaoUfCurso[];
+    ingressantes: IngressantesNacionalPonto[];
 }
 
 // --- F. alertas ----------------------------------------------------------------

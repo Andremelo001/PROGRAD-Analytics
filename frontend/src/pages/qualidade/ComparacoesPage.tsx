@@ -222,6 +222,15 @@ function ComparacaoCampi({ resumo, seletorModo, a, b, atualizar }: PropsModo) {
     );
     const lados = { a: ra.nome, b: rb.nome };
     const fmt2 = (v: number) => formatDecimal(v);
+    const comuns = areasEmComum(ra, rb);
+    // edições do Enade por trás dos números (a mais recente de cada curso)
+    const anos = [...ra.comCpc, ...rb.comCpc].map((c) => c.ano!).filter(Boolean);
+    const edicoes =
+        anos.length === 0
+            ? null
+            : Math.min(...anos) === Math.max(...anos)
+              ? `Enade ${anos[0]}`
+              : `Enade ${Math.min(...anos)}–${Math.max(...anos)}`;
 
     return (
         <div className="grid grid-cols-1 items-start gap-5 lg:grid-cols-12 lg:gap-6">
@@ -251,6 +260,11 @@ function ComparacaoCampi({ resumo, seletorModo, a, b, atualizar }: PropsModo) {
             />
             {/* o conteúdo entra com a mesma animação das abas */}
             <div className="entrada grid grid-cols-1 items-start gap-5 lg:col-span-12 lg:grid-cols-12 lg:gap-6">
+                <p className="text-text-muted -mt-1 text-[12px] lg:col-span-12">
+                    {ra.nome} × {rb.nome}
+                    {edicoes && ` · ${edicoes}`} · {comuns.length}{" "}
+                    {comuns.length === 1 ? "área em comum" : "áreas em comum"}
+                </p>
                 {/* lado a lado com a mesma altura */}
                 <div className="grid grid-cols-1 gap-5 lg:col-span-12 lg:grid-cols-12 lg:gap-6">
                     <LadoALadoCard
@@ -305,7 +319,7 @@ function ComparacaoCampi({ resumo, seletorModo, a, b, atualizar }: PropsModo) {
                 <CursosEmComumCard
                     className="lg:col-span-12"
                     lados={lados}
-                    areas={areasEmComum(ra, rb)}
+                    areas={comuns}
                 />
             </div>
         </div>

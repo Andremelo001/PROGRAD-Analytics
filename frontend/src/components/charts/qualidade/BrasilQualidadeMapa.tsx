@@ -129,7 +129,8 @@ export function BrasilQualidadeMapa({
     const px = largura > 0 ? vb[2] / largura : 1;
 
     const { ramp, dominio } = useMemo(() => {
-        const ramp = indicador === "cursos" ? CHART.presenca.ramp : CHART.faixa.ramp;
+        // a mesma rampa azul em todos os indicadores (inclusive nº de cursos)
+        const ramp = CHART.faixa.ramp;
         const vals = [...porUf.values()].flatMap((r) => {
             const v = INDICADORES[indicador].valor(r);
             return v === null ? [] : [v];

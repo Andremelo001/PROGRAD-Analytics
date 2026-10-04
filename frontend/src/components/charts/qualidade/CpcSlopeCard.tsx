@@ -1,9 +1,8 @@
 import { useMemo, useRef, useState } from "react";
 
 import { Card } from "@/components/cards/Card";
-import { ChartSelect } from "@/components/charts/ChartSelect";
 import { DataTable } from "@/components/charts/DataTable";
-import { DeltaPill } from "@/components/charts/qualidade/DeltaPill";
+import { CursoBusca } from "@/components/charts/qualidade/CursoBusca";
 import { useChartTheme } from "@/hooks/useChartTheme";
 import { useElementSize } from "@/hooks/useElementSize";
 import { FAIXA_LIMITES } from "@/lib/cpc";
@@ -80,10 +79,16 @@ export function CpcSlopeCard({
     for (const a of pares) contagem[direcao(a.cpc - a.anterior!.cpc)]++;
     const ativo = foco === null ? undefined : avaliados.find((a) => a.codigo === foco);
     const opcoes = [
-        { value: "todos", label: "Todos os cursos" },
+        { value: "todos", label: "Todos os cursos", detalhe: "Visão geral do campus" },
         ...[...avaliados]
             .sort((a, b) => a.nome.localeCompare(b.nome, "pt-BR"))
-            .map((a) => ({ value: String(a.codigo), label: a.nome })),
+            .map((a) => ({
+                value: String(a.codigo),
+                label: a.nome,
+                detalhe: a.anterior
+                    ? `${a.anterior.ano}: ${formatDecimal(a.anterior.cpc)} → ${a.ano}: ${formatDecimal(a.cpc)}`
+                    : `1º ciclo, ${a.ano}: ${formatDecimal(a.cpc)}`,
+            })),
     ];
 
     return (
@@ -92,53 +97,22 @@ export function CpcSlopeCard({
             subtitle="CPC no ciclo anterior e no mais recente, sobre as faixas"
             className={className}
             action={
-                <ChartSelect
-                    size="sm"
+                // mesmo seletor com busca de Por curso e Comparações, no
+                // tamanho do seletor pequeno: o cabeçalho do card não muda
+                <CursoBusca
+                    compacto
                     label="Curso"
+                    cor={CHART.brand}
                     value={selecionado === null ? "todos" : String(selecionado)}
                     options={opcoes}
                     onChange={(v) => setSelecionado(v === "todos" ? null : Number(v))}
+                    placeholder="Buscar curso…"
                 />
             }
         >
-            <div className="mt-3 flex min-h-[26px] items-center gap-3 text-[13px]">
-                {ativo ? (
-                    <>
-                        {ativo.anterior && (
-                            <DeltaPill diff={ativo.cpc - ativo.anterior.cpc} />
-                        )}
-                        <p className="text-text-secondary min-w-0 truncate">
-                            <span className="text-ink font-semibold">{ativo.nome}</span>
-                            {" | "}
-                            {ativo.anterior
-                                ? `${ativo.anterior.ano}: ${formatDecimal(ativo.anterior.cpc)} → ${ativo.ano}: ${formatDecimal(ativo.cpc)}`
-                                : `1º ciclo, ${ativo.ano}: ${formatDecimal(ativo.cpc)}`}
-                        </p>
-                    </>
-                ) : (
-                    <p className="text-text-secondary flex flex-wrap gap-x-4 gap-y-1">
-                        <Legenda cor={CHART.brand} label="subiu" n={contagem.subiu} />
-                        <Legenda cor={CHART.critical} label="caiu" n={contagem.caiu} />
-                        <Legenda
-                            cor={CHART.reference}
-                            label="estável"
-                            n={contagem.estavel}
-                        />
-                        {unicos.length > 0 && (
-                            <Legenda
-                                cor={CHART.reference}
-                                label="1º ciclo"
-                                n={unicos.length}
-                                vazado
-                            />
-                        )}
-                    </p>
-                )}
-            </div>
-
             <div
                 ref={boxRef}
-                className="relative mt-2 h-[300px] min-w-0 lg:h-auto lg:min-h-[260px] lg:flex-1"
+                className="relative mt-4 h-[300px] min-w-0 lg:h-auto lg:min-h-[260px] lg:flex-1"
                 onMouseLeave={() => setHover(null)}
             >
                 {width > 0 && H > 0 && avaliados.length > 0 && (
@@ -339,28 +313,5 @@ function ValorLabel({
                 {texto}
             </text>
         </g>
-    );
-}
-
-function Legenda({
-    cor,
-    label,
-    n,
-    vazado = false,
-}: {
-    cor: string;
-    label: string;
-    n: number;
-    vazado?: boolean;
-}) {
-    return (
-        <span className="flex items-center gap-1.5 whitespace-nowrap">
-            <span
-                aria-hidden
-                className="h-2.5 w-2.5 rounded-full border-2"
-                style={{ borderColor: cor, background: vazado ? "transparent" : cor }}
-            />
-            {label} <span className="text-ink font-semibold tabular-nums">{n}</span>
-        </span>
     );
 }

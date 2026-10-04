@@ -1,5 +1,5 @@
 {
-  "gerado_em": "2026-10-04T10:23:52+00:00",
+  "gerado_em": "2026-10-04T18:28:52+00:00",
   "escopo": {
     "codigo_ies": 583,
     "nome_ies": "UNIVERSIDADE FEDERAL DO CEARÁ",
@@ -232888,6 +232888,6344 @@
             "quantidade_cursos_cpc": 0
           }
         ]
+      }
+    ],
+    "ingressantes": [
+      {
+        "codigo_curso": 13965,
+        "ano_ingresso": 2010,
+        "qt_ingressante_media_nacional": 72.2,
+        "quantidade_cursos_considerados": 591
+      },
+      {
+        "codigo_curso": 13965,
+        "ano_ingresso": 2011,
+        "qt_ingressante_media_nacional": 69.3,
+        "quantidade_cursos_considerados": 626
+      },
+      {
+        "codigo_curso": 13965,
+        "ano_ingresso": 2012,
+        "qt_ingressante_media_nacional": 76.5,
+        "quantidade_cursos_considerados": 652
+      },
+      {
+        "codigo_curso": 13965,
+        "ano_ingresso": 2013,
+        "qt_ingressante_media_nacional": 79.8,
+        "quantidade_cursos_considerados": 677
+      },
+      {
+        "codigo_curso": 13965,
+        "ano_ingresso": 2014,
+        "qt_ingressante_media_nacional": 87.6,
+        "quantidade_cursos_considerados": 714
+      },
+      {
+        "codigo_curso": 13965,
+        "ano_ingresso": 2015,
+        "qt_ingressante_media_nacional": 85.8,
+        "quantidade_cursos_considerados": 757
+      },
+      {
+        "codigo_curso": 13965,
+        "ano_ingresso": 2016,
+        "qt_ingressante_media_nacional": 80.2,
+        "quantidade_cursos_considerados": 817
+      },
+      {
+        "codigo_curso": 13965,
+        "ano_ingresso": 2017,
+        "qt_ingressante_media_nacional": 78.6,
+        "quantidade_cursos_considerados": 870
+      },
+      {
+        "codigo_curso": 13965,
+        "ano_ingresso": 2018,
+        "qt_ingressante_media_nacional": 74.8,
+        "quantidade_cursos_considerados": 958
+      },
+      {
+        "codigo_curso": 13965,
+        "ano_ingresso": 2019,
+        "qt_ingressante_media_nacional": 71.6,
+        "quantidade_cursos_considerados": 1048
+      },
+      {
+        "codigo_curso": 13965,
+        "ano_ingresso": 2020,
+        "qt_ingressante_media_nacional": 68.1,
+        "quantidade_cursos_considerados": 1097
+      },
+      {
+        "codigo_curso": 13966,
+        "ano_ingresso": 2010,
+        "qt_ingressante_media_nacional": 53.3,
+        "quantidade_cursos_considerados": 239
+      },
+      {
+        "codigo_curso": 13966,
+        "ano_ingresso": 2011,
+        "qt_ingressante_media_nacional": 57.1,
+        "quantidade_cursos_considerados": 223
+      },
+      {
+        "codigo_curso": 13966,
+        "ano_ingresso": 2012,
+        "qt_ingressante_media_nacional": 56.6,
+        "quantidade_cursos_considerados": 227
+      },
+      {
+        "codigo_curso": 13966,
+        "ano_ingresso": 2013,
+        "qt_ingressante_media_nacional": 54.4,
+        "quantidade_cursos_considerados": 208
+      },
+      {
+        "codigo_curso": 13966,
+        "ano_ingresso": 2014,
+        "qt_ingressante_media_nacional": 58.3,
+        "quantidade_cursos_considerados": 184
+      },
+      {
+        "codigo_curso": 13966,
+        "ano_ingresso": 2015,
+        "qt_ingressante_media_nacional": 58.8,
+        "quantidade_cursos_considerados": 171
+      },
+      {
+        "codigo_curso": 13966,
+        "ano_ingresso": 2016,
+        "qt_ingressante_media_nacional": 58.1,
+        "quantidade_cursos_considerados": 156
+      },
+      {
+        "codigo_curso": 13966,
+        "ano_ingresso": 2017,
+        "qt_ingressante_media_nacional": 54.7,
+        "quantidade_cursos_considerados": 163
+      },
+      {
+        "codigo_curso": 13966,
+        "ano_ingresso": 2018,
+        "qt_ingressante_media_nacional": 58.6,
+        "quantidade_cursos_considerados": 147
+      },
+      {
+        "codigo_curso": 13966,
+        "ano_ingresso": 2019,
+        "qt_ingressante_media_nacional": 57.4,
+        "quantidade_cursos_considerados": 144
+      },
+      {
+        "codigo_curso": 13966,
+        "ano_ingresso": 2020,
+        "qt_ingressante_media_nacional": 53.0,
+        "quantidade_cursos_considerados": 137
+      },
+      {
+        "codigo_curso": 13967,
+        "ano_ingresso": 2010,
+        "qt_ingressante_media_nacional": 59.3,
+        "quantidade_cursos_considerados": 6072
+      },
+      {
+        "codigo_curso": 13967,
+        "ano_ingresso": 2011,
+        "qt_ingressante_media_nacional": 57.3,
+        "quantidade_cursos_considerados": 5586
+      },
+      {
+        "codigo_curso": 13967,
+        "ano_ingresso": 2012,
+        "qt_ingressante_media_nacional": 59.4,
+        "quantidade_cursos_considerados": 5543
+      },
+      {
+        "codigo_curso": 13967,
+        "ano_ingresso": 2013,
+        "qt_ingressante_media_nacional": 61.8,
+        "quantidade_cursos_considerados": 5191
+      },
+      {
+        "codigo_curso": 13967,
+        "ano_ingresso": 2014,
+        "qt_ingressante_media_nacional": 59.6,
+        "quantidade_cursos_considerados": 5213
+      },
+      {
+        "codigo_curso": 13967,
+        "ano_ingresso": 2015,
+        "qt_ingressante_media_nacional": 56.8,
+        "quantidade_cursos_considerados": 5188
+      },
+      {
+        "codigo_curso": 13967,
+        "ano_ingresso": 2016,
+        "qt_ingressante_media_nacional": 55.1,
+        "quantidade_cursos_considerados": 5171
+      },
+      {
+        "codigo_curso": 13967,
+        "ano_ingresso": 2017,
+        "qt_ingressante_media_nacional": 52.7,
+        "quantidade_cursos_considerados": 5212
+      },
+      {
+        "codigo_curso": 13967,
+        "ano_ingresso": 2018,
+        "qt_ingressante_media_nacional": 51.1,
+        "quantidade_cursos_considerados": 5181
+      },
+      {
+        "codigo_curso": 13967,
+        "ano_ingresso": 2019,
+        "qt_ingressante_media_nacional": 50.6,
+        "quantidade_cursos_considerados": 5048
+      },
+      {
+        "codigo_curso": 13967,
+        "ano_ingresso": 2020,
+        "qt_ingressante_media_nacional": 43.4,
+        "quantidade_cursos_considerados": 4636
+      },
+      {
+        "codigo_curso": 13968,
+        "ano_ingresso": 2010,
+        "qt_ingressante_media_nacional": 134.0,
+        "quantidade_cursos_considerados": 4641
+      },
+      {
+        "codigo_curso": 13968,
+        "ano_ingresso": 2011,
+        "qt_ingressante_media_nacional": 127.4,
+        "quantidade_cursos_considerados": 4630
+      },
+      {
+        "codigo_curso": 13968,
+        "ano_ingresso": 2012,
+        "qt_ingressante_media_nacional": 137.0,
+        "quantidade_cursos_considerados": 4704
+      },
+      {
+        "codigo_curso": 13968,
+        "ano_ingresso": 2013,
+        "qt_ingressante_media_nacional": 134.8,
+        "quantidade_cursos_considerados": 4632
+      },
+      {
+        "codigo_curso": 13968,
+        "ano_ingresso": 2014,
+        "qt_ingressante_media_nacional": 137.6,
+        "quantidade_cursos_considerados": 4570
+      },
+      {
+        "codigo_curso": 13968,
+        "ano_ingresso": 2015,
+        "qt_ingressante_media_nacional": 126.9,
+        "quantidade_cursos_considerados": 4606
+      },
+      {
+        "codigo_curso": 13968,
+        "ano_ingresso": 2016,
+        "qt_ingressante_media_nacional": 118.5,
+        "quantidade_cursos_considerados": 4669
+      },
+      {
+        "codigo_curso": 13968,
+        "ano_ingresso": 2017,
+        "qt_ingressante_media_nacional": 116.6,
+        "quantidade_cursos_considerados": 4779
+      },
+      {
+        "codigo_curso": 13968,
+        "ano_ingresso": 2018,
+        "qt_ingressante_media_nacional": 103.3,
+        "quantidade_cursos_considerados": 4943
+      },
+      {
+        "codigo_curso": 13968,
+        "ano_ingresso": 2019,
+        "qt_ingressante_media_nacional": 97.1,
+        "quantidade_cursos_considerados": 5127
+      },
+      {
+        "codigo_curso": 13968,
+        "ano_ingresso": 2020,
+        "qt_ingressante_media_nacional": 84.4,
+        "quantidade_cursos_considerados": 4933
+      },
+      {
+        "codigo_curso": 13969,
+        "ano_ingresso": 2010,
+        "qt_ingressante_media_nacional": 134.0,
+        "quantidade_cursos_considerados": 4641
+      },
+      {
+        "codigo_curso": 13969,
+        "ano_ingresso": 2011,
+        "qt_ingressante_media_nacional": 127.4,
+        "quantidade_cursos_considerados": 4630
+      },
+      {
+        "codigo_curso": 13969,
+        "ano_ingresso": 2012,
+        "qt_ingressante_media_nacional": 137.0,
+        "quantidade_cursos_considerados": 4704
+      },
+      {
+        "codigo_curso": 13969,
+        "ano_ingresso": 2013,
+        "qt_ingressante_media_nacional": 134.8,
+        "quantidade_cursos_considerados": 4632
+      },
+      {
+        "codigo_curso": 13969,
+        "ano_ingresso": 2014,
+        "qt_ingressante_media_nacional": 137.6,
+        "quantidade_cursos_considerados": 4570
+      },
+      {
+        "codigo_curso": 13969,
+        "ano_ingresso": 2015,
+        "qt_ingressante_media_nacional": 126.9,
+        "quantidade_cursos_considerados": 4606
+      },
+      {
+        "codigo_curso": 13969,
+        "ano_ingresso": 2016,
+        "qt_ingressante_media_nacional": 118.5,
+        "quantidade_cursos_considerados": 4669
+      },
+      {
+        "codigo_curso": 13969,
+        "ano_ingresso": 2017,
+        "qt_ingressante_media_nacional": 116.6,
+        "quantidade_cursos_considerados": 4779
+      },
+      {
+        "codigo_curso": 13969,
+        "ano_ingresso": 2018,
+        "qt_ingressante_media_nacional": 103.3,
+        "quantidade_cursos_considerados": 4943
+      },
+      {
+        "codigo_curso": 13969,
+        "ano_ingresso": 2019,
+        "qt_ingressante_media_nacional": 97.1,
+        "quantidade_cursos_considerados": 5127
+      },
+      {
+        "codigo_curso": 13969,
+        "ano_ingresso": 2020,
+        "qt_ingressante_media_nacional": 84.4,
+        "quantidade_cursos_considerados": 4933
+      },
+      {
+        "codigo_curso": 13970,
+        "ano_ingresso": 2010,
+        "qt_ingressante_media_nacional": 75.0,
+        "quantidade_cursos_considerados": 1461
+      },
+      {
+        "codigo_curso": 13970,
+        "ano_ingresso": 2011,
+        "qt_ingressante_media_nacional": 76.8,
+        "quantidade_cursos_considerados": 1431
+      },
+      {
+        "codigo_curso": 13970,
+        "ano_ingresso": 2012,
+        "qt_ingressante_media_nacional": 84.7,
+        "quantidade_cursos_considerados": 1443
+      },
+      {
+        "codigo_curso": 13970,
+        "ano_ingresso": 2013,
+        "qt_ingressante_media_nacional": 91.6,
+        "quantidade_cursos_considerados": 1407
+      },
+      {
+        "codigo_curso": 13970,
+        "ano_ingresso": 2014,
+        "qt_ingressante_media_nacional": 100.4,
+        "quantidade_cursos_considerados": 1425
+      },
+      {
+        "codigo_curso": 13970,
+        "ano_ingresso": 2015,
+        "qt_ingressante_media_nacional": 93.2,
+        "quantidade_cursos_considerados": 1469
+      },
+      {
+        "codigo_curso": 13970,
+        "ano_ingresso": 2016,
+        "qt_ingressante_media_nacional": 87.6,
+        "quantidade_cursos_considerados": 1553
+      },
+      {
+        "codigo_curso": 13970,
+        "ano_ingresso": 2017,
+        "qt_ingressante_media_nacional": 89.5,
+        "quantidade_cursos_considerados": 1601
+      },
+      {
+        "codigo_curso": 13970,
+        "ano_ingresso": 2018,
+        "qt_ingressante_media_nacional": 84.6,
+        "quantidade_cursos_considerados": 1703
+      },
+      {
+        "codigo_curso": 13970,
+        "ano_ingresso": 2019,
+        "qt_ingressante_media_nacional": 85.5,
+        "quantidade_cursos_considerados": 1805
+      },
+      {
+        "codigo_curso": 13970,
+        "ano_ingresso": 2020,
+        "qt_ingressante_media_nacional": 86.5,
+        "quantidade_cursos_considerados": 1854
+      },
+      {
+        "codigo_curso": 13971,
+        "ano_ingresso": 2010,
+        "qt_ingressante_media_nacional": 56.3,
+        "quantidade_cursos_considerados": 704
+      },
+      {
+        "codigo_curso": 13971,
+        "ano_ingresso": 2011,
+        "qt_ingressante_media_nacional": 53.8,
+        "quantidade_cursos_considerados": 734
+      },
+      {
+        "codigo_curso": 13971,
+        "ano_ingresso": 2012,
+        "qt_ingressante_media_nacional": 54.7,
+        "quantidade_cursos_considerados": 747
+      },
+      {
+        "codigo_curso": 13971,
+        "ano_ingresso": 2013,
+        "qt_ingressante_media_nacional": 54.8,
+        "quantidade_cursos_considerados": 738
+      },
+      {
+        "codigo_curso": 13971,
+        "ano_ingresso": 2014,
+        "qt_ingressante_media_nacional": 55.8,
+        "quantidade_cursos_considerados": 737
+      },
+      {
+        "codigo_curso": 13971,
+        "ano_ingresso": 2015,
+        "qt_ingressante_media_nacional": 54.1,
+        "quantidade_cursos_considerados": 746
+      },
+      {
+        "codigo_curso": 13971,
+        "ano_ingresso": 2016,
+        "qt_ingressante_media_nacional": 50.8,
+        "quantidade_cursos_considerados": 762
+      },
+      {
+        "codigo_curso": 13971,
+        "ano_ingresso": 2017,
+        "qt_ingressante_media_nacional": 51.7,
+        "quantidade_cursos_considerados": 750
+      },
+      {
+        "codigo_curso": 13971,
+        "ano_ingresso": 2018,
+        "qt_ingressante_media_nacional": 49.9,
+        "quantidade_cursos_considerados": 757
+      },
+      {
+        "codigo_curso": 13971,
+        "ano_ingresso": 2019,
+        "qt_ingressante_media_nacional": 50.6,
+        "quantidade_cursos_considerados": 750
+      },
+      {
+        "codigo_curso": 13971,
+        "ano_ingresso": 2020,
+        "qt_ingressante_media_nacional": 47.4,
+        "quantidade_cursos_considerados": 733
+      },
+      {
+        "codigo_curso": 13972,
+        "ano_ingresso": 2010,
+        "qt_ingressante_media_nacional": 56.3,
+        "quantidade_cursos_considerados": 704
+      },
+      {
+        "codigo_curso": 13972,
+        "ano_ingresso": 2011,
+        "qt_ingressante_media_nacional": 53.8,
+        "quantidade_cursos_considerados": 734
+      },
+      {
+        "codigo_curso": 13972,
+        "ano_ingresso": 2012,
+        "qt_ingressante_media_nacional": 54.7,
+        "quantidade_cursos_considerados": 747
+      },
+      {
+        "codigo_curso": 13972,
+        "ano_ingresso": 2013,
+        "qt_ingressante_media_nacional": 54.8,
+        "quantidade_cursos_considerados": 738
+      },
+      {
+        "codigo_curso": 13972,
+        "ano_ingresso": 2014,
+        "qt_ingressante_media_nacional": 55.8,
+        "quantidade_cursos_considerados": 737
+      },
+      {
+        "codigo_curso": 13972,
+        "ano_ingresso": 2015,
+        "qt_ingressante_media_nacional": 54.1,
+        "quantidade_cursos_considerados": 746
+      },
+      {
+        "codigo_curso": 13972,
+        "ano_ingresso": 2016,
+        "qt_ingressante_media_nacional": 50.8,
+        "quantidade_cursos_considerados": 762
+      },
+      {
+        "codigo_curso": 13972,
+        "ano_ingresso": 2017,
+        "qt_ingressante_media_nacional": 51.7,
+        "quantidade_cursos_considerados": 750
+      },
+      {
+        "codigo_curso": 13972,
+        "ano_ingresso": 2018,
+        "qt_ingressante_media_nacional": 49.9,
+        "quantidade_cursos_considerados": 757
+      },
+      {
+        "codigo_curso": 13972,
+        "ano_ingresso": 2019,
+        "qt_ingressante_media_nacional": 50.6,
+        "quantidade_cursos_considerados": 750
+      },
+      {
+        "codigo_curso": 13972,
+        "ano_ingresso": 2020,
+        "qt_ingressante_media_nacional": 47.4,
+        "quantidade_cursos_considerados": 733
+      },
+      {
+        "codigo_curso": 13974,
+        "ano_ingresso": 2010,
+        "qt_ingressante_media_nacional": 59.3,
+        "quantidade_cursos_considerados": 6072
+      },
+      {
+        "codigo_curso": 13974,
+        "ano_ingresso": 2011,
+        "qt_ingressante_media_nacional": 57.3,
+        "quantidade_cursos_considerados": 5586
+      },
+      {
+        "codigo_curso": 13974,
+        "ano_ingresso": 2012,
+        "qt_ingressante_media_nacional": 59.4,
+        "quantidade_cursos_considerados": 5543
+      },
+      {
+        "codigo_curso": 13974,
+        "ano_ingresso": 2013,
+        "qt_ingressante_media_nacional": 61.8,
+        "quantidade_cursos_considerados": 5191
+      },
+      {
+        "codigo_curso": 13974,
+        "ano_ingresso": 2014,
+        "qt_ingressante_media_nacional": 59.6,
+        "quantidade_cursos_considerados": 5213
+      },
+      {
+        "codigo_curso": 13974,
+        "ano_ingresso": 2015,
+        "qt_ingressante_media_nacional": 56.8,
+        "quantidade_cursos_considerados": 5188
+      },
+      {
+        "codigo_curso": 13974,
+        "ano_ingresso": 2016,
+        "qt_ingressante_media_nacional": 55.1,
+        "quantidade_cursos_considerados": 5171
+      },
+      {
+        "codigo_curso": 13974,
+        "ano_ingresso": 2017,
+        "qt_ingressante_media_nacional": 52.7,
+        "quantidade_cursos_considerados": 5212
+      },
+      {
+        "codigo_curso": 13974,
+        "ano_ingresso": 2018,
+        "qt_ingressante_media_nacional": 51.1,
+        "quantidade_cursos_considerados": 5181
+      },
+      {
+        "codigo_curso": 13974,
+        "ano_ingresso": 2019,
+        "qt_ingressante_media_nacional": 50.6,
+        "quantidade_cursos_considerados": 5048
+      },
+      {
+        "codigo_curso": 13974,
+        "ano_ingresso": 2020,
+        "qt_ingressante_media_nacional": 43.4,
+        "quantidade_cursos_considerados": 4636
+      },
+      {
+        "codigo_curso": 13975,
+        "ano_ingresso": 2010,
+        "qt_ingressante_media_nacional": 56.3,
+        "quantidade_cursos_considerados": 704
+      },
+      {
+        "codigo_curso": 13975,
+        "ano_ingresso": 2011,
+        "qt_ingressante_media_nacional": 53.8,
+        "quantidade_cursos_considerados": 734
+      },
+      {
+        "codigo_curso": 13975,
+        "ano_ingresso": 2012,
+        "qt_ingressante_media_nacional": 54.7,
+        "quantidade_cursos_considerados": 747
+      },
+      {
+        "codigo_curso": 13975,
+        "ano_ingresso": 2013,
+        "qt_ingressante_media_nacional": 54.8,
+        "quantidade_cursos_considerados": 738
+      },
+      {
+        "codigo_curso": 13975,
+        "ano_ingresso": 2014,
+        "qt_ingressante_media_nacional": 55.8,
+        "quantidade_cursos_considerados": 737
+      },
+      {
+        "codigo_curso": 13975,
+        "ano_ingresso": 2015,
+        "qt_ingressante_media_nacional": 54.1,
+        "quantidade_cursos_considerados": 746
+      },
+      {
+        "codigo_curso": 13975,
+        "ano_ingresso": 2016,
+        "qt_ingressante_media_nacional": 50.8,
+        "quantidade_cursos_considerados": 762
+      },
+      {
+        "codigo_curso": 13975,
+        "ano_ingresso": 2017,
+        "qt_ingressante_media_nacional": 51.7,
+        "quantidade_cursos_considerados": 750
+      },
+      {
+        "codigo_curso": 13975,
+        "ano_ingresso": 2018,
+        "qt_ingressante_media_nacional": 49.9,
+        "quantidade_cursos_considerados": 757
+      },
+      {
+        "codigo_curso": 13975,
+        "ano_ingresso": 2019,
+        "qt_ingressante_media_nacional": 50.6,
+        "quantidade_cursos_considerados": 750
+      },
+      {
+        "codigo_curso": 13975,
+        "ano_ingresso": 2020,
+        "qt_ingressante_media_nacional": 47.4,
+        "quantidade_cursos_considerados": 733
+      },
+      {
+        "codigo_curso": 13976,
+        "ano_ingresso": 2010,
+        "qt_ingressante_media_nacional": 59.3,
+        "quantidade_cursos_considerados": 6072
+      },
+      {
+        "codigo_curso": 13976,
+        "ano_ingresso": 2011,
+        "qt_ingressante_media_nacional": 57.3,
+        "quantidade_cursos_considerados": 5586
+      },
+      {
+        "codigo_curso": 13976,
+        "ano_ingresso": 2012,
+        "qt_ingressante_media_nacional": 59.4,
+        "quantidade_cursos_considerados": 5543
+      },
+      {
+        "codigo_curso": 13976,
+        "ano_ingresso": 2013,
+        "qt_ingressante_media_nacional": 61.8,
+        "quantidade_cursos_considerados": 5191
+      },
+      {
+        "codigo_curso": 13976,
+        "ano_ingresso": 2014,
+        "qt_ingressante_media_nacional": 59.6,
+        "quantidade_cursos_considerados": 5213
+      },
+      {
+        "codigo_curso": 13976,
+        "ano_ingresso": 2015,
+        "qt_ingressante_media_nacional": 56.8,
+        "quantidade_cursos_considerados": 5188
+      },
+      {
+        "codigo_curso": 13976,
+        "ano_ingresso": 2016,
+        "qt_ingressante_media_nacional": 55.1,
+        "quantidade_cursos_considerados": 5171
+      },
+      {
+        "codigo_curso": 13976,
+        "ano_ingresso": 2017,
+        "qt_ingressante_media_nacional": 52.7,
+        "quantidade_cursos_considerados": 5212
+      },
+      {
+        "codigo_curso": 13976,
+        "ano_ingresso": 2018,
+        "qt_ingressante_media_nacional": 51.1,
+        "quantidade_cursos_considerados": 5181
+      },
+      {
+        "codigo_curso": 13976,
+        "ano_ingresso": 2019,
+        "qt_ingressante_media_nacional": 50.6,
+        "quantidade_cursos_considerados": 5048
+      },
+      {
+        "codigo_curso": 13976,
+        "ano_ingresso": 2020,
+        "qt_ingressante_media_nacional": 43.4,
+        "quantidade_cursos_considerados": 4636
+      },
+      {
+        "codigo_curso": 13977,
+        "ano_ingresso": 2010,
+        "qt_ingressante_media_nacional": 56.3,
+        "quantidade_cursos_considerados": 704
+      },
+      {
+        "codigo_curso": 13977,
+        "ano_ingresso": 2011,
+        "qt_ingressante_media_nacional": 53.8,
+        "quantidade_cursos_considerados": 734
+      },
+      {
+        "codigo_curso": 13977,
+        "ano_ingresso": 2012,
+        "qt_ingressante_media_nacional": 54.7,
+        "quantidade_cursos_considerados": 747
+      },
+      {
+        "codigo_curso": 13977,
+        "ano_ingresso": 2013,
+        "qt_ingressante_media_nacional": 54.8,
+        "quantidade_cursos_considerados": 738
+      },
+      {
+        "codigo_curso": 13977,
+        "ano_ingresso": 2014,
+        "qt_ingressante_media_nacional": 55.8,
+        "quantidade_cursos_considerados": 737
+      },
+      {
+        "codigo_curso": 13977,
+        "ano_ingresso": 2015,
+        "qt_ingressante_media_nacional": 54.1,
+        "quantidade_cursos_considerados": 746
+      },
+      {
+        "codigo_curso": 13977,
+        "ano_ingresso": 2016,
+        "qt_ingressante_media_nacional": 50.8,
+        "quantidade_cursos_considerados": 762
+      },
+      {
+        "codigo_curso": 13977,
+        "ano_ingresso": 2017,
+        "qt_ingressante_media_nacional": 51.7,
+        "quantidade_cursos_considerados": 750
+      },
+      {
+        "codigo_curso": 13977,
+        "ano_ingresso": 2018,
+        "qt_ingressante_media_nacional": 49.9,
+        "quantidade_cursos_considerados": 757
+      },
+      {
+        "codigo_curso": 13977,
+        "ano_ingresso": 2019,
+        "qt_ingressante_media_nacional": 50.6,
+        "quantidade_cursos_considerados": 750
+      },
+      {
+        "codigo_curso": 13977,
+        "ano_ingresso": 2020,
+        "qt_ingressante_media_nacional": 47.4,
+        "quantidade_cursos_considerados": 733
+      },
+      {
+        "codigo_curso": 13980,
+        "ano_ingresso": 2010,
+        "qt_ingressante_media_nacional": 69.6,
+        "quantidade_cursos_considerados": 880
+      },
+      {
+        "codigo_curso": 13980,
+        "ano_ingresso": 2011,
+        "qt_ingressante_media_nacional": 66.0,
+        "quantidade_cursos_considerados": 868
+      },
+      {
+        "codigo_curso": 13980,
+        "ano_ingresso": 2012,
+        "qt_ingressante_media_nacional": 66.2,
+        "quantidade_cursos_considerados": 904
+      },
+      {
+        "codigo_curso": 13980,
+        "ano_ingresso": 2013,
+        "qt_ingressante_media_nacional": 65.4,
+        "quantidade_cursos_considerados": 889
+      },
+      {
+        "codigo_curso": 13980,
+        "ano_ingresso": 2014,
+        "qt_ingressante_media_nacional": 65.9,
+        "quantidade_cursos_considerados": 875
+      },
+      {
+        "codigo_curso": 13980,
+        "ano_ingresso": 2015,
+        "qt_ingressante_media_nacional": 61.6,
+        "quantidade_cursos_considerados": 822
+      },
+      {
+        "codigo_curso": 13980,
+        "ano_ingresso": 2016,
+        "qt_ingressante_media_nacional": 58.8,
+        "quantidade_cursos_considerados": 818
+      },
+      {
+        "codigo_curso": 13980,
+        "ano_ingresso": 2017,
+        "qt_ingressante_media_nacional": 58.0,
+        "quantidade_cursos_considerados": 827
+      },
+      {
+        "codigo_curso": 13980,
+        "ano_ingresso": 2018,
+        "qt_ingressante_media_nacional": 54.9,
+        "quantidade_cursos_considerados": 848
+      },
+      {
+        "codigo_curso": 13980,
+        "ano_ingresso": 2019,
+        "qt_ingressante_media_nacional": 54.3,
+        "quantidade_cursos_considerados": 858
+      },
+      {
+        "codigo_curso": 13980,
+        "ano_ingresso": 2020,
+        "qt_ingressante_media_nacional": 54.2,
+        "quantidade_cursos_considerados": 849
+      },
+      {
+        "codigo_curso": 13981,
+        "ano_ingresso": 2010,
+        "qt_ingressante_media_nacional": 75.0,
+        "quantidade_cursos_considerados": 1461
+      },
+      {
+        "codigo_curso": 13981,
+        "ano_ingresso": 2011,
+        "qt_ingressante_media_nacional": 76.8,
+        "quantidade_cursos_considerados": 1431
+      },
+      {
+        "codigo_curso": 13981,
+        "ano_ingresso": 2012,
+        "qt_ingressante_media_nacional": 84.7,
+        "quantidade_cursos_considerados": 1443
+      },
+      {
+        "codigo_curso": 13981,
+        "ano_ingresso": 2013,
+        "qt_ingressante_media_nacional": 91.6,
+        "quantidade_cursos_considerados": 1407
+      },
+      {
+        "codigo_curso": 13981,
+        "ano_ingresso": 2014,
+        "qt_ingressante_media_nacional": 100.4,
+        "quantidade_cursos_considerados": 1425
+      },
+      {
+        "codigo_curso": 13981,
+        "ano_ingresso": 2015,
+        "qt_ingressante_media_nacional": 93.2,
+        "quantidade_cursos_considerados": 1469
+      },
+      {
+        "codigo_curso": 13981,
+        "ano_ingresso": 2016,
+        "qt_ingressante_media_nacional": 87.6,
+        "quantidade_cursos_considerados": 1553
+      },
+      {
+        "codigo_curso": 13981,
+        "ano_ingresso": 2017,
+        "qt_ingressante_media_nacional": 89.5,
+        "quantidade_cursos_considerados": 1601
+      },
+      {
+        "codigo_curso": 13981,
+        "ano_ingresso": 2018,
+        "qt_ingressante_media_nacional": 84.6,
+        "quantidade_cursos_considerados": 1703
+      },
+      {
+        "codigo_curso": 13981,
+        "ano_ingresso": 2019,
+        "qt_ingressante_media_nacional": 85.5,
+        "quantidade_cursos_considerados": 1805
+      },
+      {
+        "codigo_curso": 13981,
+        "ano_ingresso": 2020,
+        "qt_ingressante_media_nacional": 86.5,
+        "quantidade_cursos_considerados": 1854
+      },
+      {
+        "codigo_curso": 13982,
+        "ano_ingresso": 2010,
+        "qt_ingressante_media_nacional": 59.3,
+        "quantidade_cursos_considerados": 6072
+      },
+      {
+        "codigo_curso": 13982,
+        "ano_ingresso": 2011,
+        "qt_ingressante_media_nacional": 57.3,
+        "quantidade_cursos_considerados": 5586
+      },
+      {
+        "codigo_curso": 13982,
+        "ano_ingresso": 2012,
+        "qt_ingressante_media_nacional": 59.4,
+        "quantidade_cursos_considerados": 5543
+      },
+      {
+        "codigo_curso": 13982,
+        "ano_ingresso": 2013,
+        "qt_ingressante_media_nacional": 61.8,
+        "quantidade_cursos_considerados": 5191
+      },
+      {
+        "codigo_curso": 13982,
+        "ano_ingresso": 2014,
+        "qt_ingressante_media_nacional": 59.6,
+        "quantidade_cursos_considerados": 5213
+      },
+      {
+        "codigo_curso": 13982,
+        "ano_ingresso": 2015,
+        "qt_ingressante_media_nacional": 56.8,
+        "quantidade_cursos_considerados": 5188
+      },
+      {
+        "codigo_curso": 13982,
+        "ano_ingresso": 2016,
+        "qt_ingressante_media_nacional": 55.1,
+        "quantidade_cursos_considerados": 5171
+      },
+      {
+        "codigo_curso": 13982,
+        "ano_ingresso": 2017,
+        "qt_ingressante_media_nacional": 52.7,
+        "quantidade_cursos_considerados": 5212
+      },
+      {
+        "codigo_curso": 13982,
+        "ano_ingresso": 2018,
+        "qt_ingressante_media_nacional": 51.1,
+        "quantidade_cursos_considerados": 5181
+      },
+      {
+        "codigo_curso": 13982,
+        "ano_ingresso": 2019,
+        "qt_ingressante_media_nacional": 50.6,
+        "quantidade_cursos_considerados": 5048
+      },
+      {
+        "codigo_curso": 13982,
+        "ano_ingresso": 2020,
+        "qt_ingressante_media_nacional": 43.4,
+        "quantidade_cursos_considerados": 4636
+      },
+      {
+        "codigo_curso": 13984,
+        "ano_ingresso": 2010,
+        "qt_ingressante_media_nacional": 59.3,
+        "quantidade_cursos_considerados": 6072
+      },
+      {
+        "codigo_curso": 13984,
+        "ano_ingresso": 2011,
+        "qt_ingressante_media_nacional": 57.3,
+        "quantidade_cursos_considerados": 5586
+      },
+      {
+        "codigo_curso": 13984,
+        "ano_ingresso": 2012,
+        "qt_ingressante_media_nacional": 59.4,
+        "quantidade_cursos_considerados": 5543
+      },
+      {
+        "codigo_curso": 13984,
+        "ano_ingresso": 2013,
+        "qt_ingressante_media_nacional": 61.8,
+        "quantidade_cursos_considerados": 5191
+      },
+      {
+        "codigo_curso": 13984,
+        "ano_ingresso": 2014,
+        "qt_ingressante_media_nacional": 59.6,
+        "quantidade_cursos_considerados": 5213
+      },
+      {
+        "codigo_curso": 13984,
+        "ano_ingresso": 2015,
+        "qt_ingressante_media_nacional": 56.8,
+        "quantidade_cursos_considerados": 5188
+      },
+      {
+        "codigo_curso": 13984,
+        "ano_ingresso": 2016,
+        "qt_ingressante_media_nacional": 55.1,
+        "quantidade_cursos_considerados": 5171
+      },
+      {
+        "codigo_curso": 13984,
+        "ano_ingresso": 2017,
+        "qt_ingressante_media_nacional": 52.7,
+        "quantidade_cursos_considerados": 5212
+      },
+      {
+        "codigo_curso": 13984,
+        "ano_ingresso": 2018,
+        "qt_ingressante_media_nacional": 51.1,
+        "quantidade_cursos_considerados": 5181
+      },
+      {
+        "codigo_curso": 13984,
+        "ano_ingresso": 2019,
+        "qt_ingressante_media_nacional": 50.6,
+        "quantidade_cursos_considerados": 5048
+      },
+      {
+        "codigo_curso": 13984,
+        "ano_ingresso": 2020,
+        "qt_ingressante_media_nacional": 43.4,
+        "quantidade_cursos_considerados": 4636
+      },
+      {
+        "codigo_curso": 13985,
+        "ano_ingresso": 2010,
+        "qt_ingressante_media_nacional": 59.3,
+        "quantidade_cursos_considerados": 6072
+      },
+      {
+        "codigo_curso": 13985,
+        "ano_ingresso": 2011,
+        "qt_ingressante_media_nacional": 57.3,
+        "quantidade_cursos_considerados": 5586
+      },
+      {
+        "codigo_curso": 13985,
+        "ano_ingresso": 2012,
+        "qt_ingressante_media_nacional": 59.4,
+        "quantidade_cursos_considerados": 5543
+      },
+      {
+        "codigo_curso": 13985,
+        "ano_ingresso": 2013,
+        "qt_ingressante_media_nacional": 61.8,
+        "quantidade_cursos_considerados": 5191
+      },
+      {
+        "codigo_curso": 13985,
+        "ano_ingresso": 2014,
+        "qt_ingressante_media_nacional": 59.6,
+        "quantidade_cursos_considerados": 5213
+      },
+      {
+        "codigo_curso": 13985,
+        "ano_ingresso": 2015,
+        "qt_ingressante_media_nacional": 56.8,
+        "quantidade_cursos_considerados": 5188
+      },
+      {
+        "codigo_curso": 13985,
+        "ano_ingresso": 2016,
+        "qt_ingressante_media_nacional": 55.1,
+        "quantidade_cursos_considerados": 5171
+      },
+      {
+        "codigo_curso": 13985,
+        "ano_ingresso": 2017,
+        "qt_ingressante_media_nacional": 52.7,
+        "quantidade_cursos_considerados": 5212
+      },
+      {
+        "codigo_curso": 13985,
+        "ano_ingresso": 2018,
+        "qt_ingressante_media_nacional": 51.1,
+        "quantidade_cursos_considerados": 5181
+      },
+      {
+        "codigo_curso": 13985,
+        "ano_ingresso": 2019,
+        "qt_ingressante_media_nacional": 50.6,
+        "quantidade_cursos_considerados": 5048
+      },
+      {
+        "codigo_curso": 13985,
+        "ano_ingresso": 2020,
+        "qt_ingressante_media_nacional": 43.4,
+        "quantidade_cursos_considerados": 4636
+      },
+      {
+        "codigo_curso": 13986,
+        "ano_ingresso": 2010,
+        "qt_ingressante_media_nacional": 75.0,
+        "quantidade_cursos_considerados": 1461
+      },
+      {
+        "codigo_curso": 13986,
+        "ano_ingresso": 2011,
+        "qt_ingressante_media_nacional": 76.8,
+        "quantidade_cursos_considerados": 1431
+      },
+      {
+        "codigo_curso": 13986,
+        "ano_ingresso": 2012,
+        "qt_ingressante_media_nacional": 84.7,
+        "quantidade_cursos_considerados": 1443
+      },
+      {
+        "codigo_curso": 13986,
+        "ano_ingresso": 2013,
+        "qt_ingressante_media_nacional": 91.6,
+        "quantidade_cursos_considerados": 1407
+      },
+      {
+        "codigo_curso": 13986,
+        "ano_ingresso": 2014,
+        "qt_ingressante_media_nacional": 100.4,
+        "quantidade_cursos_considerados": 1425
+      },
+      {
+        "codigo_curso": 13986,
+        "ano_ingresso": 2015,
+        "qt_ingressante_media_nacional": 93.2,
+        "quantidade_cursos_considerados": 1469
+      },
+      {
+        "codigo_curso": 13986,
+        "ano_ingresso": 2016,
+        "qt_ingressante_media_nacional": 87.6,
+        "quantidade_cursos_considerados": 1553
+      },
+      {
+        "codigo_curso": 13986,
+        "ano_ingresso": 2017,
+        "qt_ingressante_media_nacional": 89.5,
+        "quantidade_cursos_considerados": 1601
+      },
+      {
+        "codigo_curso": 13986,
+        "ano_ingresso": 2018,
+        "qt_ingressante_media_nacional": 84.6,
+        "quantidade_cursos_considerados": 1703
+      },
+      {
+        "codigo_curso": 13986,
+        "ano_ingresso": 2019,
+        "qt_ingressante_media_nacional": 85.5,
+        "quantidade_cursos_considerados": 1805
+      },
+      {
+        "codigo_curso": 13986,
+        "ano_ingresso": 2020,
+        "qt_ingressante_media_nacional": 86.5,
+        "quantidade_cursos_considerados": 1854
+      },
+      {
+        "codigo_curso": 13987,
+        "ano_ingresso": 2010,
+        "qt_ingressante_media_nacional": 103.3,
+        "quantidade_cursos_considerados": 2310
+      },
+      {
+        "codigo_curso": 13987,
+        "ano_ingresso": 2011,
+        "qt_ingressante_media_nacional": 105.4,
+        "quantidade_cursos_considerados": 2606
+      },
+      {
+        "codigo_curso": 13987,
+        "ano_ingresso": 2012,
+        "qt_ingressante_media_nacional": 121.8,
+        "quantidade_cursos_considerados": 2823
+      },
+      {
+        "codigo_curso": 13987,
+        "ano_ingresso": 2013,
+        "qt_ingressante_media_nacional": 122.2,
+        "quantidade_cursos_considerados": 3091
+      },
+      {
+        "codigo_curso": 13987,
+        "ano_ingresso": 2014,
+        "qt_ingressante_media_nacional": 120.3,
+        "quantidade_cursos_considerados": 3481
+      },
+      {
+        "codigo_curso": 13987,
+        "ano_ingresso": 2015,
+        "qt_ingressante_media_nacional": 99.1,
+        "quantidade_cursos_considerados": 3916
+      },
+      {
+        "codigo_curso": 13987,
+        "ano_ingresso": 2016,
+        "qt_ingressante_media_nacional": 79.0,
+        "quantidade_cursos_considerados": 4227
+      },
+      {
+        "codigo_curso": 13987,
+        "ano_ingresso": 2017,
+        "qt_ingressante_media_nacional": 67.2,
+        "quantidade_cursos_considerados": 4475
+      },
+      {
+        "codigo_curso": 13987,
+        "ano_ingresso": 2018,
+        "qt_ingressante_media_nacional": 55.4,
+        "quantidade_cursos_considerados": 4705
+      },
+      {
+        "codigo_curso": 13987,
+        "ano_ingresso": 2019,
+        "qt_ingressante_media_nacional": 50.0,
+        "quantidade_cursos_considerados": 4688
+      },
+      {
+        "codigo_curso": 13987,
+        "ano_ingresso": 2020,
+        "qt_ingressante_media_nacional": 44.8,
+        "quantidade_cursos_considerados": 4489
+      },
+      {
+        "codigo_curso": 13988,
+        "ano_ingresso": 2010,
+        "qt_ingressante_media_nacional": 103.3,
+        "quantidade_cursos_considerados": 2310
+      },
+      {
+        "codigo_curso": 13988,
+        "ano_ingresso": 2011,
+        "qt_ingressante_media_nacional": 105.4,
+        "quantidade_cursos_considerados": 2606
+      },
+      {
+        "codigo_curso": 13988,
+        "ano_ingresso": 2012,
+        "qt_ingressante_media_nacional": 121.8,
+        "quantidade_cursos_considerados": 2823
+      },
+      {
+        "codigo_curso": 13988,
+        "ano_ingresso": 2013,
+        "qt_ingressante_media_nacional": 122.2,
+        "quantidade_cursos_considerados": 3091
+      },
+      {
+        "codigo_curso": 13988,
+        "ano_ingresso": 2014,
+        "qt_ingressante_media_nacional": 120.3,
+        "quantidade_cursos_considerados": 3481
+      },
+      {
+        "codigo_curso": 13988,
+        "ano_ingresso": 2015,
+        "qt_ingressante_media_nacional": 99.1,
+        "quantidade_cursos_considerados": 3916
+      },
+      {
+        "codigo_curso": 13988,
+        "ano_ingresso": 2016,
+        "qt_ingressante_media_nacional": 79.0,
+        "quantidade_cursos_considerados": 4227
+      },
+      {
+        "codigo_curso": 13988,
+        "ano_ingresso": 2017,
+        "qt_ingressante_media_nacional": 67.2,
+        "quantidade_cursos_considerados": 4475
+      },
+      {
+        "codigo_curso": 13988,
+        "ano_ingresso": 2018,
+        "qt_ingressante_media_nacional": 55.4,
+        "quantidade_cursos_considerados": 4705
+      },
+      {
+        "codigo_curso": 13988,
+        "ano_ingresso": 2019,
+        "qt_ingressante_media_nacional": 50.0,
+        "quantidade_cursos_considerados": 4688
+      },
+      {
+        "codigo_curso": 13988,
+        "ano_ingresso": 2020,
+        "qt_ingressante_media_nacional": 44.8,
+        "quantidade_cursos_considerados": 4489
+      },
+      {
+        "codigo_curso": 13989,
+        "ano_ingresso": 2010,
+        "qt_ingressante_media_nacional": 103.3,
+        "quantidade_cursos_considerados": 2310
+      },
+      {
+        "codigo_curso": 13989,
+        "ano_ingresso": 2011,
+        "qt_ingressante_media_nacional": 105.4,
+        "quantidade_cursos_considerados": 2606
+      },
+      {
+        "codigo_curso": 13989,
+        "ano_ingresso": 2012,
+        "qt_ingressante_media_nacional": 121.8,
+        "quantidade_cursos_considerados": 2823
+      },
+      {
+        "codigo_curso": 13989,
+        "ano_ingresso": 2013,
+        "qt_ingressante_media_nacional": 122.2,
+        "quantidade_cursos_considerados": 3091
+      },
+      {
+        "codigo_curso": 13989,
+        "ano_ingresso": 2014,
+        "qt_ingressante_media_nacional": 120.3,
+        "quantidade_cursos_considerados": 3481
+      },
+      {
+        "codigo_curso": 13989,
+        "ano_ingresso": 2015,
+        "qt_ingressante_media_nacional": 99.1,
+        "quantidade_cursos_considerados": 3916
+      },
+      {
+        "codigo_curso": 13989,
+        "ano_ingresso": 2016,
+        "qt_ingressante_media_nacional": 79.0,
+        "quantidade_cursos_considerados": 4227
+      },
+      {
+        "codigo_curso": 13989,
+        "ano_ingresso": 2017,
+        "qt_ingressante_media_nacional": 67.2,
+        "quantidade_cursos_considerados": 4475
+      },
+      {
+        "codigo_curso": 13989,
+        "ano_ingresso": 2018,
+        "qt_ingressante_media_nacional": 55.4,
+        "quantidade_cursos_considerados": 4705
+      },
+      {
+        "codigo_curso": 13989,
+        "ano_ingresso": 2019,
+        "qt_ingressante_media_nacional": 50.0,
+        "quantidade_cursos_considerados": 4688
+      },
+      {
+        "codigo_curso": 13989,
+        "ano_ingresso": 2020,
+        "qt_ingressante_media_nacional": 44.8,
+        "quantidade_cursos_considerados": 4489
+      },
+      {
+        "codigo_curso": 13990,
+        "ano_ingresso": 2010,
+        "qt_ingressante_media_nacional": 103.3,
+        "quantidade_cursos_considerados": 2310
+      },
+      {
+        "codigo_curso": 13990,
+        "ano_ingresso": 2011,
+        "qt_ingressante_media_nacional": 105.4,
+        "quantidade_cursos_considerados": 2606
+      },
+      {
+        "codigo_curso": 13990,
+        "ano_ingresso": 2012,
+        "qt_ingressante_media_nacional": 121.8,
+        "quantidade_cursos_considerados": 2823
+      },
+      {
+        "codigo_curso": 13990,
+        "ano_ingresso": 2013,
+        "qt_ingressante_media_nacional": 122.2,
+        "quantidade_cursos_considerados": 3091
+      },
+      {
+        "codigo_curso": 13990,
+        "ano_ingresso": 2014,
+        "qt_ingressante_media_nacional": 120.3,
+        "quantidade_cursos_considerados": 3481
+      },
+      {
+        "codigo_curso": 13990,
+        "ano_ingresso": 2015,
+        "qt_ingressante_media_nacional": 99.1,
+        "quantidade_cursos_considerados": 3916
+      },
+      {
+        "codigo_curso": 13990,
+        "ano_ingresso": 2016,
+        "qt_ingressante_media_nacional": 79.0,
+        "quantidade_cursos_considerados": 4227
+      },
+      {
+        "codigo_curso": 13990,
+        "ano_ingresso": 2017,
+        "qt_ingressante_media_nacional": 67.2,
+        "quantidade_cursos_considerados": 4475
+      },
+      {
+        "codigo_curso": 13990,
+        "ano_ingresso": 2018,
+        "qt_ingressante_media_nacional": 55.4,
+        "quantidade_cursos_considerados": 4705
+      },
+      {
+        "codigo_curso": 13990,
+        "ano_ingresso": 2019,
+        "qt_ingressante_media_nacional": 50.0,
+        "quantidade_cursos_considerados": 4688
+      },
+      {
+        "codigo_curso": 13990,
+        "ano_ingresso": 2020,
+        "qt_ingressante_media_nacional": 44.8,
+        "quantidade_cursos_considerados": 4489
+      },
+      {
+        "codigo_curso": 13991,
+        "ano_ingresso": 2010,
+        "qt_ingressante_media_nacional": 103.3,
+        "quantidade_cursos_considerados": 2310
+      },
+      {
+        "codigo_curso": 13991,
+        "ano_ingresso": 2011,
+        "qt_ingressante_media_nacional": 105.4,
+        "quantidade_cursos_considerados": 2606
+      },
+      {
+        "codigo_curso": 13991,
+        "ano_ingresso": 2012,
+        "qt_ingressante_media_nacional": 121.8,
+        "quantidade_cursos_considerados": 2823
+      },
+      {
+        "codigo_curso": 13991,
+        "ano_ingresso": 2013,
+        "qt_ingressante_media_nacional": 122.2,
+        "quantidade_cursos_considerados": 3091
+      },
+      {
+        "codigo_curso": 13991,
+        "ano_ingresso": 2014,
+        "qt_ingressante_media_nacional": 120.3,
+        "quantidade_cursos_considerados": 3481
+      },
+      {
+        "codigo_curso": 13991,
+        "ano_ingresso": 2015,
+        "qt_ingressante_media_nacional": 99.1,
+        "quantidade_cursos_considerados": 3916
+      },
+      {
+        "codigo_curso": 13991,
+        "ano_ingresso": 2016,
+        "qt_ingressante_media_nacional": 79.0,
+        "quantidade_cursos_considerados": 4227
+      },
+      {
+        "codigo_curso": 13991,
+        "ano_ingresso": 2017,
+        "qt_ingressante_media_nacional": 67.2,
+        "quantidade_cursos_considerados": 4475
+      },
+      {
+        "codigo_curso": 13991,
+        "ano_ingresso": 2018,
+        "qt_ingressante_media_nacional": 55.4,
+        "quantidade_cursos_considerados": 4705
+      },
+      {
+        "codigo_curso": 13991,
+        "ano_ingresso": 2019,
+        "qt_ingressante_media_nacional": 50.0,
+        "quantidade_cursos_considerados": 4688
+      },
+      {
+        "codigo_curso": 13991,
+        "ano_ingresso": 2020,
+        "qt_ingressante_media_nacional": 44.8,
+        "quantidade_cursos_considerados": 4489
+      },
+      {
+        "codigo_curso": 13992,
+        "ano_ingresso": 2010,
+        "qt_ingressante_media_nacional": 72.2,
+        "quantidade_cursos_considerados": 591
+      },
+      {
+        "codigo_curso": 13992,
+        "ano_ingresso": 2011,
+        "qt_ingressante_media_nacional": 69.3,
+        "quantidade_cursos_considerados": 626
+      },
+      {
+        "codigo_curso": 13992,
+        "ano_ingresso": 2012,
+        "qt_ingressante_media_nacional": 76.5,
+        "quantidade_cursos_considerados": 652
+      },
+      {
+        "codigo_curso": 13992,
+        "ano_ingresso": 2013,
+        "qt_ingressante_media_nacional": 79.8,
+        "quantidade_cursos_considerados": 677
+      },
+      {
+        "codigo_curso": 13992,
+        "ano_ingresso": 2014,
+        "qt_ingressante_media_nacional": 87.6,
+        "quantidade_cursos_considerados": 714
+      },
+      {
+        "codigo_curso": 13992,
+        "ano_ingresso": 2015,
+        "qt_ingressante_media_nacional": 85.8,
+        "quantidade_cursos_considerados": 757
+      },
+      {
+        "codigo_curso": 13992,
+        "ano_ingresso": 2016,
+        "qt_ingressante_media_nacional": 80.2,
+        "quantidade_cursos_considerados": 817
+      },
+      {
+        "codigo_curso": 13992,
+        "ano_ingresso": 2017,
+        "qt_ingressante_media_nacional": 78.6,
+        "quantidade_cursos_considerados": 870
+      },
+      {
+        "codigo_curso": 13992,
+        "ano_ingresso": 2018,
+        "qt_ingressante_media_nacional": 74.8,
+        "quantidade_cursos_considerados": 958
+      },
+      {
+        "codigo_curso": 13992,
+        "ano_ingresso": 2019,
+        "qt_ingressante_media_nacional": 71.6,
+        "quantidade_cursos_considerados": 1048
+      },
+      {
+        "codigo_curso": 13992,
+        "ano_ingresso": 2020,
+        "qt_ingressante_media_nacional": 68.1,
+        "quantidade_cursos_considerados": 1097
+      },
+      {
+        "codigo_curso": 13993,
+        "ano_ingresso": 2010,
+        "qt_ingressante_media_nacional": 103.3,
+        "quantidade_cursos_considerados": 2310
+      },
+      {
+        "codigo_curso": 13993,
+        "ano_ingresso": 2011,
+        "qt_ingressante_media_nacional": 105.4,
+        "quantidade_cursos_considerados": 2606
+      },
+      {
+        "codigo_curso": 13993,
+        "ano_ingresso": 2012,
+        "qt_ingressante_media_nacional": 121.8,
+        "quantidade_cursos_considerados": 2823
+      },
+      {
+        "codigo_curso": 13993,
+        "ano_ingresso": 2013,
+        "qt_ingressante_media_nacional": 122.2,
+        "quantidade_cursos_considerados": 3091
+      },
+      {
+        "codigo_curso": 13993,
+        "ano_ingresso": 2014,
+        "qt_ingressante_media_nacional": 120.3,
+        "quantidade_cursos_considerados": 3481
+      },
+      {
+        "codigo_curso": 13993,
+        "ano_ingresso": 2015,
+        "qt_ingressante_media_nacional": 99.1,
+        "quantidade_cursos_considerados": 3916
+      },
+      {
+        "codigo_curso": 13993,
+        "ano_ingresso": 2016,
+        "qt_ingressante_media_nacional": 79.0,
+        "quantidade_cursos_considerados": 4227
+      },
+      {
+        "codigo_curso": 13993,
+        "ano_ingresso": 2017,
+        "qt_ingressante_media_nacional": 67.2,
+        "quantidade_cursos_considerados": 4475
+      },
+      {
+        "codigo_curso": 13993,
+        "ano_ingresso": 2018,
+        "qt_ingressante_media_nacional": 55.4,
+        "quantidade_cursos_considerados": 4705
+      },
+      {
+        "codigo_curso": 13993,
+        "ano_ingresso": 2019,
+        "qt_ingressante_media_nacional": 50.0,
+        "quantidade_cursos_considerados": 4688
+      },
+      {
+        "codigo_curso": 13993,
+        "ano_ingresso": 2020,
+        "qt_ingressante_media_nacional": 44.8,
+        "quantidade_cursos_considerados": 4489
+      },
+      {
+        "codigo_curso": 13994,
+        "ano_ingresso": 2010,
+        "qt_ingressante_media_nacional": 88.0,
+        "quantidade_cursos_considerados": 3338
+      },
+      {
+        "codigo_curso": 13994,
+        "ano_ingresso": 2011,
+        "qt_ingressante_media_nacional": 83.1,
+        "quantidade_cursos_considerados": 3404
+      },
+      {
+        "codigo_curso": 13994,
+        "ano_ingresso": 2012,
+        "qt_ingressante_media_nacional": 91.3,
+        "quantidade_cursos_considerados": 3482
+      },
+      {
+        "codigo_curso": 13994,
+        "ano_ingresso": 2013,
+        "qt_ingressante_media_nacional": 95.4,
+        "quantidade_cursos_considerados": 3560
+      },
+      {
+        "codigo_curso": 13994,
+        "ano_ingresso": 2014,
+        "qt_ingressante_media_nacional": 106.4,
+        "quantidade_cursos_considerados": 3721
+      },
+      {
+        "codigo_curso": 13994,
+        "ano_ingresso": 2015,
+        "qt_ingressante_media_nacional": 100.5,
+        "quantidade_cursos_considerados": 3936
+      },
+      {
+        "codigo_curso": 13994,
+        "ano_ingresso": 2016,
+        "qt_ingressante_media_nacional": 96.5,
+        "quantidade_cursos_considerados": 4284
+      },
+      {
+        "codigo_curso": 13994,
+        "ano_ingresso": 2017,
+        "qt_ingressante_media_nacional": 97.3,
+        "quantidade_cursos_considerados": 4683
+      },
+      {
+        "codigo_curso": 13994,
+        "ano_ingresso": 2018,
+        "qt_ingressante_media_nacional": 89.1,
+        "quantidade_cursos_considerados": 5096
+      },
+      {
+        "codigo_curso": 13994,
+        "ano_ingresso": 2019,
+        "qt_ingressante_media_nacional": 83.7,
+        "quantidade_cursos_considerados": 5420
+      },
+      {
+        "codigo_curso": 13994,
+        "ano_ingresso": 2020,
+        "qt_ingressante_media_nacional": 75.9,
+        "quantidade_cursos_considerados": 5522
+      },
+      {
+        "codigo_curso": 13995,
+        "ano_ingresso": 2010,
+        "qt_ingressante_media_nacional": 88.0,
+        "quantidade_cursos_considerados": 3338
+      },
+      {
+        "codigo_curso": 13995,
+        "ano_ingresso": 2011,
+        "qt_ingressante_media_nacional": 83.1,
+        "quantidade_cursos_considerados": 3404
+      },
+      {
+        "codigo_curso": 13995,
+        "ano_ingresso": 2012,
+        "qt_ingressante_media_nacional": 91.3,
+        "quantidade_cursos_considerados": 3482
+      },
+      {
+        "codigo_curso": 13995,
+        "ano_ingresso": 2013,
+        "qt_ingressante_media_nacional": 95.4,
+        "quantidade_cursos_considerados": 3560
+      },
+      {
+        "codigo_curso": 13995,
+        "ano_ingresso": 2014,
+        "qt_ingressante_media_nacional": 106.4,
+        "quantidade_cursos_considerados": 3721
+      },
+      {
+        "codigo_curso": 13995,
+        "ano_ingresso": 2015,
+        "qt_ingressante_media_nacional": 100.5,
+        "quantidade_cursos_considerados": 3936
+      },
+      {
+        "codigo_curso": 13995,
+        "ano_ingresso": 2016,
+        "qt_ingressante_media_nacional": 96.5,
+        "quantidade_cursos_considerados": 4284
+      },
+      {
+        "codigo_curso": 13995,
+        "ano_ingresso": 2017,
+        "qt_ingressante_media_nacional": 97.3,
+        "quantidade_cursos_considerados": 4683
+      },
+      {
+        "codigo_curso": 13995,
+        "ano_ingresso": 2018,
+        "qt_ingressante_media_nacional": 89.1,
+        "quantidade_cursos_considerados": 5096
+      },
+      {
+        "codigo_curso": 13995,
+        "ano_ingresso": 2019,
+        "qt_ingressante_media_nacional": 83.7,
+        "quantidade_cursos_considerados": 5420
+      },
+      {
+        "codigo_curso": 13995,
+        "ano_ingresso": 2020,
+        "qt_ingressante_media_nacional": 75.9,
+        "quantidade_cursos_considerados": 5522
+      },
+      {
+        "codigo_curso": 13996,
+        "ano_ingresso": 2010,
+        "qt_ingressante_media_nacional": 88.0,
+        "quantidade_cursos_considerados": 3338
+      },
+      {
+        "codigo_curso": 13996,
+        "ano_ingresso": 2011,
+        "qt_ingressante_media_nacional": 83.1,
+        "quantidade_cursos_considerados": 3404
+      },
+      {
+        "codigo_curso": 13996,
+        "ano_ingresso": 2012,
+        "qt_ingressante_media_nacional": 91.3,
+        "quantidade_cursos_considerados": 3482
+      },
+      {
+        "codigo_curso": 13996,
+        "ano_ingresso": 2013,
+        "qt_ingressante_media_nacional": 95.4,
+        "quantidade_cursos_considerados": 3560
+      },
+      {
+        "codigo_curso": 13996,
+        "ano_ingresso": 2014,
+        "qt_ingressante_media_nacional": 106.4,
+        "quantidade_cursos_considerados": 3721
+      },
+      {
+        "codigo_curso": 13996,
+        "ano_ingresso": 2015,
+        "qt_ingressante_media_nacional": 100.5,
+        "quantidade_cursos_considerados": 3936
+      },
+      {
+        "codigo_curso": 13996,
+        "ano_ingresso": 2016,
+        "qt_ingressante_media_nacional": 96.5,
+        "quantidade_cursos_considerados": 4284
+      },
+      {
+        "codigo_curso": 13996,
+        "ano_ingresso": 2017,
+        "qt_ingressante_media_nacional": 97.3,
+        "quantidade_cursos_considerados": 4683
+      },
+      {
+        "codigo_curso": 13996,
+        "ano_ingresso": 2018,
+        "qt_ingressante_media_nacional": 89.1,
+        "quantidade_cursos_considerados": 5096
+      },
+      {
+        "codigo_curso": 13996,
+        "ano_ingresso": 2019,
+        "qt_ingressante_media_nacional": 83.7,
+        "quantidade_cursos_considerados": 5420
+      },
+      {
+        "codigo_curso": 13996,
+        "ano_ingresso": 2020,
+        "qt_ingressante_media_nacional": 75.9,
+        "quantidade_cursos_considerados": 5522
+      },
+      {
+        "codigo_curso": 13997,
+        "ano_ingresso": 2010,
+        "qt_ingressante_media_nacional": 88.0,
+        "quantidade_cursos_considerados": 3338
+      },
+      {
+        "codigo_curso": 13997,
+        "ano_ingresso": 2011,
+        "qt_ingressante_media_nacional": 83.1,
+        "quantidade_cursos_considerados": 3404
+      },
+      {
+        "codigo_curso": 13997,
+        "ano_ingresso": 2012,
+        "qt_ingressante_media_nacional": 91.3,
+        "quantidade_cursos_considerados": 3482
+      },
+      {
+        "codigo_curso": 13997,
+        "ano_ingresso": 2013,
+        "qt_ingressante_media_nacional": 95.4,
+        "quantidade_cursos_considerados": 3560
+      },
+      {
+        "codigo_curso": 13997,
+        "ano_ingresso": 2014,
+        "qt_ingressante_media_nacional": 106.4,
+        "quantidade_cursos_considerados": 3721
+      },
+      {
+        "codigo_curso": 13997,
+        "ano_ingresso": 2015,
+        "qt_ingressante_media_nacional": 100.5,
+        "quantidade_cursos_considerados": 3936
+      },
+      {
+        "codigo_curso": 13997,
+        "ano_ingresso": 2016,
+        "qt_ingressante_media_nacional": 96.5,
+        "quantidade_cursos_considerados": 4284
+      },
+      {
+        "codigo_curso": 13997,
+        "ano_ingresso": 2017,
+        "qt_ingressante_media_nacional": 97.3,
+        "quantidade_cursos_considerados": 4683
+      },
+      {
+        "codigo_curso": 13997,
+        "ano_ingresso": 2018,
+        "qt_ingressante_media_nacional": 89.1,
+        "quantidade_cursos_considerados": 5096
+      },
+      {
+        "codigo_curso": 13997,
+        "ano_ingresso": 2019,
+        "qt_ingressante_media_nacional": 83.7,
+        "quantidade_cursos_considerados": 5420
+      },
+      {
+        "codigo_curso": 13997,
+        "ano_ingresso": 2020,
+        "qt_ingressante_media_nacional": 75.9,
+        "quantidade_cursos_considerados": 5522
+      },
+      {
+        "codigo_curso": 13998,
+        "ano_ingresso": 2010,
+        "qt_ingressante_media_nacional": 134.0,
+        "quantidade_cursos_considerados": 4641
+      },
+      {
+        "codigo_curso": 13998,
+        "ano_ingresso": 2011,
+        "qt_ingressante_media_nacional": 127.4,
+        "quantidade_cursos_considerados": 4630
+      },
+      {
+        "codigo_curso": 13998,
+        "ano_ingresso": 2012,
+        "qt_ingressante_media_nacional": 137.0,
+        "quantidade_cursos_considerados": 4704
+      },
+      {
+        "codigo_curso": 13998,
+        "ano_ingresso": 2013,
+        "qt_ingressante_media_nacional": 134.8,
+        "quantidade_cursos_considerados": 4632
+      },
+      {
+        "codigo_curso": 13998,
+        "ano_ingresso": 2014,
+        "qt_ingressante_media_nacional": 137.6,
+        "quantidade_cursos_considerados": 4570
+      },
+      {
+        "codigo_curso": 13998,
+        "ano_ingresso": 2015,
+        "qt_ingressante_media_nacional": 126.9,
+        "quantidade_cursos_considerados": 4606
+      },
+      {
+        "codigo_curso": 13998,
+        "ano_ingresso": 2016,
+        "qt_ingressante_media_nacional": 118.5,
+        "quantidade_cursos_considerados": 4669
+      },
+      {
+        "codigo_curso": 13998,
+        "ano_ingresso": 2017,
+        "qt_ingressante_media_nacional": 116.6,
+        "quantidade_cursos_considerados": 4779
+      },
+      {
+        "codigo_curso": 13998,
+        "ano_ingresso": 2018,
+        "qt_ingressante_media_nacional": 103.3,
+        "quantidade_cursos_considerados": 4943
+      },
+      {
+        "codigo_curso": 13998,
+        "ano_ingresso": 2019,
+        "qt_ingressante_media_nacional": 97.1,
+        "quantidade_cursos_considerados": 5127
+      },
+      {
+        "codigo_curso": 13998,
+        "ano_ingresso": 2020,
+        "qt_ingressante_media_nacional": 84.4,
+        "quantidade_cursos_considerados": 4933
+      },
+      {
+        "codigo_curso": 13999,
+        "ano_ingresso": 2010,
+        "qt_ingressante_media_nacional": 56.3,
+        "quantidade_cursos_considerados": 704
+      },
+      {
+        "codigo_curso": 13999,
+        "ano_ingresso": 2011,
+        "qt_ingressante_media_nacional": 53.8,
+        "quantidade_cursos_considerados": 734
+      },
+      {
+        "codigo_curso": 13999,
+        "ano_ingresso": 2012,
+        "qt_ingressante_media_nacional": 54.7,
+        "quantidade_cursos_considerados": 747
+      },
+      {
+        "codigo_curso": 13999,
+        "ano_ingresso": 2013,
+        "qt_ingressante_media_nacional": 54.8,
+        "quantidade_cursos_considerados": 738
+      },
+      {
+        "codigo_curso": 13999,
+        "ano_ingresso": 2014,
+        "qt_ingressante_media_nacional": 55.8,
+        "quantidade_cursos_considerados": 737
+      },
+      {
+        "codigo_curso": 13999,
+        "ano_ingresso": 2015,
+        "qt_ingressante_media_nacional": 54.1,
+        "quantidade_cursos_considerados": 746
+      },
+      {
+        "codigo_curso": 13999,
+        "ano_ingresso": 2016,
+        "qt_ingressante_media_nacional": 50.8,
+        "quantidade_cursos_considerados": 762
+      },
+      {
+        "codigo_curso": 13999,
+        "ano_ingresso": 2017,
+        "qt_ingressante_media_nacional": 51.7,
+        "quantidade_cursos_considerados": 750
+      },
+      {
+        "codigo_curso": 13999,
+        "ano_ingresso": 2018,
+        "qt_ingressante_media_nacional": 49.9,
+        "quantidade_cursos_considerados": 757
+      },
+      {
+        "codigo_curso": 13999,
+        "ano_ingresso": 2019,
+        "qt_ingressante_media_nacional": 50.6,
+        "quantidade_cursos_considerados": 750
+      },
+      {
+        "codigo_curso": 13999,
+        "ano_ingresso": 2020,
+        "qt_ingressante_media_nacional": 47.4,
+        "quantidade_cursos_considerados": 733
+      },
+      {
+        "codigo_curso": 14000,
+        "ano_ingresso": 2010,
+        "qt_ingressante_media_nacional": 59.3,
+        "quantidade_cursos_considerados": 6072
+      },
+      {
+        "codigo_curso": 14000,
+        "ano_ingresso": 2011,
+        "qt_ingressante_media_nacional": 57.3,
+        "quantidade_cursos_considerados": 5586
+      },
+      {
+        "codigo_curso": 14000,
+        "ano_ingresso": 2012,
+        "qt_ingressante_media_nacional": 59.4,
+        "quantidade_cursos_considerados": 5543
+      },
+      {
+        "codigo_curso": 14000,
+        "ano_ingresso": 2013,
+        "qt_ingressante_media_nacional": 61.8,
+        "quantidade_cursos_considerados": 5191
+      },
+      {
+        "codigo_curso": 14000,
+        "ano_ingresso": 2014,
+        "qt_ingressante_media_nacional": 59.6,
+        "quantidade_cursos_considerados": 5213
+      },
+      {
+        "codigo_curso": 14000,
+        "ano_ingresso": 2015,
+        "qt_ingressante_media_nacional": 56.8,
+        "quantidade_cursos_considerados": 5188
+      },
+      {
+        "codigo_curso": 14000,
+        "ano_ingresso": 2016,
+        "qt_ingressante_media_nacional": 55.1,
+        "quantidade_cursos_considerados": 5171
+      },
+      {
+        "codigo_curso": 14000,
+        "ano_ingresso": 2017,
+        "qt_ingressante_media_nacional": 52.7,
+        "quantidade_cursos_considerados": 5212
+      },
+      {
+        "codigo_curso": 14000,
+        "ano_ingresso": 2018,
+        "qt_ingressante_media_nacional": 51.1,
+        "quantidade_cursos_considerados": 5181
+      },
+      {
+        "codigo_curso": 14000,
+        "ano_ingresso": 2019,
+        "qt_ingressante_media_nacional": 50.6,
+        "quantidade_cursos_considerados": 5048
+      },
+      {
+        "codigo_curso": 14000,
+        "ano_ingresso": 2020,
+        "qt_ingressante_media_nacional": 43.4,
+        "quantidade_cursos_considerados": 4636
+      },
+      {
+        "codigo_curso": 14001,
+        "ano_ingresso": 2010,
+        "qt_ingressante_media_nacional": 51.9,
+        "quantidade_cursos_considerados": 825
+      },
+      {
+        "codigo_curso": 14001,
+        "ano_ingresso": 2011,
+        "qt_ingressante_media_nacional": 49.7,
+        "quantidade_cursos_considerados": 802
+      },
+      {
+        "codigo_curso": 14001,
+        "ano_ingresso": 2012,
+        "qt_ingressante_media_nacional": 50.2,
+        "quantidade_cursos_considerados": 841
+      },
+      {
+        "codigo_curso": 14001,
+        "ano_ingresso": 2013,
+        "qt_ingressante_media_nacional": 53.2,
+        "quantidade_cursos_considerados": 801
+      },
+      {
+        "codigo_curso": 14001,
+        "ano_ingresso": 2014,
+        "qt_ingressante_media_nacional": 52.1,
+        "quantidade_cursos_considerados": 786
+      },
+      {
+        "codigo_curso": 14001,
+        "ano_ingresso": 2015,
+        "qt_ingressante_media_nacional": 50.7,
+        "quantidade_cursos_considerados": 795
+      },
+      {
+        "codigo_curso": 14001,
+        "ano_ingresso": 2016,
+        "qt_ingressante_media_nacional": 47.0,
+        "quantidade_cursos_considerados": 790
+      },
+      {
+        "codigo_curso": 14001,
+        "ano_ingresso": 2017,
+        "qt_ingressante_media_nacional": 46.4,
+        "quantidade_cursos_considerados": 813
+      },
+      {
+        "codigo_curso": 14001,
+        "ano_ingresso": 2018,
+        "qt_ingressante_media_nacional": 44.7,
+        "quantidade_cursos_considerados": 815
+      },
+      {
+        "codigo_curso": 14001,
+        "ano_ingresso": 2019,
+        "qt_ingressante_media_nacional": 41.9,
+        "quantidade_cursos_considerados": 814
+      },
+      {
+        "codigo_curso": 14001,
+        "ano_ingresso": 2020,
+        "qt_ingressante_media_nacional": 38.9,
+        "quantidade_cursos_considerados": 814
+      },
+      {
+        "codigo_curso": 14002,
+        "ano_ingresso": 2010,
+        "qt_ingressante_media_nacional": 134.0,
+        "quantidade_cursos_considerados": 4641
+      },
+      {
+        "codigo_curso": 14002,
+        "ano_ingresso": 2011,
+        "qt_ingressante_media_nacional": 127.4,
+        "quantidade_cursos_considerados": 4630
+      },
+      {
+        "codigo_curso": 14002,
+        "ano_ingresso": 2012,
+        "qt_ingressante_media_nacional": 137.0,
+        "quantidade_cursos_considerados": 4704
+      },
+      {
+        "codigo_curso": 14002,
+        "ano_ingresso": 2013,
+        "qt_ingressante_media_nacional": 134.8,
+        "quantidade_cursos_considerados": 4632
+      },
+      {
+        "codigo_curso": 14002,
+        "ano_ingresso": 2014,
+        "qt_ingressante_media_nacional": 137.6,
+        "quantidade_cursos_considerados": 4570
+      },
+      {
+        "codigo_curso": 14002,
+        "ano_ingresso": 2015,
+        "qt_ingressante_media_nacional": 126.9,
+        "quantidade_cursos_considerados": 4606
+      },
+      {
+        "codigo_curso": 14002,
+        "ano_ingresso": 2016,
+        "qt_ingressante_media_nacional": 118.5,
+        "quantidade_cursos_considerados": 4669
+      },
+      {
+        "codigo_curso": 14002,
+        "ano_ingresso": 2017,
+        "qt_ingressante_media_nacional": 116.6,
+        "quantidade_cursos_considerados": 4779
+      },
+      {
+        "codigo_curso": 14002,
+        "ano_ingresso": 2018,
+        "qt_ingressante_media_nacional": 103.3,
+        "quantidade_cursos_considerados": 4943
+      },
+      {
+        "codigo_curso": 14002,
+        "ano_ingresso": 2019,
+        "qt_ingressante_media_nacional": 97.1,
+        "quantidade_cursos_considerados": 5127
+      },
+      {
+        "codigo_curso": 14002,
+        "ano_ingresso": 2020,
+        "qt_ingressante_media_nacional": 84.4,
+        "quantidade_cursos_considerados": 4933
+      },
+      {
+        "codigo_curso": 23947,
+        "ano_ingresso": 2010,
+        "qt_ingressante_media_nacional": 75.0,
+        "quantidade_cursos_considerados": 1461
+      },
+      {
+        "codigo_curso": 23947,
+        "ano_ingresso": 2011,
+        "qt_ingressante_media_nacional": 76.8,
+        "quantidade_cursos_considerados": 1431
+      },
+      {
+        "codigo_curso": 23947,
+        "ano_ingresso": 2012,
+        "qt_ingressante_media_nacional": 84.7,
+        "quantidade_cursos_considerados": 1443
+      },
+      {
+        "codigo_curso": 23947,
+        "ano_ingresso": 2013,
+        "qt_ingressante_media_nacional": 91.6,
+        "quantidade_cursos_considerados": 1407
+      },
+      {
+        "codigo_curso": 23947,
+        "ano_ingresso": 2014,
+        "qt_ingressante_media_nacional": 100.4,
+        "quantidade_cursos_considerados": 1425
+      },
+      {
+        "codigo_curso": 23947,
+        "ano_ingresso": 2015,
+        "qt_ingressante_media_nacional": 93.2,
+        "quantidade_cursos_considerados": 1469
+      },
+      {
+        "codigo_curso": 23947,
+        "ano_ingresso": 2016,
+        "qt_ingressante_media_nacional": 87.6,
+        "quantidade_cursos_considerados": 1553
+      },
+      {
+        "codigo_curso": 23947,
+        "ano_ingresso": 2017,
+        "qt_ingressante_media_nacional": 89.5,
+        "quantidade_cursos_considerados": 1601
+      },
+      {
+        "codigo_curso": 23947,
+        "ano_ingresso": 2018,
+        "qt_ingressante_media_nacional": 84.6,
+        "quantidade_cursos_considerados": 1703
+      },
+      {
+        "codigo_curso": 23947,
+        "ano_ingresso": 2019,
+        "qt_ingressante_media_nacional": 85.5,
+        "quantidade_cursos_considerados": 1805
+      },
+      {
+        "codigo_curso": 23947,
+        "ano_ingresso": 2020,
+        "qt_ingressante_media_nacional": 86.5,
+        "quantidade_cursos_considerados": 1854
+      },
+      {
+        "codigo_curso": 25821,
+        "ano_ingresso": 2010,
+        "qt_ingressante_media_nacional": 59.3,
+        "quantidade_cursos_considerados": 6072
+      },
+      {
+        "codigo_curso": 25821,
+        "ano_ingresso": 2011,
+        "qt_ingressante_media_nacional": 57.3,
+        "quantidade_cursos_considerados": 5586
+      },
+      {
+        "codigo_curso": 25821,
+        "ano_ingresso": 2012,
+        "qt_ingressante_media_nacional": 59.4,
+        "quantidade_cursos_considerados": 5543
+      },
+      {
+        "codigo_curso": 25821,
+        "ano_ingresso": 2013,
+        "qt_ingressante_media_nacional": 61.8,
+        "quantidade_cursos_considerados": 5191
+      },
+      {
+        "codigo_curso": 25821,
+        "ano_ingresso": 2014,
+        "qt_ingressante_media_nacional": 59.6,
+        "quantidade_cursos_considerados": 5213
+      },
+      {
+        "codigo_curso": 25821,
+        "ano_ingresso": 2015,
+        "qt_ingressante_media_nacional": 56.8,
+        "quantidade_cursos_considerados": 5188
+      },
+      {
+        "codigo_curso": 25821,
+        "ano_ingresso": 2016,
+        "qt_ingressante_media_nacional": 55.1,
+        "quantidade_cursos_considerados": 5171
+      },
+      {
+        "codigo_curso": 25821,
+        "ano_ingresso": 2017,
+        "qt_ingressante_media_nacional": 52.7,
+        "quantidade_cursos_considerados": 5212
+      },
+      {
+        "codigo_curso": 25821,
+        "ano_ingresso": 2018,
+        "qt_ingressante_media_nacional": 51.1,
+        "quantidade_cursos_considerados": 5181
+      },
+      {
+        "codigo_curso": 25821,
+        "ano_ingresso": 2019,
+        "qt_ingressante_media_nacional": 50.6,
+        "quantidade_cursos_considerados": 5048
+      },
+      {
+        "codigo_curso": 25821,
+        "ano_ingresso": 2020,
+        "qt_ingressante_media_nacional": 43.4,
+        "quantidade_cursos_considerados": 4636
+      },
+      {
+        "codigo_curso": 25822,
+        "ano_ingresso": 2010,
+        "qt_ingressante_media_nacional": 59.3,
+        "quantidade_cursos_considerados": 6072
+      },
+      {
+        "codigo_curso": 25822,
+        "ano_ingresso": 2011,
+        "qt_ingressante_media_nacional": 57.3,
+        "quantidade_cursos_considerados": 5586
+      },
+      {
+        "codigo_curso": 25822,
+        "ano_ingresso": 2012,
+        "qt_ingressante_media_nacional": 59.4,
+        "quantidade_cursos_considerados": 5543
+      },
+      {
+        "codigo_curso": 25822,
+        "ano_ingresso": 2013,
+        "qt_ingressante_media_nacional": 61.8,
+        "quantidade_cursos_considerados": 5191
+      },
+      {
+        "codigo_curso": 25822,
+        "ano_ingresso": 2014,
+        "qt_ingressante_media_nacional": 59.6,
+        "quantidade_cursos_considerados": 5213
+      },
+      {
+        "codigo_curso": 25822,
+        "ano_ingresso": 2015,
+        "qt_ingressante_media_nacional": 56.8,
+        "quantidade_cursos_considerados": 5188
+      },
+      {
+        "codigo_curso": 25822,
+        "ano_ingresso": 2016,
+        "qt_ingressante_media_nacional": 55.1,
+        "quantidade_cursos_considerados": 5171
+      },
+      {
+        "codigo_curso": 25822,
+        "ano_ingresso": 2017,
+        "qt_ingressante_media_nacional": 52.7,
+        "quantidade_cursos_considerados": 5212
+      },
+      {
+        "codigo_curso": 25822,
+        "ano_ingresso": 2018,
+        "qt_ingressante_media_nacional": 51.1,
+        "quantidade_cursos_considerados": 5181
+      },
+      {
+        "codigo_curso": 25822,
+        "ano_ingresso": 2019,
+        "qt_ingressante_media_nacional": 50.6,
+        "quantidade_cursos_considerados": 5048
+      },
+      {
+        "codigo_curso": 25822,
+        "ano_ingresso": 2020,
+        "qt_ingressante_media_nacional": 43.4,
+        "quantidade_cursos_considerados": 4636
+      },
+      {
+        "codigo_curso": 27263,
+        "ano_ingresso": 2010,
+        "qt_ingressante_media_nacional": 59.3,
+        "quantidade_cursos_considerados": 6072
+      },
+      {
+        "codigo_curso": 27263,
+        "ano_ingresso": 2011,
+        "qt_ingressante_media_nacional": 57.3,
+        "quantidade_cursos_considerados": 5586
+      },
+      {
+        "codigo_curso": 27263,
+        "ano_ingresso": 2012,
+        "qt_ingressante_media_nacional": 59.4,
+        "quantidade_cursos_considerados": 5543
+      },
+      {
+        "codigo_curso": 27263,
+        "ano_ingresso": 2013,
+        "qt_ingressante_media_nacional": 61.8,
+        "quantidade_cursos_considerados": 5191
+      },
+      {
+        "codigo_curso": 27263,
+        "ano_ingresso": 2014,
+        "qt_ingressante_media_nacional": 59.6,
+        "quantidade_cursos_considerados": 5213
+      },
+      {
+        "codigo_curso": 27263,
+        "ano_ingresso": 2015,
+        "qt_ingressante_media_nacional": 56.8,
+        "quantidade_cursos_considerados": 5188
+      },
+      {
+        "codigo_curso": 27263,
+        "ano_ingresso": 2016,
+        "qt_ingressante_media_nacional": 55.1,
+        "quantidade_cursos_considerados": 5171
+      },
+      {
+        "codigo_curso": 27263,
+        "ano_ingresso": 2017,
+        "qt_ingressante_media_nacional": 52.7,
+        "quantidade_cursos_considerados": 5212
+      },
+      {
+        "codigo_curso": 27263,
+        "ano_ingresso": 2018,
+        "qt_ingressante_media_nacional": 51.1,
+        "quantidade_cursos_considerados": 5181
+      },
+      {
+        "codigo_curso": 27263,
+        "ano_ingresso": 2019,
+        "qt_ingressante_media_nacional": 50.6,
+        "quantidade_cursos_considerados": 5048
+      },
+      {
+        "codigo_curso": 27263,
+        "ano_ingresso": 2020,
+        "qt_ingressante_media_nacional": 43.4,
+        "quantidade_cursos_considerados": 4636
+      },
+      {
+        "codigo_curso": 29489,
+        "ano_ingresso": 2010,
+        "qt_ingressante_media_nacional": 59.3,
+        "quantidade_cursos_considerados": 6072
+      },
+      {
+        "codigo_curso": 29489,
+        "ano_ingresso": 2011,
+        "qt_ingressante_media_nacional": 57.3,
+        "quantidade_cursos_considerados": 5586
+      },
+      {
+        "codigo_curso": 29489,
+        "ano_ingresso": 2012,
+        "qt_ingressante_media_nacional": 59.4,
+        "quantidade_cursos_considerados": 5543
+      },
+      {
+        "codigo_curso": 29489,
+        "ano_ingresso": 2013,
+        "qt_ingressante_media_nacional": 61.8,
+        "quantidade_cursos_considerados": 5191
+      },
+      {
+        "codigo_curso": 29489,
+        "ano_ingresso": 2014,
+        "qt_ingressante_media_nacional": 59.6,
+        "quantidade_cursos_considerados": 5213
+      },
+      {
+        "codigo_curso": 29489,
+        "ano_ingresso": 2015,
+        "qt_ingressante_media_nacional": 56.8,
+        "quantidade_cursos_considerados": 5188
+      },
+      {
+        "codigo_curso": 29489,
+        "ano_ingresso": 2016,
+        "qt_ingressante_media_nacional": 55.1,
+        "quantidade_cursos_considerados": 5171
+      },
+      {
+        "codigo_curso": 29489,
+        "ano_ingresso": 2017,
+        "qt_ingressante_media_nacional": 52.7,
+        "quantidade_cursos_considerados": 5212
+      },
+      {
+        "codigo_curso": 29489,
+        "ano_ingresso": 2018,
+        "qt_ingressante_media_nacional": 51.1,
+        "quantidade_cursos_considerados": 5181
+      },
+      {
+        "codigo_curso": 29489,
+        "ano_ingresso": 2019,
+        "qt_ingressante_media_nacional": 50.6,
+        "quantidade_cursos_considerados": 5048
+      },
+      {
+        "codigo_curso": 29489,
+        "ano_ingresso": 2020,
+        "qt_ingressante_media_nacional": 43.4,
+        "quantidade_cursos_considerados": 4636
+      },
+      {
+        "codigo_curso": 33013,
+        "ano_ingresso": 2010,
+        "qt_ingressante_media_nacional": 59.3,
+        "quantidade_cursos_considerados": 6072
+      },
+      {
+        "codigo_curso": 33013,
+        "ano_ingresso": 2011,
+        "qt_ingressante_media_nacional": 57.3,
+        "quantidade_cursos_considerados": 5586
+      },
+      {
+        "codigo_curso": 33013,
+        "ano_ingresso": 2012,
+        "qt_ingressante_media_nacional": 59.4,
+        "quantidade_cursos_considerados": 5543
+      },
+      {
+        "codigo_curso": 33013,
+        "ano_ingresso": 2013,
+        "qt_ingressante_media_nacional": 61.8,
+        "quantidade_cursos_considerados": 5191
+      },
+      {
+        "codigo_curso": 33013,
+        "ano_ingresso": 2014,
+        "qt_ingressante_media_nacional": 59.6,
+        "quantidade_cursos_considerados": 5213
+      },
+      {
+        "codigo_curso": 33013,
+        "ano_ingresso": 2015,
+        "qt_ingressante_media_nacional": 56.8,
+        "quantidade_cursos_considerados": 5188
+      },
+      {
+        "codigo_curso": 33013,
+        "ano_ingresso": 2016,
+        "qt_ingressante_media_nacional": 55.1,
+        "quantidade_cursos_considerados": 5171
+      },
+      {
+        "codigo_curso": 33013,
+        "ano_ingresso": 2017,
+        "qt_ingressante_media_nacional": 52.7,
+        "quantidade_cursos_considerados": 5212
+      },
+      {
+        "codigo_curso": 33013,
+        "ano_ingresso": 2018,
+        "qt_ingressante_media_nacional": 51.1,
+        "quantidade_cursos_considerados": 5181
+      },
+      {
+        "codigo_curso": 33013,
+        "ano_ingresso": 2019,
+        "qt_ingressante_media_nacional": 50.6,
+        "quantidade_cursos_considerados": 5048
+      },
+      {
+        "codigo_curso": 33013,
+        "ano_ingresso": 2020,
+        "qt_ingressante_media_nacional": 43.4,
+        "quantidade_cursos_considerados": 4636
+      },
+      {
+        "codigo_curso": 34433,
+        "ano_ingresso": 2010,
+        "qt_ingressante_media_nacional": 59.3,
+        "quantidade_cursos_considerados": 6072
+      },
+      {
+        "codigo_curso": 34433,
+        "ano_ingresso": 2011,
+        "qt_ingressante_media_nacional": 57.3,
+        "quantidade_cursos_considerados": 5586
+      },
+      {
+        "codigo_curso": 34433,
+        "ano_ingresso": 2012,
+        "qt_ingressante_media_nacional": 59.4,
+        "quantidade_cursos_considerados": 5543
+      },
+      {
+        "codigo_curso": 34433,
+        "ano_ingresso": 2013,
+        "qt_ingressante_media_nacional": 61.8,
+        "quantidade_cursos_considerados": 5191
+      },
+      {
+        "codigo_curso": 34433,
+        "ano_ingresso": 2014,
+        "qt_ingressante_media_nacional": 59.6,
+        "quantidade_cursos_considerados": 5213
+      },
+      {
+        "codigo_curso": 34433,
+        "ano_ingresso": 2015,
+        "qt_ingressante_media_nacional": 56.8,
+        "quantidade_cursos_considerados": 5188
+      },
+      {
+        "codigo_curso": 34433,
+        "ano_ingresso": 2016,
+        "qt_ingressante_media_nacional": 55.1,
+        "quantidade_cursos_considerados": 5171
+      },
+      {
+        "codigo_curso": 34433,
+        "ano_ingresso": 2017,
+        "qt_ingressante_media_nacional": 52.7,
+        "quantidade_cursos_considerados": 5212
+      },
+      {
+        "codigo_curso": 34433,
+        "ano_ingresso": 2018,
+        "qt_ingressante_media_nacional": 51.1,
+        "quantidade_cursos_considerados": 5181
+      },
+      {
+        "codigo_curso": 34433,
+        "ano_ingresso": 2019,
+        "qt_ingressante_media_nacional": 50.6,
+        "quantidade_cursos_considerados": 5048
+      },
+      {
+        "codigo_curso": 34433,
+        "ano_ingresso": 2020,
+        "qt_ingressante_media_nacional": 43.4,
+        "quantidade_cursos_considerados": 4636
+      },
+      {
+        "codigo_curso": 37265,
+        "ano_ingresso": 2010,
+        "qt_ingressante_media_nacional": 103.3,
+        "quantidade_cursos_considerados": 2310
+      },
+      {
+        "codigo_curso": 37265,
+        "ano_ingresso": 2011,
+        "qt_ingressante_media_nacional": 105.4,
+        "quantidade_cursos_considerados": 2606
+      },
+      {
+        "codigo_curso": 37265,
+        "ano_ingresso": 2012,
+        "qt_ingressante_media_nacional": 121.8,
+        "quantidade_cursos_considerados": 2823
+      },
+      {
+        "codigo_curso": 37265,
+        "ano_ingresso": 2013,
+        "qt_ingressante_media_nacional": 122.2,
+        "quantidade_cursos_considerados": 3091
+      },
+      {
+        "codigo_curso": 37265,
+        "ano_ingresso": 2014,
+        "qt_ingressante_media_nacional": 120.3,
+        "quantidade_cursos_considerados": 3481
+      },
+      {
+        "codigo_curso": 37265,
+        "ano_ingresso": 2015,
+        "qt_ingressante_media_nacional": 99.1,
+        "quantidade_cursos_considerados": 3916
+      },
+      {
+        "codigo_curso": 37265,
+        "ano_ingresso": 2016,
+        "qt_ingressante_media_nacional": 79.0,
+        "quantidade_cursos_considerados": 4227
+      },
+      {
+        "codigo_curso": 37265,
+        "ano_ingresso": 2017,
+        "qt_ingressante_media_nacional": 67.2,
+        "quantidade_cursos_considerados": 4475
+      },
+      {
+        "codigo_curso": 37265,
+        "ano_ingresso": 2018,
+        "qt_ingressante_media_nacional": 55.4,
+        "quantidade_cursos_considerados": 4705
+      },
+      {
+        "codigo_curso": 37265,
+        "ano_ingresso": 2019,
+        "qt_ingressante_media_nacional": 50.0,
+        "quantidade_cursos_considerados": 4688
+      },
+      {
+        "codigo_curso": 37265,
+        "ano_ingresso": 2020,
+        "qt_ingressante_media_nacional": 44.8,
+        "quantidade_cursos_considerados": 4489
+      },
+      {
+        "codigo_curso": 37267,
+        "ano_ingresso": 2010,
+        "qt_ingressante_media_nacional": 134.0,
+        "quantidade_cursos_considerados": 4641
+      },
+      {
+        "codigo_curso": 37267,
+        "ano_ingresso": 2011,
+        "qt_ingressante_media_nacional": 127.4,
+        "quantidade_cursos_considerados": 4630
+      },
+      {
+        "codigo_curso": 37267,
+        "ano_ingresso": 2012,
+        "qt_ingressante_media_nacional": 137.0,
+        "quantidade_cursos_considerados": 4704
+      },
+      {
+        "codigo_curso": 37267,
+        "ano_ingresso": 2013,
+        "qt_ingressante_media_nacional": 134.8,
+        "quantidade_cursos_considerados": 4632
+      },
+      {
+        "codigo_curso": 37267,
+        "ano_ingresso": 2014,
+        "qt_ingressante_media_nacional": 137.6,
+        "quantidade_cursos_considerados": 4570
+      },
+      {
+        "codigo_curso": 37267,
+        "ano_ingresso": 2015,
+        "qt_ingressante_media_nacional": 126.9,
+        "quantidade_cursos_considerados": 4606
+      },
+      {
+        "codigo_curso": 37267,
+        "ano_ingresso": 2016,
+        "qt_ingressante_media_nacional": 118.5,
+        "quantidade_cursos_considerados": 4669
+      },
+      {
+        "codigo_curso": 37267,
+        "ano_ingresso": 2017,
+        "qt_ingressante_media_nacional": 116.6,
+        "quantidade_cursos_considerados": 4779
+      },
+      {
+        "codigo_curso": 37267,
+        "ano_ingresso": 2018,
+        "qt_ingressante_media_nacional": 103.3,
+        "quantidade_cursos_considerados": 4943
+      },
+      {
+        "codigo_curso": 37267,
+        "ano_ingresso": 2019,
+        "qt_ingressante_media_nacional": 97.1,
+        "quantidade_cursos_considerados": 5127
+      },
+      {
+        "codigo_curso": 37267,
+        "ano_ingresso": 2020,
+        "qt_ingressante_media_nacional": 84.4,
+        "quantidade_cursos_considerados": 4933
+      },
+      {
+        "codigo_curso": 37274,
+        "ano_ingresso": 2010,
+        "qt_ingressante_media_nacional": 59.3,
+        "quantidade_cursos_considerados": 6072
+      },
+      {
+        "codigo_curso": 37274,
+        "ano_ingresso": 2011,
+        "qt_ingressante_media_nacional": 57.3,
+        "quantidade_cursos_considerados": 5586
+      },
+      {
+        "codigo_curso": 37274,
+        "ano_ingresso": 2012,
+        "qt_ingressante_media_nacional": 59.4,
+        "quantidade_cursos_considerados": 5543
+      },
+      {
+        "codigo_curso": 37274,
+        "ano_ingresso": 2013,
+        "qt_ingressante_media_nacional": 61.8,
+        "quantidade_cursos_considerados": 5191
+      },
+      {
+        "codigo_curso": 37274,
+        "ano_ingresso": 2014,
+        "qt_ingressante_media_nacional": 59.6,
+        "quantidade_cursos_considerados": 5213
+      },
+      {
+        "codigo_curso": 37274,
+        "ano_ingresso": 2015,
+        "qt_ingressante_media_nacional": 56.8,
+        "quantidade_cursos_considerados": 5188
+      },
+      {
+        "codigo_curso": 37274,
+        "ano_ingresso": 2016,
+        "qt_ingressante_media_nacional": 55.1,
+        "quantidade_cursos_considerados": 5171
+      },
+      {
+        "codigo_curso": 37274,
+        "ano_ingresso": 2017,
+        "qt_ingressante_media_nacional": 52.7,
+        "quantidade_cursos_considerados": 5212
+      },
+      {
+        "codigo_curso": 37274,
+        "ano_ingresso": 2018,
+        "qt_ingressante_media_nacional": 51.1,
+        "quantidade_cursos_considerados": 5181
+      },
+      {
+        "codigo_curso": 37274,
+        "ano_ingresso": 2019,
+        "qt_ingressante_media_nacional": 50.6,
+        "quantidade_cursos_considerados": 5048
+      },
+      {
+        "codigo_curso": 37274,
+        "ano_ingresso": 2020,
+        "qt_ingressante_media_nacional": 43.4,
+        "quantidade_cursos_considerados": 4636
+      },
+      {
+        "codigo_curso": 38202,
+        "ano_ingresso": 2010,
+        "qt_ingressante_media_nacional": 134.0,
+        "quantidade_cursos_considerados": 4641
+      },
+      {
+        "codigo_curso": 38202,
+        "ano_ingresso": 2011,
+        "qt_ingressante_media_nacional": 127.4,
+        "quantidade_cursos_considerados": 4630
+      },
+      {
+        "codigo_curso": 38202,
+        "ano_ingresso": 2012,
+        "qt_ingressante_media_nacional": 137.0,
+        "quantidade_cursos_considerados": 4704
+      },
+      {
+        "codigo_curso": 38202,
+        "ano_ingresso": 2013,
+        "qt_ingressante_media_nacional": 134.8,
+        "quantidade_cursos_considerados": 4632
+      },
+      {
+        "codigo_curso": 38202,
+        "ano_ingresso": 2014,
+        "qt_ingressante_media_nacional": 137.6,
+        "quantidade_cursos_considerados": 4570
+      },
+      {
+        "codigo_curso": 38202,
+        "ano_ingresso": 2015,
+        "qt_ingressante_media_nacional": 126.9,
+        "quantidade_cursos_considerados": 4606
+      },
+      {
+        "codigo_curso": 38202,
+        "ano_ingresso": 2016,
+        "qt_ingressante_media_nacional": 118.5,
+        "quantidade_cursos_considerados": 4669
+      },
+      {
+        "codigo_curso": 38202,
+        "ano_ingresso": 2017,
+        "qt_ingressante_media_nacional": 116.6,
+        "quantidade_cursos_considerados": 4779
+      },
+      {
+        "codigo_curso": 38202,
+        "ano_ingresso": 2018,
+        "qt_ingressante_media_nacional": 103.3,
+        "quantidade_cursos_considerados": 4943
+      },
+      {
+        "codigo_curso": 38202,
+        "ano_ingresso": 2019,
+        "qt_ingressante_media_nacional": 97.1,
+        "quantidade_cursos_considerados": 5127
+      },
+      {
+        "codigo_curso": 38202,
+        "ano_ingresso": 2020,
+        "qt_ingressante_media_nacional": 84.4,
+        "quantidade_cursos_considerados": 4933
+      },
+      {
+        "codigo_curso": 38204,
+        "ano_ingresso": 2010,
+        "qt_ingressante_media_nacional": 134.0,
+        "quantidade_cursos_considerados": 4641
+      },
+      {
+        "codigo_curso": 38204,
+        "ano_ingresso": 2011,
+        "qt_ingressante_media_nacional": 127.4,
+        "quantidade_cursos_considerados": 4630
+      },
+      {
+        "codigo_curso": 38204,
+        "ano_ingresso": 2012,
+        "qt_ingressante_media_nacional": 137.0,
+        "quantidade_cursos_considerados": 4704
+      },
+      {
+        "codigo_curso": 38204,
+        "ano_ingresso": 2013,
+        "qt_ingressante_media_nacional": 134.8,
+        "quantidade_cursos_considerados": 4632
+      },
+      {
+        "codigo_curso": 38204,
+        "ano_ingresso": 2014,
+        "qt_ingressante_media_nacional": 137.6,
+        "quantidade_cursos_considerados": 4570
+      },
+      {
+        "codigo_curso": 38204,
+        "ano_ingresso": 2015,
+        "qt_ingressante_media_nacional": 126.9,
+        "quantidade_cursos_considerados": 4606
+      },
+      {
+        "codigo_curso": 38204,
+        "ano_ingresso": 2016,
+        "qt_ingressante_media_nacional": 118.5,
+        "quantidade_cursos_considerados": 4669
+      },
+      {
+        "codigo_curso": 38204,
+        "ano_ingresso": 2017,
+        "qt_ingressante_media_nacional": 116.6,
+        "quantidade_cursos_considerados": 4779
+      },
+      {
+        "codigo_curso": 38204,
+        "ano_ingresso": 2018,
+        "qt_ingressante_media_nacional": 103.3,
+        "quantidade_cursos_considerados": 4943
+      },
+      {
+        "codigo_curso": 38204,
+        "ano_ingresso": 2019,
+        "qt_ingressante_media_nacional": 97.1,
+        "quantidade_cursos_considerados": 5127
+      },
+      {
+        "codigo_curso": 38204,
+        "ano_ingresso": 2020,
+        "qt_ingressante_media_nacional": 84.4,
+        "quantidade_cursos_considerados": 4933
+      },
+      {
+        "codigo_curso": 38206,
+        "ano_ingresso": 2010,
+        "qt_ingressante_media_nacional": 75.0,
+        "quantidade_cursos_considerados": 1461
+      },
+      {
+        "codigo_curso": 38206,
+        "ano_ingresso": 2011,
+        "qt_ingressante_media_nacional": 76.8,
+        "quantidade_cursos_considerados": 1431
+      },
+      {
+        "codigo_curso": 38206,
+        "ano_ingresso": 2012,
+        "qt_ingressante_media_nacional": 84.7,
+        "quantidade_cursos_considerados": 1443
+      },
+      {
+        "codigo_curso": 38206,
+        "ano_ingresso": 2013,
+        "qt_ingressante_media_nacional": 91.6,
+        "quantidade_cursos_considerados": 1407
+      },
+      {
+        "codigo_curso": 38206,
+        "ano_ingresso": 2014,
+        "qt_ingressante_media_nacional": 100.4,
+        "quantidade_cursos_considerados": 1425
+      },
+      {
+        "codigo_curso": 38206,
+        "ano_ingresso": 2015,
+        "qt_ingressante_media_nacional": 93.2,
+        "quantidade_cursos_considerados": 1469
+      },
+      {
+        "codigo_curso": 38206,
+        "ano_ingresso": 2016,
+        "qt_ingressante_media_nacional": 87.6,
+        "quantidade_cursos_considerados": 1553
+      },
+      {
+        "codigo_curso": 38206,
+        "ano_ingresso": 2017,
+        "qt_ingressante_media_nacional": 89.5,
+        "quantidade_cursos_considerados": 1601
+      },
+      {
+        "codigo_curso": 38206,
+        "ano_ingresso": 2018,
+        "qt_ingressante_media_nacional": 84.6,
+        "quantidade_cursos_considerados": 1703
+      },
+      {
+        "codigo_curso": 38206,
+        "ano_ingresso": 2019,
+        "qt_ingressante_media_nacional": 85.5,
+        "quantidade_cursos_considerados": 1805
+      },
+      {
+        "codigo_curso": 38206,
+        "ano_ingresso": 2020,
+        "qt_ingressante_media_nacional": 86.5,
+        "quantidade_cursos_considerados": 1854
+      },
+      {
+        "codigo_curso": 38208,
+        "ano_ingresso": 2010,
+        "qt_ingressante_media_nacional": 134.0,
+        "quantidade_cursos_considerados": 4641
+      },
+      {
+        "codigo_curso": 38208,
+        "ano_ingresso": 2011,
+        "qt_ingressante_media_nacional": 127.4,
+        "quantidade_cursos_considerados": 4630
+      },
+      {
+        "codigo_curso": 38208,
+        "ano_ingresso": 2012,
+        "qt_ingressante_media_nacional": 137.0,
+        "quantidade_cursos_considerados": 4704
+      },
+      {
+        "codigo_curso": 38208,
+        "ano_ingresso": 2013,
+        "qt_ingressante_media_nacional": 134.8,
+        "quantidade_cursos_considerados": 4632
+      },
+      {
+        "codigo_curso": 38208,
+        "ano_ingresso": 2014,
+        "qt_ingressante_media_nacional": 137.6,
+        "quantidade_cursos_considerados": 4570
+      },
+      {
+        "codigo_curso": 38208,
+        "ano_ingresso": 2015,
+        "qt_ingressante_media_nacional": 126.9,
+        "quantidade_cursos_considerados": 4606
+      },
+      {
+        "codigo_curso": 38208,
+        "ano_ingresso": 2016,
+        "qt_ingressante_media_nacional": 118.5,
+        "quantidade_cursos_considerados": 4669
+      },
+      {
+        "codigo_curso": 38208,
+        "ano_ingresso": 2017,
+        "qt_ingressante_media_nacional": 116.6,
+        "quantidade_cursos_considerados": 4779
+      },
+      {
+        "codigo_curso": 38208,
+        "ano_ingresso": 2018,
+        "qt_ingressante_media_nacional": 103.3,
+        "quantidade_cursos_considerados": 4943
+      },
+      {
+        "codigo_curso": 38208,
+        "ano_ingresso": 2019,
+        "qt_ingressante_media_nacional": 97.1,
+        "quantidade_cursos_considerados": 5127
+      },
+      {
+        "codigo_curso": 38208,
+        "ano_ingresso": 2020,
+        "qt_ingressante_media_nacional": 84.4,
+        "quantidade_cursos_considerados": 4933
+      },
+      {
+        "codigo_curso": 38217,
+        "ano_ingresso": 2010,
+        "qt_ingressante_media_nacional": 59.3,
+        "quantidade_cursos_considerados": 6072
+      },
+      {
+        "codigo_curso": 38217,
+        "ano_ingresso": 2011,
+        "qt_ingressante_media_nacional": 57.3,
+        "quantidade_cursos_considerados": 5586
+      },
+      {
+        "codigo_curso": 38217,
+        "ano_ingresso": 2012,
+        "qt_ingressante_media_nacional": 59.4,
+        "quantidade_cursos_considerados": 5543
+      },
+      {
+        "codigo_curso": 38217,
+        "ano_ingresso": 2013,
+        "qt_ingressante_media_nacional": 61.8,
+        "quantidade_cursos_considerados": 5191
+      },
+      {
+        "codigo_curso": 38217,
+        "ano_ingresso": 2014,
+        "qt_ingressante_media_nacional": 59.6,
+        "quantidade_cursos_considerados": 5213
+      },
+      {
+        "codigo_curso": 38217,
+        "ano_ingresso": 2015,
+        "qt_ingressante_media_nacional": 56.8,
+        "quantidade_cursos_considerados": 5188
+      },
+      {
+        "codigo_curso": 38217,
+        "ano_ingresso": 2016,
+        "qt_ingressante_media_nacional": 55.1,
+        "quantidade_cursos_considerados": 5171
+      },
+      {
+        "codigo_curso": 38217,
+        "ano_ingresso": 2017,
+        "qt_ingressante_media_nacional": 52.7,
+        "quantidade_cursos_considerados": 5212
+      },
+      {
+        "codigo_curso": 38217,
+        "ano_ingresso": 2018,
+        "qt_ingressante_media_nacional": 51.1,
+        "quantidade_cursos_considerados": 5181
+      },
+      {
+        "codigo_curso": 38217,
+        "ano_ingresso": 2019,
+        "qt_ingressante_media_nacional": 50.6,
+        "quantidade_cursos_considerados": 5048
+      },
+      {
+        "codigo_curso": 38217,
+        "ano_ingresso": 2020,
+        "qt_ingressante_media_nacional": 43.4,
+        "quantidade_cursos_considerados": 4636
+      },
+      {
+        "codigo_curso": 38239,
+        "ano_ingresso": 2010,
+        "qt_ingressante_media_nacional": 59.3,
+        "quantidade_cursos_considerados": 6072
+      },
+      {
+        "codigo_curso": 38239,
+        "ano_ingresso": 2011,
+        "qt_ingressante_media_nacional": 57.3,
+        "quantidade_cursos_considerados": 5586
+      },
+      {
+        "codigo_curso": 38239,
+        "ano_ingresso": 2012,
+        "qt_ingressante_media_nacional": 59.4,
+        "quantidade_cursos_considerados": 5543
+      },
+      {
+        "codigo_curso": 38239,
+        "ano_ingresso": 2013,
+        "qt_ingressante_media_nacional": 61.8,
+        "quantidade_cursos_considerados": 5191
+      },
+      {
+        "codigo_curso": 38239,
+        "ano_ingresso": 2014,
+        "qt_ingressante_media_nacional": 59.6,
+        "quantidade_cursos_considerados": 5213
+      },
+      {
+        "codigo_curso": 38239,
+        "ano_ingresso": 2015,
+        "qt_ingressante_media_nacional": 56.8,
+        "quantidade_cursos_considerados": 5188
+      },
+      {
+        "codigo_curso": 38239,
+        "ano_ingresso": 2016,
+        "qt_ingressante_media_nacional": 55.1,
+        "quantidade_cursos_considerados": 5171
+      },
+      {
+        "codigo_curso": 38239,
+        "ano_ingresso": 2017,
+        "qt_ingressante_media_nacional": 52.7,
+        "quantidade_cursos_considerados": 5212
+      },
+      {
+        "codigo_curso": 38239,
+        "ano_ingresso": 2018,
+        "qt_ingressante_media_nacional": 51.1,
+        "quantidade_cursos_considerados": 5181
+      },
+      {
+        "codigo_curso": 38239,
+        "ano_ingresso": 2019,
+        "qt_ingressante_media_nacional": 50.6,
+        "quantidade_cursos_considerados": 5048
+      },
+      {
+        "codigo_curso": 38239,
+        "ano_ingresso": 2020,
+        "qt_ingressante_media_nacional": 43.4,
+        "quantidade_cursos_considerados": 4636
+      },
+      {
+        "codigo_curso": 38246,
+        "ano_ingresso": 2010,
+        "qt_ingressante_media_nacional": 59.3,
+        "quantidade_cursos_considerados": 6072
+      },
+      {
+        "codigo_curso": 38246,
+        "ano_ingresso": 2011,
+        "qt_ingressante_media_nacional": 57.3,
+        "quantidade_cursos_considerados": 5586
+      },
+      {
+        "codigo_curso": 38246,
+        "ano_ingresso": 2012,
+        "qt_ingressante_media_nacional": 59.4,
+        "quantidade_cursos_considerados": 5543
+      },
+      {
+        "codigo_curso": 38246,
+        "ano_ingresso": 2013,
+        "qt_ingressante_media_nacional": 61.8,
+        "quantidade_cursos_considerados": 5191
+      },
+      {
+        "codigo_curso": 38246,
+        "ano_ingresso": 2014,
+        "qt_ingressante_media_nacional": 59.6,
+        "quantidade_cursos_considerados": 5213
+      },
+      {
+        "codigo_curso": 38246,
+        "ano_ingresso": 2015,
+        "qt_ingressante_media_nacional": 56.8,
+        "quantidade_cursos_considerados": 5188
+      },
+      {
+        "codigo_curso": 38246,
+        "ano_ingresso": 2016,
+        "qt_ingressante_media_nacional": 55.1,
+        "quantidade_cursos_considerados": 5171
+      },
+      {
+        "codigo_curso": 38246,
+        "ano_ingresso": 2017,
+        "qt_ingressante_media_nacional": 52.7,
+        "quantidade_cursos_considerados": 5212
+      },
+      {
+        "codigo_curso": 38246,
+        "ano_ingresso": 2018,
+        "qt_ingressante_media_nacional": 51.1,
+        "quantidade_cursos_considerados": 5181
+      },
+      {
+        "codigo_curso": 38246,
+        "ano_ingresso": 2019,
+        "qt_ingressante_media_nacional": 50.6,
+        "quantidade_cursos_considerados": 5048
+      },
+      {
+        "codigo_curso": 38246,
+        "ano_ingresso": 2020,
+        "qt_ingressante_media_nacional": 43.4,
+        "quantidade_cursos_considerados": 4636
+      },
+      {
+        "codigo_curso": 38273,
+        "ano_ingresso": 2010,
+        "qt_ingressante_media_nacional": 59.3,
+        "quantidade_cursos_considerados": 6072
+      },
+      {
+        "codigo_curso": 38273,
+        "ano_ingresso": 2011,
+        "qt_ingressante_media_nacional": 57.3,
+        "quantidade_cursos_considerados": 5586
+      },
+      {
+        "codigo_curso": 38273,
+        "ano_ingresso": 2012,
+        "qt_ingressante_media_nacional": 59.4,
+        "quantidade_cursos_considerados": 5543
+      },
+      {
+        "codigo_curso": 38273,
+        "ano_ingresso": 2013,
+        "qt_ingressante_media_nacional": 61.8,
+        "quantidade_cursos_considerados": 5191
+      },
+      {
+        "codigo_curso": 38273,
+        "ano_ingresso": 2014,
+        "qt_ingressante_media_nacional": 59.6,
+        "quantidade_cursos_considerados": 5213
+      },
+      {
+        "codigo_curso": 38273,
+        "ano_ingresso": 2015,
+        "qt_ingressante_media_nacional": 56.8,
+        "quantidade_cursos_considerados": 5188
+      },
+      {
+        "codigo_curso": 38273,
+        "ano_ingresso": 2016,
+        "qt_ingressante_media_nacional": 55.1,
+        "quantidade_cursos_considerados": 5171
+      },
+      {
+        "codigo_curso": 38273,
+        "ano_ingresso": 2017,
+        "qt_ingressante_media_nacional": 52.7,
+        "quantidade_cursos_considerados": 5212
+      },
+      {
+        "codigo_curso": 38273,
+        "ano_ingresso": 2018,
+        "qt_ingressante_media_nacional": 51.1,
+        "quantidade_cursos_considerados": 5181
+      },
+      {
+        "codigo_curso": 38273,
+        "ano_ingresso": 2019,
+        "qt_ingressante_media_nacional": 50.6,
+        "quantidade_cursos_considerados": 5048
+      },
+      {
+        "codigo_curso": 38273,
+        "ano_ingresso": 2020,
+        "qt_ingressante_media_nacional": 43.4,
+        "quantidade_cursos_considerados": 4636
+      },
+      {
+        "codigo_curso": 50392,
+        "ano_ingresso": 2010,
+        "qt_ingressante_media_nacional": 72.2,
+        "quantidade_cursos_considerados": 591
+      },
+      {
+        "codigo_curso": 50392,
+        "ano_ingresso": 2011,
+        "qt_ingressante_media_nacional": 69.3,
+        "quantidade_cursos_considerados": 626
+      },
+      {
+        "codigo_curso": 50392,
+        "ano_ingresso": 2012,
+        "qt_ingressante_media_nacional": 76.5,
+        "quantidade_cursos_considerados": 652
+      },
+      {
+        "codigo_curso": 50392,
+        "ano_ingresso": 2013,
+        "qt_ingressante_media_nacional": 79.8,
+        "quantidade_cursos_considerados": 677
+      },
+      {
+        "codigo_curso": 50392,
+        "ano_ingresso": 2014,
+        "qt_ingressante_media_nacional": 87.6,
+        "quantidade_cursos_considerados": 714
+      },
+      {
+        "codigo_curso": 50392,
+        "ano_ingresso": 2015,
+        "qt_ingressante_media_nacional": 85.8,
+        "quantidade_cursos_considerados": 757
+      },
+      {
+        "codigo_curso": 50392,
+        "ano_ingresso": 2016,
+        "qt_ingressante_media_nacional": 80.2,
+        "quantidade_cursos_considerados": 817
+      },
+      {
+        "codigo_curso": 50392,
+        "ano_ingresso": 2017,
+        "qt_ingressante_media_nacional": 78.6,
+        "quantidade_cursos_considerados": 870
+      },
+      {
+        "codigo_curso": 50392,
+        "ano_ingresso": 2018,
+        "qt_ingressante_media_nacional": 74.8,
+        "quantidade_cursos_considerados": 958
+      },
+      {
+        "codigo_curso": 50392,
+        "ano_ingresso": 2019,
+        "qt_ingressante_media_nacional": 71.6,
+        "quantidade_cursos_considerados": 1048
+      },
+      {
+        "codigo_curso": 50392,
+        "ano_ingresso": 2020,
+        "qt_ingressante_media_nacional": 68.1,
+        "quantidade_cursos_considerados": 1097
+      },
+      {
+        "codigo_curso": 69190,
+        "ano_ingresso": 2010,
+        "qt_ingressante_media_nacional": 103.3,
+        "quantidade_cursos_considerados": 2310
+      },
+      {
+        "codigo_curso": 69190,
+        "ano_ingresso": 2011,
+        "qt_ingressante_media_nacional": 105.4,
+        "quantidade_cursos_considerados": 2606
+      },
+      {
+        "codigo_curso": 69190,
+        "ano_ingresso": 2012,
+        "qt_ingressante_media_nacional": 121.8,
+        "quantidade_cursos_considerados": 2823
+      },
+      {
+        "codigo_curso": 69190,
+        "ano_ingresso": 2013,
+        "qt_ingressante_media_nacional": 122.2,
+        "quantidade_cursos_considerados": 3091
+      },
+      {
+        "codigo_curso": 69190,
+        "ano_ingresso": 2014,
+        "qt_ingressante_media_nacional": 120.3,
+        "quantidade_cursos_considerados": 3481
+      },
+      {
+        "codigo_curso": 69190,
+        "ano_ingresso": 2015,
+        "qt_ingressante_media_nacional": 99.1,
+        "quantidade_cursos_considerados": 3916
+      },
+      {
+        "codigo_curso": 69190,
+        "ano_ingresso": 2016,
+        "qt_ingressante_media_nacional": 79.0,
+        "quantidade_cursos_considerados": 4227
+      },
+      {
+        "codigo_curso": 69190,
+        "ano_ingresso": 2017,
+        "qt_ingressante_media_nacional": 67.2,
+        "quantidade_cursos_considerados": 4475
+      },
+      {
+        "codigo_curso": 69190,
+        "ano_ingresso": 2018,
+        "qt_ingressante_media_nacional": 55.4,
+        "quantidade_cursos_considerados": 4705
+      },
+      {
+        "codigo_curso": 69190,
+        "ano_ingresso": 2019,
+        "qt_ingressante_media_nacional": 50.0,
+        "quantidade_cursos_considerados": 4688
+      },
+      {
+        "codigo_curso": 69190,
+        "ano_ingresso": 2020,
+        "qt_ingressante_media_nacional": 44.8,
+        "quantidade_cursos_considerados": 4489
+      },
+      {
+        "codigo_curso": 99567,
+        "ano_ingresso": 2010,
+        "qt_ingressante_media_nacional": 56.3,
+        "quantidade_cursos_considerados": 704
+      },
+      {
+        "codigo_curso": 99567,
+        "ano_ingresso": 2011,
+        "qt_ingressante_media_nacional": 53.8,
+        "quantidade_cursos_considerados": 734
+      },
+      {
+        "codigo_curso": 99567,
+        "ano_ingresso": 2012,
+        "qt_ingressante_media_nacional": 54.7,
+        "quantidade_cursos_considerados": 747
+      },
+      {
+        "codigo_curso": 99567,
+        "ano_ingresso": 2013,
+        "qt_ingressante_media_nacional": 54.8,
+        "quantidade_cursos_considerados": 738
+      },
+      {
+        "codigo_curso": 99567,
+        "ano_ingresso": 2014,
+        "qt_ingressante_media_nacional": 55.8,
+        "quantidade_cursos_considerados": 737
+      },
+      {
+        "codigo_curso": 99567,
+        "ano_ingresso": 2015,
+        "qt_ingressante_media_nacional": 54.1,
+        "quantidade_cursos_considerados": 746
+      },
+      {
+        "codigo_curso": 99567,
+        "ano_ingresso": 2016,
+        "qt_ingressante_media_nacional": 50.8,
+        "quantidade_cursos_considerados": 762
+      },
+      {
+        "codigo_curso": 99567,
+        "ano_ingresso": 2017,
+        "qt_ingressante_media_nacional": 51.7,
+        "quantidade_cursos_considerados": 750
+      },
+      {
+        "codigo_curso": 99567,
+        "ano_ingresso": 2018,
+        "qt_ingressante_media_nacional": 49.9,
+        "quantidade_cursos_considerados": 757
+      },
+      {
+        "codigo_curso": 99567,
+        "ano_ingresso": 2019,
+        "qt_ingressante_media_nacional": 50.6,
+        "quantidade_cursos_considerados": 750
+      },
+      {
+        "codigo_curso": 99567,
+        "ano_ingresso": 2020,
+        "qt_ingressante_media_nacional": 47.4,
+        "quantidade_cursos_considerados": 733
+      },
+      {
+        "codigo_curso": 99572,
+        "ano_ingresso": 2010,
+        "qt_ingressante_media_nacional": 103.3,
+        "quantidade_cursos_considerados": 2310
+      },
+      {
+        "codigo_curso": 99572,
+        "ano_ingresso": 2011,
+        "qt_ingressante_media_nacional": 105.4,
+        "quantidade_cursos_considerados": 2606
+      },
+      {
+        "codigo_curso": 99572,
+        "ano_ingresso": 2012,
+        "qt_ingressante_media_nacional": 121.8,
+        "quantidade_cursos_considerados": 2823
+      },
+      {
+        "codigo_curso": 99572,
+        "ano_ingresso": 2013,
+        "qt_ingressante_media_nacional": 122.2,
+        "quantidade_cursos_considerados": 3091
+      },
+      {
+        "codigo_curso": 99572,
+        "ano_ingresso": 2014,
+        "qt_ingressante_media_nacional": 120.3,
+        "quantidade_cursos_considerados": 3481
+      },
+      {
+        "codigo_curso": 99572,
+        "ano_ingresso": 2015,
+        "qt_ingressante_media_nacional": 99.1,
+        "quantidade_cursos_considerados": 3916
+      },
+      {
+        "codigo_curso": 99572,
+        "ano_ingresso": 2016,
+        "qt_ingressante_media_nacional": 79.0,
+        "quantidade_cursos_considerados": 4227
+      },
+      {
+        "codigo_curso": 99572,
+        "ano_ingresso": 2017,
+        "qt_ingressante_media_nacional": 67.2,
+        "quantidade_cursos_considerados": 4475
+      },
+      {
+        "codigo_curso": 99572,
+        "ano_ingresso": 2018,
+        "qt_ingressante_media_nacional": 55.4,
+        "quantidade_cursos_considerados": 4705
+      },
+      {
+        "codigo_curso": 99572,
+        "ano_ingresso": 2019,
+        "qt_ingressante_media_nacional": 50.0,
+        "quantidade_cursos_considerados": 4688
+      },
+      {
+        "codigo_curso": 99572,
+        "ano_ingresso": 2020,
+        "qt_ingressante_media_nacional": 44.8,
+        "quantidade_cursos_considerados": 4489
+      },
+      {
+        "codigo_curso": 100021,
+        "ano_ingresso": 2010,
+        "qt_ingressante_media_nacional": 59.3,
+        "quantidade_cursos_considerados": 6072
+      },
+      {
+        "codigo_curso": 100021,
+        "ano_ingresso": 2011,
+        "qt_ingressante_media_nacional": 57.3,
+        "quantidade_cursos_considerados": 5586
+      },
+      {
+        "codigo_curso": 100021,
+        "ano_ingresso": 2012,
+        "qt_ingressante_media_nacional": 59.4,
+        "quantidade_cursos_considerados": 5543
+      },
+      {
+        "codigo_curso": 100021,
+        "ano_ingresso": 2013,
+        "qt_ingressante_media_nacional": 61.8,
+        "quantidade_cursos_considerados": 5191
+      },
+      {
+        "codigo_curso": 100021,
+        "ano_ingresso": 2014,
+        "qt_ingressante_media_nacional": 59.6,
+        "quantidade_cursos_considerados": 5213
+      },
+      {
+        "codigo_curso": 100021,
+        "ano_ingresso": 2015,
+        "qt_ingressante_media_nacional": 56.8,
+        "quantidade_cursos_considerados": 5188
+      },
+      {
+        "codigo_curso": 100021,
+        "ano_ingresso": 2016,
+        "qt_ingressante_media_nacional": 55.1,
+        "quantidade_cursos_considerados": 5171
+      },
+      {
+        "codigo_curso": 100021,
+        "ano_ingresso": 2017,
+        "qt_ingressante_media_nacional": 52.7,
+        "quantidade_cursos_considerados": 5212
+      },
+      {
+        "codigo_curso": 100021,
+        "ano_ingresso": 2018,
+        "qt_ingressante_media_nacional": 51.1,
+        "quantidade_cursos_considerados": 5181
+      },
+      {
+        "codigo_curso": 100021,
+        "ano_ingresso": 2019,
+        "qt_ingressante_media_nacional": 50.6,
+        "quantidade_cursos_considerados": 5048
+      },
+      {
+        "codigo_curso": 100021,
+        "ano_ingresso": 2020,
+        "qt_ingressante_media_nacional": 43.4,
+        "quantidade_cursos_considerados": 4636
+      },
+      {
+        "codigo_curso": 100256,
+        "ano_ingresso": 2010,
+        "qt_ingressante_media_nacional": 88.0,
+        "quantidade_cursos_considerados": 3338
+      },
+      {
+        "codigo_curso": 100256,
+        "ano_ingresso": 2011,
+        "qt_ingressante_media_nacional": 83.1,
+        "quantidade_cursos_considerados": 3404
+      },
+      {
+        "codigo_curso": 100256,
+        "ano_ingresso": 2012,
+        "qt_ingressante_media_nacional": 91.3,
+        "quantidade_cursos_considerados": 3482
+      },
+      {
+        "codigo_curso": 100256,
+        "ano_ingresso": 2013,
+        "qt_ingressante_media_nacional": 95.4,
+        "quantidade_cursos_considerados": 3560
+      },
+      {
+        "codigo_curso": 100256,
+        "ano_ingresso": 2014,
+        "qt_ingressante_media_nacional": 106.4,
+        "quantidade_cursos_considerados": 3721
+      },
+      {
+        "codigo_curso": 100256,
+        "ano_ingresso": 2015,
+        "qt_ingressante_media_nacional": 100.5,
+        "quantidade_cursos_considerados": 3936
+      },
+      {
+        "codigo_curso": 100256,
+        "ano_ingresso": 2016,
+        "qt_ingressante_media_nacional": 96.5,
+        "quantidade_cursos_considerados": 4284
+      },
+      {
+        "codigo_curso": 100256,
+        "ano_ingresso": 2017,
+        "qt_ingressante_media_nacional": 97.3,
+        "quantidade_cursos_considerados": 4683
+      },
+      {
+        "codigo_curso": 100256,
+        "ano_ingresso": 2018,
+        "qt_ingressante_media_nacional": 89.1,
+        "quantidade_cursos_considerados": 5096
+      },
+      {
+        "codigo_curso": 100256,
+        "ano_ingresso": 2019,
+        "qt_ingressante_media_nacional": 83.7,
+        "quantidade_cursos_considerados": 5420
+      },
+      {
+        "codigo_curso": 100256,
+        "ano_ingresso": 2020,
+        "qt_ingressante_media_nacional": 75.9,
+        "quantidade_cursos_considerados": 5522
+      },
+      {
+        "codigo_curso": 111294,
+        "ano_ingresso": 2010,
+        "qt_ingressante_media_nacional": 56.3,
+        "quantidade_cursos_considerados": 704
+      },
+      {
+        "codigo_curso": 111294,
+        "ano_ingresso": 2011,
+        "qt_ingressante_media_nacional": 53.8,
+        "quantidade_cursos_considerados": 734
+      },
+      {
+        "codigo_curso": 111294,
+        "ano_ingresso": 2012,
+        "qt_ingressante_media_nacional": 54.7,
+        "quantidade_cursos_considerados": 747
+      },
+      {
+        "codigo_curso": 111294,
+        "ano_ingresso": 2013,
+        "qt_ingressante_media_nacional": 54.8,
+        "quantidade_cursos_considerados": 738
+      },
+      {
+        "codigo_curso": 111294,
+        "ano_ingresso": 2014,
+        "qt_ingressante_media_nacional": 55.8,
+        "quantidade_cursos_considerados": 737
+      },
+      {
+        "codigo_curso": 111294,
+        "ano_ingresso": 2015,
+        "qt_ingressante_media_nacional": 54.1,
+        "quantidade_cursos_considerados": 746
+      },
+      {
+        "codigo_curso": 111294,
+        "ano_ingresso": 2016,
+        "qt_ingressante_media_nacional": 50.8,
+        "quantidade_cursos_considerados": 762
+      },
+      {
+        "codigo_curso": 111294,
+        "ano_ingresso": 2017,
+        "qt_ingressante_media_nacional": 51.7,
+        "quantidade_cursos_considerados": 750
+      },
+      {
+        "codigo_curso": 111294,
+        "ano_ingresso": 2018,
+        "qt_ingressante_media_nacional": 49.9,
+        "quantidade_cursos_considerados": 757
+      },
+      {
+        "codigo_curso": 111294,
+        "ano_ingresso": 2019,
+        "qt_ingressante_media_nacional": 50.6,
+        "quantidade_cursos_considerados": 750
+      },
+      {
+        "codigo_curso": 111294,
+        "ano_ingresso": 2020,
+        "qt_ingressante_media_nacional": 47.4,
+        "quantidade_cursos_considerados": 733
+      },
+      {
+        "codigo_curso": 116834,
+        "ano_ingresso": 2010,
+        "qt_ingressante_media_nacional": 59.3,
+        "quantidade_cursos_considerados": 6072
+      },
+      {
+        "codigo_curso": 116834,
+        "ano_ingresso": 2011,
+        "qt_ingressante_media_nacional": 57.3,
+        "quantidade_cursos_considerados": 5586
+      },
+      {
+        "codigo_curso": 116834,
+        "ano_ingresso": 2012,
+        "qt_ingressante_media_nacional": 59.4,
+        "quantidade_cursos_considerados": 5543
+      },
+      {
+        "codigo_curso": 116834,
+        "ano_ingresso": 2013,
+        "qt_ingressante_media_nacional": 61.8,
+        "quantidade_cursos_considerados": 5191
+      },
+      {
+        "codigo_curso": 116834,
+        "ano_ingresso": 2014,
+        "qt_ingressante_media_nacional": 59.6,
+        "quantidade_cursos_considerados": 5213
+      },
+      {
+        "codigo_curso": 116834,
+        "ano_ingresso": 2015,
+        "qt_ingressante_media_nacional": 56.8,
+        "quantidade_cursos_considerados": 5188
+      },
+      {
+        "codigo_curso": 116834,
+        "ano_ingresso": 2016,
+        "qt_ingressante_media_nacional": 55.1,
+        "quantidade_cursos_considerados": 5171
+      },
+      {
+        "codigo_curso": 116834,
+        "ano_ingresso": 2017,
+        "qt_ingressante_media_nacional": 52.7,
+        "quantidade_cursos_considerados": 5212
+      },
+      {
+        "codigo_curso": 116834,
+        "ano_ingresso": 2018,
+        "qt_ingressante_media_nacional": 51.1,
+        "quantidade_cursos_considerados": 5181
+      },
+      {
+        "codigo_curso": 116834,
+        "ano_ingresso": 2019,
+        "qt_ingressante_media_nacional": 50.6,
+        "quantidade_cursos_considerados": 5048
+      },
+      {
+        "codigo_curso": 116834,
+        "ano_ingresso": 2020,
+        "qt_ingressante_media_nacional": 43.4,
+        "quantidade_cursos_considerados": 4636
+      },
+      {
+        "codigo_curso": 122364,
+        "ano_ingresso": 2010,
+        "qt_ingressante_media_nacional": 103.3,
+        "quantidade_cursos_considerados": 2310
+      },
+      {
+        "codigo_curso": 122364,
+        "ano_ingresso": 2011,
+        "qt_ingressante_media_nacional": 105.4,
+        "quantidade_cursos_considerados": 2606
+      },
+      {
+        "codigo_curso": 122364,
+        "ano_ingresso": 2012,
+        "qt_ingressante_media_nacional": 121.8,
+        "quantidade_cursos_considerados": 2823
+      },
+      {
+        "codigo_curso": 122364,
+        "ano_ingresso": 2013,
+        "qt_ingressante_media_nacional": 122.2,
+        "quantidade_cursos_considerados": 3091
+      },
+      {
+        "codigo_curso": 122364,
+        "ano_ingresso": 2014,
+        "qt_ingressante_media_nacional": 120.3,
+        "quantidade_cursos_considerados": 3481
+      },
+      {
+        "codigo_curso": 122364,
+        "ano_ingresso": 2015,
+        "qt_ingressante_media_nacional": 99.1,
+        "quantidade_cursos_considerados": 3916
+      },
+      {
+        "codigo_curso": 122364,
+        "ano_ingresso": 2016,
+        "qt_ingressante_media_nacional": 79.0,
+        "quantidade_cursos_considerados": 4227
+      },
+      {
+        "codigo_curso": 122364,
+        "ano_ingresso": 2017,
+        "qt_ingressante_media_nacional": 67.2,
+        "quantidade_cursos_considerados": 4475
+      },
+      {
+        "codigo_curso": 122364,
+        "ano_ingresso": 2018,
+        "qt_ingressante_media_nacional": 55.4,
+        "quantidade_cursos_considerados": 4705
+      },
+      {
+        "codigo_curso": 122364,
+        "ano_ingresso": 2019,
+        "qt_ingressante_media_nacional": 50.0,
+        "quantidade_cursos_considerados": 4688
+      },
+      {
+        "codigo_curso": 122364,
+        "ano_ingresso": 2020,
+        "qt_ingressante_media_nacional": 44.8,
+        "quantidade_cursos_considerados": 4489
+      },
+      {
+        "codigo_curso": 150090,
+        "ano_ingresso": 2010,
+        "qt_ingressante_media_nacional": 59.3,
+        "quantidade_cursos_considerados": 6072
+      },
+      {
+        "codigo_curso": 150090,
+        "ano_ingresso": 2011,
+        "qt_ingressante_media_nacional": 57.3,
+        "quantidade_cursos_considerados": 5586
+      },
+      {
+        "codigo_curso": 150090,
+        "ano_ingresso": 2012,
+        "qt_ingressante_media_nacional": 59.4,
+        "quantidade_cursos_considerados": 5543
+      },
+      {
+        "codigo_curso": 150090,
+        "ano_ingresso": 2013,
+        "qt_ingressante_media_nacional": 61.8,
+        "quantidade_cursos_considerados": 5191
+      },
+      {
+        "codigo_curso": 150090,
+        "ano_ingresso": 2014,
+        "qt_ingressante_media_nacional": 59.6,
+        "quantidade_cursos_considerados": 5213
+      },
+      {
+        "codigo_curso": 150090,
+        "ano_ingresso": 2015,
+        "qt_ingressante_media_nacional": 56.8,
+        "quantidade_cursos_considerados": 5188
+      },
+      {
+        "codigo_curso": 150090,
+        "ano_ingresso": 2016,
+        "qt_ingressante_media_nacional": 55.1,
+        "quantidade_cursos_considerados": 5171
+      },
+      {
+        "codigo_curso": 150090,
+        "ano_ingresso": 2017,
+        "qt_ingressante_media_nacional": 52.7,
+        "quantidade_cursos_considerados": 5212
+      },
+      {
+        "codigo_curso": 150090,
+        "ano_ingresso": 2018,
+        "qt_ingressante_media_nacional": 51.1,
+        "quantidade_cursos_considerados": 5181
+      },
+      {
+        "codigo_curso": 150090,
+        "ano_ingresso": 2019,
+        "qt_ingressante_media_nacional": 50.6,
+        "quantidade_cursos_considerados": 5048
+      },
+      {
+        "codigo_curso": 150090,
+        "ano_ingresso": 2020,
+        "qt_ingressante_media_nacional": 43.4,
+        "quantidade_cursos_considerados": 4636
+      },
+      {
+        "codigo_curso": 150091,
+        "ano_ingresso": 2010,
+        "qt_ingressante_media_nacional": 59.3,
+        "quantidade_cursos_considerados": 6072
+      },
+      {
+        "codigo_curso": 150091,
+        "ano_ingresso": 2011,
+        "qt_ingressante_media_nacional": 57.3,
+        "quantidade_cursos_considerados": 5586
+      },
+      {
+        "codigo_curso": 150091,
+        "ano_ingresso": 2012,
+        "qt_ingressante_media_nacional": 59.4,
+        "quantidade_cursos_considerados": 5543
+      },
+      {
+        "codigo_curso": 150091,
+        "ano_ingresso": 2013,
+        "qt_ingressante_media_nacional": 61.8,
+        "quantidade_cursos_considerados": 5191
+      },
+      {
+        "codigo_curso": 150091,
+        "ano_ingresso": 2014,
+        "qt_ingressante_media_nacional": 59.6,
+        "quantidade_cursos_considerados": 5213
+      },
+      {
+        "codigo_curso": 150091,
+        "ano_ingresso": 2015,
+        "qt_ingressante_media_nacional": 56.8,
+        "quantidade_cursos_considerados": 5188
+      },
+      {
+        "codigo_curso": 150091,
+        "ano_ingresso": 2016,
+        "qt_ingressante_media_nacional": 55.1,
+        "quantidade_cursos_considerados": 5171
+      },
+      {
+        "codigo_curso": 150091,
+        "ano_ingresso": 2017,
+        "qt_ingressante_media_nacional": 52.7,
+        "quantidade_cursos_considerados": 5212
+      },
+      {
+        "codigo_curso": 150091,
+        "ano_ingresso": 2018,
+        "qt_ingressante_media_nacional": 51.1,
+        "quantidade_cursos_considerados": 5181
+      },
+      {
+        "codigo_curso": 150091,
+        "ano_ingresso": 2019,
+        "qt_ingressante_media_nacional": 50.6,
+        "quantidade_cursos_considerados": 5048
+      },
+      {
+        "codigo_curso": 150091,
+        "ano_ingresso": 2020,
+        "qt_ingressante_media_nacional": 43.4,
+        "quantidade_cursos_considerados": 4636
+      },
+      {
+        "codigo_curso": 150092,
+        "ano_ingresso": 2010,
+        "qt_ingressante_media_nacional": 51.9,
+        "quantidade_cursos_considerados": 825
+      },
+      {
+        "codigo_curso": 150092,
+        "ano_ingresso": 2011,
+        "qt_ingressante_media_nacional": 49.7,
+        "quantidade_cursos_considerados": 802
+      },
+      {
+        "codigo_curso": 150092,
+        "ano_ingresso": 2012,
+        "qt_ingressante_media_nacional": 50.2,
+        "quantidade_cursos_considerados": 841
+      },
+      {
+        "codigo_curso": 150092,
+        "ano_ingresso": 2013,
+        "qt_ingressante_media_nacional": 53.2,
+        "quantidade_cursos_considerados": 801
+      },
+      {
+        "codigo_curso": 150092,
+        "ano_ingresso": 2014,
+        "qt_ingressante_media_nacional": 52.1,
+        "quantidade_cursos_considerados": 786
+      },
+      {
+        "codigo_curso": 150092,
+        "ano_ingresso": 2015,
+        "qt_ingressante_media_nacional": 50.7,
+        "quantidade_cursos_considerados": 795
+      },
+      {
+        "codigo_curso": 150092,
+        "ano_ingresso": 2016,
+        "qt_ingressante_media_nacional": 47.0,
+        "quantidade_cursos_considerados": 790
+      },
+      {
+        "codigo_curso": 150092,
+        "ano_ingresso": 2017,
+        "qt_ingressante_media_nacional": 46.4,
+        "quantidade_cursos_considerados": 813
+      },
+      {
+        "codigo_curso": 150092,
+        "ano_ingresso": 2018,
+        "qt_ingressante_media_nacional": 44.7,
+        "quantidade_cursos_considerados": 815
+      },
+      {
+        "codigo_curso": 150092,
+        "ano_ingresso": 2019,
+        "qt_ingressante_media_nacional": 41.9,
+        "quantidade_cursos_considerados": 814
+      },
+      {
+        "codigo_curso": 150092,
+        "ano_ingresso": 2020,
+        "qt_ingressante_media_nacional": 38.9,
+        "quantidade_cursos_considerados": 814
+      },
+      {
+        "codigo_curso": 150093,
+        "ano_ingresso": 2010,
+        "qt_ingressante_media_nacional": 51.9,
+        "quantidade_cursos_considerados": 825
+      },
+      {
+        "codigo_curso": 150093,
+        "ano_ingresso": 2011,
+        "qt_ingressante_media_nacional": 49.7,
+        "quantidade_cursos_considerados": 802
+      },
+      {
+        "codigo_curso": 150093,
+        "ano_ingresso": 2012,
+        "qt_ingressante_media_nacional": 50.2,
+        "quantidade_cursos_considerados": 841
+      },
+      {
+        "codigo_curso": 150093,
+        "ano_ingresso": 2013,
+        "qt_ingressante_media_nacional": 53.2,
+        "quantidade_cursos_considerados": 801
+      },
+      {
+        "codigo_curso": 150093,
+        "ano_ingresso": 2014,
+        "qt_ingressante_media_nacional": 52.1,
+        "quantidade_cursos_considerados": 786
+      },
+      {
+        "codigo_curso": 150093,
+        "ano_ingresso": 2015,
+        "qt_ingressante_media_nacional": 50.7,
+        "quantidade_cursos_considerados": 795
+      },
+      {
+        "codigo_curso": 150093,
+        "ano_ingresso": 2016,
+        "qt_ingressante_media_nacional": 47.0,
+        "quantidade_cursos_considerados": 790
+      },
+      {
+        "codigo_curso": 150093,
+        "ano_ingresso": 2017,
+        "qt_ingressante_media_nacional": 46.4,
+        "quantidade_cursos_considerados": 813
+      },
+      {
+        "codigo_curso": 150093,
+        "ano_ingresso": 2018,
+        "qt_ingressante_media_nacional": 44.7,
+        "quantidade_cursos_considerados": 815
+      },
+      {
+        "codigo_curso": 150093,
+        "ano_ingresso": 2019,
+        "qt_ingressante_media_nacional": 41.9,
+        "quantidade_cursos_considerados": 814
+      },
+      {
+        "codigo_curso": 150093,
+        "ano_ingresso": 2020,
+        "qt_ingressante_media_nacional": 38.9,
+        "quantidade_cursos_considerados": 814
+      },
+      {
+        "codigo_curso": 150111,
+        "ano_ingresso": 2010,
+        "qt_ingressante_media_nacional": 75.0,
+        "quantidade_cursos_considerados": 1461
+      },
+      {
+        "codigo_curso": 150111,
+        "ano_ingresso": 2011,
+        "qt_ingressante_media_nacional": 76.8,
+        "quantidade_cursos_considerados": 1431
+      },
+      {
+        "codigo_curso": 150111,
+        "ano_ingresso": 2012,
+        "qt_ingressante_media_nacional": 84.7,
+        "quantidade_cursos_considerados": 1443
+      },
+      {
+        "codigo_curso": 150111,
+        "ano_ingresso": 2013,
+        "qt_ingressante_media_nacional": 91.6,
+        "quantidade_cursos_considerados": 1407
+      },
+      {
+        "codigo_curso": 150111,
+        "ano_ingresso": 2014,
+        "qt_ingressante_media_nacional": 100.4,
+        "quantidade_cursos_considerados": 1425
+      },
+      {
+        "codigo_curso": 150111,
+        "ano_ingresso": 2015,
+        "qt_ingressante_media_nacional": 93.2,
+        "quantidade_cursos_considerados": 1469
+      },
+      {
+        "codigo_curso": 150111,
+        "ano_ingresso": 2016,
+        "qt_ingressante_media_nacional": 87.6,
+        "quantidade_cursos_considerados": 1553
+      },
+      {
+        "codigo_curso": 150111,
+        "ano_ingresso": 2017,
+        "qt_ingressante_media_nacional": 89.5,
+        "quantidade_cursos_considerados": 1601
+      },
+      {
+        "codigo_curso": 150111,
+        "ano_ingresso": 2018,
+        "qt_ingressante_media_nacional": 84.6,
+        "quantidade_cursos_considerados": 1703
+      },
+      {
+        "codigo_curso": 150111,
+        "ano_ingresso": 2019,
+        "qt_ingressante_media_nacional": 85.5,
+        "quantidade_cursos_considerados": 1805
+      },
+      {
+        "codigo_curso": 150111,
+        "ano_ingresso": 2020,
+        "qt_ingressante_media_nacional": 86.5,
+        "quantidade_cursos_considerados": 1854
+      },
+      {
+        "codigo_curso": 150112,
+        "ano_ingresso": 2010,
+        "qt_ingressante_media_nacional": 103.3,
+        "quantidade_cursos_considerados": 2310
+      },
+      {
+        "codigo_curso": 150112,
+        "ano_ingresso": 2011,
+        "qt_ingressante_media_nacional": 105.4,
+        "quantidade_cursos_considerados": 2606
+      },
+      {
+        "codigo_curso": 150112,
+        "ano_ingresso": 2012,
+        "qt_ingressante_media_nacional": 121.8,
+        "quantidade_cursos_considerados": 2823
+      },
+      {
+        "codigo_curso": 150112,
+        "ano_ingresso": 2013,
+        "qt_ingressante_media_nacional": 122.2,
+        "quantidade_cursos_considerados": 3091
+      },
+      {
+        "codigo_curso": 150112,
+        "ano_ingresso": 2014,
+        "qt_ingressante_media_nacional": 120.3,
+        "quantidade_cursos_considerados": 3481
+      },
+      {
+        "codigo_curso": 150112,
+        "ano_ingresso": 2015,
+        "qt_ingressante_media_nacional": 99.1,
+        "quantidade_cursos_considerados": 3916
+      },
+      {
+        "codigo_curso": 150112,
+        "ano_ingresso": 2016,
+        "qt_ingressante_media_nacional": 79.0,
+        "quantidade_cursos_considerados": 4227
+      },
+      {
+        "codigo_curso": 150112,
+        "ano_ingresso": 2017,
+        "qt_ingressante_media_nacional": 67.2,
+        "quantidade_cursos_considerados": 4475
+      },
+      {
+        "codigo_curso": 150112,
+        "ano_ingresso": 2018,
+        "qt_ingressante_media_nacional": 55.4,
+        "quantidade_cursos_considerados": 4705
+      },
+      {
+        "codigo_curso": 150112,
+        "ano_ingresso": 2019,
+        "qt_ingressante_media_nacional": 50.0,
+        "quantidade_cursos_considerados": 4688
+      },
+      {
+        "codigo_curso": 150112,
+        "ano_ingresso": 2020,
+        "qt_ingressante_media_nacional": 44.8,
+        "quantidade_cursos_considerados": 4489
+      },
+      {
+        "codigo_curso": 150113,
+        "ano_ingresso": 2010,
+        "qt_ingressante_media_nacional": 103.3,
+        "quantidade_cursos_considerados": 2310
+      },
+      {
+        "codigo_curso": 150113,
+        "ano_ingresso": 2011,
+        "qt_ingressante_media_nacional": 105.4,
+        "quantidade_cursos_considerados": 2606
+      },
+      {
+        "codigo_curso": 150113,
+        "ano_ingresso": 2012,
+        "qt_ingressante_media_nacional": 121.8,
+        "quantidade_cursos_considerados": 2823
+      },
+      {
+        "codigo_curso": 150113,
+        "ano_ingresso": 2013,
+        "qt_ingressante_media_nacional": 122.2,
+        "quantidade_cursos_considerados": 3091
+      },
+      {
+        "codigo_curso": 150113,
+        "ano_ingresso": 2014,
+        "qt_ingressante_media_nacional": 120.3,
+        "quantidade_cursos_considerados": 3481
+      },
+      {
+        "codigo_curso": 150113,
+        "ano_ingresso": 2015,
+        "qt_ingressante_media_nacional": 99.1,
+        "quantidade_cursos_considerados": 3916
+      },
+      {
+        "codigo_curso": 150113,
+        "ano_ingresso": 2016,
+        "qt_ingressante_media_nacional": 79.0,
+        "quantidade_cursos_considerados": 4227
+      },
+      {
+        "codigo_curso": 150113,
+        "ano_ingresso": 2017,
+        "qt_ingressante_media_nacional": 67.2,
+        "quantidade_cursos_considerados": 4475
+      },
+      {
+        "codigo_curso": 150113,
+        "ano_ingresso": 2018,
+        "qt_ingressante_media_nacional": 55.4,
+        "quantidade_cursos_considerados": 4705
+      },
+      {
+        "codigo_curso": 150113,
+        "ano_ingresso": 2019,
+        "qt_ingressante_media_nacional": 50.0,
+        "quantidade_cursos_considerados": 4688
+      },
+      {
+        "codigo_curso": 150113,
+        "ano_ingresso": 2020,
+        "qt_ingressante_media_nacional": 44.8,
+        "quantidade_cursos_considerados": 4489
+      },
+      {
+        "codigo_curso": 150114,
+        "ano_ingresso": 2010,
+        "qt_ingressante_media_nacional": 56.3,
+        "quantidade_cursos_considerados": 704
+      },
+      {
+        "codigo_curso": 150114,
+        "ano_ingresso": 2011,
+        "qt_ingressante_media_nacional": 53.8,
+        "quantidade_cursos_considerados": 734
+      },
+      {
+        "codigo_curso": 150114,
+        "ano_ingresso": 2012,
+        "qt_ingressante_media_nacional": 54.7,
+        "quantidade_cursos_considerados": 747
+      },
+      {
+        "codigo_curso": 150114,
+        "ano_ingresso": 2013,
+        "qt_ingressante_media_nacional": 54.8,
+        "quantidade_cursos_considerados": 738
+      },
+      {
+        "codigo_curso": 150114,
+        "ano_ingresso": 2014,
+        "qt_ingressante_media_nacional": 55.8,
+        "quantidade_cursos_considerados": 737
+      },
+      {
+        "codigo_curso": 150114,
+        "ano_ingresso": 2015,
+        "qt_ingressante_media_nacional": 54.1,
+        "quantidade_cursos_considerados": 746
+      },
+      {
+        "codigo_curso": 150114,
+        "ano_ingresso": 2016,
+        "qt_ingressante_media_nacional": 50.8,
+        "quantidade_cursos_considerados": 762
+      },
+      {
+        "codigo_curso": 150114,
+        "ano_ingresso": 2017,
+        "qt_ingressante_media_nacional": 51.7,
+        "quantidade_cursos_considerados": 750
+      },
+      {
+        "codigo_curso": 150114,
+        "ano_ingresso": 2018,
+        "qt_ingressante_media_nacional": 49.9,
+        "quantidade_cursos_considerados": 757
+      },
+      {
+        "codigo_curso": 150114,
+        "ano_ingresso": 2019,
+        "qt_ingressante_media_nacional": 50.6,
+        "quantidade_cursos_considerados": 750
+      },
+      {
+        "codigo_curso": 150114,
+        "ano_ingresso": 2020,
+        "qt_ingressante_media_nacional": 47.4,
+        "quantidade_cursos_considerados": 733
+      },
+      {
+        "codigo_curso": 150115,
+        "ano_ingresso": 2010,
+        "qt_ingressante_media_nacional": 56.3,
+        "quantidade_cursos_considerados": 704
+      },
+      {
+        "codigo_curso": 150115,
+        "ano_ingresso": 2011,
+        "qt_ingressante_media_nacional": 53.8,
+        "quantidade_cursos_considerados": 734
+      },
+      {
+        "codigo_curso": 150115,
+        "ano_ingresso": 2012,
+        "qt_ingressante_media_nacional": 54.7,
+        "quantidade_cursos_considerados": 747
+      },
+      {
+        "codigo_curso": 150115,
+        "ano_ingresso": 2013,
+        "qt_ingressante_media_nacional": 54.8,
+        "quantidade_cursos_considerados": 738
+      },
+      {
+        "codigo_curso": 150115,
+        "ano_ingresso": 2014,
+        "qt_ingressante_media_nacional": 55.8,
+        "quantidade_cursos_considerados": 737
+      },
+      {
+        "codigo_curso": 150115,
+        "ano_ingresso": 2015,
+        "qt_ingressante_media_nacional": 54.1,
+        "quantidade_cursos_considerados": 746
+      },
+      {
+        "codigo_curso": 150115,
+        "ano_ingresso": 2016,
+        "qt_ingressante_media_nacional": 50.8,
+        "quantidade_cursos_considerados": 762
+      },
+      {
+        "codigo_curso": 150115,
+        "ano_ingresso": 2017,
+        "qt_ingressante_media_nacional": 51.7,
+        "quantidade_cursos_considerados": 750
+      },
+      {
+        "codigo_curso": 150115,
+        "ano_ingresso": 2018,
+        "qt_ingressante_media_nacional": 49.9,
+        "quantidade_cursos_considerados": 757
+      },
+      {
+        "codigo_curso": 150115,
+        "ano_ingresso": 2019,
+        "qt_ingressante_media_nacional": 50.6,
+        "quantidade_cursos_considerados": 750
+      },
+      {
+        "codigo_curso": 150115,
+        "ano_ingresso": 2020,
+        "qt_ingressante_media_nacional": 47.4,
+        "quantidade_cursos_considerados": 733
+      },
+      {
+        "codigo_curso": 150116,
+        "ano_ingresso": 2010,
+        "qt_ingressante_media_nacional": 103.3,
+        "quantidade_cursos_considerados": 2310
+      },
+      {
+        "codigo_curso": 150116,
+        "ano_ingresso": 2011,
+        "qt_ingressante_media_nacional": 105.4,
+        "quantidade_cursos_considerados": 2606
+      },
+      {
+        "codigo_curso": 150116,
+        "ano_ingresso": 2012,
+        "qt_ingressante_media_nacional": 121.8,
+        "quantidade_cursos_considerados": 2823
+      },
+      {
+        "codigo_curso": 150116,
+        "ano_ingresso": 2013,
+        "qt_ingressante_media_nacional": 122.2,
+        "quantidade_cursos_considerados": 3091
+      },
+      {
+        "codigo_curso": 150116,
+        "ano_ingresso": 2014,
+        "qt_ingressante_media_nacional": 120.3,
+        "quantidade_cursos_considerados": 3481
+      },
+      {
+        "codigo_curso": 150116,
+        "ano_ingresso": 2015,
+        "qt_ingressante_media_nacional": 99.1,
+        "quantidade_cursos_considerados": 3916
+      },
+      {
+        "codigo_curso": 150116,
+        "ano_ingresso": 2016,
+        "qt_ingressante_media_nacional": 79.0,
+        "quantidade_cursos_considerados": 4227
+      },
+      {
+        "codigo_curso": 150116,
+        "ano_ingresso": 2017,
+        "qt_ingressante_media_nacional": 67.2,
+        "quantidade_cursos_considerados": 4475
+      },
+      {
+        "codigo_curso": 150116,
+        "ano_ingresso": 2018,
+        "qt_ingressante_media_nacional": 55.4,
+        "quantidade_cursos_considerados": 4705
+      },
+      {
+        "codigo_curso": 150116,
+        "ano_ingresso": 2019,
+        "qt_ingressante_media_nacional": 50.0,
+        "quantidade_cursos_considerados": 4688
+      },
+      {
+        "codigo_curso": 150116,
+        "ano_ingresso": 2020,
+        "qt_ingressante_media_nacional": 44.8,
+        "quantidade_cursos_considerados": 4489
+      },
+      {
+        "codigo_curso": 150123,
+        "ano_ingresso": 2010,
+        "qt_ingressante_media_nacional": 53.3,
+        "quantidade_cursos_considerados": 239
+      },
+      {
+        "codigo_curso": 150123,
+        "ano_ingresso": 2011,
+        "qt_ingressante_media_nacional": 57.1,
+        "quantidade_cursos_considerados": 223
+      },
+      {
+        "codigo_curso": 150123,
+        "ano_ingresso": 2012,
+        "qt_ingressante_media_nacional": 56.6,
+        "quantidade_cursos_considerados": 227
+      },
+      {
+        "codigo_curso": 150123,
+        "ano_ingresso": 2013,
+        "qt_ingressante_media_nacional": 54.4,
+        "quantidade_cursos_considerados": 208
+      },
+      {
+        "codigo_curso": 150123,
+        "ano_ingresso": 2014,
+        "qt_ingressante_media_nacional": 58.3,
+        "quantidade_cursos_considerados": 184
+      },
+      {
+        "codigo_curso": 150123,
+        "ano_ingresso": 2015,
+        "qt_ingressante_media_nacional": 58.8,
+        "quantidade_cursos_considerados": 171
+      },
+      {
+        "codigo_curso": 150123,
+        "ano_ingresso": 2016,
+        "qt_ingressante_media_nacional": 58.1,
+        "quantidade_cursos_considerados": 156
+      },
+      {
+        "codigo_curso": 150123,
+        "ano_ingresso": 2017,
+        "qt_ingressante_media_nacional": 54.7,
+        "quantidade_cursos_considerados": 163
+      },
+      {
+        "codigo_curso": 150123,
+        "ano_ingresso": 2018,
+        "qt_ingressante_media_nacional": 58.6,
+        "quantidade_cursos_considerados": 147
+      },
+      {
+        "codigo_curso": 150123,
+        "ano_ingresso": 2019,
+        "qt_ingressante_media_nacional": 57.4,
+        "quantidade_cursos_considerados": 144
+      },
+      {
+        "codigo_curso": 150123,
+        "ano_ingresso": 2020,
+        "qt_ingressante_media_nacional": 53.0,
+        "quantidade_cursos_considerados": 137
+      },
+      {
+        "codigo_curso": 313974,
+        "ano_ingresso": 2010,
+        "qt_ingressante_media_nacional": 56.3,
+        "quantidade_cursos_considerados": 704
+      },
+      {
+        "codigo_curso": 313974,
+        "ano_ingresso": 2011,
+        "qt_ingressante_media_nacional": 53.8,
+        "quantidade_cursos_considerados": 734
+      },
+      {
+        "codigo_curso": 313974,
+        "ano_ingresso": 2012,
+        "qt_ingressante_media_nacional": 54.7,
+        "quantidade_cursos_considerados": 747
+      },
+      {
+        "codigo_curso": 313974,
+        "ano_ingresso": 2013,
+        "qt_ingressante_media_nacional": 54.8,
+        "quantidade_cursos_considerados": 738
+      },
+      {
+        "codigo_curso": 313974,
+        "ano_ingresso": 2014,
+        "qt_ingressante_media_nacional": 55.8,
+        "quantidade_cursos_considerados": 737
+      },
+      {
+        "codigo_curso": 313974,
+        "ano_ingresso": 2015,
+        "qt_ingressante_media_nacional": 54.1,
+        "quantidade_cursos_considerados": 746
+      },
+      {
+        "codigo_curso": 313974,
+        "ano_ingresso": 2016,
+        "qt_ingressante_media_nacional": 50.8,
+        "quantidade_cursos_considerados": 762
+      },
+      {
+        "codigo_curso": 313974,
+        "ano_ingresso": 2017,
+        "qt_ingressante_media_nacional": 51.7,
+        "quantidade_cursos_considerados": 750
+      },
+      {
+        "codigo_curso": 313974,
+        "ano_ingresso": 2018,
+        "qt_ingressante_media_nacional": 49.9,
+        "quantidade_cursos_considerados": 757
+      },
+      {
+        "codigo_curso": 313974,
+        "ano_ingresso": 2019,
+        "qt_ingressante_media_nacional": 50.6,
+        "quantidade_cursos_considerados": 750
+      },
+      {
+        "codigo_curso": 313974,
+        "ano_ingresso": 2020,
+        "qt_ingressante_media_nacional": 47.4,
+        "quantidade_cursos_considerados": 733
+      },
+      {
+        "codigo_curso": 313976,
+        "ano_ingresso": 2010,
+        "qt_ingressante_media_nacional": 75.0,
+        "quantidade_cursos_considerados": 1461
+      },
+      {
+        "codigo_curso": 313976,
+        "ano_ingresso": 2011,
+        "qt_ingressante_media_nacional": 76.8,
+        "quantidade_cursos_considerados": 1431
+      },
+      {
+        "codigo_curso": 313976,
+        "ano_ingresso": 2012,
+        "qt_ingressante_media_nacional": 84.7,
+        "quantidade_cursos_considerados": 1443
+      },
+      {
+        "codigo_curso": 313976,
+        "ano_ingresso": 2013,
+        "qt_ingressante_media_nacional": 91.6,
+        "quantidade_cursos_considerados": 1407
+      },
+      {
+        "codigo_curso": 313976,
+        "ano_ingresso": 2014,
+        "qt_ingressante_media_nacional": 100.4,
+        "quantidade_cursos_considerados": 1425
+      },
+      {
+        "codigo_curso": 313976,
+        "ano_ingresso": 2015,
+        "qt_ingressante_media_nacional": 93.2,
+        "quantidade_cursos_considerados": 1469
+      },
+      {
+        "codigo_curso": 313976,
+        "ano_ingresso": 2016,
+        "qt_ingressante_media_nacional": 87.6,
+        "quantidade_cursos_considerados": 1553
+      },
+      {
+        "codigo_curso": 313976,
+        "ano_ingresso": 2017,
+        "qt_ingressante_media_nacional": 89.5,
+        "quantidade_cursos_considerados": 1601
+      },
+      {
+        "codigo_curso": 313976,
+        "ano_ingresso": 2018,
+        "qt_ingressante_media_nacional": 84.6,
+        "quantidade_cursos_considerados": 1703
+      },
+      {
+        "codigo_curso": 313976,
+        "ano_ingresso": 2019,
+        "qt_ingressante_media_nacional": 85.5,
+        "quantidade_cursos_considerados": 1805
+      },
+      {
+        "codigo_curso": 313976,
+        "ano_ingresso": 2020,
+        "qt_ingressante_media_nacional": 86.5,
+        "quantidade_cursos_considerados": 1854
+      },
+      {
+        "codigo_curso": 313982,
+        "ano_ingresso": 2010,
+        "qt_ingressante_media_nacional": 75.0,
+        "quantidade_cursos_considerados": 1461
+      },
+      {
+        "codigo_curso": 313982,
+        "ano_ingresso": 2011,
+        "qt_ingressante_media_nacional": 76.8,
+        "quantidade_cursos_considerados": 1431
+      },
+      {
+        "codigo_curso": 313982,
+        "ano_ingresso": 2012,
+        "qt_ingressante_media_nacional": 84.7,
+        "quantidade_cursos_considerados": 1443
+      },
+      {
+        "codigo_curso": 313982,
+        "ano_ingresso": 2013,
+        "qt_ingressante_media_nacional": 91.6,
+        "quantidade_cursos_considerados": 1407
+      },
+      {
+        "codigo_curso": 313982,
+        "ano_ingresso": 2014,
+        "qt_ingressante_media_nacional": 100.4,
+        "quantidade_cursos_considerados": 1425
+      },
+      {
+        "codigo_curso": 313982,
+        "ano_ingresso": 2015,
+        "qt_ingressante_media_nacional": 93.2,
+        "quantidade_cursos_considerados": 1469
+      },
+      {
+        "codigo_curso": 313982,
+        "ano_ingresso": 2016,
+        "qt_ingressante_media_nacional": 87.6,
+        "quantidade_cursos_considerados": 1553
+      },
+      {
+        "codigo_curso": 313982,
+        "ano_ingresso": 2017,
+        "qt_ingressante_media_nacional": 89.5,
+        "quantidade_cursos_considerados": 1601
+      },
+      {
+        "codigo_curso": 313982,
+        "ano_ingresso": 2018,
+        "qt_ingressante_media_nacional": 84.6,
+        "quantidade_cursos_considerados": 1703
+      },
+      {
+        "codigo_curso": 313982,
+        "ano_ingresso": 2019,
+        "qt_ingressante_media_nacional": 85.5,
+        "quantidade_cursos_considerados": 1805
+      },
+      {
+        "codigo_curso": 313982,
+        "ano_ingresso": 2020,
+        "qt_ingressante_media_nacional": 86.5,
+        "quantidade_cursos_considerados": 1854
+      },
+      {
+        "codigo_curso": 313984,
+        "ano_ingresso": 2010,
+        "qt_ingressante_media_nacional": 51.9,
+        "quantidade_cursos_considerados": 825
+      },
+      {
+        "codigo_curso": 313984,
+        "ano_ingresso": 2011,
+        "qt_ingressante_media_nacional": 49.7,
+        "quantidade_cursos_considerados": 802
+      },
+      {
+        "codigo_curso": 313984,
+        "ano_ingresso": 2012,
+        "qt_ingressante_media_nacional": 50.2,
+        "quantidade_cursos_considerados": 841
+      },
+      {
+        "codigo_curso": 313984,
+        "ano_ingresso": 2013,
+        "qt_ingressante_media_nacional": 53.2,
+        "quantidade_cursos_considerados": 801
+      },
+      {
+        "codigo_curso": 313984,
+        "ano_ingresso": 2014,
+        "qt_ingressante_media_nacional": 52.1,
+        "quantidade_cursos_considerados": 786
+      },
+      {
+        "codigo_curso": 313984,
+        "ano_ingresso": 2015,
+        "qt_ingressante_media_nacional": 50.7,
+        "quantidade_cursos_considerados": 795
+      },
+      {
+        "codigo_curso": 313984,
+        "ano_ingresso": 2016,
+        "qt_ingressante_media_nacional": 47.0,
+        "quantidade_cursos_considerados": 790
+      },
+      {
+        "codigo_curso": 313984,
+        "ano_ingresso": 2017,
+        "qt_ingressante_media_nacional": 46.4,
+        "quantidade_cursos_considerados": 813
+      },
+      {
+        "codigo_curso": 313984,
+        "ano_ingresso": 2018,
+        "qt_ingressante_media_nacional": 44.7,
+        "quantidade_cursos_considerados": 815
+      },
+      {
+        "codigo_curso": 313984,
+        "ano_ingresso": 2019,
+        "qt_ingressante_media_nacional": 41.9,
+        "quantidade_cursos_considerados": 814
+      },
+      {
+        "codigo_curso": 313984,
+        "ano_ingresso": 2020,
+        "qt_ingressante_media_nacional": 38.9,
+        "quantidade_cursos_considerados": 814
+      },
+      {
+        "codigo_curso": 337274,
+        "ano_ingresso": 2010,
+        "qt_ingressante_media_nacional": 51.9,
+        "quantidade_cursos_considerados": 825
+      },
+      {
+        "codigo_curso": 337274,
+        "ano_ingresso": 2011,
+        "qt_ingressante_media_nacional": 49.7,
+        "quantidade_cursos_considerados": 802
+      },
+      {
+        "codigo_curso": 337274,
+        "ano_ingresso": 2012,
+        "qt_ingressante_media_nacional": 50.2,
+        "quantidade_cursos_considerados": 841
+      },
+      {
+        "codigo_curso": 337274,
+        "ano_ingresso": 2013,
+        "qt_ingressante_media_nacional": 53.2,
+        "quantidade_cursos_considerados": 801
+      },
+      {
+        "codigo_curso": 337274,
+        "ano_ingresso": 2014,
+        "qt_ingressante_media_nacional": 52.1,
+        "quantidade_cursos_considerados": 786
+      },
+      {
+        "codigo_curso": 337274,
+        "ano_ingresso": 2015,
+        "qt_ingressante_media_nacional": 50.7,
+        "quantidade_cursos_considerados": 795
+      },
+      {
+        "codigo_curso": 337274,
+        "ano_ingresso": 2016,
+        "qt_ingressante_media_nacional": 47.0,
+        "quantidade_cursos_considerados": 790
+      },
+      {
+        "codigo_curso": 337274,
+        "ano_ingresso": 2017,
+        "qt_ingressante_media_nacional": 46.4,
+        "quantidade_cursos_considerados": 813
+      },
+      {
+        "codigo_curso": 337274,
+        "ano_ingresso": 2018,
+        "qt_ingressante_media_nacional": 44.7,
+        "quantidade_cursos_considerados": 815
+      },
+      {
+        "codigo_curso": 337274,
+        "ano_ingresso": 2019,
+        "qt_ingressante_media_nacional": 41.9,
+        "quantidade_cursos_considerados": 814
+      },
+      {
+        "codigo_curso": 337274,
+        "ano_ingresso": 2020,
+        "qt_ingressante_media_nacional": 38.9,
+        "quantidade_cursos_considerados": 814
+      },
+      {
+        "codigo_curso": 416834,
+        "ano_ingresso": 2010,
+        "qt_ingressante_media_nacional": 75.0,
+        "quantidade_cursos_considerados": 1461
+      },
+      {
+        "codigo_curso": 416834,
+        "ano_ingresso": 2011,
+        "qt_ingressante_media_nacional": 76.8,
+        "quantidade_cursos_considerados": 1431
+      },
+      {
+        "codigo_curso": 416834,
+        "ano_ingresso": 2012,
+        "qt_ingressante_media_nacional": 84.7,
+        "quantidade_cursos_considerados": 1443
+      },
+      {
+        "codigo_curso": 416834,
+        "ano_ingresso": 2013,
+        "qt_ingressante_media_nacional": 91.6,
+        "quantidade_cursos_considerados": 1407
+      },
+      {
+        "codigo_curso": 416834,
+        "ano_ingresso": 2014,
+        "qt_ingressante_media_nacional": 100.4,
+        "quantidade_cursos_considerados": 1425
+      },
+      {
+        "codigo_curso": 416834,
+        "ano_ingresso": 2015,
+        "qt_ingressante_media_nacional": 93.2,
+        "quantidade_cursos_considerados": 1469
+      },
+      {
+        "codigo_curso": 416834,
+        "ano_ingresso": 2016,
+        "qt_ingressante_media_nacional": 87.6,
+        "quantidade_cursos_considerados": 1553
+      },
+      {
+        "codigo_curso": 416834,
+        "ano_ingresso": 2017,
+        "qt_ingressante_media_nacional": 89.5,
+        "quantidade_cursos_considerados": 1601
+      },
+      {
+        "codigo_curso": 416834,
+        "ano_ingresso": 2018,
+        "qt_ingressante_media_nacional": 84.6,
+        "quantidade_cursos_considerados": 1703
+      },
+      {
+        "codigo_curso": 416834,
+        "ano_ingresso": 2019,
+        "qt_ingressante_media_nacional": 85.5,
+        "quantidade_cursos_considerados": 1805
+      },
+      {
+        "codigo_curso": 416834,
+        "ano_ingresso": 2020,
+        "qt_ingressante_media_nacional": 86.5,
+        "quantidade_cursos_considerados": 1854
+      },
+      {
+        "codigo_curso": 1122966,
+        "ano_ingresso": 2010,
+        "qt_ingressante_media_nacional": 88.0,
+        "quantidade_cursos_considerados": 3338
+      },
+      {
+        "codigo_curso": 1122966,
+        "ano_ingresso": 2011,
+        "qt_ingressante_media_nacional": 83.1,
+        "quantidade_cursos_considerados": 3404
+      },
+      {
+        "codigo_curso": 1122966,
+        "ano_ingresso": 2012,
+        "qt_ingressante_media_nacional": 91.3,
+        "quantidade_cursos_considerados": 3482
+      },
+      {
+        "codigo_curso": 1122966,
+        "ano_ingresso": 2013,
+        "qt_ingressante_media_nacional": 95.4,
+        "quantidade_cursos_considerados": 3560
+      },
+      {
+        "codigo_curso": 1122966,
+        "ano_ingresso": 2014,
+        "qt_ingressante_media_nacional": 106.4,
+        "quantidade_cursos_considerados": 3721
+      },
+      {
+        "codigo_curso": 1122966,
+        "ano_ingresso": 2015,
+        "qt_ingressante_media_nacional": 100.5,
+        "quantidade_cursos_considerados": 3936
+      },
+      {
+        "codigo_curso": 1122966,
+        "ano_ingresso": 2016,
+        "qt_ingressante_media_nacional": 96.5,
+        "quantidade_cursos_considerados": 4284
+      },
+      {
+        "codigo_curso": 1122966,
+        "ano_ingresso": 2017,
+        "qt_ingressante_media_nacional": 97.3,
+        "quantidade_cursos_considerados": 4683
+      },
+      {
+        "codigo_curso": 1122966,
+        "ano_ingresso": 2018,
+        "qt_ingressante_media_nacional": 89.1,
+        "quantidade_cursos_considerados": 5096
+      },
+      {
+        "codigo_curso": 1122966,
+        "ano_ingresso": 2019,
+        "qt_ingressante_media_nacional": 83.7,
+        "quantidade_cursos_considerados": 5420
+      },
+      {
+        "codigo_curso": 1122966,
+        "ano_ingresso": 2020,
+        "qt_ingressante_media_nacional": 75.9,
+        "quantidade_cursos_considerados": 5522
+      },
+      {
+        "codigo_curso": 1127861,
+        "ano_ingresso": 2010,
+        "qt_ingressante_media_nacional": 69.6,
+        "quantidade_cursos_considerados": 880
+      },
+      {
+        "codigo_curso": 1127861,
+        "ano_ingresso": 2011,
+        "qt_ingressante_media_nacional": 66.0,
+        "quantidade_cursos_considerados": 868
+      },
+      {
+        "codigo_curso": 1127861,
+        "ano_ingresso": 2012,
+        "qt_ingressante_media_nacional": 66.2,
+        "quantidade_cursos_considerados": 904
+      },
+      {
+        "codigo_curso": 1127861,
+        "ano_ingresso": 2013,
+        "qt_ingressante_media_nacional": 65.4,
+        "quantidade_cursos_considerados": 889
+      },
+      {
+        "codigo_curso": 1127861,
+        "ano_ingresso": 2014,
+        "qt_ingressante_media_nacional": 65.9,
+        "quantidade_cursos_considerados": 875
+      },
+      {
+        "codigo_curso": 1127861,
+        "ano_ingresso": 2015,
+        "qt_ingressante_media_nacional": 61.6,
+        "quantidade_cursos_considerados": 822
+      },
+      {
+        "codigo_curso": 1127861,
+        "ano_ingresso": 2016,
+        "qt_ingressante_media_nacional": 58.8,
+        "quantidade_cursos_considerados": 818
+      },
+      {
+        "codigo_curso": 1127861,
+        "ano_ingresso": 2017,
+        "qt_ingressante_media_nacional": 58.0,
+        "quantidade_cursos_considerados": 827
+      },
+      {
+        "codigo_curso": 1127861,
+        "ano_ingresso": 2018,
+        "qt_ingressante_media_nacional": 54.9,
+        "quantidade_cursos_considerados": 848
+      },
+      {
+        "codigo_curso": 1127861,
+        "ano_ingresso": 2019,
+        "qt_ingressante_media_nacional": 54.3,
+        "quantidade_cursos_considerados": 858
+      },
+      {
+        "codigo_curso": 1127861,
+        "ano_ingresso": 2020,
+        "qt_ingressante_media_nacional": 54.2,
+        "quantidade_cursos_considerados": 849
+      },
+      {
+        "codigo_curso": 1128911,
+        "ano_ingresso": 2010,
+        "qt_ingressante_media_nacional": 59.3,
+        "quantidade_cursos_considerados": 6072
+      },
+      {
+        "codigo_curso": 1128911,
+        "ano_ingresso": 2011,
+        "qt_ingressante_media_nacional": 57.3,
+        "quantidade_cursos_considerados": 5586
+      },
+      {
+        "codigo_curso": 1128911,
+        "ano_ingresso": 2012,
+        "qt_ingressante_media_nacional": 59.4,
+        "quantidade_cursos_considerados": 5543
+      },
+      {
+        "codigo_curso": 1128911,
+        "ano_ingresso": 2013,
+        "qt_ingressante_media_nacional": 61.8,
+        "quantidade_cursos_considerados": 5191
+      },
+      {
+        "codigo_curso": 1128911,
+        "ano_ingresso": 2014,
+        "qt_ingressante_media_nacional": 59.6,
+        "quantidade_cursos_considerados": 5213
+      },
+      {
+        "codigo_curso": 1128911,
+        "ano_ingresso": 2015,
+        "qt_ingressante_media_nacional": 56.8,
+        "quantidade_cursos_considerados": 5188
+      },
+      {
+        "codigo_curso": 1128911,
+        "ano_ingresso": 2016,
+        "qt_ingressante_media_nacional": 55.1,
+        "quantidade_cursos_considerados": 5171
+      },
+      {
+        "codigo_curso": 1128911,
+        "ano_ingresso": 2017,
+        "qt_ingressante_media_nacional": 52.7,
+        "quantidade_cursos_considerados": 5212
+      },
+      {
+        "codigo_curso": 1128911,
+        "ano_ingresso": 2018,
+        "qt_ingressante_media_nacional": 51.1,
+        "quantidade_cursos_considerados": 5181
+      },
+      {
+        "codigo_curso": 1128911,
+        "ano_ingresso": 2019,
+        "qt_ingressante_media_nacional": 50.6,
+        "quantidade_cursos_considerados": 5048
+      },
+      {
+        "codigo_curso": 1128911,
+        "ano_ingresso": 2020,
+        "qt_ingressante_media_nacional": 43.4,
+        "quantidade_cursos_considerados": 4636
+      },
+      {
+        "codigo_curso": 1128914,
+        "ano_ingresso": 2010,
+        "qt_ingressante_media_nacional": 59.3,
+        "quantidade_cursos_considerados": 6072
+      },
+      {
+        "codigo_curso": 1128914,
+        "ano_ingresso": 2011,
+        "qt_ingressante_media_nacional": 57.3,
+        "quantidade_cursos_considerados": 5586
+      },
+      {
+        "codigo_curso": 1128914,
+        "ano_ingresso": 2012,
+        "qt_ingressante_media_nacional": 59.4,
+        "quantidade_cursos_considerados": 5543
+      },
+      {
+        "codigo_curso": 1128914,
+        "ano_ingresso": 2013,
+        "qt_ingressante_media_nacional": 61.8,
+        "quantidade_cursos_considerados": 5191
+      },
+      {
+        "codigo_curso": 1128914,
+        "ano_ingresso": 2014,
+        "qt_ingressante_media_nacional": 59.6,
+        "quantidade_cursos_considerados": 5213
+      },
+      {
+        "codigo_curso": 1128914,
+        "ano_ingresso": 2015,
+        "qt_ingressante_media_nacional": 56.8,
+        "quantidade_cursos_considerados": 5188
+      },
+      {
+        "codigo_curso": 1128914,
+        "ano_ingresso": 2016,
+        "qt_ingressante_media_nacional": 55.1,
+        "quantidade_cursos_considerados": 5171
+      },
+      {
+        "codigo_curso": 1128914,
+        "ano_ingresso": 2017,
+        "qt_ingressante_media_nacional": 52.7,
+        "quantidade_cursos_considerados": 5212
+      },
+      {
+        "codigo_curso": 1128914,
+        "ano_ingresso": 2018,
+        "qt_ingressante_media_nacional": 51.1,
+        "quantidade_cursos_considerados": 5181
+      },
+      {
+        "codigo_curso": 1128914,
+        "ano_ingresso": 2019,
+        "qt_ingressante_media_nacional": 50.6,
+        "quantidade_cursos_considerados": 5048
+      },
+      {
+        "codigo_curso": 1128914,
+        "ano_ingresso": 2020,
+        "qt_ingressante_media_nacional": 43.4,
+        "quantidade_cursos_considerados": 4636
+      },
+      {
+        "codigo_curso": 1167971,
+        "ano_ingresso": 2010,
+        "qt_ingressante_media_nacional": 51.9,
+        "quantidade_cursos_considerados": 825
+      },
+      {
+        "codigo_curso": 1167971,
+        "ano_ingresso": 2011,
+        "qt_ingressante_media_nacional": 49.7,
+        "quantidade_cursos_considerados": 802
+      },
+      {
+        "codigo_curso": 1167971,
+        "ano_ingresso": 2012,
+        "qt_ingressante_media_nacional": 50.2,
+        "quantidade_cursos_considerados": 841
+      },
+      {
+        "codigo_curso": 1167971,
+        "ano_ingresso": 2013,
+        "qt_ingressante_media_nacional": 53.2,
+        "quantidade_cursos_considerados": 801
+      },
+      {
+        "codigo_curso": 1167971,
+        "ano_ingresso": 2014,
+        "qt_ingressante_media_nacional": 52.1,
+        "quantidade_cursos_considerados": 786
+      },
+      {
+        "codigo_curso": 1167971,
+        "ano_ingresso": 2015,
+        "qt_ingressante_media_nacional": 50.7,
+        "quantidade_cursos_considerados": 795
+      },
+      {
+        "codigo_curso": 1167971,
+        "ano_ingresso": 2016,
+        "qt_ingressante_media_nacional": 47.0,
+        "quantidade_cursos_considerados": 790
+      },
+      {
+        "codigo_curso": 1167971,
+        "ano_ingresso": 2017,
+        "qt_ingressante_media_nacional": 46.4,
+        "quantidade_cursos_considerados": 813
+      },
+      {
+        "codigo_curso": 1167971,
+        "ano_ingresso": 2018,
+        "qt_ingressante_media_nacional": 44.7,
+        "quantidade_cursos_considerados": 815
+      },
+      {
+        "codigo_curso": 1167971,
+        "ano_ingresso": 2019,
+        "qt_ingressante_media_nacional": 41.9,
+        "quantidade_cursos_considerados": 814
+      },
+      {
+        "codigo_curso": 1167971,
+        "ano_ingresso": 2020,
+        "qt_ingressante_media_nacional": 38.9,
+        "quantidade_cursos_considerados": 814
+      },
+      {
+        "codigo_curso": 1168345,
+        "ano_ingresso": 2010,
+        "qt_ingressante_media_nacional": 134.0,
+        "quantidade_cursos_considerados": 4641
+      },
+      {
+        "codigo_curso": 1168345,
+        "ano_ingresso": 2011,
+        "qt_ingressante_media_nacional": 127.4,
+        "quantidade_cursos_considerados": 4630
+      },
+      {
+        "codigo_curso": 1168345,
+        "ano_ingresso": 2012,
+        "qt_ingressante_media_nacional": 137.0,
+        "quantidade_cursos_considerados": 4704
+      },
+      {
+        "codigo_curso": 1168345,
+        "ano_ingresso": 2013,
+        "qt_ingressante_media_nacional": 134.8,
+        "quantidade_cursos_considerados": 4632
+      },
+      {
+        "codigo_curso": 1168345,
+        "ano_ingresso": 2014,
+        "qt_ingressante_media_nacional": 137.6,
+        "quantidade_cursos_considerados": 4570
+      },
+      {
+        "codigo_curso": 1168345,
+        "ano_ingresso": 2015,
+        "qt_ingressante_media_nacional": 126.9,
+        "quantidade_cursos_considerados": 4606
+      },
+      {
+        "codigo_curso": 1168345,
+        "ano_ingresso": 2016,
+        "qt_ingressante_media_nacional": 118.5,
+        "quantidade_cursos_considerados": 4669
+      },
+      {
+        "codigo_curso": 1168345,
+        "ano_ingresso": 2017,
+        "qt_ingressante_media_nacional": 116.6,
+        "quantidade_cursos_considerados": 4779
+      },
+      {
+        "codigo_curso": 1168345,
+        "ano_ingresso": 2018,
+        "qt_ingressante_media_nacional": 103.3,
+        "quantidade_cursos_considerados": 4943
+      },
+      {
+        "codigo_curso": 1168345,
+        "ano_ingresso": 2019,
+        "qt_ingressante_media_nacional": 97.1,
+        "quantidade_cursos_considerados": 5127
+      },
+      {
+        "codigo_curso": 1168345,
+        "ano_ingresso": 2020,
+        "qt_ingressante_media_nacional": 84.4,
+        "quantidade_cursos_considerados": 4933
+      },
+      {
+        "codigo_curso": 1186730,
+        "ano_ingresso": 2010,
+        "qt_ingressante_media_nacional": 88.1,
+        "quantidade_cursos_considerados": 1745
+      },
+      {
+        "codigo_curso": 1186730,
+        "ano_ingresso": 2011,
+        "qt_ingressante_media_nacional": 88.1,
+        "quantidade_cursos_considerados": 1832
+      },
+      {
+        "codigo_curso": 1186730,
+        "ano_ingresso": 2012,
+        "qt_ingressante_media_nacional": 90.5,
+        "quantidade_cursos_considerados": 2022
+      },
+      {
+        "codigo_curso": 1186730,
+        "ano_ingresso": 2013,
+        "qt_ingressante_media_nacional": 83.5,
+        "quantidade_cursos_considerados": 2027
+      },
+      {
+        "codigo_curso": 1186730,
+        "ano_ingresso": 2014,
+        "qt_ingressante_media_nacional": 78.7,
+        "quantidade_cursos_considerados": 2019
+      },
+      {
+        "codigo_curso": 1186730,
+        "ano_ingresso": 2015,
+        "qt_ingressante_media_nacional": 65.1,
+        "quantidade_cursos_considerados": 2067
+      },
+      {
+        "codigo_curso": 1186730,
+        "ano_ingresso": 2016,
+        "qt_ingressante_media_nacional": 58.7,
+        "quantidade_cursos_considerados": 2133
+      },
+      {
+        "codigo_curso": 1186730,
+        "ano_ingresso": 2017,
+        "qt_ingressante_media_nacional": 56.6,
+        "quantidade_cursos_considerados": 2200
+      },
+      {
+        "codigo_curso": 1186730,
+        "ano_ingresso": 2018,
+        "qt_ingressante_media_nacional": 54.4,
+        "quantidade_cursos_considerados": 2216
+      },
+      {
+        "codigo_curso": 1186730,
+        "ano_ingresso": 2019,
+        "qt_ingressante_media_nacional": 55.0,
+        "quantidade_cursos_considerados": 2120
+      },
+      {
+        "codigo_curso": 1186730,
+        "ano_ingresso": 2020,
+        "qt_ingressante_media_nacional": 46.3,
+        "quantidade_cursos_considerados": 1929
+      },
+      {
+        "codigo_curso": 1191425,
+        "ano_ingresso": 2010,
+        "qt_ingressante_media_nacional": 59.3,
+        "quantidade_cursos_considerados": 6072
+      },
+      {
+        "codigo_curso": 1191425,
+        "ano_ingresso": 2011,
+        "qt_ingressante_media_nacional": 57.3,
+        "quantidade_cursos_considerados": 5586
+      },
+      {
+        "codigo_curso": 1191425,
+        "ano_ingresso": 2012,
+        "qt_ingressante_media_nacional": 59.4,
+        "quantidade_cursos_considerados": 5543
+      },
+      {
+        "codigo_curso": 1191425,
+        "ano_ingresso": 2013,
+        "qt_ingressante_media_nacional": 61.8,
+        "quantidade_cursos_considerados": 5191
+      },
+      {
+        "codigo_curso": 1191425,
+        "ano_ingresso": 2014,
+        "qt_ingressante_media_nacional": 59.6,
+        "quantidade_cursos_considerados": 5213
+      },
+      {
+        "codigo_curso": 1191425,
+        "ano_ingresso": 2015,
+        "qt_ingressante_media_nacional": 56.8,
+        "quantidade_cursos_considerados": 5188
+      },
+      {
+        "codigo_curso": 1191425,
+        "ano_ingresso": 2016,
+        "qt_ingressante_media_nacional": 55.1,
+        "quantidade_cursos_considerados": 5171
+      },
+      {
+        "codigo_curso": 1191425,
+        "ano_ingresso": 2017,
+        "qt_ingressante_media_nacional": 52.7,
+        "quantidade_cursos_considerados": 5212
+      },
+      {
+        "codigo_curso": 1191425,
+        "ano_ingresso": 2018,
+        "qt_ingressante_media_nacional": 51.1,
+        "quantidade_cursos_considerados": 5181
+      },
+      {
+        "codigo_curso": 1191425,
+        "ano_ingresso": 2019,
+        "qt_ingressante_media_nacional": 50.6,
+        "quantidade_cursos_considerados": 5048
+      },
+      {
+        "codigo_curso": 1191425,
+        "ano_ingresso": 2020,
+        "qt_ingressante_media_nacional": 43.4,
+        "quantidade_cursos_considerados": 4636
+      },
+      {
+        "codigo_curso": 1191427,
+        "ano_ingresso": 2010,
+        "qt_ingressante_media_nacional": 59.3,
+        "quantidade_cursos_considerados": 6072
+      },
+      {
+        "codigo_curso": 1191427,
+        "ano_ingresso": 2011,
+        "qt_ingressante_media_nacional": 57.3,
+        "quantidade_cursos_considerados": 5586
+      },
+      {
+        "codigo_curso": 1191427,
+        "ano_ingresso": 2012,
+        "qt_ingressante_media_nacional": 59.4,
+        "quantidade_cursos_considerados": 5543
+      },
+      {
+        "codigo_curso": 1191427,
+        "ano_ingresso": 2013,
+        "qt_ingressante_media_nacional": 61.8,
+        "quantidade_cursos_considerados": 5191
+      },
+      {
+        "codigo_curso": 1191427,
+        "ano_ingresso": 2014,
+        "qt_ingressante_media_nacional": 59.6,
+        "quantidade_cursos_considerados": 5213
+      },
+      {
+        "codigo_curso": 1191427,
+        "ano_ingresso": 2015,
+        "qt_ingressante_media_nacional": 56.8,
+        "quantidade_cursos_considerados": 5188
+      },
+      {
+        "codigo_curso": 1191427,
+        "ano_ingresso": 2016,
+        "qt_ingressante_media_nacional": 55.1,
+        "quantidade_cursos_considerados": 5171
+      },
+      {
+        "codigo_curso": 1191427,
+        "ano_ingresso": 2017,
+        "qt_ingressante_media_nacional": 52.7,
+        "quantidade_cursos_considerados": 5212
+      },
+      {
+        "codigo_curso": 1191427,
+        "ano_ingresso": 2018,
+        "qt_ingressante_media_nacional": 51.1,
+        "quantidade_cursos_considerados": 5181
+      },
+      {
+        "codigo_curso": 1191427,
+        "ano_ingresso": 2019,
+        "qt_ingressante_media_nacional": 50.6,
+        "quantidade_cursos_considerados": 5048
+      },
+      {
+        "codigo_curso": 1191427,
+        "ano_ingresso": 2020,
+        "qt_ingressante_media_nacional": 43.4,
+        "quantidade_cursos_considerados": 4636
+      },
+      {
+        "codigo_curso": 1191555,
+        "ano_ingresso": 2010,
+        "qt_ingressante_media_nacional": 88.0,
+        "quantidade_cursos_considerados": 3338
+      },
+      {
+        "codigo_curso": 1191555,
+        "ano_ingresso": 2011,
+        "qt_ingressante_media_nacional": 83.1,
+        "quantidade_cursos_considerados": 3404
+      },
+      {
+        "codigo_curso": 1191555,
+        "ano_ingresso": 2012,
+        "qt_ingressante_media_nacional": 91.3,
+        "quantidade_cursos_considerados": 3482
+      },
+      {
+        "codigo_curso": 1191555,
+        "ano_ingresso": 2013,
+        "qt_ingressante_media_nacional": 95.4,
+        "quantidade_cursos_considerados": 3560
+      },
+      {
+        "codigo_curso": 1191555,
+        "ano_ingresso": 2014,
+        "qt_ingressante_media_nacional": 106.4,
+        "quantidade_cursos_considerados": 3721
+      },
+      {
+        "codigo_curso": 1191555,
+        "ano_ingresso": 2015,
+        "qt_ingressante_media_nacional": 100.5,
+        "quantidade_cursos_considerados": 3936
+      },
+      {
+        "codigo_curso": 1191555,
+        "ano_ingresso": 2016,
+        "qt_ingressante_media_nacional": 96.5,
+        "quantidade_cursos_considerados": 4284
+      },
+      {
+        "codigo_curso": 1191555,
+        "ano_ingresso": 2017,
+        "qt_ingressante_media_nacional": 97.3,
+        "quantidade_cursos_considerados": 4683
+      },
+      {
+        "codigo_curso": 1191555,
+        "ano_ingresso": 2018,
+        "qt_ingressante_media_nacional": 89.1,
+        "quantidade_cursos_considerados": 5096
+      },
+      {
+        "codigo_curso": 1191555,
+        "ano_ingresso": 2019,
+        "qt_ingressante_media_nacional": 83.7,
+        "quantidade_cursos_considerados": 5420
+      },
+      {
+        "codigo_curso": 1191555,
+        "ano_ingresso": 2020,
+        "qt_ingressante_media_nacional": 75.9,
+        "quantidade_cursos_considerados": 5522
+      },
+      {
+        "codigo_curso": 1259004,
+        "ano_ingresso": 2010,
+        "qt_ingressante_media_nacional": 59.3,
+        "quantidade_cursos_considerados": 6072
+      },
+      {
+        "codigo_curso": 1259004,
+        "ano_ingresso": 2011,
+        "qt_ingressante_media_nacional": 57.3,
+        "quantidade_cursos_considerados": 5586
+      },
+      {
+        "codigo_curso": 1259004,
+        "ano_ingresso": 2012,
+        "qt_ingressante_media_nacional": 59.4,
+        "quantidade_cursos_considerados": 5543
+      },
+      {
+        "codigo_curso": 1259004,
+        "ano_ingresso": 2013,
+        "qt_ingressante_media_nacional": 61.8,
+        "quantidade_cursos_considerados": 5191
+      },
+      {
+        "codigo_curso": 1259004,
+        "ano_ingresso": 2014,
+        "qt_ingressante_media_nacional": 59.6,
+        "quantidade_cursos_considerados": 5213
+      },
+      {
+        "codigo_curso": 1259004,
+        "ano_ingresso": 2015,
+        "qt_ingressante_media_nacional": 56.8,
+        "quantidade_cursos_considerados": 5188
+      },
+      {
+        "codigo_curso": 1259004,
+        "ano_ingresso": 2016,
+        "qt_ingressante_media_nacional": 55.1,
+        "quantidade_cursos_considerados": 5171
+      },
+      {
+        "codigo_curso": 1259004,
+        "ano_ingresso": 2017,
+        "qt_ingressante_media_nacional": 52.7,
+        "quantidade_cursos_considerados": 5212
+      },
+      {
+        "codigo_curso": 1259004,
+        "ano_ingresso": 2018,
+        "qt_ingressante_media_nacional": 51.1,
+        "quantidade_cursos_considerados": 5181
+      },
+      {
+        "codigo_curso": 1259004,
+        "ano_ingresso": 2019,
+        "qt_ingressante_media_nacional": 50.6,
+        "quantidade_cursos_considerados": 5048
+      },
+      {
+        "codigo_curso": 1259004,
+        "ano_ingresso": 2020,
+        "qt_ingressante_media_nacional": 43.4,
+        "quantidade_cursos_considerados": 4636
+      },
+      {
+        "codigo_curso": 1313213,
+        "ano_ingresso": 2010,
+        "qt_ingressante_media_nacional": 103.3,
+        "quantidade_cursos_considerados": 2310
+      },
+      {
+        "codigo_curso": 1313213,
+        "ano_ingresso": 2011,
+        "qt_ingressante_media_nacional": 105.4,
+        "quantidade_cursos_considerados": 2606
+      },
+      {
+        "codigo_curso": 1313213,
+        "ano_ingresso": 2012,
+        "qt_ingressante_media_nacional": 121.8,
+        "quantidade_cursos_considerados": 2823
+      },
+      {
+        "codigo_curso": 1313213,
+        "ano_ingresso": 2013,
+        "qt_ingressante_media_nacional": 122.2,
+        "quantidade_cursos_considerados": 3091
+      },
+      {
+        "codigo_curso": 1313213,
+        "ano_ingresso": 2014,
+        "qt_ingressante_media_nacional": 120.3,
+        "quantidade_cursos_considerados": 3481
+      },
+      {
+        "codigo_curso": 1313213,
+        "ano_ingresso": 2015,
+        "qt_ingressante_media_nacional": 99.1,
+        "quantidade_cursos_considerados": 3916
+      },
+      {
+        "codigo_curso": 1313213,
+        "ano_ingresso": 2016,
+        "qt_ingressante_media_nacional": 79.0,
+        "quantidade_cursos_considerados": 4227
+      },
+      {
+        "codigo_curso": 1313213,
+        "ano_ingresso": 2017,
+        "qt_ingressante_media_nacional": 67.2,
+        "quantidade_cursos_considerados": 4475
+      },
+      {
+        "codigo_curso": 1313213,
+        "ano_ingresso": 2018,
+        "qt_ingressante_media_nacional": 55.4,
+        "quantidade_cursos_considerados": 4705
+      },
+      {
+        "codigo_curso": 1313213,
+        "ano_ingresso": 2019,
+        "qt_ingressante_media_nacional": 50.0,
+        "quantidade_cursos_considerados": 4688
+      },
+      {
+        "codigo_curso": 1313213,
+        "ano_ingresso": 2020,
+        "qt_ingressante_media_nacional": 44.8,
+        "quantidade_cursos_considerados": 4489
+      },
+      {
+        "codigo_curso": 1313214,
+        "ano_ingresso": 2010,
+        "qt_ingressante_media_nacional": 103.3,
+        "quantidade_cursos_considerados": 2310
+      },
+      {
+        "codigo_curso": 1313214,
+        "ano_ingresso": 2011,
+        "qt_ingressante_media_nacional": 105.4,
+        "quantidade_cursos_considerados": 2606
+      },
+      {
+        "codigo_curso": 1313214,
+        "ano_ingresso": 2012,
+        "qt_ingressante_media_nacional": 121.8,
+        "quantidade_cursos_considerados": 2823
+      },
+      {
+        "codigo_curso": 1313214,
+        "ano_ingresso": 2013,
+        "qt_ingressante_media_nacional": 122.2,
+        "quantidade_cursos_considerados": 3091
+      },
+      {
+        "codigo_curso": 1313214,
+        "ano_ingresso": 2014,
+        "qt_ingressante_media_nacional": 120.3,
+        "quantidade_cursos_considerados": 3481
+      },
+      {
+        "codigo_curso": 1313214,
+        "ano_ingresso": 2015,
+        "qt_ingressante_media_nacional": 99.1,
+        "quantidade_cursos_considerados": 3916
+      },
+      {
+        "codigo_curso": 1313214,
+        "ano_ingresso": 2016,
+        "qt_ingressante_media_nacional": 79.0,
+        "quantidade_cursos_considerados": 4227
+      },
+      {
+        "codigo_curso": 1313214,
+        "ano_ingresso": 2017,
+        "qt_ingressante_media_nacional": 67.2,
+        "quantidade_cursos_considerados": 4475
+      },
+      {
+        "codigo_curso": 1313214,
+        "ano_ingresso": 2018,
+        "qt_ingressante_media_nacional": 55.4,
+        "quantidade_cursos_considerados": 4705
+      },
+      {
+        "codigo_curso": 1313214,
+        "ano_ingresso": 2019,
+        "qt_ingressante_media_nacional": 50.0,
+        "quantidade_cursos_considerados": 4688
+      },
+      {
+        "codigo_curso": 1313214,
+        "ano_ingresso": 2020,
+        "qt_ingressante_media_nacional": 44.8,
+        "quantidade_cursos_considerados": 4489
+      },
+      {
+        "codigo_curso": 1314354,
+        "ano_ingresso": 2010,
+        "qt_ingressante_media_nacional": 75.0,
+        "quantidade_cursos_considerados": 1461
+      },
+      {
+        "codigo_curso": 1314354,
+        "ano_ingresso": 2011,
+        "qt_ingressante_media_nacional": 76.8,
+        "quantidade_cursos_considerados": 1431
+      },
+      {
+        "codigo_curso": 1314354,
+        "ano_ingresso": 2012,
+        "qt_ingressante_media_nacional": 84.7,
+        "quantidade_cursos_considerados": 1443
+      },
+      {
+        "codigo_curso": 1314354,
+        "ano_ingresso": 2013,
+        "qt_ingressante_media_nacional": 91.6,
+        "quantidade_cursos_considerados": 1407
+      },
+      {
+        "codigo_curso": 1314354,
+        "ano_ingresso": 2014,
+        "qt_ingressante_media_nacional": 100.4,
+        "quantidade_cursos_considerados": 1425
+      },
+      {
+        "codigo_curso": 1314354,
+        "ano_ingresso": 2015,
+        "qt_ingressante_media_nacional": 93.2,
+        "quantidade_cursos_considerados": 1469
+      },
+      {
+        "codigo_curso": 1314354,
+        "ano_ingresso": 2016,
+        "qt_ingressante_media_nacional": 87.6,
+        "quantidade_cursos_considerados": 1553
+      },
+      {
+        "codigo_curso": 1314354,
+        "ano_ingresso": 2017,
+        "qt_ingressante_media_nacional": 89.5,
+        "quantidade_cursos_considerados": 1601
+      },
+      {
+        "codigo_curso": 1314354,
+        "ano_ingresso": 2018,
+        "qt_ingressante_media_nacional": 84.6,
+        "quantidade_cursos_considerados": 1703
+      },
+      {
+        "codigo_curso": 1314354,
+        "ano_ingresso": 2019,
+        "qt_ingressante_media_nacional": 85.5,
+        "quantidade_cursos_considerados": 1805
+      },
+      {
+        "codigo_curso": 1314354,
+        "ano_ingresso": 2020,
+        "qt_ingressante_media_nacional": 86.5,
+        "quantidade_cursos_considerados": 1854
+      },
+      {
+        "codigo_curso": 1314356,
+        "ano_ingresso": 2010,
+        "qt_ingressante_media_nacional": 134.0,
+        "quantidade_cursos_considerados": 4641
+      },
+      {
+        "codigo_curso": 1314356,
+        "ano_ingresso": 2011,
+        "qt_ingressante_media_nacional": 127.4,
+        "quantidade_cursos_considerados": 4630
+      },
+      {
+        "codigo_curso": 1314356,
+        "ano_ingresso": 2012,
+        "qt_ingressante_media_nacional": 137.0,
+        "quantidade_cursos_considerados": 4704
+      },
+      {
+        "codigo_curso": 1314356,
+        "ano_ingresso": 2013,
+        "qt_ingressante_media_nacional": 134.8,
+        "quantidade_cursos_considerados": 4632
+      },
+      {
+        "codigo_curso": 1314356,
+        "ano_ingresso": 2014,
+        "qt_ingressante_media_nacional": 137.6,
+        "quantidade_cursos_considerados": 4570
+      },
+      {
+        "codigo_curso": 1314356,
+        "ano_ingresso": 2015,
+        "qt_ingressante_media_nacional": 126.9,
+        "quantidade_cursos_considerados": 4606
+      },
+      {
+        "codigo_curso": 1314356,
+        "ano_ingresso": 2016,
+        "qt_ingressante_media_nacional": 118.5,
+        "quantidade_cursos_considerados": 4669
+      },
+      {
+        "codigo_curso": 1314356,
+        "ano_ingresso": 2017,
+        "qt_ingressante_media_nacional": 116.6,
+        "quantidade_cursos_considerados": 4779
+      },
+      {
+        "codigo_curso": 1314356,
+        "ano_ingresso": 2018,
+        "qt_ingressante_media_nacional": 103.3,
+        "quantidade_cursos_considerados": 4943
+      },
+      {
+        "codigo_curso": 1314356,
+        "ano_ingresso": 2019,
+        "qt_ingressante_media_nacional": 97.1,
+        "quantidade_cursos_considerados": 5127
+      },
+      {
+        "codigo_curso": 1314356,
+        "ano_ingresso": 2020,
+        "qt_ingressante_media_nacional": 84.4,
+        "quantidade_cursos_considerados": 4933
+      },
+      {
+        "codigo_curso": 1330754,
+        "ano_ingresso": 2010,
+        "qt_ingressante_media_nacional": 69.6,
+        "quantidade_cursos_considerados": 880
+      },
+      {
+        "codigo_curso": 1330754,
+        "ano_ingresso": 2011,
+        "qt_ingressante_media_nacional": 66.0,
+        "quantidade_cursos_considerados": 868
+      },
+      {
+        "codigo_curso": 1330754,
+        "ano_ingresso": 2012,
+        "qt_ingressante_media_nacional": 66.2,
+        "quantidade_cursos_considerados": 904
+      },
+      {
+        "codigo_curso": 1330754,
+        "ano_ingresso": 2013,
+        "qt_ingressante_media_nacional": 65.4,
+        "quantidade_cursos_considerados": 889
+      },
+      {
+        "codigo_curso": 1330754,
+        "ano_ingresso": 2014,
+        "qt_ingressante_media_nacional": 65.9,
+        "quantidade_cursos_considerados": 875
+      },
+      {
+        "codigo_curso": 1330754,
+        "ano_ingresso": 2015,
+        "qt_ingressante_media_nacional": 61.6,
+        "quantidade_cursos_considerados": 822
+      },
+      {
+        "codigo_curso": 1330754,
+        "ano_ingresso": 2016,
+        "qt_ingressante_media_nacional": 58.8,
+        "quantidade_cursos_considerados": 818
+      },
+      {
+        "codigo_curso": 1330754,
+        "ano_ingresso": 2017,
+        "qt_ingressante_media_nacional": 58.0,
+        "quantidade_cursos_considerados": 827
+      },
+      {
+        "codigo_curso": 1330754,
+        "ano_ingresso": 2018,
+        "qt_ingressante_media_nacional": 54.9,
+        "quantidade_cursos_considerados": 848
+      },
+      {
+        "codigo_curso": 1330754,
+        "ano_ingresso": 2019,
+        "qt_ingressante_media_nacional": 54.3,
+        "quantidade_cursos_considerados": 858
+      },
+      {
+        "codigo_curso": 1330754,
+        "ano_ingresso": 2020,
+        "qt_ingressante_media_nacional": 54.2,
+        "quantidade_cursos_considerados": 849
+      },
+      {
+        "codigo_curso": 1398030,
+        "ano_ingresso": 2010,
+        "qt_ingressante_media_nacional": 59.3,
+        "quantidade_cursos_considerados": 6072
+      },
+      {
+        "codigo_curso": 1398030,
+        "ano_ingresso": 2011,
+        "qt_ingressante_media_nacional": 57.3,
+        "quantidade_cursos_considerados": 5586
+      },
+      {
+        "codigo_curso": 1398030,
+        "ano_ingresso": 2012,
+        "qt_ingressante_media_nacional": 59.4,
+        "quantidade_cursos_considerados": 5543
+      },
+      {
+        "codigo_curso": 1398030,
+        "ano_ingresso": 2013,
+        "qt_ingressante_media_nacional": 61.8,
+        "quantidade_cursos_considerados": 5191
+      },
+      {
+        "codigo_curso": 1398030,
+        "ano_ingresso": 2014,
+        "qt_ingressante_media_nacional": 59.6,
+        "quantidade_cursos_considerados": 5213
+      },
+      {
+        "codigo_curso": 1398030,
+        "ano_ingresso": 2015,
+        "qt_ingressante_media_nacional": 56.8,
+        "quantidade_cursos_considerados": 5188
+      },
+      {
+        "codigo_curso": 1398030,
+        "ano_ingresso": 2016,
+        "qt_ingressante_media_nacional": 55.1,
+        "quantidade_cursos_considerados": 5171
+      },
+      {
+        "codigo_curso": 1398030,
+        "ano_ingresso": 2017,
+        "qt_ingressante_media_nacional": 52.7,
+        "quantidade_cursos_considerados": 5212
+      },
+      {
+        "codigo_curso": 1398030,
+        "ano_ingresso": 2018,
+        "qt_ingressante_media_nacional": 51.1,
+        "quantidade_cursos_considerados": 5181
+      },
+      {
+        "codigo_curso": 1398030,
+        "ano_ingresso": 2019,
+        "qt_ingressante_media_nacional": 50.6,
+        "quantidade_cursos_considerados": 5048
+      },
+      {
+        "codigo_curso": 1398030,
+        "ano_ingresso": 2020,
+        "qt_ingressante_media_nacional": 43.4,
+        "quantidade_cursos_considerados": 4636
+      },
+      {
+        "codigo_curso": 5000499,
+        "ano_ingresso": 2010,
+        "qt_ingressante_media_nacional": 69.6,
+        "quantidade_cursos_considerados": 880
+      },
+      {
+        "codigo_curso": 5000499,
+        "ano_ingresso": 2011,
+        "qt_ingressante_media_nacional": 66.0,
+        "quantidade_cursos_considerados": 868
+      },
+      {
+        "codigo_curso": 5000499,
+        "ano_ingresso": 2012,
+        "qt_ingressante_media_nacional": 66.2,
+        "quantidade_cursos_considerados": 904
+      },
+      {
+        "codigo_curso": 5000499,
+        "ano_ingresso": 2013,
+        "qt_ingressante_media_nacional": 65.4,
+        "quantidade_cursos_considerados": 889
+      },
+      {
+        "codigo_curso": 5000499,
+        "ano_ingresso": 2014,
+        "qt_ingressante_media_nacional": 65.9,
+        "quantidade_cursos_considerados": 875
+      },
+      {
+        "codigo_curso": 5000499,
+        "ano_ingresso": 2015,
+        "qt_ingressante_media_nacional": 61.6,
+        "quantidade_cursos_considerados": 822
+      },
+      {
+        "codigo_curso": 5000499,
+        "ano_ingresso": 2016,
+        "qt_ingressante_media_nacional": 58.8,
+        "quantidade_cursos_considerados": 818
+      },
+      {
+        "codigo_curso": 5000499,
+        "ano_ingresso": 2017,
+        "qt_ingressante_media_nacional": 58.0,
+        "quantidade_cursos_considerados": 827
+      },
+      {
+        "codigo_curso": 5000499,
+        "ano_ingresso": 2018,
+        "qt_ingressante_media_nacional": 54.9,
+        "quantidade_cursos_considerados": 848
+      },
+      {
+        "codigo_curso": 5000499,
+        "ano_ingresso": 2019,
+        "qt_ingressante_media_nacional": 54.3,
+        "quantidade_cursos_considerados": 858
+      },
+      {
+        "codigo_curso": 5000499,
+        "ano_ingresso": 2020,
+        "qt_ingressante_media_nacional": 54.2,
+        "quantidade_cursos_considerados": 849
       }
     ]
   },

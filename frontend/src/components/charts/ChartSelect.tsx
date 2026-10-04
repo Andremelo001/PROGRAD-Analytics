@@ -3,6 +3,10 @@ import { useEffect, useId, useRef, useState, type KeyboardEvent } from "react";
 
 import { cn } from "@/lib/utils";
 
+/** Largura máxima da lista e margem mínima até a borda da tela (px). */
+const LISTA_MAX = 280;
+const MARGEM_TELA = 16;
+
 interface Option {
     value: string;
     label: string;
@@ -44,6 +48,10 @@ export function ChartSelect({
     const buttonRef = useRef<HTMLButtonElement>(null);
     const listRef = useRef<HTMLUListElement>(null);
     const [open, setOpen] = useState(false);
+    // lado da lista: o padrão (inline: a partir da esquerda do botão; pílula:
+    // da direita) troca quando não cabe na tela — no celular os seletores
+    // descem pra esquerda do card e a lista sairia pela borda
+    const [lado, setLado] = useState<"left" | "right">(inline ? "left" : "right");
     const [active, setActive] = useState(0);
 
     const selectedIndex = Math.max(
@@ -54,6 +62,22 @@ export function ChartSelect({
     const optionId = (index: number) => `${listId}-${index}`;
 
     function openList() {
+        const botao = rootRef.current?.getBoundingClientRect();
+        if (botao) {
+            const lista = Math.min(LISTA_MAX, window.innerWidth - 2 * MARGEM_TELA);
+            const cabeDireita = window.innerWidth - botao.left - MARGEM_TELA >= lista;
+            const cabeEsquerda = botao.right - MARGEM_TELA >= lista;
+            const padrao = inline ? "left" : "right";
+            setLado(
+                padrao === "left"
+                    ? cabeDireita || !cabeEsquerda
+                        ? "left"
+                        : "right"
+                    : cabeEsquerda || !cabeDireita
+                      ? "right"
+                      : "left"
+            );
+        }
         setActive(selectedIndex);
         setOpen(true);
     }
@@ -195,8 +219,10 @@ export function ChartSelect({
                     aria-activedescendant={optionId(active)}
                     onKeyDown={onListKeyDown}
                     className={cn(
-                        "text-ink bg-popover absolute top-[calc(100%+6px)] z-40 max-h-72 w-max max-w-[280px] min-w-full overflow-y-auto rounded-xl p-1.5 text-left font-normal shadow-[0_16px_40px_rgb(0_0_0/0.18)] outline-none",
-                        inline ? "left-0" : "right-0"
+                        // largura até 280px, mas nunca maior que a tela (16px
+                        // de margem de cada lado)
+                        "text-ink bg-popover absolute top-[calc(100%+6px)] z-40 max-h-72 w-max max-w-[min(280px,calc(100vw-32px))] min-w-full overflow-y-auto rounded-xl p-1.5 text-left font-normal shadow-[0_16px_40px_rgb(0_0_0/0.18)] outline-none",
+                        lado === "left" ? "left-0" : "right-0"
                     )}
                 >
                     {options.map((option, index) => {

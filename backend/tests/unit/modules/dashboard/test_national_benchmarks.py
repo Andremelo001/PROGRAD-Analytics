@@ -73,6 +73,7 @@ def test_build_returns_all_sections(
         "heatmap_evasao_anual",
         "campus",
         "distribuicao_uf",
+        "ingressantes",
     }
 
 
@@ -241,3 +242,24 @@ def test_distribuicao_uf_without_state_columns_has_no_states(
     # fixtures sem codigo_uf/sigla_uf: ainda um item por curso, sem estados
     result = national_benchmarks.build(qualidade_raw, trajetoria_raw, scoped_data)
     assert all(item["estados"] == [] for item in result["distribuicao_uf"])
+
+
+def test_ingressantes_nacional_averages_peer_cohorts(
+    qualidade_raw: pd.DataFrame, trajetoria_raw: pd.DataFrame, scoped_data: ScopedData
+) -> None:
+    nacional = pd.concat([trajetoria_raw, _peer_trajetoria_row()], ignore_index=True)
+    result = national_benchmarks.build(qualidade_raw, nacional, scoped_data)
+    itens = result["ingressantes"]
+    assert isinstance(itens, list)
+    item = next(
+        i for i in itens if i["codigo_curso"] == 10 and i["ano_ingresso"] == 2018
+    )
+    pares = nacional[
+        (nacional["nome_cine_area_geral"] == "Ciência da computação")
+        & (nacional["ano_ingresso"] == 2018)
+    ].drop_duplicates("codigo_curso")
+    assert item["quantidade_cursos_considerados"] == len(pares)
+    assert item["qt_ingressante_media_nacional"] == round(
+        float(pares["qt_ingressante"].mean()), 1
+    )
+    assert len(pares) == 2  # o curso do campus e o par de outra IES

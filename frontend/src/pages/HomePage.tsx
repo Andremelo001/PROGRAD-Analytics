@@ -67,6 +67,7 @@ function Home({ data }: { data: DashboardData }) {
                     className="lg:col-span-8"
                     tendencia={campus.tendencia_ingressantes}
                     demanda={data.trajetoria_comparada.demanda_ingressantes}
+                    nacional={data.medias_nacionais.ingressantes}
                     cursos={cursos}
                 />
                 <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:col-span-4 lg:grid-cols-1 lg:gap-6">
