@@ -224,7 +224,7 @@ poetry install
 $ cd backend
 $ poetry run pre-commit run --all-files    # black · ruff · mypy
 $ poetry run lint-imports                  # Contracts: 3 kept, 0 broken.
-$ poetry run pytest                        # 107 passed
+$ poetry run pytest                        # 129 passed
 ```
 
 ---
@@ -266,7 +266,7 @@ Saída esperada num run com tudo novo:
 app/data/processed/
 ├── qualidade.csv        (~26 MB,  ~68 mil linhas, 8 anos: 2015-2019, 2021-2023)
 ├── trajetoria.csv.gz    (~68 MB, ~2,7 milhões de linhas, 11 faixas: 2010-2024)
-├── dashboard/           (um JSON por campus da UFC + index.json, ver 4.4)
+├── dashboard/           (um JSON por campus da UFC + index.json, resumo_campi.json e areas/, ver 4.4)
 └── _meta.json           (fonte, data de geração, nº de linhas, colunas — por módulo)
 ```
 
@@ -313,7 +313,11 @@ app/data/processed/dashboard/
 ├── fortaleza.json   # ~7,6 MB (103 cursos)
 ├── quixada.json     # ~430 KB — o que o site mostra hoje
 ├── russas.json      # ~270 KB
-└── sobral.json      # ~700 KB
+├── sobral.json      # ~700 KB
+├── resumo_campi.json # ~125 KB: os cursos de todos os campi, resumidos (comparações entre campi e cursos)
+└── areas/           # um JSON por área de avaliação dos cursos da UFC (~56): todos os cursos do Brasil na edição mais recente
+    ├── index.json   # slug, area_avaliacao, ano, total_cursos, arquivo
+    └── sistemas-de-informacao.json …   # 10-400 KB cada, gravados compactos
 ```
 
 Todos os arquivos de campus têm **exatamente a mesma estrutura** (as seções da
@@ -369,7 +373,7 @@ comparar) e decide como exibir.
 | Chave em `medias_nacionais` | Contraparte nacional de | Chave de junção |
 |---|---|---|
 | `evolucao_cpc` | A2 | `area_avaliacao` + `ano` |
-| `perfil_radar` | A3 | `area_avaliacao` (ano mais recente por área) |
+| `perfil_radar` | A3 | `area_avaliacao` + `ano` (só os anos em que algum curso do campus foi avaliado: as notas são padronizadas dentro de cada edição) |
 | `curva_sobrevivencia` | A5 / C1 | `nome_cine_area_geral` + `anos_desde_ingresso` (não ano calendário — alinha coortes de anos diferentes) |
 | `heatmap_evasao_anual` | C2 | `nome_cine_area_geral` + `ano_referencia` (ano calendário direto) |
 | `campus` | D | — (já agregado, calculado só com os cursos-pares das áreas do campus) |
@@ -392,6 +396,28 @@ na trajetória, o mesmo grau acadêmico (a área CINE "Sistemas de informação"
 junta o bacharelado com Análise e Desenvolvimento de Sistemas). O código IBGE
 da UF (`codigo_uf`, trajetória) vira sigla por `UF_SIGLAS` pra casar com
 `sigla_uf` (qualidade). Detalhe dos campos em `docs/dashboard_dados.md`.
+
+**Curso a curso (A2/A3)**: `evolucao_cpc` traz também a participação no
+Enade de cada edição (`n_concluintes_inscritos`,
+`n_concluintes_participantes`, `taxa_participacao` em %), e `perfil_radar`
+traz o `ano` e o CPC/faixa/Enade da mesma avaliação das notas.
+
+**Áreas de avaliação (`areas/`)**: `domain/services/quality_areas.py` grava,
+para cada área de avaliação em que algum curso da UFC foi avaliado por último,
+**todos os cursos do Brasil** da edição mais recente da área — CPC, faixa,
+as 9 notas padronizadas, modalidade, IES e município, e a coluna `historico` com todas as edições de cada curso (ano, CPC, faixa, concluintes inscritos e participantes; ordem em `colunas_edicao`). É o Mapa da aba
+Qualidade, que agrega por estado/município, filtra por rede (pública/privada,
+pela categoria administrativa do INEP) e calcula percentis no próprio front.
+Formato colunar (`colunas` + uma lista por curso, IES e municípios em
+dicionários à parte) e JSON compacto: a maior área (Administração, ~1.800
+cursos) fica com ~400 KB (~110 KB comprimido). Um arquivo por área, compartilhado pelos campi.
+
+**Resumo dos campi (`resumo_campi.json`)**:
+`domain/services/campus_summary.py` resume cada curso de cada campus (área,
+ano, CPC, faixa, Enade, IDD e as 9 notas da avaliação mais recente, as
+edições do CPC em `historico`, e a conclusão e a evasão da turma mais
+recente) num arquivo só, pra comparar campi e cursos sem baixar o JSON de
+cada campus.
 
 **Alertas automáticos (F)**: pensado para a tela inicial (a versão atual da
 home não exibe alertas; o bloco segue no JSON pras próximas páginas) —

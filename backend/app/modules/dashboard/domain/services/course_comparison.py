@@ -28,7 +28,7 @@ def _ranking_cpc(data: ScopedData) -> list[dict[str, object]]:
 
 
 def _tabela_comparativa(
-    kpis_por_curso: list[dict[str, object]]
+    kpis_por_curso: list[dict[str, object]],
 ) -> list[dict[str, object]]:
     """Dispersão conclusão x evasão: 1 linha por curso."""
     keep = (

@@ -1,0 +1,251 @@
+import { useState } from "react";
+
+import { Card } from "@/components/cards/Card";
+import { DataTable } from "@/components/charts/DataTable";
+import { useChartTheme } from "@/hooks/useChartTheme";
+import { useResumoCampi } from "@/hooks/useResumoCampi";
+import { nomeCampus } from "@/lib/comparacao";
+import { FAIXA_LIMITES, faixaNumero } from "@/lib/cpc";
+import { formatDecimal, formatPercent, toTitleCase } from "@/lib/format";
+import { cn } from "@/lib/utils";
+import type { ResumoCurso } from "@/types/dashboard";
+
+interface Ponto {
+    campus: string;
+    slug: string;
+    curso: ResumoCurso & { cpc_continuo: number };
+}
+
+/** Distância mínima (em % da régua) entre dois rótulos na mesma linha. */
+const VAO_ROTULO = 14;
+
+/** O curso escolhido (Por curso) nos outros campi da UFC: o CPC do curso da
+ * mesma área de avaliação em cada campus que o oferece, em pontos numa régua
+ * com as faixas de fundo. O deste campus em limão, com o nome e o valor em
+ * cima; os outros em cinza, com nome e valor embaixo — em duas linhas que se
+ * alternam quando dois pontos ficam perto (ano e evasão no hover). Sem outro
+ * campus com a mesma área, o card não aparece. */
+export function OutrosCampiCard({
+    codigoCurso,
+    campusAtual,
+    className,
+}: {
+    codigoCurso: number;
+    campusAtual: string;
+    className?: string;
+}) {
+    const CHART = useChartTheme();
+    const { resumo } = useResumoCampi();
+    const [hover, setHover] = useState<string | null>(null);
+
+    const curso = resumo?.campi
+        .find((c) => c.slug === campusAtual)
+        ?.cursos.find((k) => k.codigo_curso === codigoCurso);
+    const area = curso?.area_avaliacao;
+    if (!resumo || !area || curso?.cpc_continuo == null) return null;
+
+    const todos: Ponto[] = resumo.campi.flatMap((c) =>
+        c.cursos
+            .filter(
+                (k): k is Ponto["curso"] =>
+                    k.area_avaliacao === area &&
+                    k.cpc_continuo !== null &&
+                    // outros cursos da mesma área neste campus ficam de fora
+                    (c.slug !== campusAtual || k.codigo_curso === codigoCurso)
+            )
+            .map((k) => ({ campus: nomeCampus(c.nome), slug: c.slug, curso: k }))
+    );
+    if (new Set(todos.map((p) => p.slug)).size < 2) return null;
+
+    const valores = todos.map((p) => p.curso.cpc_continuo);
+    const lo = Math.max(0, Math.floor((Math.min(...valores, 3) - 0.15) * 4) / 4);
+    const hi = Math.min(5, Math.ceil((Math.max(...valores, 4) + 0.15) * 4) / 4);
+    const pct = (v: number) => ((v - lo) / (hi - lo)) * 100;
+
+    const este = todos.find((p) => p.curso.codigo_curso === codigoCurso)!;
+    // rótulos dos outros, da esquerda pra direita: alterna de linha quando o
+    // vizinho está perto
+    const outros = todos
+        .filter((p) => p !== este)
+        .sort((x, y) => x.curso.cpc_continuo - y.curso.cpc_continuo);
+    const niveis: number[] = [];
+    outros.forEach((p, i) => {
+        const perto =
+            i > 0 &&
+            pct(p.curso.cpc_continuo) - pct(outros[i - 1].curso.cpc_continuo) <
+                VAO_ROTULO;
+        niveis.push(perto ? 1 - niveis[i - 1] : 0);
+    });
+    const ordem = [...todos].sort(
+        (x, y) => y.curso.cpc_continuo - x.curso.cpc_continuo
+    );
+    const posicao = ordem.indexOf(este) + 1;
+    const lider = ordem[0];
+    const chave = (p: Ponto) => `${p.slug}-${p.curso.codigo_curso}`;
+    const ativo = todos.find((p) => chave(p) === hover);
+
+    const faixas = [0, ...FAIXA_LIMITES, 5]
+        .slice(0, -1)
+        .map((de, i) => ({
+            faixa: i + 1,
+            de: Math.max(de, lo),
+            ate: Math.min([...FAIXA_LIMITES, 5][i], hi),
+        }))
+        .filter((f) => f.ate > f.de);
+    const ticks: number[] = [];
+    for (let v = Math.ceil(lo * 2) / 2; v <= hi + 1e-9; v += 0.5) ticks.push(v);
+
+    return (
+        <Card
+            title="Este curso nos outros campi da UFC"
+            subtitle={`${toTitleCase(area)} · CPC da avaliação mais recente de cada campus`}
+            className={className}
+        >
+            <div className="mt-3 flex min-h-[26px] items-center gap-3">
+                <p className="text-[26px] leading-none font-semibold tracking-[-0.02em] tabular-nums">
+                    {posicao}º
+                </p>
+                <p className="text-text-secondary min-w-0 truncate text-[13px]">
+                    {ativo ? (
+                        <>
+                            <span className="text-ink font-semibold">
+                                {ativo.campus}
+                            </span>
+                            {` | CPC ${formatDecimal(ativo.curso.cpc_continuo)}`}
+                            {faixaNumero(ativo.curso.cpc_faixa) !== null &&
+                                ` · faixa ${faixaNumero(ativo.curso.cpc_faixa)}`}
+                            {` · avaliado em ${ativo.curso.ano ?? "—"}`}
+                            {ativo.curso.taxa_desistencia_acumulada !== null &&
+                                ` · evasão ${formatPercent(ativo.curso.taxa_desistencia_acumulada, 0)}`}
+                        </>
+                    ) : (
+                        <>
+                            <span className="text-ink font-semibold">
+                                de {ordem.length} campi
+                            </span>
+                            {posicao === 1
+                                ? " | o maior CPC da UFC nesta área"
+                                : ` | o maior é ${lider.campus}, ${formatDecimal(lider.curso.cpc_continuo)}`}
+                        </>
+                    )}
+                </p>
+            </div>
+
+            <div className="mt-4" onMouseLeave={() => setHover(null)}>
+                <div className="text-text-muted relative h-4 text-[10px]">
+                    {faixas.map((f) => (
+                        <span
+                            key={f.faixa}
+                            className="absolute -translate-x-1/2 whitespace-nowrap"
+                            style={{ left: `${pct((f.de + f.ate) / 2)}%` }}
+                        >
+                            Faixa {f.faixa}
+                        </span>
+                    ))}
+                </div>
+                <div className="relative mt-1 h-[104px]">
+                    {faixas.map((f, j) => (
+                        <span
+                            key={f.faixa}
+                            aria-hidden
+                            className={cn(
+                                "absolute inset-y-0",
+                                j === 0 && "rounded-l-lg",
+                                j === faixas.length - 1 && "rounded-r-lg"
+                            )}
+                            style={{
+                                left: `${pct(f.de)}%`,
+                                width: `${pct(f.ate) - pct(f.de)}%`,
+                                background: CHART.faixa.ramp[f.faixa - 1],
+                                opacity: 0.1,
+                            }}
+                        />
+                    ))}
+                    <span
+                        aria-hidden
+                        className="absolute inset-x-0 top-[44px] h-px"
+                        style={{ background: CHART.deemphasis }}
+                    />
+                    {/* este campus: nome e valor em cima do ponto */}
+                    <span
+                        className="pointer-events-none absolute top-[10px] -translate-x-1/2 text-[12px] whitespace-nowrap"
+                        style={{ left: `${pct(este.curso.cpc_continuo)}%` }}
+                    >
+                        <span className="font-semibold">{este.campus}</span>{" "}
+                        <span className="tabular-nums">
+                            {formatDecimal(este.curso.cpc_continuo)}
+                        </span>
+                    </span>
+                    {/* outros: nome e valor embaixo, em uma de duas linhas */}
+                    {outros.map((p, i) => (
+                        <span
+                            key={`r-${chave(p)}`}
+                            className="text-text-secondary pointer-events-none absolute -translate-x-1/2 text-[11px] whitespace-nowrap"
+                            style={{
+                                left: `${pct(p.curso.cpc_continuo)}%`,
+                                top: niveis[i] === 0 ? 58 : 78,
+                            }}
+                        >
+                            {p.campus}{" "}
+                            <span className="tabular-nums">
+                                {formatDecimal(p.curso.cpc_continuo)}
+                            </span>
+                        </span>
+                    ))}
+                    {[...outros, este].map((p) => {
+                        const atual = p === este;
+                        return (
+                            <span
+                                key={chave(p)}
+                                onMouseEnter={() => setHover(chave(p))}
+                                className="absolute top-[44px] flex -translate-x-1/2 -translate-y-1/2 p-1.5"
+                                style={{ left: `${pct(p.curso.cpc_continuo)}%` }}
+                            >
+                                <span
+                                    className={cn(
+                                        "block rounded-full",
+                                        atual ? "h-4 w-4 border-2" : "h-3 w-3",
+                                        hover === chave(p) &&
+                                            "ring-ink ring-2 ring-offset-1"
+                                    )}
+                                    style={{
+                                        background: atual
+                                            ? CHART.lime
+                                            : CHART.reference,
+                                        borderColor: atual ? CHART.onLime : undefined,
+                                        boxShadow: `0 0 0 2px ${CHART.surface}`,
+                                    }}
+                                />
+                            </span>
+                        );
+                    })}
+                </div>
+                <div className="text-text-muted relative mt-1.5 h-4 text-[10px] tabular-nums">
+                    {ticks.map((t) => (
+                        <span
+                            key={t}
+                            className="absolute -translate-x-1/2"
+                            style={{ left: `${pct(t)}%` }}
+                        >
+                            {formatDecimal(t, 1)}
+                        </span>
+                    ))}
+                </div>
+            </div>
+
+            <div className="sr-only">
+                <DataTable
+                    columns={["Campus", "CPC", "Ano", "Evasão"]}
+                    rows={ordem.map((p) => [
+                        p.campus,
+                        formatDecimal(p.curso.cpc_continuo),
+                        String(p.curso.ano ?? "—"),
+                        p.curso.taxa_desistencia_acumulada === null
+                            ? "—"
+                            : formatPercent(p.curso.taxa_desistencia_acumulada, 0),
+                    ])}
+                />
+            </div>
+        </Card>
+    );
+}

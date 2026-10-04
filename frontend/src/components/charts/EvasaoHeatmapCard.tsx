@@ -192,9 +192,9 @@ export function EvasaoHeatmapCard({
                     linhas, com o eixo dos anos preso embaixo — o card não cresce. */}
                 <div
                     className={cn(
-                        // altura de 6 linhas sempre: o card tem o mesmo tamanho
-                        // em qualquer campus
-                        "-m-1 h-[201.5px] overflow-x-auto p-1",
+                        // até 6 linhas, depois rola: campus com poucos cursos
+                        // não fica com espaço vazio, e Fortaleza não estica o card
+                        "-m-1 max-h-[201.5px] overflow-x-auto p-1",
                         linhas.length > LINHAS_VISIVEIS
                             ? "[scrollbar-width:thin] overflow-y-auto"
                             : "[scrollbar-width:none]"
@@ -309,7 +309,10 @@ function Row({
                         className={cn(
                             "h-[25px] rounded-[5px]",
                             cor === null && "border-empty border border-dashed",
-                            hoverAno === ano && "ring-ink ring-2 ring-offset-1"
+                            // por cima do eixo fixo (mesmo motivo do mapa de calor dos
+                            // componentes: o contorno passa 3px da célula)
+                            hoverAno === ano &&
+                                "ring-ink relative z-[4] ring-2 ring-offset-1"
                         )}
                         style={cor ? { background: cor } : undefined}
                     />

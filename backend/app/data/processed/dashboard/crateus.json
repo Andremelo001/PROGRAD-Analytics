@@ -1,5 +1,5 @@
 {
-  "gerado_em": "2026-09-30T00:31:03+00:00",
+  "gerado_em": "2026-10-04T10:23:52+00:00",
   "escopo": {
     "codigo_ies": 583,
     "nome_ies": "UNIVERSIDADE FEDERAL DO CEARÁ",
@@ -130,7 +130,10 @@
         "ano": 2021,
         "cpc_continuo": 3.587,
         "cpc_faixa": "4",
-        "conceito_enade_continuo": 3.293
+        "conceito_enade_continuo": 3.293,
+        "n_concluintes_inscritos": 18,
+        "n_concluintes_participantes": 16,
+        "taxa_participacao": 88.9
       },
       {
         "codigo_curso": 1300426,
@@ -139,7 +142,10 @@
         "ano": 2023,
         "cpc_continuo": 3.751,
         "cpc_faixa": "4",
-        "conceito_enade_continuo": 3.115
+        "conceito_enade_continuo": 3.115,
+        "n_concluintes_inscritos": 21,
+        "n_concluintes_participantes": 21,
+        "taxa_participacao": 100.0
       },
       {
         "codigo_curso": 1300427,
@@ -148,7 +154,10 @@
         "ano": 2019,
         "cpc_continuo": 4.016,
         "cpc_faixa": "5",
-        "conceito_enade_continuo": 4.905
+        "conceito_enade_continuo": 4.905,
+        "n_concluintes_inscritos": 23,
+        "n_concluintes_participantes": 23,
+        "taxa_participacao": 100.0
       },
       {
         "codigo_curso": 1300427,
@@ -157,7 +166,10 @@
         "ano": 2023,
         "cpc_continuo": 3.944,
         "cpc_faixa": "4",
-        "conceito_enade_continuo": 4.054
+        "conceito_enade_continuo": 4.054,
+        "n_concluintes_inscritos": 36,
+        "n_concluintes_participantes": 34,
+        "taxa_participacao": 94.4
       },
       {
         "codigo_curso": 1300429,
@@ -166,7 +178,10 @@
         "ano": 2021,
         "cpc_continuo": 3.228,
         "cpc_faixa": "4",
-        "conceito_enade_continuo": 2.958
+        "conceito_enade_continuo": 2.958,
+        "n_concluintes_inscritos": 12,
+        "n_concluintes_participantes": 11,
+        "taxa_participacao": 91.7
       }
     ],
     "perfil_radar": [
@@ -174,6 +189,10 @@
         "codigo_curso": 1272079,
         "nome_curso": "CIÊNCIA DA COMPUTAÇÃO",
         "area_avaliacao": "CIÊNCIA DA COMPUTAÇÃO (BACHARELADO)",
+        "ano": 2021,
+        "cpc_continuo": 3.587,
+        "cpc_faixa": "4",
+        "conceito_enade_continuo": 3.293,
         "formacao_geral": 3.001,
         "componente_especifico": 3.39,
         "idd": 3.917,
@@ -188,6 +207,10 @@
         "codigo_curso": 1300426,
         "nome_curso": "ENGENHARIA AMBIENTAL E SANITÁRIA",
         "area_avaliacao": "ENGENHARIA AMBIENTAL",
+        "ano": 2023,
+        "cpc_continuo": 3.751,
+        "cpc_faixa": "4",
+        "conceito_enade_continuo": 3.115,
         "formacao_geral": 3.199035519,
         "componente_especifico": 3.086552287,
         "idd": 4.438,
@@ -202,6 +225,10 @@
         "codigo_curso": 1300427,
         "nome_curso": "ENGENHARIA CIVIL",
         "area_avaliacao": "ENGENHARIA CIVIL",
+        "ano": 2023,
+        "cpc_continuo": 3.944,
+        "cpc_faixa": "4",
+        "conceito_enade_continuo": 4.054,
         "formacao_geral": 3.532728881,
         "componente_especifico": 4.227259509,
         "idd": 4.537,
@@ -216,6 +243,10 @@
         "codigo_curso": 1300429,
         "nome_curso": "SISTEMAS DE INFORMAÇÃO",
         "area_avaliacao": "SISTEMAS DE INFORMAÇÃO",
+        "ano": 2021,
+        "cpc_continuo": 3.228,
+        "cpc_faixa": "4",
+        "conceito_enade_continuo": 2.958,
         "formacao_geral": 2.435,
         "componente_especifico": 3.132,
         "idd": 2.672,
@@ -3116,6 +3147,10 @@
         "codigo_curso": 1272079,
         "nome_curso": "CIÊNCIA DA COMPUTAÇÃO",
         "area_avaliacao": "CIÊNCIA DA COMPUTAÇÃO (BACHARELADO)",
+        "ano": 2021,
+        "cpc_continuo": 3.587,
+        "cpc_faixa": "4",
+        "conceito_enade_continuo": 3.293,
         "formacao_geral": 3.001,
         "componente_especifico": 3.39,
         "idd": 3.917,
@@ -3130,6 +3165,10 @@
         "codigo_curso": 1300426,
         "nome_curso": "ENGENHARIA AMBIENTAL E SANITÁRIA",
         "area_avaliacao": "ENGENHARIA AMBIENTAL",
+        "ano": 2023,
+        "cpc_continuo": 3.751,
+        "cpc_faixa": "4",
+        "conceito_enade_continuo": 3.115,
         "formacao_geral": 3.199035519,
         "componente_especifico": 3.086552287,
         "idd": 4.438,
@@ -3144,6 +3183,10 @@
         "codigo_curso": 1300427,
         "nome_curso": "ENGENHARIA CIVIL",
         "area_avaliacao": "ENGENHARIA CIVIL",
+        "ano": 2023,
+        "cpc_continuo": 3.944,
+        "cpc_faixa": "4",
+        "conceito_enade_continuo": 4.054,
         "formacao_geral": 3.532728881,
         "componente_especifico": 4.227259509,
         "idd": 4.537,
@@ -3158,6 +3201,10 @@
         "codigo_curso": 1300429,
         "nome_curso": "SISTEMAS DE INFORMAÇÃO",
         "area_avaliacao": "SISTEMAS DE INFORMAÇÃO",
+        "ano": 2021,
+        "cpc_continuo": 3.228,
+        "cpc_faixa": "4",
+        "conceito_enade_continuo": 2.958,
         "formacao_geral": 2.435,
         "componente_especifico": 3.132,
         "idd": 2.672,
@@ -3177,7 +3224,10 @@
         "ano": 2021,
         "cpc_continuo": 3.587,
         "cpc_faixa": "4",
-        "conceito_enade_continuo": 3.293
+        "conceito_enade_continuo": 3.293,
+        "n_concluintes_inscritos": 18,
+        "n_concluintes_participantes": 16,
+        "taxa_participacao": 88.9
       },
       {
         "codigo_curso": 1300426,
@@ -3186,7 +3236,10 @@
         "ano": 2023,
         "cpc_continuo": 3.751,
         "cpc_faixa": "4",
-        "conceito_enade_continuo": 3.115
+        "conceito_enade_continuo": 3.115,
+        "n_concluintes_inscritos": 21,
+        "n_concluintes_participantes": 21,
+        "taxa_participacao": 100.0
       },
       {
         "codigo_curso": 1300427,
@@ -3195,7 +3248,10 @@
         "ano": 2019,
         "cpc_continuo": 4.016,
         "cpc_faixa": "5",
-        "conceito_enade_continuo": 4.905
+        "conceito_enade_continuo": 4.905,
+        "n_concluintes_inscritos": 23,
+        "n_concluintes_participantes": 23,
+        "taxa_participacao": 100.0
       },
       {
         "codigo_curso": 1300427,
@@ -3204,7 +3260,10 @@
         "ano": 2023,
         "cpc_continuo": 3.944,
         "cpc_faixa": "4",
-        "conceito_enade_continuo": 4.054
+        "conceito_enade_continuo": 4.054,
+        "n_concluintes_inscritos": 36,
+        "n_concluintes_participantes": 34,
+        "taxa_participacao": 94.4
       },
       {
         "codigo_curso": 1300429,
@@ -3213,7 +3272,10 @@
         "ano": 2021,
         "cpc_continuo": 3.228,
         "cpc_faixa": "4",
-        "conceito_enade_continuo": 2.958
+        "conceito_enade_continuo": 2.958,
+        "n_concluintes_inscritos": 12,
+        "n_concluintes_participantes": 11,
+        "taxa_participacao": 91.7
       }
     ]
   },
@@ -5890,6 +5952,7 @@
     "perfil_radar": [
       {
         "area_avaliacao": "CIÊNCIA DA COMPUTAÇÃO (BACHARELADO)",
+        "ano": 2021,
         "formacao_geral": 2.45,
         "componente_especifico": 2.1,
         "idd": 2.63,
@@ -5903,6 +5966,7 @@
       },
       {
         "area_avaliacao": "ENGENHARIA AMBIENTAL",
+        "ano": 2023,
         "formacao_geral": 2.48,
         "componente_especifico": 2.54,
         "idd": 2.5,
@@ -5916,6 +5980,21 @@
       },
       {
         "area_avaliacao": "ENGENHARIA CIVIL",
+        "ano": 2019,
+        "formacao_geral": 2.39,
+        "componente_especifico": 2.31,
+        "idd": 2.61,
+        "organizacao_didatico_pedagogica": 2.98,
+        "infraestrutura": 3.22,
+        "oportunidade_ampliacao": 2.85,
+        "mestres": 3.9,
+        "doutores": 2.32,
+        "regime_trabalho": 3.95,
+        "quantidade_cursos_considerados": 726
+      },
+      {
+        "area_avaliacao": "ENGENHARIA CIVIL",
+        "ano": 2023,
         "formacao_geral": 2.43,
         "componente_especifico": 2.1,
         "idd": 2.21,
@@ -5929,6 +6008,7 @@
       },
       {
         "area_avaliacao": "SISTEMAS DE INFORMAÇÃO",
+        "ano": 2021,
         "formacao_geral": 2.35,
         "componente_especifico": 2.22,
         "idd": 2.41,

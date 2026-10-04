@@ -56,13 +56,13 @@ export function CourseSearch({ cursos }: { cursos: Curso[] }) {
         <form
             role="search"
             onSubmit={onSubmit}
-            className="relative h-11 w-full max-w-[360px] min-w-0"
+            className="relative h-9 w-full max-w-[320px] min-w-0 lg:h-10"
         >
             <Search
                 size={17}
                 strokeWidth={2}
                 aria-hidden
-                className="pointer-events-none absolute top-1/2 left-3 h-4 w-4 -translate-y-1/2 text-white/50 sm:left-4 sm:h-[17px] sm:w-[17px]"
+                className="pointer-events-none absolute top-1/2 left-3 h-4 w-4 -translate-y-1/2 text-white/50 sm:left-3.5 sm:h-4 sm:w-4"
             />
             <input
                 type="search"
@@ -84,7 +84,7 @@ export function CourseSearch({ cursos }: { cursos: Curso[] }) {
                 aria-activedescendant={
                     showList && results.length > 0 ? `${listId}-${active}` : undefined
                 }
-                className="bg-band-soft focus-visible:ring-lime/40 h-full w-full rounded-full border border-white/10 pr-3 pl-9 text-[11.5px] text-white outline-none placeholder:text-white/45 focus-visible:ring-2 sm:pr-4 sm:pl-11 sm:text-[13px] [&::-webkit-search-cancel-button]:hidden"
+                className="bg-band-soft focus-visible:ring-lime/40 h-full w-full rounded-full border border-white/10 pr-3 pl-9 text-[11.5px] text-white outline-none placeholder:text-white/45 focus-visible:ring-2 sm:pr-4 sm:pl-10 sm:text-[12.5px] [&::-webkit-search-cancel-button]:hidden"
             />
 
             {showList && (

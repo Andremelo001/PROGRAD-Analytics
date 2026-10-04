@@ -1,0 +1,580 @@
+import { ArrowLeftRight } from "lucide-react";
+import { useMemo, type ReactNode } from "react";
+import { useSearchParams } from "react-router-dom";
+
+import { Card } from "@/components/cards/Card";
+import {
+    ComponentesEspelhoCard,
+    CursosEmComumCard,
+    LadoALadoCard,
+    ParticipacaoComparadaCard,
+} from "@/components/charts/qualidade/ComparacaoCards";
+import { CursoBusca, type OpcaoCurso } from "@/components/charts/qualidade/CursoBusca";
+import { FaixaPill } from "@/components/charts/qualidade/FaixaPill";
+import { ModoToggle } from "@/components/charts/qualidade/ModoToggle";
+import { DataState } from "@/components/layout/DataState";
+import { useChartTheme } from "@/hooks/useChartTheme";
+import { useDashboardData } from "@/hooks/useDashboardData";
+import { useQualidadeArea } from "@/hooks/useQualidadeArea";
+import { useResumoCampi } from "@/hooks/useResumoCampi";
+import type { CursoArea } from "@/lib/area";
+import {
+    areasEmComum,
+    nomeCampus,
+    resumirCampus,
+    type ResumoCampus,
+} from "@/lib/comparacao";
+import { formatDecimal, formatPercent, toTitleCase } from "@/lib/format";
+import type { ResumoCampi, ResumoCurso } from "@/types/dashboard";
+
+type Modo = "campi" | "cursos";
+
+const MODOS: { value: Modo; label: string }[] = [
+    { value: "campi", label: "Entre campi" },
+    { value: "cursos", label: "Entre cursos da mesma área" },
+];
+
+export function ComparacoesPage() {
+    return <DataState render={() => <Comparacoes />} />;
+}
+
+/** Qualidade → Comparações: dois modos, "entre campi" (um campus da UFC
+ * contra outro, nos indicadores agregados) e "entre cursos da mesma área" (um
+ * curso da UFC contra qualquer curso da mesma área no Brasil). Modo e lados
+ * ficam na URL (``?modo=…&a=…&b=…``). */
+function Comparacoes() {
+    const [params, setParams] = useSearchParams();
+    const { resumo, erro } = useResumoCampi();
+    const modo: Modo = params.get("modo") === "cursos" ? "cursos" : "campi";
+
+    function atualizar(mudancas: Record<string, string | null>) {
+        setParams(
+            (atual) => {
+                const prox = new URLSearchParams(atual);
+                for (const [k, v] of Object.entries(mudancas)) {
+                    if (v === null) prox.delete(k);
+                    else prox.set(k, v);
+                }
+                return prox;
+            },
+            { replace: true }
+        );
+    }
+
+    if (!resumo) {
+        return (
+            <p className="text-text-secondary text-[14px]">
+                {erro ?? "Carregando os campi…"}
+            </p>
+        );
+    }
+
+    const seletorModo = (
+        <ModoToggle
+            label="Tipo de comparação"
+            value={modo}
+            options={MODOS}
+            onChange={(m) => atualizar({ modo: m, a: null, b: null })}
+        />
+    );
+
+    return modo === "campi" ? (
+        <ComparacaoCampi
+            resumo={resumo}
+            seletorModo={seletorModo}
+            a={params.get("a")}
+            b={params.get("b")}
+            atualizar={atualizar}
+        />
+    ) : (
+        <ComparacaoCursos
+            resumo={resumo}
+            seletorModo={seletorModo}
+            a={params.get("a")}
+            b={params.get("b")}
+            atualizar={atualizar}
+        />
+    );
+}
+
+/** Card do topo: tipo de comparação + os dois seletores (A ⇄ B) e, embaixo de
+ * cada um, a ficha do lado escolhido. */
+function Topo({
+    seletorModo,
+    seletorA,
+    seletorB,
+    fichaA,
+    fichaB,
+    onTrocar,
+    podeTrocar = true,
+}: {
+    seletorModo: ReactNode;
+    seletorA: ReactNode;
+    seletorB: ReactNode;
+    fichaA?: ReactNode;
+    fichaB?: ReactNode;
+    onTrocar: () => void;
+    podeTrocar?: boolean;
+}) {
+    return (
+        <Card className="lg:col-span-12">
+            <div className="-mx-1 [scrollbar-width:none] overflow-x-auto px-1">
+                {seletorModo}
+            </div>
+            <div className="mt-4 grid grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] items-start gap-3">
+                <div className="min-w-0">
+                    {seletorA}
+                    {fichaA && <div className="mt-3">{fichaA}</div>}
+                </div>
+                <button
+                    type="button"
+                    onClick={onTrocar}
+                    disabled={!podeTrocar}
+                    aria-label="Trocar os lados"
+                    title={
+                        podeTrocar
+                            ? "Trocar os lados"
+                            : "O curso A é sempre da UFC: só dá pra trocar quando o B também é"
+                    }
+                    className="bg-page hover:text-ink text-text-secondary focus-visible:ring-lime/60 mt-1 flex h-8 w-8 items-center justify-center rounded-full outline-none focus-visible:ring-2 disabled:cursor-not-allowed disabled:opacity-40"
+                >
+                    <ArrowLeftRight size={15} strokeWidth={2.25} aria-hidden />
+                </button>
+                <div className="min-w-0">
+                    {seletorB}
+                    {fichaB && <div className="mt-3">{fichaB}</div>}
+                </div>
+            </div>
+        </Card>
+    );
+}
+
+function Ficha({ itens }: { itens: [string, ReactNode][] }) {
+    return (
+        <dl className="text-text-secondary flex flex-wrap gap-x-5 gap-y-1.5 text-[12px]">
+            {itens.map(([rotulo, valor]) => (
+                <div key={rotulo} className="flex min-h-6 items-center gap-1.5">
+                    <dt className="text-text-muted">{rotulo}</dt>
+                    <dd className="text-ink flex items-center gap-1.5 font-semibold tabular-nums">
+                        {valor}
+                    </dd>
+                </div>
+            ))}
+        </dl>
+    );
+}
+
+/** Seletor de campus no mesmo formato do de curso (caixa larga com o ponto
+ * da cor do lado): os dois modos têm o topo idêntico. */
+function SeletorCampus({
+    lado,
+    value,
+    campi,
+    onChange,
+}: {
+    lado: "a" | "b";
+    value: string;
+    campi: ResumoCampi["campi"];
+    onChange: (slug: string) => void;
+}) {
+    const CHART = useChartTheme();
+    return (
+        <CursoBusca
+            label={lado === "a" ? "Campus A" : "Campus B"}
+            cor={CHART.comparacao[lado]}
+            value={value}
+            options={campi.map((c) => ({
+                value: c.slug,
+                label: nomeCampus(c.nome),
+                detalhe: `${c.cursos.length} cursos`,
+            }))}
+            onChange={onChange}
+            placeholder="Buscar campus…"
+        />
+    );
+}
+
+interface PropsModo {
+    resumo: ResumoCampi;
+    seletorModo: ReactNode;
+    a: string | null;
+    b: string | null;
+    atualizar: (m: Record<string, string | null>) => void;
+}
+
+// --- entre campi -----------------------------------------------------------
+
+function ComparacaoCampi({ resumo, seletorModo, a, b, atualizar }: PropsModo) {
+    const { campus } = useDashboardData();
+    const slugs = resumo.campi.map((c) => c.slug);
+    const slugA = a && slugs.includes(a) ? a : (campus ?? slugs[0]);
+    const slugB =
+        b && slugs.includes(b) && b !== slugA
+            ? b
+            : (slugs.find((s) => s !== slugA) ?? slugA);
+    const ra = useMemo(
+        () => resumirCampus(resumo.campi.find((c) => c.slug === slugA)!),
+        [resumo, slugA]
+    );
+    const rb = useMemo(
+        () => resumirCampus(resumo.campi.find((c) => c.slug === slugB)!),
+        [resumo, slugB]
+    );
+    const lados = { a: ra.nome, b: rb.nome };
+    const fmt2 = (v: number) => formatDecimal(v);
+
+    return (
+        <div className="grid grid-cols-1 items-start gap-5 lg:grid-cols-12 lg:gap-6">
+            <Topo
+                seletorModo={seletorModo}
+                seletorA={
+                    <SeletorCampus
+                        lado="a"
+                        value={slugA}
+                        campi={resumo.campi}
+                        onChange={(v) =>
+                            atualizar({ a: v, b: v === slugB ? slugA : slugB })
+                        }
+                    />
+                }
+                seletorB={
+                    <SeletorCampus
+                        lado="b"
+                        value={slugB}
+                        campi={resumo.campi.filter((c) => c.slug !== slugA)}
+                        onChange={(v) => atualizar({ a: slugA, b: v })}
+                    />
+                }
+                fichaA={fichaCampus(ra)}
+                fichaB={fichaCampus(rb)}
+                onTrocar={() => atualizar({ a: slugB, b: slugA })}
+            />
+            {/* o conteúdo entra com a mesma animação das abas */}
+            <div className="entrada grid grid-cols-1 items-start gap-5 lg:col-span-12 lg:grid-cols-12 lg:gap-6">
+                {/* lado a lado com a mesma altura */}
+                <div className="grid grid-cols-1 gap-5 lg:col-span-12 lg:grid-cols-12 lg:gap-6">
+                    <LadoALadoCard
+                        className="lg:col-span-5"
+                        titulo="Indicadores do campus"
+                        subtitulo="Média dos cursos, na avaliação mais recente de cada um"
+                        lados={lados}
+                        linhas={[
+                            {
+                                label: "CPC médio",
+                                a: ra.cpcMedio,
+                                b: rb.cpcMedio,
+                                formato: fmt2,
+                            },
+                            {
+                                label: "Nas faixas 4 e 5",
+                                a: ra.pctAltas,
+                                b: rb.pctAltas,
+                                formato: (v) => formatPercent(v, 0),
+                            },
+                            {
+                                label: "Conceito Enade médio",
+                                a: ra.enadeMedio,
+                                b: rb.enadeMedio,
+                                formato: fmt2,
+                            },
+                            {
+                                label: "IDD médio",
+                                a: ra.iddMedio,
+                                b: rb.iddMedio,
+                                formato: fmt2,
+                            },
+                            {
+                                label: "Cursos com CPC",
+                                a: ra.comCpc.length,
+                                b: rb.comCpc.length,
+                                formato: (v) => String(v),
+                                neutro: true,
+                            },
+                        ]}
+                        rodape="As áreas de cada campus são diferentes: as médias resumem a posição dos cursos de cada campus entre os pares da própria área."
+                    />
+                    <ComponentesEspelhoCard
+                        className="lg:col-span-7"
+                        titulo="Componentes do CPC"
+                        subtitulo="Nota média dos cursos de cada campus em cada componente"
+                        lados={lados}
+                        a={ra.notas}
+                        b={rb.notas}
+                    />
+                </div>
+                <CursosEmComumCard
+                    className="lg:col-span-12"
+                    lados={lados}
+                    areas={areasEmComum(ra, rb)}
+                />
+            </div>
+        </div>
+    );
+}
+
+/** Ficha do campus, no formato da do curso (CPC com a faixa, e dois dados). */
+function fichaCampus(r: ResumoCampus) {
+    return (
+        <Ficha
+            itens={[
+                ["CPC médio", r.cpcMedio === null ? "—" : formatDecimal(r.cpcMedio)],
+                ["Cursos", r.cursos.length],
+                ["com CPC", r.comCpc.length],
+            ]}
+        />
+    );
+}
+
+// --- entre cursos da mesma área -------------------------------------------
+
+interface CursoUfc {
+    curso: ResumoCurso & { area_avaliacao: string; cpc_continuo: number };
+    campus: string;
+}
+
+function ComparacaoCursos({ resumo, seletorModo, a, b, atualizar }: PropsModo) {
+    const { campus } = useDashboardData();
+    const ufc = useMemo<CursoUfc[]>(
+        () =>
+            resumo.campi.flatMap((c) =>
+                c.cursos
+                    .filter(
+                        (k): k is CursoUfc["curso"] =>
+                            k.area_avaliacao !== null && k.cpc_continuo !== null
+                    )
+                    .map((k) => ({ curso: k, campus: nomeCampus(c.nome) }))
+            ),
+        [resumo]
+    );
+    // padrão de A: o curso de maior CPC do campus escolhido no painel
+    const doCampus = resumo.campi.find((c) => c.slug === campus);
+    const padraoA =
+        [...ufc]
+            .filter((u) =>
+                doCampus?.cursos.some((k) => k.codigo_curso === u.curso.codigo_curso)
+            )
+            .sort((x, y) => y.curso.cpc_continuo - x.curso.cpc_continuo)[0] ?? ufc[0];
+    const cursoA = ufc.find((u) => String(u.curso.codigo_curso) === a) ?? padraoA;
+    const area = cursoA?.curso.area_avaliacao ?? null;
+    const { dados, erro } = useQualidadeArea(area);
+
+    const opcoesA: OpcaoCurso[] = useMemo(
+        () =>
+            [...ufc]
+                .sort(
+                    (x, y) =>
+                        toTitleCase(x.curso.nome_curso).localeCompare(
+                            toTitleCase(y.curso.nome_curso),
+                            "pt-BR"
+                        ) || x.campus.localeCompare(y.campus, "pt-BR")
+                )
+                .map((u) => ({
+                    value: String(u.curso.codigo_curso),
+                    label: `${toTitleCase(u.curso.nome_curso)} — ${u.campus}`,
+                    detalhe: `${toTitleCase(u.curso.area_avaliacao)} · CPC ${formatDecimal(u.curso.cpc_continuo)}`,
+                })),
+        [ufc]
+    );
+
+    // a área inteira, na mesma modalidade do curso A (EaD é outro universo)
+    const daArea = dados && dados.area === area ? dados : null;
+    const linhaA = daArea?.cursos.find((c) => c.codigo === cursoA?.curso.codigo_curso);
+    const pares = useMemo(
+        () =>
+            daArea
+                ? daArea.cursos.filter(
+                      (c) => c.cpc !== null && c.ead === (linhaA?.ead ?? false)
+                  )
+                : [],
+        [daArea, linhaA]
+    );
+    const opcoesB: OpcaoCurso[] = useMemo(
+        () =>
+            [...pares]
+                .filter((c) => c.codigo !== cursoA?.curso.codigo_curso)
+                .sort((x, y) => (y.cpc ?? 0) - (x.cpc ?? 0))
+                .map((c) => ({
+                    value: String(c.codigo),
+                    label: `${c.siglaIes ?? c.nomeIes} — ${c.nomeMunicipio}/${c.uf}`,
+                    detalhe: `${c.nomeIes} · CPC ${formatDecimal(c.cpc!)}${c.publica === true ? " · pública" : c.publica === false ? " · privada" : ""}`,
+                })),
+        [pares, cursoA]
+    );
+    // padrão de B: o maior CPC da área no Brasil (fora o próprio A)
+    const cursoB =
+        pares.find(
+            (c) => String(c.codigo) === b && c.codigo !== cursoA?.curso.codigo_curso
+        ) ??
+        [...pares]
+            .filter((c) => c.codigo !== cursoA?.curso.codigo_curso)
+            .sort((x, y) => (y.cpc ?? 0) - (x.cpc ?? 0))[0];
+
+    const CHART = useChartTheme();
+    if (!cursoA) {
+        return (
+            <Card title="Comparações">
+                <p className="text-text-secondary mt-3 text-[14px]">
+                    Nenhum curso da UFC tem CPC para comparar.
+                </p>
+            </Card>
+        );
+    }
+
+    const nomeB = (c: CursoArea) => `${c.siglaIes ?? c.nomeIes} · ${c.nomeMunicipio}`;
+    const lados = {
+        a: `UFC · ${cursoA.campus}`,
+        b: cursoB ? nomeB(cursoB) : "—",
+    };
+    // "Indicadores do curso": só a instituição; com a mesma instituição dos
+    // dois lados (ex.: UFC × UFC), a cidade fica pra diferenciar
+    const siglaB = cursoB ? (cursoB.siglaIes ?? cursoB.nomeIes) : "—";
+    const ladosInstituicao =
+        siglaB.toUpperCase() === "UFC" ? lados : { a: "UFC", b: siglaB };
+    const ufcB = cursoB
+        ? ufc.find((u) => u.curso.codigo_curso === cursoB.codigo)
+        : undefined;
+    const fichaArea = (c: CursoArea | undefined) =>
+        c ? (
+            <Ficha
+                itens={[
+                    [
+                        "CPC",
+                        <>
+                            {c.cpc === null ? "—" : formatDecimal(c.cpc)}{" "}
+                            <FaixaPill faixa={c.faixa} />
+                        </>,
+                    ],
+                    [
+                        "Rede",
+                        c.publica === true
+                            ? "pública"
+                            : c.publica === false
+                              ? "privada"
+                              : "—",
+                    ],
+                    ["Cidade", `${c.nomeMunicipio}/${c.uf}`],
+                ]}
+            />
+        ) : null;
+
+    return (
+        <div className="grid grid-cols-1 items-start gap-5 lg:grid-cols-12 lg:gap-6">
+            <Topo
+                seletorModo={seletorModo}
+                seletorA={
+                    <CursoBusca
+                        label="Curso A (UFC)"
+                        cor={CHART.comparacao.a}
+                        value={String(cursoA.curso.codigo_curso)}
+                        options={opcoesA}
+                        onChange={(v) => atualizar({ a: v, b: null })}
+                        placeholder="Buscar curso da UFC…"
+                    />
+                }
+                seletorB={
+                    <CursoBusca
+                        label="Curso B (mesma área)"
+                        cor={CHART.comparacao.b}
+                        value={cursoB ? String(cursoB.codigo) : null}
+                        options={opcoesB}
+                        onChange={(v) =>
+                            atualizar({ a: String(cursoA.curso.codigo_curso), b: v })
+                        }
+                        placeholder="Buscar por instituição ou cidade…"
+                    />
+                }
+                fichaA={fichaArea(linhaA)}
+                fichaB={fichaArea(cursoB)}
+                podeTrocar={ufcB !== undefined}
+                onTrocar={() =>
+                    ufcB &&
+                    atualizar({
+                        a: String(ufcB.curso.codigo_curso),
+                        b: String(cursoA.curso.codigo_curso),
+                    })
+                }
+            />
+            {/* o conteúdo entra com a mesma animação das abas */}
+            <div className="entrada grid grid-cols-1 items-start gap-5 lg:col-span-12 lg:grid-cols-12 lg:gap-6">
+                {!daArea ? (
+                    <p className="text-text-secondary text-[14px] lg:col-span-12">
+                        {erro ?? "Carregando os cursos da área…"}
+                    </p>
+                ) : !linhaA || !cursoB ? (
+                    <Card
+                        className="lg:col-span-12"
+                        title="Sem comparação nesta edição"
+                    >
+                        <p className="text-text-secondary mt-3 max-w-prose text-[14px] leading-relaxed">
+                            {!linhaA
+                                ? `O curso A não tem CPC na edição mais recente da área (Enade ${daArea.ano}): as notas só são comparáveis dentro da mesma edição.`
+                                : "Não há outro curso com CPC nesta área para comparar."}
+                        </p>
+                    </Card>
+                ) : (
+                    <>
+                        <p className="text-text-muted -mt-1 text-[12px] lg:col-span-12">
+                            {toTitleCase(daArea.area)} · Enade {daArea.ano} · cursos{" "}
+                            {linhaA.ead ? "a distância" : "presenciais"}
+                        </p>
+                        {/* lado a lado com a mesma altura */}
+                        <div className="grid grid-cols-1 gap-5 lg:col-span-12 lg:grid-cols-12 lg:gap-6">
+                            <LadoALadoCard
+                                className="lg:col-span-5"
+                                titulo="Indicadores do curso"
+                                subtitulo={`Avaliação do Enade ${daArea.ano}`}
+                                lados={ladosInstituicao}
+                                linhas={[
+                                    {
+                                        label: "CPC contínuo",
+                                        a: linhaA.cpc,
+                                        b: cursoB.cpc,
+                                        formato: (v) => formatDecimal(v),
+                                    },
+                                    {
+                                        label: "Faixa",
+                                        a: linhaA.faixa,
+                                        b: cursoB.faixa,
+                                        formato: (v) => String(v),
+                                    },
+                                    {
+                                        label: "IDD",
+                                        a: linhaA.notas.idd,
+                                        b: cursoB.notas.idd,
+                                        formato: (v) => formatDecimal(v),
+                                    },
+                                    {
+                                        label: "Enade: componente específico",
+                                        a: linhaA.notas.componente_especifico,
+                                        b: cursoB.notas.componente_especifico,
+                                        formato: (v) => formatDecimal(v),
+                                    },
+                                    {
+                                        label: "Docentes doutores",
+                                        a: linhaA.notas.doutores,
+                                        b: cursoB.notas.doutores,
+                                        formato: (v) => formatDecimal(v),
+                                    },
+                                ]}
+                            />
+                            <ComponentesEspelhoCard
+                                className="lg:col-span-7"
+                                titulo="Componentes do CPC"
+                                subtitulo="Nota de cada curso em cada componente"
+                                lados={lados}
+                                a={linhaA.notas}
+                                b={cursoB.notas}
+                            />
+                        </div>
+                        <ParticipacaoComparadaCard
+                            className="lg:col-span-12"
+                            lados={lados}
+                            a={linhaA.historico}
+                            b={cursoB.historico}
+                        />
+                    </>
+                )}
+            </div>
+        </div>
+    );
+}

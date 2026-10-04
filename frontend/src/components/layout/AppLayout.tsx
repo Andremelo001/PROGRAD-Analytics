@@ -1,6 +1,6 @@
 import { X } from "lucide-react";
 import { useEffect, useRef, useState, type RefObject } from "react";
-import { Outlet } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
 
 import brasao from "@/assets/brasao.png";
 import { PresentationBar } from "@/components/layout/PresentationBar";
@@ -8,7 +8,10 @@ import { PresentationToggle } from "@/components/layout/PresentationToggle";
 import { Sidebar } from "@/components/layout/Sidebar";
 import { ThemeToggle } from "@/components/layout/ThemeToggle";
 import { CourseSearch } from "@/components/search/CourseSearch";
-import { PageHeaderSlotContext } from "@/context/page-header-slot";
+import {
+    PageHeaderSlotContext,
+    PresentationTabsSlotContext,
+} from "@/context/page-header-slot";
 import { useDashboardData } from "@/hooks/useDashboardData";
 import { useMediaQuery } from "@/hooks/useMediaQuery";
 import { usePresentationMode } from "@/hooks/usePresentationMode";
@@ -16,7 +19,7 @@ import { cn } from "@/lib/utils";
 
 // Mesma altura da faixa escura nos dois lugares em que ela é desenhada (atrás
 // da página e dentro do topo fixo): assim as ondas se encaixam sem emenda.
-const BAND_HEIGHT = "h-[340px] md:h-[300px] lg:h-[260px]";
+const BAND_HEIGHT = "h-[325px] md:h-[291px] lg:h-[261px]";
 
 // Faixa escura no topo que desce até cobrir o topo da primeira linha de cards;
 // embaixo, o plano cinza. O topo fica preso ao rolar: em lg+ inteiro (logo +
@@ -36,6 +39,7 @@ export function AppLayout() {
     const { data } = useDashboardData();
     const [stickySlot, setStickySlot] = useState<HTMLDivElement | null>(null);
     const [flowSlot, setFlowSlot] = useState<HTMLDivElement | null>(null);
+    const [tabsSlot, setTabsSlot] = useState<HTMLDivElement | null>(null);
     const isLg = useMediaQuery("(min-width: 1024px)");
     const scrolled = useScrolled();
     const { presenting, toggle, exit } = usePresentationMode();
@@ -45,6 +49,15 @@ export function AppLayout() {
     // dela, no mesmo tempo, pra andarem juntos como um bloco só
     const faixaRef = useRef<HTMLDivElement>(null);
     const faixaAltura = useAltura(faixaRef);
+    const { pathname } = useLocation();
+    const aba = pathname.split("/")[1] ?? "";
+    const subAba = pathname.split("/")[2] ?? "";
+
+    // trocou de aba ou sub-aba com a página rolada: volta ao topo (a página
+    // nova entra do começo, com o fade de ``.entrada``)
+    useEffect(() => {
+        if (window.scrollY > 0) window.scrollTo({ top: 0 });
+    }, [aba, subAba]);
 
     return (
         <div className="relative min-h-dvh">
@@ -102,7 +115,7 @@ export function AppLayout() {
                 </div>
 
                 <div className="relative mx-auto w-full max-w-[1200px] px-4 sm:px-6 lg:px-8 lg:pb-10">
-                    <header className="flex h-20 items-center justify-between gap-3 sm:gap-4">
+                    <header className="flex h-16 items-center justify-between gap-3 sm:gap-4">
                         {/* Brasão (brasao.png, recortado do logo antigo, sem fundo) +
                             divisor + "Analytics" em texto branco, imitando o logo:
                             o texto do PNG é escuro e sumiria na faixa. */}
@@ -112,13 +125,10 @@ export function AppLayout() {
                                 alt=""
                                 width={172}
                                 height={207}
-                                className="h-10 w-auto sm:h-14 lg:h-16"
+                                className="h-9 w-auto sm:h-11 lg:h-12"
                             />
-                            <span
-                                aria-hidden
-                                className="h-5 w-px bg-white/70 sm:h-7 lg:h-7"
-                            />
-                            <span className="text-[15px] leading-none font-bold tracking-[-0.01em] text-white sm:text-[19px] lg:text-[21px]">
+                            <span aria-hidden className="h-5 w-px bg-white/70 sm:h-6" />
+                            <span className="text-[15px] leading-none font-bold tracking-[-0.01em] text-white sm:text-[17px] lg:text-[18px]">
                                 <span className="sr-only">UFC — PROGRAD </span>
                                 Analytics
                             </span>
@@ -175,11 +185,44 @@ export function AppLayout() {
                     {/* modo apresentação: frase + seletor de campus + logo num
                         card baixo, já que a saudação sobe junto com o topo */}
                     <PresentationBar presenting={presenting} />
-                    <PageHeaderSlotContext.Provider
-                        value={isLg ? stickySlot : flowSlot}
+                    {/* sub-abas da página (se houver) no modo apresentação: a
+                        faixa escura, onde elas ficam normalmente, sobe junto
+                        com o topo. Abre e fecha com a mesma animação da barra */}
+                    <div
+                        inert={!presenting}
+                        aria-hidden={!presenting}
+                        className={cn(
+                            "grid transition-[grid-template-rows,opacity]",
+                            TRANSICAO,
+                            presenting
+                                ? "grid-rows-[1fr] opacity-100"
+                                : "grid-rows-[0fr] opacity-0"
+                        )}
                     >
-                        <Outlet />
-                    </PageHeaderSlotContext.Provider>
+                        <div className="min-h-0 overflow-hidden">
+                            <div
+                                ref={setTabsSlot}
+                                // desce e sobe junto com a barra
+                                className="pb-5 transition-transform duration-500 ease-in-out empty:hidden motion-reduce:transition-none lg:pb-6"
+                                style={{
+                                    transform: presenting
+                                        ? "translateY(0)"
+                                        : "translateY(-100%)",
+                                }}
+                            />
+                        </div>
+                    </div>
+                    <PresentationTabsSlotContext.Provider value={tabsSlot}>
+                        <PageHeaderSlotContext.Provider
+                            value={isLg ? stickySlot : flowSlot}
+                        >
+                            {/* reanima só ao trocar de aba principal; as sub-abas
+                            têm a própria animação (QualidadePage) */}
+                            <div key={aba} className="entrada">
+                                <Outlet />
+                            </div>
+                        </PageHeaderSlotContext.Provider>
+                    </PresentationTabsSlotContext.Provider>
                 </main>
             </div>
 

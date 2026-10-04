@@ -10,7 +10,7 @@ export function PresentationToggle({ onClick }: { onClick: () => void }) {
             aria-label="Entrar no modo apresentação"
             aria-keyshortcuts="Control+K Meta+K"
             title="Modo apresentação (Ctrl+K)"
-            className="bg-band-soft focus-visible:ring-lime/60 flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-white/10 text-white transition-colors outline-none hover:border-white/25 focus-visible:ring-2 sm:h-9 sm:w-9"
+            className="bg-band-soft focus-visible:ring-lime/60 flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-white/10 text-white transition-colors outline-none hover:border-white/25 focus-visible:ring-2"
         >
             <Presentation size={16} strokeWidth={2} aria-hidden />
         </button>

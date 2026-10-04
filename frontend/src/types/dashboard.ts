@@ -55,13 +55,22 @@ export interface EvolucaoCpcPonto {
     cpc_continuo: number | null;
     cpc_faixa: string | null;
     conceito_enade_continuo: number | null;
+    // participação no Enade daquela edição (taxa = participantes / inscritos, %)
+    n_concluintes_inscritos: number | null;
+    n_concluintes_participantes: number | null;
+    taxa_participacao: number | null;
 }
 
-/** As 9 notas padronizadas (escala 0-5) — eixos do radar. */
+/** As 9 notas padronizadas (escala 0-5) da avaliação mais recente do curso,
+ * com o ano e o CPC/Enade dessa mesma avaliação. */
 export interface PerfilRadar {
     codigo_curso: number;
     nome_curso: string;
     area_avaliacao: string;
+    ano: number;
+    cpc_continuo: number | null;
+    cpc_faixa: string | null;
+    conceito_enade_continuo: number | null;
     formacao_geral: number | null;
     componente_especifico: number | null;
     idd: number | null;
@@ -199,17 +208,20 @@ export interface EvolucaoCpcNacionalPonto {
     quantidade_cursos_considerados: number;
 }
 
+/** Notas médias da área no ano (só os anos em que o campus foi avaliado);
+ * edições antigas podem não ter alguma nota. */
 export interface PerfilRadarNacional {
     area_avaliacao: string;
-    formacao_geral: number;
-    componente_especifico: number;
-    idd: number;
-    organizacao_didatico_pedagogica: number;
-    infraestrutura: number;
-    oportunidade_ampliacao: number;
-    mestres: number;
-    doutores: number;
-    regime_trabalho: number;
+    ano: number;
+    formacao_geral: number | null;
+    componente_especifico: number | null;
+    idd: number | null;
+    organizacao_didatico_pedagogica: number | null;
+    infraestrutura: number | null;
+    oportunidade_ampliacao: number | null;
+    mestres: number | null;
+    doutores: number | null;
+    regime_trabalho: number | null;
     quantidade_cursos_considerados: number;
 }
 
@@ -310,6 +322,43 @@ export interface CampusIndex {
     gerado_em: string;
     codigo_ies: number;
     campi: CampusInfo[];
+}
+
+// --- resumo dos campi (processed/dashboard/resumo_campi.json) -------------
+
+export interface ResumoCurso {
+    codigo_curso: number;
+    nome_curso: string;
+    area_avaliacao: string | null;
+    ano: number | null;
+    cpc_continuo: number | null;
+    cpc_faixa: string | null;
+    conceito_enade_continuo: number | null;
+    idd: number | null;
+    /** As 9 notas padronizadas da avaliação mais recente (null sem CPC). */
+    notas: Record<
+        | "formacao_geral"
+        | "componente_especifico"
+        | "idd"
+        | "organizacao_didatico_pedagogica"
+        | "infraestrutura"
+        | "oportunidade_ampliacao"
+        | "mestres"
+        | "doutores"
+        | "regime_trabalho",
+        number | null
+    > | null;
+    /** As edições do CPC do curso, da mais antiga à mais recente. */
+    historico: { ano: number; cpc_continuo: number | null; cpc_faixa: string | null }[];
+    ano_ingresso_referencia: number | null;
+    ano_referencia: number | null;
+    taxa_conclusao_acumulada: number | null;
+    taxa_desistencia_acumulada: number | null;
+}
+
+export interface ResumoCampi {
+    gerado_em: string;
+    campi: { slug: string; nome: string; cursos: ResumoCurso[] }[];
 }
 
 // --- raiz ------------------------------------------------------------------

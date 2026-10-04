@@ -48,6 +48,7 @@ def test_writes_one_json_per_campus_plus_index(
         "200.json",
         "cidade-um.json",
         "index.json",
+        "resumo_campi.json",
     ]
     index = json.loads((tmp_path / "index.json").read_text(encoding="utf-8"))
     assert [c["slug"] for c in index["campi"]] == ["cidade-um", "200"]
@@ -75,3 +76,46 @@ def test_removes_json_of_campus_no_longer_present(
     (tmp_path / "campus-extinto.json").write_text("{}", encoding="utf-8")
     build_dashboard(source=source, out_dir=tmp_path)
     assert not (tmp_path / "campus-extinto.json").exists()
+
+
+def test_writes_one_json_per_quality_area_plus_index(
+    source: _FakeSource, tmp_path: Path
+) -> None:
+    areas_dir = tmp_path / "areas"
+    areas_dir.mkdir()
+    (areas_dir / "area-extinta.json").write_text("{}", encoding="utf-8")
+    build_dashboard(source=source, out_dir=tmp_path)
+
+    # áreas da avaliação mais recente dos cursos do campus (a da outra IES fica de fora)
+    assert sorted(p.name for p in areas_dir.glob("*.json")) == [
+        "ciencia-da-computacao.json",
+        "curso-so-qualidade.json",
+        "index.json",
+    ]
+    index = json.loads((areas_dir / "index.json").read_text(encoding="utf-8"))
+    cc = next(a for a in index["areas"] if a["slug"] == "ciencia-da-computacao")
+    assert cc == {
+        "slug": "ciencia-da-computacao",
+        "area_avaliacao": "Ciência da Computação",
+        "ano": 2019,
+        "total_cursos": 1,
+        "arquivo": "ciencia-da-computacao.json",
+    }
+
+
+def test_writes_summary_of_every_campus(source: _FakeSource, tmp_path: Path) -> None:
+    build_dashboard(source=source, out_dir=tmp_path)
+    resumo = json.loads((tmp_path / "resumo_campi.json").read_text(encoding="utf-8"))
+    assert [c["slug"] for c in resumo["campi"]] == ["cidade-um", "200"]
+    cursos = {c["codigo_curso"]: c for c in resumo["campi"][0]["cursos"]}
+    assert cursos[10]["area_avaliacao"] == "Ciência da Computação"
+    assert cursos[10]["ano"] == 2019
+    assert cursos[10]["cpc_faixa"] == "4"
+    assert cursos[10]["idd"] == 4.0
+    assert cursos[10]["taxa_desistencia_acumulada"] == 0.0
+    assert cursos[30]["cpc_continuo"] is None  # só trajetória
+    assert cursos[10]["notas"]["formacao_geral"] == 4.0  # avaliação de 2019
+    assert [h["ano"] for h in cursos[10]["historico"]] == [2017, 2019]
+    assert cursos[10]["historico"][0]["cpc_continuo"] == 3.1
+    assert cursos[30]["notas"] is None
+    assert cursos[30]["historico"] == []

@@ -18,11 +18,17 @@ RADAR_FIELDS: dict[str, str] = {
 }
 
 
+_PARTICIPACAO_COLUMNS = ["n_concluintes_inscritos", "n_concluintes_participantes"]
+
+
 def build_evolucao_cpc(data: ScopedData) -> list[dict[str, object]]:
     """CPC do curso por ano de avaliação (só os anos com ciclo Enade).
 
     Inclui ``area_avaliacao`` como chave de junção com a média nacional do
-    grupo de pares (``national_benchmarks.build``).
+    grupo de pares (``national_benchmarks.build``), e a participação no Enade
+    daquela edição: concluintes inscritos, participantes e a taxa
+    (participantes / inscritos, em %) — participação baixa deixa o conceito
+    menos representativo da turma.
     """
     if data.qualidade.empty:
         return []
@@ -35,21 +41,38 @@ def build_evolucao_cpc(data: ScopedData) -> list[dict[str, object]]:
         "cpc_faixa",
         "conceito_enade_continuo",
     ]
-    frame = data.qualidade[cols].sort_values(["codigo_curso", "ano"])
-    return records(frame)
+    frame = data.qualidade.reindex(columns=cols + _PARTICIPACAO_COLUMNS)
+    inscritos = frame["n_concluintes_inscritos"].astype(float)
+    participantes = frame["n_concluintes_participantes"].astype(float)
+    frame["taxa_participacao"] = (
+        100 * participantes / inscritos.where(inscritos > 0)
+    ).round(1)
+    return records(frame.sort_values(["codigo_curso", "ano"]))
 
 
 def build_perfil_radar(data: ScopedData) -> list[dict[str, object]]:
     """Notas padronizadas (0-5) do ano mais recente de cada curso.
 
-    Inclui ``area_avaliacao`` como chave de junção com a média nacional do
-    grupo de pares (``national_benchmarks.build``).
+    Inclui ``area_avaliacao`` + ``ano`` como chave de junção com a média
+    nacional do grupo de pares (``national_benchmarks.build``, que é por área
+    *e* ano — as notas são padronizadas dentro de cada edição), e o CPC/Enade
+    da mesma avaliação, pra que as notas e o conceito que elas compõem venham
+    juntos.
     """
     if data.qualidade.empty:
         return []
     idx = data.qualidade.groupby("codigo_curso")["ano"].idxmax()
     latest = data.qualidade.loc[idx]
-    out = latest[["codigo_curso", "nome_curso", "area_avaliacao"]].copy()
+    cols = [
+        "codigo_curso",
+        "nome_curso",
+        "area_avaliacao",
+        "ano",
+        "cpc_continuo",
+        "cpc_faixa",
+        "conceito_enade_continuo",
+    ]
+    out = latest[cols].copy()
     for label, column in RADAR_FIELDS.items():
         out[label] = latest[column]
     return records(out.sort_values("codigo_curso"))

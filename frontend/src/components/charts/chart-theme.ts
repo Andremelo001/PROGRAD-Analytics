@@ -24,6 +24,12 @@ export interface ChartPalette {
      * ``acima`` (vermelho, do claro ao escuro conforme fica maior). Os tons do
      * meio são o oliva e o vermelho já usados no sistema. */
     evasao: { abaixo: readonly string[]; acima: readonly string[] };
+    /** Faixas 1-5 do CPC: rampa ordinal azul (validada), do claro (faixa 1)
+     * ao escuro (faixa 5); ``fg`` é o texto da pílula sobre cada tom. */
+    faixa: { ramp: readonly string[]; fg: readonly string[] };
+    /** Comparações (Qualidade): as duas séries, A (oliva) e B (violeta) —
+     * par categórico validado em cada tema. */
+    comparacao: { a: string; b: string };
 }
 
 export const CHART_LIGHT: ChartPalette = {
@@ -47,6 +53,11 @@ export const CHART_LIGHT: ChartPalette = {
         abaixo: ["#eef3d0", "#c9d97f", "#a2b82e", "#5d7212"],
         acima: ["#fbe4e4", "#f5b3b4", "#e5484d", "#9f1f22"],
     },
+    faixa: {
+        ramp: ["#86b6ef", "#5598e7", "#2a78d6", "#1c5cab", "#104281"],
+        fg: ["#0d2a4f", "#0d2a4f", "#ffffff", "#ffffff", "#ffffff"],
+    },
+    comparacao: { a: "#8a9e22", b: "#7c4dff" },
 };
 
 /** Escuro: tons selecionados pro fundo escuro; nas rampas "mais" continua
@@ -66,12 +77,18 @@ export const CHART_DARK: ChartPalette = {
     tickFont: 11,
     presenca: {
         ramp: ["#cde26a", "#a2bf2e", "#7d9a1e", "#5b7115"],
-        none: "#303036",
+        // cinza médio: o #303036 de antes quase sumia no fundo do card (#1f1f24)
+        none: "#5c5d66",
     },
     evasao: {
         abaixo: ["#eef3d0", "#c9d97f", "#a2b82e", "#5d7212"],
         acima: ["#fbe4e4", "#f5b3b4", "#e5484d", "#9f1f22"],
     },
+    faixa: {
+        ramp: ["#b7d3f6", "#86b6ef", "#5598e7", "#2a78d6", "#1c5cab"],
+        fg: ["#0d2a4f", "#0d2a4f", "#0d2a4f", "#ffffff", "#ffffff"],
+    },
+    comparacao: { a: "#869c20", b: "#7f5ef0" },
 };
 
 /** Quais anos do eixo X mostrar: cada ano precisa de ~52px, então em telas

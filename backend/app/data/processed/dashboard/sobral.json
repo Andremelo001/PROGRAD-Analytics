@@ -1,5 +1,5 @@
 {
-  "gerado_em": "2026-09-30T00:31:03+00:00",
+  "gerado_em": "2026-10-04T10:23:52+00:00",
   "escopo": {
     "codigo_ies": 583,
     "nome_ies": "UNIVERSIDADE FEDERAL DO CEARÁ",
@@ -190,7 +190,10 @@
         "ano": 2016,
         "cpc_continuo": 2.8607386754,
         "cpc_faixa": "3",
-        "conceito_enade_continuo": 2.898630619
+        "conceito_enade_continuo": 2.898630619,
+        "n_concluintes_inscritos": 60,
+        "n_concluintes_participantes": 60,
+        "taxa_participacao": 100.0
       },
       {
         "codigo_curso": 54490,
@@ -199,7 +202,10 @@
         "ano": 2019,
         "cpc_continuo": 3.136,
         "cpc_faixa": "4",
-        "conceito_enade_continuo": 3.711
+        "conceito_enade_continuo": 3.711,
+        "n_concluintes_inscritos": 71,
+        "n_concluintes_participantes": 71,
+        "taxa_participacao": 100.0
       },
       {
         "codigo_curso": 54490,
@@ -208,7 +214,10 @@
         "ano": 2023,
         "cpc_continuo": 3.173,
         "cpc_faixa": "4",
-        "conceito_enade_continuo": 3.849
+        "conceito_enade_continuo": 3.849,
+        "n_concluintes_inscritos": 78,
+        "n_concluintes_participantes": 75,
+        "taxa_participacao": 96.2
       },
       {
         "codigo_curso": 99300,
@@ -217,7 +226,10 @@
         "ano": 2017,
         "cpc_continuo": 2.748164697,
         "cpc_faixa": "3",
-        "conceito_enade_continuo": 2.776703822
+        "conceito_enade_continuo": 2.776703822,
+        "n_concluintes_inscritos": 20,
+        "n_concluintes_participantes": 20,
+        "taxa_participacao": 100.0
       },
       {
         "codigo_curso": 99300,
@@ -226,7 +238,10 @@
         "ano": 2019,
         "cpc_continuo": 2.529,
         "cpc_faixa": "3",
-        "conceito_enade_continuo": 2.076
+        "conceito_enade_continuo": 2.076,
+        "n_concluintes_inscritos": 33,
+        "n_concluintes_participantes": 31,
+        "taxa_participacao": 93.9
       },
       {
         "codigo_curso": 99300,
@@ -235,7 +250,10 @@
         "ano": 2023,
         "cpc_continuo": 3.052,
         "cpc_faixa": "4",
-        "conceito_enade_continuo": 2.652
+        "conceito_enade_continuo": 2.652,
+        "n_concluintes_inscritos": 60,
+        "n_concluintes_participantes": 58,
+        "taxa_participacao": 96.7
       },
       {
         "codigo_curso": 99302,
@@ -244,7 +262,10 @@
         "ano": 2017,
         "cpc_continuo": 3.159931235,
         "cpc_faixa": "4",
-        "conceito_enade_continuo": 2.8872142533
+        "conceito_enade_continuo": 2.8872142533,
+        "n_concluintes_inscritos": 48,
+        "n_concluintes_participantes": 46,
+        "taxa_participacao": 95.8
       },
       {
         "codigo_curso": 99302,
@@ -253,7 +274,10 @@
         "ano": 2019,
         "cpc_continuo": 2.904,
         "cpc_faixa": "3",
-        "conceito_enade_continuo": 3.076
+        "conceito_enade_continuo": 3.076,
+        "n_concluintes_inscritos": 73,
+        "n_concluintes_participantes": 70,
+        "taxa_participacao": 95.9
       },
       {
         "codigo_curso": 99302,
@@ -262,7 +286,10 @@
         "ano": 2023,
         "cpc_continuo": 3.138,
         "cpc_faixa": "4",
-        "conceito_enade_continuo": 2.989
+        "conceito_enade_continuo": 2.989,
+        "n_concluintes_inscritos": 86,
+        "n_concluintes_participantes": 80,
+        "taxa_participacao": 93.0
       },
       {
         "codigo_curso": 99306,
@@ -271,7 +298,10 @@
         "ano": 2015,
         "cpc_continuo": 2.398537443,
         "cpc_faixa": "3",
-        "conceito_enade_continuo": 2.2424921989
+        "conceito_enade_continuo": 2.2424921989,
+        "n_concluintes_inscritos": 22,
+        "n_concluintes_participantes": 8,
+        "taxa_participacao": 36.4
       },
       {
         "codigo_curso": 99306,
@@ -280,7 +310,10 @@
         "ano": 2018,
         "cpc_continuo": 2.699781931,
         "cpc_faixa": "3",
-        "conceito_enade_continuo": 1.81247382
+        "conceito_enade_continuo": 1.81247382,
+        "n_concluintes_inscritos": 24,
+        "n_concluintes_participantes": 17,
+        "taxa_participacao": 70.8
       },
       {
         "codigo_curso": 99306,
@@ -289,7 +322,10 @@
         "ano": 2022,
         "cpc_continuo": 2.760215304,
         "cpc_faixa": "3",
-        "conceito_enade_continuo": 2.128
+        "conceito_enade_continuo": 2.128,
+        "n_concluintes_inscritos": 46,
+        "n_concluintes_participantes": 26,
+        "taxa_participacao": 56.5
       },
       {
         "codigo_curso": 99308,
@@ -298,7 +334,10 @@
         "ano": 2016,
         "cpc_continuo": 3.9313664878,
         "cpc_faixa": "4",
-        "conceito_enade_continuo": 4.2023448944
+        "conceito_enade_continuo": 4.2023448944,
+        "n_concluintes_inscritos": 26,
+        "n_concluintes_participantes": 26,
+        "taxa_participacao": 100.0
       },
       {
         "codigo_curso": 99308,
@@ -307,7 +346,10 @@
         "ano": 2019,
         "cpc_continuo": 4.095,
         "cpc_faixa": "5",
-        "conceito_enade_continuo": 4.707
+        "conceito_enade_continuo": 4.707,
+        "n_concluintes_inscritos": 27,
+        "n_concluintes_participantes": 27,
+        "taxa_participacao": 100.0
       },
       {
         "codigo_curso": 99308,
@@ -316,7 +358,10 @@
         "ano": 2023,
         "cpc_continuo": 4.171,
         "cpc_faixa": "5",
-        "conceito_enade_continuo": 4.298
+        "conceito_enade_continuo": 4.298,
+        "n_concluintes_inscritos": 38,
+        "n_concluintes_participantes": 37,
+        "taxa_participacao": 97.4
       },
       {
         "codigo_curso": 99310,
@@ -325,7 +370,10 @@
         "ano": 2015,
         "cpc_continuo": 3.0418123561,
         "cpc_faixa": "4",
-        "conceito_enade_continuo": 3.8578474522
+        "conceito_enade_continuo": 3.8578474522,
+        "n_concluintes_inscritos": 61,
+        "n_concluintes_participantes": 55,
+        "taxa_participacao": 90.2
       },
       {
         "codigo_curso": 99310,
@@ -334,7 +382,10 @@
         "ano": 2018,
         "cpc_continuo": 3.201270726,
         "cpc_faixa": "4",
-        "conceito_enade_continuo": 4.178153989
+        "conceito_enade_continuo": 4.178153989,
+        "n_concluintes_inscritos": 52,
+        "n_concluintes_participantes": 38,
+        "taxa_participacao": 73.1
       },
       {
         "codigo_curso": 99310,
@@ -343,7 +394,10 @@
         "ano": 2022,
         "cpc_continuo": 3.740574854,
         "cpc_faixa": "4",
-        "conceito_enade_continuo": 4.153
+        "conceito_enade_continuo": 4.153,
+        "n_concluintes_inscritos": 54,
+        "n_concluintes_participantes": 48,
+        "taxa_participacao": 88.9
       },
       {
         "codigo_curso": 150099,
@@ -352,7 +406,10 @@
         "ano": 2017,
         "cpc_continuo": 3.380883569,
         "cpc_faixa": "4",
-        "conceito_enade_continuo": 3.3033302251
+        "conceito_enade_continuo": 3.3033302251,
+        "n_concluintes_inscritos": 24,
+        "n_concluintes_participantes": 23,
+        "taxa_participacao": 95.8
       },
       {
         "codigo_curso": 150099,
@@ -361,7 +418,10 @@
         "ano": 2021,
         "cpc_continuo": 2.809,
         "cpc_faixa": "3",
-        "conceito_enade_continuo": 2.397
+        "conceito_enade_continuo": 2.397,
+        "n_concluintes_inscritos": 24,
+        "n_concluintes_participantes": 23,
+        "taxa_participacao": 95.8
       }
     ],
     "perfil_radar": [
@@ -369,6 +429,10 @@
         "codigo_curso": 54490,
         "nome_curso": "MEDICINA",
         "area_avaliacao": "MEDICINA",
+        "ano": 2023,
+        "cpc_continuo": 3.173,
+        "cpc_faixa": "4",
+        "conceito_enade_continuo": 3.849,
         "formacao_geral": 3.989200837,
         "componente_especifico": 3.802327365,
         "idd": 2.732,
@@ -383,6 +447,10 @@
         "codigo_curso": 99300,
         "nome_curso": "ENGENHARIA DE COMPUTAÇÃO",
         "area_avaliacao": "ENGENHARIA DE COMPUTAÇÃO I",
+        "ano": 2023,
+        "cpc_continuo": 3.052,
+        "cpc_faixa": "4",
+        "conceito_enade_continuo": 2.652,
         "formacao_geral": 3.445383976,
         "componente_especifico": 2.387566666,
         "idd": 2.261,
@@ -397,6 +465,10 @@
         "codigo_curso": 99302,
         "nome_curso": "ENGENHARIA ELÉTRICA",
         "area_avaliacao": "ENGENHARIA ELÉTRICA",
+        "ano": 2023,
+        "cpc_continuo": 3.138,
+        "cpc_faixa": "4",
+        "conceito_enade_continuo": 2.989,
         "formacao_geral": 2.848316498,
         "componente_especifico": 3.035477941,
         "idd": 2.32,
@@ -411,6 +483,10 @@
         "codigo_curso": 99306,
         "nome_curso": "CIÊNCIAS ECONÔMICAS",
         "area_avaliacao": "CIÊNCIAS ECONÔMICAS",
+        "ano": 2022,
+        "cpc_continuo": 2.760215304,
+        "cpc_faixa": "3",
+        "conceito_enade_continuo": 2.128,
         "formacao_geral": 2.991029158,
         "componente_especifico": 1.840373036,
         "idd": 1.914441467,
@@ -425,6 +501,10 @@
         "codigo_curso": 99308,
         "nome_curso": "ODONTOLOGIA",
         "area_avaliacao": "ODONTOLOGIA",
+        "ano": 2023,
+        "cpc_continuo": 4.171,
+        "cpc_faixa": "5",
+        "conceito_enade_continuo": 4.298,
         "formacao_geral": 4.337790828,
         "componente_especifico": 4.284920861,
         "idd": 3.644,
@@ -439,6 +519,10 @@
         "codigo_curso": 99310,
         "nome_curso": "PSICOLOGIA",
         "area_avaliacao": "PSICOLOGIA",
+        "ano": 2022,
+        "cpc_continuo": 3.740574854,
+        "cpc_faixa": "4",
+        "conceito_enade_continuo": 4.153,
         "formacao_geral": 4.480158902,
         "componente_especifico": 4.044280739,
         "idd": 2.919371037,
@@ -453,6 +537,10 @@
         "codigo_curso": 150099,
         "nome_curso": "MÚSICA",
         "area_avaliacao": "MÚSICA (LICENCIATURA)",
+        "ano": 2021,
+        "cpc_continuo": 2.809,
+        "cpc_faixa": "3",
+        "conceito_enade_continuo": 2.397,
         "formacao_geral": 2.174,
         "componente_especifico": 2.471,
         "idd": 1.77,
@@ -9800,6 +9888,10 @@
         "codigo_curso": 54490,
         "nome_curso": "MEDICINA",
         "area_avaliacao": "MEDICINA",
+        "ano": 2023,
+        "cpc_continuo": 3.173,
+        "cpc_faixa": "4",
+        "conceito_enade_continuo": 3.849,
         "formacao_geral": 3.989200837,
         "componente_especifico": 3.802327365,
         "idd": 2.732,
@@ -9814,6 +9906,10 @@
         "codigo_curso": 99300,
         "nome_curso": "ENGENHARIA DE COMPUTAÇÃO",
         "area_avaliacao": "ENGENHARIA DE COMPUTAÇÃO I",
+        "ano": 2023,
+        "cpc_continuo": 3.052,
+        "cpc_faixa": "4",
+        "conceito_enade_continuo": 2.652,
         "formacao_geral": 3.445383976,
         "componente_especifico": 2.387566666,
         "idd": 2.261,
@@ -9828,6 +9924,10 @@
         "codigo_curso": 99302,
         "nome_curso": "ENGENHARIA ELÉTRICA",
         "area_avaliacao": "ENGENHARIA ELÉTRICA",
+        "ano": 2023,
+        "cpc_continuo": 3.138,
+        "cpc_faixa": "4",
+        "conceito_enade_continuo": 2.989,
         "formacao_geral": 2.848316498,
         "componente_especifico": 3.035477941,
         "idd": 2.32,
@@ -9842,6 +9942,10 @@
         "codigo_curso": 99306,
         "nome_curso": "CIÊNCIAS ECONÔMICAS",
         "area_avaliacao": "CIÊNCIAS ECONÔMICAS",
+        "ano": 2022,
+        "cpc_continuo": 2.760215304,
+        "cpc_faixa": "3",
+        "conceito_enade_continuo": 2.128,
         "formacao_geral": 2.991029158,
         "componente_especifico": 1.840373036,
         "idd": 1.914441467,
@@ -9856,6 +9960,10 @@
         "codigo_curso": 99308,
         "nome_curso": "ODONTOLOGIA",
         "area_avaliacao": "ODONTOLOGIA",
+        "ano": 2023,
+        "cpc_continuo": 4.171,
+        "cpc_faixa": "5",
+        "conceito_enade_continuo": 4.298,
         "formacao_geral": 4.337790828,
         "componente_especifico": 4.284920861,
         "idd": 3.644,
@@ -9870,6 +9978,10 @@
         "codigo_curso": 99310,
         "nome_curso": "PSICOLOGIA",
         "area_avaliacao": "PSICOLOGIA",
+        "ano": 2022,
+        "cpc_continuo": 3.740574854,
+        "cpc_faixa": "4",
+        "conceito_enade_continuo": 4.153,
         "formacao_geral": 4.480158902,
         "componente_especifico": 4.044280739,
         "idd": 2.919371037,
@@ -9884,6 +9996,10 @@
         "codigo_curso": 150099,
         "nome_curso": "MÚSICA",
         "area_avaliacao": "MÚSICA (LICENCIATURA)",
+        "ano": 2021,
+        "cpc_continuo": 2.809,
+        "cpc_faixa": "3",
+        "conceito_enade_continuo": 2.397,
         "formacao_geral": 2.174,
         "componente_especifico": 2.471,
         "idd": 1.77,
@@ -9903,7 +10019,10 @@
         "ano": 2016,
         "cpc_continuo": 2.8607386754,
         "cpc_faixa": "3",
-        "conceito_enade_continuo": 2.898630619
+        "conceito_enade_continuo": 2.898630619,
+        "n_concluintes_inscritos": 60,
+        "n_concluintes_participantes": 60,
+        "taxa_participacao": 100.0
       },
       {
         "codigo_curso": 54490,
@@ -9912,7 +10031,10 @@
         "ano": 2019,
         "cpc_continuo": 3.136,
         "cpc_faixa": "4",
-        "conceito_enade_continuo": 3.711
+        "conceito_enade_continuo": 3.711,
+        "n_concluintes_inscritos": 71,
+        "n_concluintes_participantes": 71,
+        "taxa_participacao": 100.0
       },
       {
         "codigo_curso": 54490,
@@ -9921,7 +10043,10 @@
         "ano": 2023,
         "cpc_continuo": 3.173,
         "cpc_faixa": "4",
-        "conceito_enade_continuo": 3.849
+        "conceito_enade_continuo": 3.849,
+        "n_concluintes_inscritos": 78,
+        "n_concluintes_participantes": 75,
+        "taxa_participacao": 96.2
       },
       {
         "codigo_curso": 99300,
@@ -9930,7 +10055,10 @@
         "ano": 2017,
         "cpc_continuo": 2.748164697,
         "cpc_faixa": "3",
-        "conceito_enade_continuo": 2.776703822
+        "conceito_enade_continuo": 2.776703822,
+        "n_concluintes_inscritos": 20,
+        "n_concluintes_participantes": 20,
+        "taxa_participacao": 100.0
       },
       {
         "codigo_curso": 99300,
@@ -9939,7 +10067,10 @@
         "ano": 2019,
         "cpc_continuo": 2.529,
         "cpc_faixa": "3",
-        "conceito_enade_continuo": 2.076
+        "conceito_enade_continuo": 2.076,
+        "n_concluintes_inscritos": 33,
+        "n_concluintes_participantes": 31,
+        "taxa_participacao": 93.9
       },
       {
         "codigo_curso": 99300,
@@ -9948,7 +10079,10 @@
         "ano": 2023,
         "cpc_continuo": 3.052,
         "cpc_faixa": "4",
-        "conceito_enade_continuo": 2.652
+        "conceito_enade_continuo": 2.652,
+        "n_concluintes_inscritos": 60,
+        "n_concluintes_participantes": 58,
+        "taxa_participacao": 96.7
       },
       {
         "codigo_curso": 99302,
@@ -9957,7 +10091,10 @@
         "ano": 2017,
         "cpc_continuo": 3.159931235,
         "cpc_faixa": "4",
-        "conceito_enade_continuo": 2.8872142533
+        "conceito_enade_continuo": 2.8872142533,
+        "n_concluintes_inscritos": 48,
+        "n_concluintes_participantes": 46,
+        "taxa_participacao": 95.8
       },
       {
         "codigo_curso": 99302,
@@ -9966,7 +10103,10 @@
         "ano": 2019,
         "cpc_continuo": 2.904,
         "cpc_faixa": "3",
-        "conceito_enade_continuo": 3.076
+        "conceito_enade_continuo": 3.076,
+        "n_concluintes_inscritos": 73,
+        "n_concluintes_participantes": 70,
+        "taxa_participacao": 95.9
       },
       {
         "codigo_curso": 99302,
@@ -9975,7 +10115,10 @@
         "ano": 2023,
         "cpc_continuo": 3.138,
         "cpc_faixa": "4",
-        "conceito_enade_continuo": 2.989
+        "conceito_enade_continuo": 2.989,
+        "n_concluintes_inscritos": 86,
+        "n_concluintes_participantes": 80,
+        "taxa_participacao": 93.0
       },
       {
         "codigo_curso": 99306,
@@ -9984,7 +10127,10 @@
         "ano": 2015,
         "cpc_continuo": 2.398537443,
         "cpc_faixa": "3",
-        "conceito_enade_continuo": 2.2424921989
+        "conceito_enade_continuo": 2.2424921989,
+        "n_concluintes_inscritos": 22,
+        "n_concluintes_participantes": 8,
+        "taxa_participacao": 36.4
       },
       {
         "codigo_curso": 99306,
@@ -9993,7 +10139,10 @@
         "ano": 2018,
         "cpc_continuo": 2.699781931,
         "cpc_faixa": "3",
-        "conceito_enade_continuo": 1.81247382
+        "conceito_enade_continuo": 1.81247382,
+        "n_concluintes_inscritos": 24,
+        "n_concluintes_participantes": 17,
+        "taxa_participacao": 70.8
       },
       {
         "codigo_curso": 99306,
@@ -10002,7 +10151,10 @@
         "ano": 2022,
         "cpc_continuo": 2.760215304,
         "cpc_faixa": "3",
-        "conceito_enade_continuo": 2.128
+        "conceito_enade_continuo": 2.128,
+        "n_concluintes_inscritos": 46,
+        "n_concluintes_participantes": 26,
+        "taxa_participacao": 56.5
       },
       {
         "codigo_curso": 99308,
@@ -10011,7 +10163,10 @@
         "ano": 2016,
         "cpc_continuo": 3.9313664878,
         "cpc_faixa": "4",
-        "conceito_enade_continuo": 4.2023448944
+        "conceito_enade_continuo": 4.2023448944,
+        "n_concluintes_inscritos": 26,
+        "n_concluintes_participantes": 26,
+        "taxa_participacao": 100.0
       },
       {
         "codigo_curso": 99308,
@@ -10020,7 +10175,10 @@
         "ano": 2019,
         "cpc_continuo": 4.095,
         "cpc_faixa": "5",
-        "conceito_enade_continuo": 4.707
+        "conceito_enade_continuo": 4.707,
+        "n_concluintes_inscritos": 27,
+        "n_concluintes_participantes": 27,
+        "taxa_participacao": 100.0
       },
       {
         "codigo_curso": 99308,
@@ -10029,7 +10187,10 @@
         "ano": 2023,
         "cpc_continuo": 4.171,
         "cpc_faixa": "5",
-        "conceito_enade_continuo": 4.298
+        "conceito_enade_continuo": 4.298,
+        "n_concluintes_inscritos": 38,
+        "n_concluintes_participantes": 37,
+        "taxa_participacao": 97.4
       },
       {
         "codigo_curso": 99310,
@@ -10038,7 +10199,10 @@
         "ano": 2015,
         "cpc_continuo": 3.0418123561,
         "cpc_faixa": "4",
-        "conceito_enade_continuo": 3.8578474522
+        "conceito_enade_continuo": 3.8578474522,
+        "n_concluintes_inscritos": 61,
+        "n_concluintes_participantes": 55,
+        "taxa_participacao": 90.2
       },
       {
         "codigo_curso": 99310,
@@ -10047,7 +10211,10 @@
         "ano": 2018,
         "cpc_continuo": 3.201270726,
         "cpc_faixa": "4",
-        "conceito_enade_continuo": 4.178153989
+        "conceito_enade_continuo": 4.178153989,
+        "n_concluintes_inscritos": 52,
+        "n_concluintes_participantes": 38,
+        "taxa_participacao": 73.1
       },
       {
         "codigo_curso": 99310,
@@ -10056,7 +10223,10 @@
         "ano": 2022,
         "cpc_continuo": 3.740574854,
         "cpc_faixa": "4",
-        "conceito_enade_continuo": 4.153
+        "conceito_enade_continuo": 4.153,
+        "n_concluintes_inscritos": 54,
+        "n_concluintes_participantes": 48,
+        "taxa_participacao": 88.9
       },
       {
         "codigo_curso": 150099,
@@ -10065,7 +10235,10 @@
         "ano": 2017,
         "cpc_continuo": 3.380883569,
         "cpc_faixa": "4",
-        "conceito_enade_continuo": 3.3033302251
+        "conceito_enade_continuo": 3.3033302251,
+        "n_concluintes_inscritos": 24,
+        "n_concluintes_participantes": 23,
+        "taxa_participacao": 95.8
       },
       {
         "codigo_curso": 150099,
@@ -10074,7 +10247,10 @@
         "ano": 2021,
         "cpc_continuo": 2.809,
         "cpc_faixa": "3",
-        "conceito_enade_continuo": 2.397
+        "conceito_enade_continuo": 2.397,
+        "n_concluintes_inscritos": 24,
+        "n_concluintes_participantes": 23,
+        "taxa_participacao": 95.8
       }
     ]
   },
@@ -18448,6 +18624,35 @@
     "perfil_radar": [
       {
         "area_avaliacao": "CIÊNCIAS ECONÔMICAS",
+        "ano": 2015,
+        "formacao_geral": null,
+        "componente_especifico": null,
+        "idd": 2.12,
+        "organizacao_didatico_pedagogica": 2.52,
+        "infraestrutura": 2.81,
+        "oportunidade_ampliacao": 2.74,
+        "mestres": 3.91,
+        "doutores": 2.35,
+        "regime_trabalho": 4.06,
+        "quantidade_cursos_considerados": 191
+      },
+      {
+        "area_avaliacao": "CIÊNCIAS ECONÔMICAS",
+        "ano": 2018,
+        "formacao_geral": 2.51,
+        "componente_especifico": 1.93,
+        "idd": 2.35,
+        "organizacao_didatico_pedagogica": 2.97,
+        "infraestrutura": 2.91,
+        "oportunidade_ampliacao": 2.97,
+        "mestres": 4.14,
+        "doutores": 2.78,
+        "regime_trabalho": 4.16,
+        "quantidade_cursos_considerados": 195
+      },
+      {
+        "area_avaliacao": "CIÊNCIAS ECONÔMICAS",
+        "ano": 2022,
         "formacao_geral": 2.12,
         "componente_especifico": 1.85,
         "idd": 1.94,
@@ -18461,6 +18666,21 @@
       },
       {
         "area_avaliacao": "ENGENHARIA DA COMPUTAÇÃO",
+        "ano": 2017,
+        "formacao_geral": null,
+        "componente_especifico": null,
+        "idd": 1.97,
+        "organizacao_didatico_pedagogica": 3.11,
+        "infraestrutura": 2.96,
+        "oportunidade_ampliacao": 3.1,
+        "mestres": 3.94,
+        "doutores": 2.64,
+        "regime_trabalho": 3.91,
+        "quantidade_cursos_considerados": 149
+      },
+      {
+        "area_avaliacao": "ENGENHARIA DA COMPUTAÇÃO",
+        "ano": 2019,
         "formacao_geral": 2.79,
         "componente_especifico": 1.87,
         "idd": 2.38,
@@ -18474,6 +18694,7 @@
       },
       {
         "area_avaliacao": "ENGENHARIA DE COMPUTAÇÃO I",
+        "ano": 2023,
         "formacao_geral": 2.46,
         "componente_especifico": 2.2,
         "idd": 2.3,
@@ -18487,6 +18708,35 @@
       },
       {
         "area_avaliacao": "ENGENHARIA ELÉTRICA",
+        "ano": 2017,
+        "formacao_geral": null,
+        "componente_especifico": null,
+        "idd": 2.49,
+        "organizacao_didatico_pedagogica": 2.91,
+        "infraestrutura": 2.88,
+        "oportunidade_ampliacao": 3.09,
+        "mestres": 3.89,
+        "doutores": 2.54,
+        "regime_trabalho": 3.91,
+        "quantidade_cursos_considerados": 365
+      },
+      {
+        "area_avaliacao": "ENGENHARIA ELÉTRICA",
+        "ano": 2019,
+        "formacao_geral": 2.39,
+        "componente_especifico": 2.07,
+        "idd": 2.55,
+        "organizacao_didatico_pedagogica": 2.87,
+        "infraestrutura": 2.94,
+        "oportunidade_ampliacao": 3.07,
+        "mestres": 4.0,
+        "doutores": 2.76,
+        "regime_trabalho": 4.01,
+        "quantidade_cursos_considerados": 441
+      },
+      {
+        "area_avaliacao": "ENGENHARIA ELÉTRICA",
+        "ano": 2023,
         "formacao_geral": 2.39,
         "componente_especifico": 2.12,
         "idd": 2.58,
@@ -18500,6 +18750,35 @@
       },
       {
         "area_avaliacao": "MEDICINA",
+        "ano": 2016,
+        "formacao_geral": null,
+        "componente_especifico": null,
+        "idd": 2.52,
+        "organizacao_didatico_pedagogica": 2.88,
+        "infraestrutura": 3.06,
+        "oportunidade_ampliacao": 2.87,
+        "mestres": 3.27,
+        "doutores": 2.2,
+        "regime_trabalho": 4.26,
+        "quantidade_cursos_considerados": 177
+      },
+      {
+        "area_avaliacao": "MEDICINA",
+        "ano": 2019,
+        "formacao_geral": 2.91,
+        "componente_especifico": 2.83,
+        "idd": 2.98,
+        "organizacao_didatico_pedagogica": 3.02,
+        "infraestrutura": 3.3,
+        "oportunidade_ampliacao": 3.02,
+        "mestres": 3.31,
+        "doutores": 2.22,
+        "regime_trabalho": 4.18,
+        "quantidade_cursos_considerados": 232
+      },
+      {
+        "area_avaliacao": "MEDICINA",
+        "ano": 2023,
         "formacao_geral": 2.83,
         "componente_especifico": 2.78,
         "idd": 2.31,
@@ -18513,6 +18792,21 @@
       },
       {
         "area_avaliacao": "MÚSICA (LICENCIATURA)",
+        "ano": 2017,
+        "formacao_geral": null,
+        "componente_especifico": null,
+        "idd": 2.19,
+        "organizacao_didatico_pedagogica": 2.71,
+        "infraestrutura": 2.57,
+        "oportunidade_ampliacao": 2.35,
+        "mestres": 3.69,
+        "doutores": 2.36,
+        "regime_trabalho": 3.95,
+        "quantidade_cursos_considerados": 107
+      },
+      {
+        "area_avaliacao": "MÚSICA (LICENCIATURA)",
+        "ano": 2021,
         "formacao_geral": 2.33,
         "componente_especifico": 2.19,
         "idd": 2.23,
@@ -18526,6 +18820,35 @@
       },
       {
         "area_avaliacao": "ODONTOLOGIA",
+        "ano": 2016,
+        "formacao_geral": null,
+        "componente_especifico": null,
+        "idd": 2.44,
+        "organizacao_didatico_pedagogica": 3.25,
+        "infraestrutura": 3.59,
+        "oportunidade_ampliacao": 3.25,
+        "mestres": 3.94,
+        "doutores": 2.75,
+        "regime_trabalho": 3.97,
+        "quantidade_cursos_considerados": 206
+      },
+      {
+        "area_avaliacao": "ODONTOLOGIA",
+        "ano": 2019,
+        "formacao_geral": 2.25,
+        "componente_especifico": 2.73,
+        "idd": 2.35,
+        "organizacao_didatico_pedagogica": 3.29,
+        "infraestrutura": 3.52,
+        "oportunidade_ampliacao": 3.27,
+        "mestres": 4.06,
+        "doutores": 2.89,
+        "regime_trabalho": 3.99,
+        "quantidade_cursos_considerados": 237
+      },
+      {
+        "area_avaliacao": "ODONTOLOGIA",
+        "ano": 2023,
         "formacao_geral": 2.53,
         "componente_especifico": 2.28,
         "idd": 2.48,
@@ -18539,6 +18862,35 @@
       },
       {
         "area_avaliacao": "PSICOLOGIA",
+        "ano": 2015,
+        "formacao_geral": null,
+        "componente_especifico": null,
+        "idd": 2.68,
+        "organizacao_didatico_pedagogica": 3.17,
+        "infraestrutura": 3.16,
+        "oportunidade_ampliacao": 2.97,
+        "mestres": 3.8,
+        "doutores": 2.04,
+        "regime_trabalho": 3.75,
+        "quantidade_cursos_considerados": 466
+      },
+      {
+        "area_avaliacao": "PSICOLOGIA",
+        "ano": 2018,
+        "formacao_geral": 2.48,
+        "componente_especifico": 2.23,
+        "idd": 2.57,
+        "organizacao_didatico_pedagogica": 3.31,
+        "infraestrutura": 3.2,
+        "oportunidade_ampliacao": 2.89,
+        "mestres": 3.99,
+        "doutores": 2.32,
+        "regime_trabalho": 3.97,
+        "quantidade_cursos_considerados": 528
+      },
+      {
+        "area_avaliacao": "PSICOLOGIA",
+        "ano": 2022,
         "formacao_geral": 2.22,
         "componente_especifico": 2.18,
         "idd": 2.42,

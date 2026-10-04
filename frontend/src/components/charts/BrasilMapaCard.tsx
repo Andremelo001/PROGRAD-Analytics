@@ -6,6 +6,7 @@ import { Card } from "@/components/cards/Card";
 import { ChartSelect } from "@/components/charts/ChartSelect";
 import { DataTable } from "@/components/charts/DataTable";
 import { formatDecimal, formatInteger, formatPercent, toTitleCase } from "@/lib/format";
+import { UF_NOMES } from "@/lib/uf";
 import type {
     Curso,
     DistribuicaoUfCurso,
@@ -21,16 +22,6 @@ const MAPA = brazilDots as unknown as {
     dots: [number, number, string][];
 };
 const DOT_BY_CELL = new Map(MAPA.dots.map(([c, r, uf]) => [`${c},${r}`, uf]));
-
-const UF_NOMES: Record<string, string> = {
-    AC: "Acre", AL: "Alagoas", AM: "Amazonas", AP: "Amapá", BA: "Bahia",
-    CE: "Ceará", DF: "Distrito Federal", ES: "Espírito Santo", GO: "Goiás",
-    MA: "Maranhão", MG: "Minas Gerais", MS: "Mato Grosso do Sul",
-    MT: "Mato Grosso", PA: "Pará", PB: "Paraíba", PE: "Pernambuco", PI: "Piauí",
-    PR: "Paraná", RJ: "Rio de Janeiro", RN: "Rio Grande do Norte",
-    RO: "Rondônia", RR: "Roraima", RS: "Rio Grande do Sul", SC: "Santa Catarina",
-    SE: "Sergipe", SP: "São Paulo", TO: "Tocantins",
-}; // prettier-ignore
 
 interface Bin {
     max: number;

@@ -1,0 +1,397 @@
+{
+  "gerado_em": "2026-10-04T10:23:52+00:00",
+  "areas": [
+    {
+      "slug": "administracao",
+      "area_avaliacao": "ADMINISTRAÇÃO",
+      "ano": 2022,
+      "total_cursos": 1804,
+      "arquivo": "administracao.json"
+    },
+    {
+      "slug": "administracao-publica",
+      "area_avaliacao": "ADMINISTRAÇÃO PÚBLICA",
+      "ano": 2022,
+      "total_cursos": 65,
+      "arquivo": "administracao-publica.json"
+    },
+    {
+      "slug": "agronomia",
+      "area_avaliacao": "AGRONOMIA",
+      "ano": 2023,
+      "total_cursos": 414,
+      "arquivo": "agronomia.json"
+    },
+    {
+      "slug": "arquitetura-e-urbanismo",
+      "area_avaliacao": "ARQUITETURA E URBANISMO",
+      "ano": 2023,
+      "total_cursos": 565,
+      "arquivo": "arquitetura-e-urbanismo.json"
+    },
+    {
+      "slug": "ciencia-da-computacao-bacharelado",
+      "area_avaliacao": "CIÊNCIA DA COMPUTAÇÃO (BACHARELADO)",
+      "ano": 2021,
+      "total_cursos": 329,
+      "arquivo": "ciencia-da-computacao-bacharelado.json"
+    },
+    {
+      "slug": "ciencias-biologicas-bacharelado",
+      "area_avaliacao": "CIÊNCIAS BIOLÓGICAS (BACHARELADO)",
+      "ano": 2021,
+      "total_cursos": 266,
+      "arquivo": "ciencias-biologicas-bacharelado.json"
+    },
+    {
+      "slug": "ciencias-biologicas-licenciatura",
+      "area_avaliacao": "CIÊNCIAS BIOLÓGICAS (LICENCIATURA)",
+      "ano": 2021,
+      "total_cursos": 467,
+      "arquivo": "ciencias-biologicas-licenciatura.json"
+    },
+    {
+      "slug": "ciencias-contabeis",
+      "area_avaliacao": "CIÊNCIAS CONTÁBEIS",
+      "ano": 2022,
+      "total_cursos": 1242,
+      "arquivo": "ciencias-contabeis.json"
+    },
+    {
+      "slug": "ciencias-economicas",
+      "area_avaliacao": "CIÊNCIAS ECONÔMICAS",
+      "ano": 2022,
+      "total_cursos": 229,
+      "arquivo": "ciencias-economicas.json"
+    },
+    {
+      "slug": "ciencias-sociais-bacharelado",
+      "area_avaliacao": "CIÊNCIAS SOCIAIS (BACHARELADO)",
+      "ano": 2021,
+      "total_cursos": 74,
+      "arquivo": "ciencias-sociais-bacharelado.json"
+    },
+    {
+      "slug": "ciencias-sociais-licenciatura",
+      "area_avaliacao": "CIÊNCIAS SOCIAIS (LICENCIATURA)",
+      "ano": 2021,
+      "total_cursos": 97,
+      "arquivo": "ciencias-sociais-licenciatura.json"
+    },
+    {
+      "slug": "design",
+      "area_avaliacao": "DESIGN",
+      "ano": 2021,
+      "total_cursos": 113,
+      "arquivo": "design.json"
+    },
+    {
+      "slug": "direito",
+      "area_avaliacao": "DIREITO",
+      "ano": 2022,
+      "total_cursos": 1258,
+      "arquivo": "direito.json"
+    },
+    {
+      "slug": "educacao-fisica-bacharelado",
+      "area_avaliacao": "EDUCAÇÃO FÍSICA (BACHARELADO)",
+      "ano": 2021,
+      "total_cursos": 616,
+      "arquivo": "educacao-fisica-bacharelado.json"
+    },
+    {
+      "slug": "educacao-fisica-licenciatura",
+      "area_avaliacao": "EDUCAÇÃO FÍSICA (LICENCIATURA)",
+      "ano": 2021,
+      "total_cursos": 560,
+      "arquivo": "educacao-fisica-licenciatura.json"
+    },
+    {
+      "slug": "enfermagem",
+      "area_avaliacao": "ENFERMAGEM",
+      "ano": 2023,
+      "total_cursos": 976,
+      "arquivo": "enfermagem.json"
+    },
+    {
+      "slug": "engenharia",
+      "area_avaliacao": "ENGENHARIA",
+      "ano": 2017,
+      "total_cursos": 258,
+      "arquivo": "engenharia.json"
+    },
+    {
+      "slug": "engenharia-ambiental",
+      "area_avaliacao": "ENGENHARIA AMBIENTAL",
+      "ano": 2023,
+      "total_cursos": 204,
+      "arquivo": "engenharia-ambiental.json"
+    },
+    {
+      "slug": "engenharia-civil",
+      "area_avaliacao": "ENGENHARIA CIVIL",
+      "ano": 2023,
+      "total_cursos": 917,
+      "arquivo": "engenharia-civil.json"
+    },
+    {
+      "slug": "engenharia-da-computacao",
+      "area_avaliacao": "ENGENHARIA DA COMPUTAÇÃO",
+      "ano": 2019,
+      "total_cursos": 172,
+      "arquivo": "engenharia-da-computacao.json"
+    },
+    {
+      "slug": "engenharia-de-alimentos",
+      "area_avaliacao": "ENGENHARIA DE ALIMENTOS",
+      "ano": 2023,
+      "total_cursos": 76,
+      "arquivo": "engenharia-de-alimentos.json"
+    },
+    {
+      "slug": "engenharia-de-computacao-i",
+      "area_avaliacao": "ENGENHARIA DE COMPUTAÇÃO I",
+      "ano": 2023,
+      "total_cursos": 145,
+      "arquivo": "engenharia-de-computacao-i.json"
+    },
+    {
+      "slug": "engenharia-de-producao",
+      "area_avaliacao": "ENGENHARIA DE PRODUÇÃO",
+      "ano": 2023,
+      "total_cursos": 637,
+      "arquivo": "engenharia-de-producao.json"
+    },
+    {
+      "slug": "engenharia-eletrica",
+      "area_avaliacao": "ENGENHARIA ELÉTRICA",
+      "ano": 2023,
+      "total_cursos": 483,
+      "arquivo": "engenharia-eletrica.json"
+    },
+    {
+      "slug": "engenharia-mecanica",
+      "area_avaliacao": "ENGENHARIA MECÂNICA",
+      "ano": 2023,
+      "total_cursos": 516,
+      "arquivo": "engenharia-mecanica.json"
+    },
+    {
+      "slug": "engenharia-quimica",
+      "area_avaliacao": "ENGENHARIA QUÍMICA",
+      "ano": 2023,
+      "total_cursos": 186,
+      "arquivo": "engenharia-quimica.json"
+    },
+    {
+      "slug": "farmacia",
+      "area_avaliacao": "FARMÁCIA",
+      "ano": 2023,
+      "total_cursos": 590,
+      "arquivo": "farmacia.json"
+    },
+    {
+      "slug": "filosofia-bacharelado",
+      "area_avaliacao": "FILOSOFIA (BACHARELADO)",
+      "ano": 2021,
+      "total_cursos": 78,
+      "arquivo": "filosofia-bacharelado.json"
+    },
+    {
+      "slug": "filosofia-licenciatura",
+      "area_avaliacao": "FILOSOFIA (LICENCIATURA)",
+      "ano": 2021,
+      "total_cursos": 137,
+      "arquivo": "filosofia-licenciatura.json"
+    },
+    {
+      "slug": "fisioterapia",
+      "area_avaliacao": "FISIOTERAPIA",
+      "ano": 2023,
+      "total_cursos": 711,
+      "arquivo": "fisioterapia.json"
+    },
+    {
+      "slug": "fisica-bacharelado",
+      "area_avaliacao": "FÍSICA (BACHARELADO)",
+      "ano": 2017,
+      "total_cursos": 57,
+      "arquivo": "fisica-bacharelado.json"
+    },
+    {
+      "slug": "fisica-licenciatura",
+      "area_avaliacao": "FÍSICA (LICENCIATURA)",
+      "ano": 2021,
+      "total_cursos": 244,
+      "arquivo": "fisica-licenciatura.json"
+    },
+    {
+      "slug": "geografia-bacharelado",
+      "area_avaliacao": "GEOGRAFIA (BACHARELADO)",
+      "ano": 2021,
+      "total_cursos": 74,
+      "arquivo": "geografia-bacharelado.json"
+    },
+    {
+      "slug": "geografia-licenciatura",
+      "area_avaliacao": "GEOGRAFIA (LICENCIATURA)",
+      "ano": 2021,
+      "total_cursos": 237,
+      "arquivo": "geografia-licenciatura.json"
+    },
+    {
+      "slug": "historia-bacharelado",
+      "area_avaliacao": "HISTÓRIA (BACHARELADO)",
+      "ano": 2021,
+      "total_cursos": 56,
+      "arquivo": "historia-bacharelado.json"
+    },
+    {
+      "slug": "historia-licenciatura",
+      "area_avaliacao": "HISTÓRIA (LICENCIATURA)",
+      "ano": 2021,
+      "total_cursos": 346,
+      "arquivo": "historia-licenciatura.json"
+    },
+    {
+      "slug": "jornalismo",
+      "area_avaliacao": "JORNALISMO",
+      "ano": 2022,
+      "total_cursos": 286,
+      "arquivo": "jornalismo.json"
+    },
+    {
+      "slug": "letras-portugues-licenciatura",
+      "area_avaliacao": "LETRAS-PORTUGUÊS (LICENCIATURA)",
+      "ano": 2021,
+      "total_cursos": 309,
+      "arquivo": "letras-portugues-licenciatura.json"
+    },
+    {
+      "slug": "letras-portugues-e-espanhol-licenciatura",
+      "area_avaliacao": "LETRAS-PORTUGUÊS E ESPANHOL (LICENCIATURA)",
+      "ano": 2021,
+      "total_cursos": 70,
+      "arquivo": "letras-portugues-e-espanhol-licenciatura.json"
+    },
+    {
+      "slug": "letras-portugues-e-ingles-licenciatura",
+      "area_avaliacao": "LETRAS-PORTUGUÊS E INGLÊS (LICENCIATURA)",
+      "ano": 2021,
+      "total_cursos": 191,
+      "arquivo": "letras-portugues-e-ingles-licenciatura.json"
+    },
+    {
+      "slug": "letras-ingles",
+      "area_avaliacao": "Letras - Inglês",
+      "ano": 2021,
+      "total_cursos": 127,
+      "arquivo": "letras-ingles.json"
+    },
+    {
+      "slug": "matematica-bacharelado",
+      "area_avaliacao": "MATEMÁTICA (BACHARELADO)",
+      "ano": 2017,
+      "total_cursos": 58,
+      "arquivo": "matematica-bacharelado.json"
+    },
+    {
+      "slug": "matematica-licenciatura",
+      "area_avaliacao": "MATEMÁTICA (LICENCIATURA)",
+      "ano": 2021,
+      "total_cursos": 452,
+      "arquivo": "matematica-licenciatura.json"
+    },
+    {
+      "slug": "medicina",
+      "area_avaliacao": "MEDICINA",
+      "ano": 2023,
+      "total_cursos": 309,
+      "arquivo": "medicina.json"
+    },
+    {
+      "slug": "musica-licenciatura",
+      "area_avaliacao": "MÚSICA (LICENCIATURA)",
+      "ano": 2021,
+      "total_cursos": 98,
+      "arquivo": "musica-licenciatura.json"
+    },
+    {
+      "slug": "odontologia",
+      "area_avaliacao": "ODONTOLOGIA",
+      "ano": 2023,
+      "total_cursos": 452,
+      "arquivo": "odontologia.json"
+    },
+    {
+      "slug": "pedagogia-licenciatura",
+      "area_avaliacao": "PEDAGOGIA (LICENCIATURA)",
+      "ano": 2021,
+      "total_cursos": 1278,
+      "arquivo": "pedagogia-licenciatura.json"
+    },
+    {
+      "slug": "psicologia",
+      "area_avaliacao": "PSICOLOGIA",
+      "ano": 2022,
+      "total_cursos": 746,
+      "arquivo": "psicologia.json"
+    },
+    {
+      "slug": "publicidade-e-propaganda",
+      "area_avaliacao": "PUBLICIDADE E PROPAGANDA",
+      "ano": 2022,
+      "total_cursos": 345,
+      "arquivo": "publicidade-e-propaganda.json"
+    },
+    {
+      "slug": "quimica-bacharelado",
+      "area_avaliacao": "QUÍMICA (BACHARELADO)",
+      "ano": 2021,
+      "total_cursos": 90,
+      "arquivo": "quimica-bacharelado.json"
+    },
+    {
+      "slug": "quimica-licenciatura",
+      "area_avaliacao": "QUÍMICA (LICENCIATURA)",
+      "ano": 2021,
+      "total_cursos": 276,
+      "arquivo": "quimica-licenciatura.json"
+    },
+    {
+      "slug": "secretariado-executivo",
+      "area_avaliacao": "SECRETARIADO EXECUTIVO",
+      "ano": 2022,
+      "total_cursos": 34,
+      "arquivo": "secretariado-executivo.json"
+    },
+    {
+      "slug": "sistemas-de-informacao",
+      "area_avaliacao": "SISTEMAS DE INFORMAÇÃO",
+      "ano": 2021,
+      "total_cursos": 424,
+      "arquivo": "sistemas-de-informacao.json"
+    },
+    {
+      "slug": "tecnologia-em-gestao-da-qualidade",
+      "area_avaliacao": "TECNOLOGIA EM GESTÃO DA QUALIDADE",
+      "ano": 2022,
+      "total_cursos": 112,
+      "arquivo": "tecnologia-em-gestao-da-qualidade.json"
+    },
+    {
+      "slug": "tecnologia-em-redes-de-computadores",
+      "area_avaliacao": "TECNOLOGIA EM REDES DE COMPUTADORES",
+      "ano": 2021,
+      "total_cursos": 146,
+      "arquivo": "tecnologia-em-redes-de-computadores.json"
+    },
+    {
+      "slug": "zootecnia",
+      "area_avaliacao": "ZOOTECNIA",
+      "ano": 2023,
+      "total_cursos": 111,
+      "arquivo": "zootecnia.json"
+    }
+  ]
+}

@@ -1,6 +1,7 @@
 from datetime import UTC, datetime
 from pathlib import Path
 
+import pandas as pd
 from loguru import logger
 
 from app.core.config.settings import settings
@@ -11,9 +12,11 @@ from app.modules.dashboard.domain.section import DashboardContext, DashboardSect
 from app.modules.dashboard.domain.services import (
     alerts,
     campus_overview,
+    campus_summary,
     course_comparison,
     course_profile,
     national_benchmarks,
+    quality_areas,
     trajectory_comparison,
 )
 from app.modules.dashboard.infrastructure.sources.processed_csv_source import (
@@ -24,6 +27,12 @@ from app.modules.dashboard.infrastructure.sources.processed_csv_source import (
 # index.json com a lista de campi (o front baixa só o campus escolhido).
 _DIR_NAME = "dashboard"
 _INDEX_NAME = "index"
+# Um JSON por área de avaliação em dashboard/areas/<slug>.json (todos os cursos
+# do Brasil na edição mais recente da área), compartilhado entre os campi:
+# o mapa da aba Qualidade baixa só a área do curso escolhido.
+_AREAS_DIR_NAME = "areas"
+# Resumo de todos os cursos de todos os campi (comparação entre campi).
+_RESUMO_NAME = "resumo_campi"
 
 # Ordem = ordem das seções no dashboard.json. Acrescentar uma seção nova
 # é registrar mais uma linha aqui — não editar build_dashboard().
@@ -67,8 +76,11 @@ def build_dashboard(
 
     exporter = JsonExporter(out_dir=out_dir)
     index: list[dict[str, object]] = []
+    escopos: list[shared.ScopedData] = []
+    resumo: list[dict[str, object]] = []
     for campus in campi:
         data = shared.build_scoped_data(qualidade_nacional, trajetoria_nacional, campus)
+        escopos.append(data)
         context = DashboardContext(
             data=data,
             qualidade_nacional=qualidade_nacional,
@@ -93,6 +105,13 @@ def build_dashboard(
                 "arquivo": f"{campus.slug}.json",
             }
         )
+        resumo.append(
+            {
+                "slug": campus.slug,
+                "nome": campus.nome,
+                "cursos": campus_summary.build_resumo_cursos(data),
+            }
+        )
         logger.info("dashboard | {} | cursos={}", campus.nome, len(data.cursos))
 
     exporter.export(
@@ -103,8 +122,51 @@ def build_dashboard(
         },
         _INDEX_NAME,
     )
-    _remove_stale(out_dir, {f"{c.slug}.json" for c in campi} | {f"{_INDEX_NAME}.json"})
+    exporter.export({"gerado_em": gerado_em, "campi": resumo}, _RESUMO_NAME)
+    _remove_stale(
+        out_dir,
+        {f"{c.slug}.json" for c in campi}
+        | {f"{_INDEX_NAME}.json", f"{_RESUMO_NAME}.json"},
+    )
+    _build_areas(qualidade_nacional, escopos, out_dir / _AREAS_DIR_NAME, gerado_em)
     return out_dir
+
+
+def _build_areas(
+    qualidade_nacional: pd.DataFrame,
+    escopos: list[shared.ScopedData],
+    areas_dir: Path,
+    gerado_em: str,
+) -> None:
+    """Grava ``areas/<slug>.json`` de cada área dos campi + ``areas/index.json``."""
+    exporter = JsonExporter(out_dir=areas_dir, indent=None)
+    index: list[dict[str, object]] = []
+    for area in quality_areas.areas_dos_campi(escopos):
+        payload = quality_areas.build_area(
+            qualidade_nacional, area, settings.dashboard_codigo_ies
+        )
+        if payload is None:
+            continue
+        slug = quality_areas.area_slug(area)
+        exporter.export(payload, slug)
+        cursos = payload["cursos"]
+        index.append(
+            {
+                "slug": slug,
+                "area_avaliacao": area,
+                "ano": payload["ano"],
+                "total_cursos": len(cursos) if isinstance(cursos, list) else 0,
+                "arquivo": f"{slug}.json",
+            }
+        )
+    JsonExporter(out_dir=areas_dir).export(
+        {"gerado_em": gerado_em, "areas": index}, _INDEX_NAME
+    )
+    _remove_stale(
+        areas_dir,
+        {str(a["arquivo"]) for a in index} | {f"{_INDEX_NAME}.json"},
+    )
+    logger.info("dashboard | áreas de avaliação={}", len(index))
 
 
 def _remove_stale(out_dir: Path, keep: set[str]) -> None:

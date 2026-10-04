@@ -99,18 +99,35 @@ def test_evolucao_cpc_averages_across_peer_institutions(
     assert row["quantidade_cursos_considerados"] == 2
 
 
-def test_perfil_radar_nacional_uses_latest_year_per_area(
+def test_perfil_radar_nacional_is_per_area_and_year(
     qualidade_raw: pd.DataFrame, trajetoria_raw: pd.DataFrame, scoped_data: ScopedData
 ) -> None:
     nacional = pd.concat([qualidade_raw, _peer_qualidade_row()], ignore_index=True)
     result = national_benchmarks.build(nacional, trajetoria_raw, scoped_data)
-    row = next(
-        r
+    rows = {
+        r["ano"]: r
         for r in result["perfil_radar"]
         if r["area_avaliacao"] == "Ciência da Computação"
-    )
-    # curso 10 no ano mais recente (2019, nota 4.0) + par (2019, nota 5.0) -> 4.5
-    assert row["formacao_geral"] == 4.5
+    }
+    # 2019: curso 10 (nota 4.0) + par (5.0) -> 4.5; 2017: só o curso 10 (3.0)
+    assert rows[2019]["formacao_geral"] == 4.5
+    assert rows[2019]["quantidade_cursos_considerados"] == 2
+    assert rows[2017]["formacao_geral"] == 3.0
+
+
+def test_perfil_radar_nacional_skips_years_the_campus_was_not_evaluated(
+    qualidade_raw: pd.DataFrame, trajetoria_raw: pd.DataFrame, scoped_data: ScopedData
+) -> None:
+    edicao_nova = _peer_qualidade_row().assign(ano=2023)
+    nacional = pd.concat([qualidade_raw, edicao_nova], ignore_index=True)
+    result = national_benchmarks.build(nacional, trajetoria_raw, scoped_data)
+    anos = {
+        r["ano"]
+        for r in result["perfil_radar"]
+        if r["area_avaliacao"] == "Ciência da Computação"
+    }
+    # 2023 é a edição mais recente da área, mas o campus não foi avaliado nela
+    assert anos == {2017, 2019}
 
 
 def test_curva_sobrevivencia_nacional_aligns_by_anos_desde_ingresso(

@@ -1,5 +1,5 @@
 {
-  "gerado_em": "2026-09-30T00:31:03+00:00",
+  "gerado_em": "2026-10-04T10:23:52+00:00",
   "escopo": {
     "codigo_ies": 583,
     "nome_ies": "UNIVERSIDADE FEDERAL DO CEARÁ",
@@ -130,7 +130,10 @@
         "ano": 2021,
         "cpc_continuo": 3.353,
         "cpc_faixa": "4",
-        "conceito_enade_continuo": 2.597
+        "conceito_enade_continuo": 2.597,
+        "n_concluintes_inscritos": 12,
+        "n_concluintes_participantes": 11,
+        "taxa_participacao": 91.7
       },
       {
         "codigo_curso": 1299931,
@@ -139,7 +142,10 @@
         "ano": 2019,
         "cpc_continuo": 3.617,
         "cpc_faixa": "4",
-        "conceito_enade_continuo": 4.256
+        "conceito_enade_continuo": 4.256,
+        "n_concluintes_inscritos": 18,
+        "n_concluintes_participantes": 18,
+        "taxa_participacao": 100.0
       },
       {
         "codigo_curso": 1299931,
@@ -148,7 +154,10 @@
         "ano": 2023,
         "cpc_continuo": 3.172,
         "cpc_faixa": "4",
-        "conceito_enade_continuo": 2.837
+        "conceito_enade_continuo": 2.837,
+        "n_concluintes_inscritos": 38,
+        "n_concluintes_participantes": 35,
+        "taxa_participacao": 92.1
       },
       {
         "codigo_curso": 1299935,
@@ -157,7 +166,10 @@
         "ano": 2019,
         "cpc_continuo": 4.253,
         "cpc_faixa": "5",
-        "conceito_enade_continuo": 4.237
+        "conceito_enade_continuo": 4.237,
+        "n_concluintes_inscritos": 10,
+        "n_concluintes_participantes": 10,
+        "taxa_participacao": 100.0
       },
       {
         "codigo_curso": 1299935,
@@ -166,7 +178,10 @@
         "ano": 2023,
         "cpc_continuo": 3.196,
         "cpc_faixa": "4",
-        "conceito_enade_continuo": 3.231
+        "conceito_enade_continuo": 3.231,
+        "n_concluintes_inscritos": 57,
+        "n_concluintes_participantes": 51,
+        "taxa_participacao": 89.5
       },
       {
         "codigo_curso": 1299936,
@@ -175,7 +190,10 @@
         "ano": 2019,
         "cpc_continuo": 3.73,
         "cpc_faixa": "4",
-        "conceito_enade_continuo": 3.586
+        "conceito_enade_continuo": 3.586,
+        "n_concluintes_inscritos": 12,
+        "n_concluintes_participantes": 12,
+        "taxa_participacao": 100.0
       },
       {
         "codigo_curso": 1299936,
@@ -184,7 +202,10 @@
         "ano": 2023,
         "cpc_continuo": 2.768,
         "cpc_faixa": "3",
-        "conceito_enade_continuo": 2.544
+        "conceito_enade_continuo": 2.544,
+        "n_concluintes_inscritos": 41,
+        "n_concluintes_participantes": 38,
+        "taxa_participacao": 92.7
       }
     ],
     "perfil_radar": [
@@ -192,6 +213,10 @@
         "codigo_curso": 1299927,
         "nome_curso": "CIÊNCIA DA COMPUTAÇÃO",
         "area_avaliacao": "CIÊNCIA DA COMPUTAÇÃO (BACHARELADO)",
+        "ano": 2021,
+        "cpc_continuo": 3.353,
+        "cpc_faixa": "4",
+        "conceito_enade_continuo": 2.597,
         "formacao_geral": 2.556,
         "componente_especifico": 2.611,
         "idd": 2.964,
@@ -206,6 +231,10 @@
         "codigo_curso": 1299931,
         "nome_curso": "ENGENHARIA CIVIL",
         "area_avaliacao": "ENGENHARIA CIVIL",
+        "ano": 2023,
+        "cpc_continuo": 3.172,
+        "cpc_faixa": "4",
+        "conceito_enade_continuo": 2.837,
         "formacao_geral": 2.802721088,
         "componente_especifico": 2.848466854,
         "idd": 2.067,
@@ -220,6 +249,10 @@
         "codigo_curso": 1299935,
         "nome_curso": "ENGENHARIA DE PRODUÇÃO",
         "area_avaliacao": "ENGENHARIA DE PRODUÇÃO",
+        "ano": 2023,
+        "cpc_continuo": 3.196,
+        "cpc_faixa": "4",
+        "conceito_enade_continuo": 3.231,
         "formacao_geral": 2.983529003,
         "componente_especifico": 3.313076598,
         "idd": 2.478,
@@ -234,6 +267,10 @@
         "codigo_curso": 1299936,
         "nome_curso": "ENGENHARIA MECÂNICA",
         "area_avaliacao": "ENGENHARIA MECÂNICA",
+        "ano": 2023,
+        "cpc_continuo": 2.768,
+        "cpc_faixa": "3",
+        "conceito_enade_continuo": 2.544,
         "formacao_geral": 3.467542261,
         "componente_especifico": 2.236529141,
         "idd": 1.521,
@@ -3255,6 +3292,10 @@
         "codigo_curso": 1299927,
         "nome_curso": "CIÊNCIA DA COMPUTAÇÃO",
         "area_avaliacao": "CIÊNCIA DA COMPUTAÇÃO (BACHARELADO)",
+        "ano": 2021,
+        "cpc_continuo": 3.353,
+        "cpc_faixa": "4",
+        "conceito_enade_continuo": 2.597,
         "formacao_geral": 2.556,
         "componente_especifico": 2.611,
         "idd": 2.964,
@@ -3269,6 +3310,10 @@
         "codigo_curso": 1299931,
         "nome_curso": "ENGENHARIA CIVIL",
         "area_avaliacao": "ENGENHARIA CIVIL",
+        "ano": 2023,
+        "cpc_continuo": 3.172,
+        "cpc_faixa": "4",
+        "conceito_enade_continuo": 2.837,
         "formacao_geral": 2.802721088,
         "componente_especifico": 2.848466854,
         "idd": 2.067,
@@ -3283,6 +3328,10 @@
         "codigo_curso": 1299935,
         "nome_curso": "ENGENHARIA DE PRODUÇÃO",
         "area_avaliacao": "ENGENHARIA DE PRODUÇÃO",
+        "ano": 2023,
+        "cpc_continuo": 3.196,
+        "cpc_faixa": "4",
+        "conceito_enade_continuo": 3.231,
         "formacao_geral": 2.983529003,
         "componente_especifico": 3.313076598,
         "idd": 2.478,
@@ -3297,6 +3346,10 @@
         "codigo_curso": 1299936,
         "nome_curso": "ENGENHARIA MECÂNICA",
         "area_avaliacao": "ENGENHARIA MECÂNICA",
+        "ano": 2023,
+        "cpc_continuo": 2.768,
+        "cpc_faixa": "3",
+        "conceito_enade_continuo": 2.544,
         "formacao_geral": 3.467542261,
         "componente_especifico": 2.236529141,
         "idd": 1.521,
@@ -3316,7 +3369,10 @@
         "ano": 2021,
         "cpc_continuo": 3.353,
         "cpc_faixa": "4",
-        "conceito_enade_continuo": 2.597
+        "conceito_enade_continuo": 2.597,
+        "n_concluintes_inscritos": 12,
+        "n_concluintes_participantes": 11,
+        "taxa_participacao": 91.7
       },
       {
         "codigo_curso": 1299931,
@@ -3325,7 +3381,10 @@
         "ano": 2019,
         "cpc_continuo": 3.617,
         "cpc_faixa": "4",
-        "conceito_enade_continuo": 4.256
+        "conceito_enade_continuo": 4.256,
+        "n_concluintes_inscritos": 18,
+        "n_concluintes_participantes": 18,
+        "taxa_participacao": 100.0
       },
       {
         "codigo_curso": 1299931,
@@ -3334,7 +3393,10 @@
         "ano": 2023,
         "cpc_continuo": 3.172,
         "cpc_faixa": "4",
-        "conceito_enade_continuo": 2.837
+        "conceito_enade_continuo": 2.837,
+        "n_concluintes_inscritos": 38,
+        "n_concluintes_participantes": 35,
+        "taxa_participacao": 92.1
       },
       {
         "codigo_curso": 1299935,
@@ -3343,7 +3405,10 @@
         "ano": 2019,
         "cpc_continuo": 4.253,
         "cpc_faixa": "5",
-        "conceito_enade_continuo": 4.237
+        "conceito_enade_continuo": 4.237,
+        "n_concluintes_inscritos": 10,
+        "n_concluintes_participantes": 10,
+        "taxa_participacao": 100.0
       },
       {
         "codigo_curso": 1299935,
@@ -3352,7 +3417,10 @@
         "ano": 2023,
         "cpc_continuo": 3.196,
         "cpc_faixa": "4",
-        "conceito_enade_continuo": 3.231
+        "conceito_enade_continuo": 3.231,
+        "n_concluintes_inscritos": 57,
+        "n_concluintes_participantes": 51,
+        "taxa_participacao": 89.5
       },
       {
         "codigo_curso": 1299936,
@@ -3361,7 +3429,10 @@
         "ano": 2019,
         "cpc_continuo": 3.73,
         "cpc_faixa": "4",
-        "conceito_enade_continuo": 3.586
+        "conceito_enade_continuo": 3.586,
+        "n_concluintes_inscritos": 12,
+        "n_concluintes_participantes": 12,
+        "taxa_participacao": 100.0
       },
       {
         "codigo_curso": 1299936,
@@ -3370,7 +3441,10 @@
         "ano": 2023,
         "cpc_continuo": 2.768,
         "cpc_faixa": "3",
-        "conceito_enade_continuo": 2.544
+        "conceito_enade_continuo": 2.544,
+        "n_concluintes_inscritos": 41,
+        "n_concluintes_participantes": 38,
+        "taxa_participacao": 92.7
       }
     ]
   },
@@ -6160,6 +6234,7 @@
     "perfil_radar": [
       {
         "area_avaliacao": "CIÊNCIA DA COMPUTAÇÃO (BACHARELADO)",
+        "ano": 2021,
         "formacao_geral": 2.45,
         "componente_especifico": 2.1,
         "idd": 2.63,
@@ -6173,6 +6248,21 @@
       },
       {
         "area_avaliacao": "ENGENHARIA CIVIL",
+        "ano": 2019,
+        "formacao_geral": 2.39,
+        "componente_especifico": 2.31,
+        "idd": 2.61,
+        "organizacao_didatico_pedagogica": 2.98,
+        "infraestrutura": 3.22,
+        "oportunidade_ampliacao": 2.85,
+        "mestres": 3.9,
+        "doutores": 2.32,
+        "regime_trabalho": 3.95,
+        "quantidade_cursos_considerados": 726
+      },
+      {
+        "area_avaliacao": "ENGENHARIA CIVIL",
+        "ano": 2023,
         "formacao_geral": 2.43,
         "componente_especifico": 2.1,
         "idd": 2.21,
@@ -6186,6 +6276,21 @@
       },
       {
         "area_avaliacao": "ENGENHARIA DE PRODUÇÃO",
+        "ano": 2019,
+        "formacao_geral": 2.5,
+        "componente_especifico": 2.17,
+        "idd": 2.46,
+        "organizacao_didatico_pedagogica": 3.07,
+        "infraestrutura": 3.21,
+        "oportunidade_ampliacao": 2.99,
+        "mestres": 3.98,
+        "doutores": 2.44,
+        "regime_trabalho": 3.95,
+        "quantidade_cursos_considerados": 634
+      },
+      {
+        "area_avaliacao": "ENGENHARIA DE PRODUÇÃO",
+        "ano": 2023,
         "formacao_geral": 2.32,
         "componente_especifico": 2.37,
         "idd": 2.37,
@@ -6199,6 +6304,21 @@
       },
       {
         "area_avaliacao": "ENGENHARIA MECÂNICA",
+        "ano": 2019,
+        "formacao_geral": 2.18,
+        "componente_especifico": 2.01,
+        "idd": 2.21,
+        "organizacao_didatico_pedagogica": 2.98,
+        "infraestrutura": 2.95,
+        "oportunidade_ampliacao": 3.05,
+        "mestres": 3.86,
+        "doutores": 2.76,
+        "regime_trabalho": 3.95,
+        "quantidade_cursos_considerados": 373
+      },
+      {
+        "area_avaliacao": "ENGENHARIA MECÂNICA",
+        "ano": 2023,
         "formacao_geral": 2.53,
         "componente_especifico": 1.99,
         "idd": 2.3,

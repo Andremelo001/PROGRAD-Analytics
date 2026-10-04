@@ -11,11 +11,51 @@ def test_build_evolucao_cpc_has_one_row_per_year(scoped_data: ScopedData) -> Non
     assert curso_10[1]["cpc_continuo"] == 3.8
 
 
+def test_build_evolucao_cpc_computes_enade_participation(
+    scoped_data: ScopedData,
+) -> None:
+    qualidade = scoped_data.qualidade.assign(
+        n_concluintes_inscritos=[40, 50, 0],
+        n_concluintes_participantes=[30, 49, 0],
+    )
+    data = ScopedData(
+        qualidade=qualidade,
+        trajetoria=scoped_data.trajetoria,
+        cursos=scoped_data.cursos,
+    )
+    rows = {
+        (r["codigo_curso"], r["ano"]): r
+        for r in course_profile.build_evolucao_cpc(data)
+    }
+    assert rows[(10, 2017)]["taxa_participacao"] == 75.0
+    assert rows[(10, 2019)]["n_concluintes_participantes"] == 49
+    assert rows[(10, 2019)]["taxa_participacao"] == 98.0
+    assert rows[(20, 2019)]["taxa_participacao"] is None  # 0 inscritos
+
+
+def test_build_evolucao_cpc_without_participation_columns(
+    scoped_data: ScopedData,
+) -> None:
+    rows = course_profile.build_evolucao_cpc(scoped_data)
+    assert all(r["taxa_participacao"] is None for r in rows)
+
+
 def test_build_perfil_radar_uses_latest_year_only(scoped_data: ScopedData) -> None:
     rows = course_profile.build_perfil_radar(scoped_data)
     curso_10 = next(r for r in rows if r["codigo_curso"] == 10)
     assert curso_10["formacao_geral"] == 4.0  # ano 2019, não 2017
     assert set(course_profile.RADAR_FIELDS) <= curso_10.keys()
+
+
+def test_build_perfil_radar_carries_year_and_cpc_of_same_evaluation(
+    scoped_data: ScopedData,
+) -> None:
+    rows = course_profile.build_perfil_radar(scoped_data)
+    curso_10 = next(r for r in rows if r["codigo_curso"] == 10)
+    assert curso_10["ano"] == 2019
+    assert curso_10["cpc_continuo"] == 3.8
+    assert curso_10["cpc_faixa"] == "4"
+    assert curso_10["conceito_enade_continuo"] == 3.9
 
 
 def test_build_kpis_por_curso_uses_most_recent_cohort_most_recent_year(

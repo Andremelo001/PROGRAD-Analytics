@@ -1,0 +1,4036 @@
+{
+  "gerado_em": "2026-10-04T10:23:52+00:00",
+  "campi": [
+    {
+      "slug": "crateus",
+      "nome": "UFC Campus Crateús",
+      "cursos": [
+        {
+          "codigo_curso": 1272079,
+          "nome_curso": "CIÊNCIA DA COMPUTAÇÃO",
+          "area_avaliacao": "CIÊNCIA DA COMPUTAÇÃO (BACHARELADO)",
+          "ano": 2021,
+          "cpc_continuo": 3.587,
+          "cpc_faixa": "4",
+          "conceito_enade_continuo": 3.293,
+          "idd": 3.917,
+          "notas": {
+            "formacao_geral": 3.001,
+            "componente_especifico": 3.39,
+            "idd": 3.917,
+            "organizacao_didatico_pedagogica": 3.633,
+            "infraestrutura": 4.184,
+            "oportunidade_ampliacao": 3.71,
+            "mestres": 3.666,
+            "doutores": 2.222,
+            "regime_trabalho": 5.0
+          },
+          "historico": [
+            {
+              "ano": 2021,
+              "cpc_continuo": 3.587,
+              "cpc_faixa": "4"
+            }
+          ],
+          "ano_ingresso_referencia": 2020,
+          "ano_referencia": 2024,
+          "taxa_conclusao_acumulada": 10.86956522,
+          "taxa_desistencia_acumulada": 58.69565217
+        },
+        {
+          "codigo_curso": 1300426,
+          "nome_curso": "ENGENHARIA AMBIENTAL E SANITÁRIA",
+          "area_avaliacao": "ENGENHARIA AMBIENTAL",
+          "ano": 2023,
+          "cpc_continuo": 3.751,
+          "cpc_faixa": "4",
+          "conceito_enade_continuo": 3.115,
+          "idd": 4.438,
+          "notas": {
+            "formacao_geral": 3.199035519,
+            "componente_especifico": 3.086552287,
+            "idd": 4.438,
+            "organizacao_didatico_pedagogica": 4.048,
+            "infraestrutura": 4.328,
+            "oportunidade_ampliacao": 4.057,
+            "mestres": 2.708,
+            "doutores": 2.5,
+            "regime_trabalho": 5.0
+          },
+          "historico": [
+            {
+              "ano": 2023,
+              "cpc_continuo": 3.751,
+              "cpc_faixa": "4"
+            }
+          ],
+          "ano_ingresso_referencia": 2020,
+          "ano_referencia": 2024,
+          "taxa_conclusao_acumulada": 27.08333333,
+          "taxa_desistencia_acumulada": 41.66666667
+        },
+        {
+          "codigo_curso": 1300427,
+          "nome_curso": "ENGENHARIA CIVIL",
+          "area_avaliacao": "ENGENHARIA CIVIL",
+          "ano": 2023,
+          "cpc_continuo": 3.944,
+          "cpc_faixa": "4",
+          "conceito_enade_continuo": 4.054,
+          "idd": 4.537,
+          "notas": {
+            "formacao_geral": 3.532728881,
+            "componente_especifico": 4.227259509,
+            "idd": 4.537,
+            "organizacao_didatico_pedagogica": 3.241,
+            "infraestrutura": 3.57,
+            "oportunidade_ampliacao": 3.319,
+            "mestres": 3.727,
+            "doutores": 2.576,
+            "regime_trabalho": 5.0
+          },
+          "historico": [
+            {
+              "ano": 2019,
+              "cpc_continuo": 4.016,
+              "cpc_faixa": "5"
+            },
+            {
+              "ano": 2023,
+              "cpc_continuo": 3.944,
+              "cpc_faixa": "4"
+            }
+          ],
+          "ano_ingresso_referencia": 2020,
+          "ano_referencia": 2024,
+          "taxa_conclusao_acumulada": 29.09090909,
+          "taxa_desistencia_acumulada": 41.81818182
+        },
+        {
+          "codigo_curso": 1300428,
+          "nome_curso": "ENGENHARIA DE MINAS",
+          "area_avaliacao": null,
+          "ano": null,
+          "cpc_continuo": null,
+          "cpc_faixa": null,
+          "conceito_enade_continuo": null,
+          "idd": null,
+          "notas": null,
+          "historico": [],
+          "ano_ingresso_referencia": 2020,
+          "ano_referencia": 2024,
+          "taxa_conclusao_acumulada": 0.0,
+          "taxa_desistencia_acumulada": 74.0
+        },
+        {
+          "codigo_curso": 1300429,
+          "nome_curso": "SISTEMAS DE INFORMAÇÃO",
+          "area_avaliacao": "SISTEMAS DE INFORMAÇÃO",
+          "ano": 2021,
+          "cpc_continuo": 3.228,
+          "cpc_faixa": "4",
+          "conceito_enade_continuo": 2.958,
+          "idd": 2.672,
+          "notas": {
+            "formacao_geral": 2.435,
+            "componente_especifico": 3.132,
+            "idd": 2.672,
+            "organizacao_didatico_pedagogica": 4.547,
+            "infraestrutura": 4.794,
+            "oportunidade_ampliacao": 4.314,
+            "mestres": 4.1,
+            "doutores": 2.2,
+            "regime_trabalho": 5.0
+          },
+          "historico": [
+            {
+              "ano": 2021,
+              "cpc_continuo": 3.228,
+              "cpc_faixa": "4"
+            }
+          ],
+          "ano_ingresso_referencia": 2020,
+          "ano_referencia": 2024,
+          "taxa_conclusao_acumulada": 0.0,
+          "taxa_desistencia_acumulada": 62.74509804
+        }
+      ]
+    },
+    {
+      "slug": "fortaleza",
+      "nome": "UFC Campus Fortaleza",
+      "cursos": [
+        {
+          "codigo_curso": 13965,
+          "nome_curso": "AGRONOMIA",
+          "area_avaliacao": "AGRONOMIA",
+          "ano": 2023,
+          "cpc_continuo": 3.583,
+          "cpc_faixa": "4",
+          "conceito_enade_continuo": 4.222,
+          "idd": 3.096,
+          "notas": {
+            "formacao_geral": 4.913931814,
+            "componente_especifico": 3.990997514,
+            "idd": 3.096,
+            "organizacao_didatico_pedagogica": 1.127,
+            "infraestrutura": 1.547,
+            "oportunidade_ampliacao": 2.48,
+            "mestres": 4.727,
+            "doutores": 4.675,
+            "regime_trabalho": 5.0
+          },
+          "historico": [
+            {
+              "ano": 2016,
+              "cpc_continuo": 3.375512509,
+              "cpc_faixa": "4"
+            },
+            {
+              "ano": 2019,
+              "cpc_continuo": 3.345,
+              "cpc_faixa": "4"
+            },
+            {
+              "ano": 2023,
+              "cpc_continuo": 3.583,
+              "cpc_faixa": "4"
+            }
+          ],
+          "ano_ingresso_referencia": 2020,
+          "ano_referencia": 2024,
+          "taxa_conclusao_acumulada": 2.816901408,
+          "taxa_desistencia_acumulada": 56.33802817
+        },
+        {
+          "codigo_curso": 13966,
+          "nome_curso": "ECONOMIA DOMÉSTICA",
+          "area_avaliacao": null,
+          "ano": null,
+          "cpc_continuo": null,
+          "cpc_faixa": null,
+          "conceito_enade_continuo": null,
+          "idd": null,
+          "notas": null,
+          "historico": [],
+          "ano_ingresso_referencia": 2014,
+          "ano_referencia": 2023,
+          "taxa_conclusao_acumulada": 0.0,
+          "taxa_desistencia_acumulada": 100.0
+        },
+        {
+          "codigo_curso": 13967,
+          "nome_curso": "PEDAGOGIA",
+          "area_avaliacao": "PEDAGOGIA (LICENCIATURA)",
+          "ano": 2021,
+          "cpc_continuo": 3.412,
+          "cpc_faixa": "4",
+          "conceito_enade_continuo": 4.423,
+          "idd": 2.411,
+          "notas": {
+            "formacao_geral": 3.869,
+            "componente_especifico": 4.608,
+            "idd": 2.411,
+            "organizacao_didatico_pedagogica": 1.983,
+            "infraestrutura": 2.319,
+            "oportunidade_ampliacao": 2.206,
+            "mestres": 4.58,
+            "doutores": 4.302,
+            "regime_trabalho": 5.0
+          },
+          "historico": [
+            {
+              "ano": 2017,
+              "cpc_continuo": 2.82911199,
+              "cpc_faixa": "3"
+            },
+            {
+              "ano": 2021,
+              "cpc_continuo": 3.412,
+              "cpc_faixa": "4"
+            }
+          ],
+          "ano_ingresso_referencia": 2020,
+          "ano_referencia": 2024,
+          "taxa_conclusao_acumulada": 25.0,
+          "taxa_desistencia_acumulada": 28.40909091
+        },
+        {
+          "codigo_curso": 13968,
+          "nome_curso": "DIREITO",
+          "area_avaliacao": "DIREITO",
+          "ano": 2022,
+          "cpc_continuo": 3.062669272,
+          "cpc_faixa": "4",
+          "conceito_enade_continuo": 4.133,
+          "idd": 1.79082587,
+          "notas": {
+            "formacao_geral": 4.27016543,
+            "componente_especifico": 4.088171291,
+            "idd": 1.79082587,
+            "organizacao_didatico_pedagogica": 1.189559008,
+            "infraestrutura": 2.274077164,
+            "oportunidade_ampliacao": 2.49901872,
+            "mestres": 4.800724639,
+            "doutores": 4.057971015,
+            "regime_trabalho": 5.0
+          },
+          "historico": [
+            {
+              "ano": 2015,
+              "cpc_continuo": 3.1859849812,
+              "cpc_faixa": "4"
+            },
+            {
+              "ano": 2018,
+              "cpc_continuo": 3.339231323,
+              "cpc_faixa": "4"
+            },
+            {
+              "ano": 2022,
+              "cpc_continuo": 3.062669272,
+              "cpc_faixa": "4"
+            }
+          ],
+          "ano_ingresso_referencia": 2020,
+          "ano_referencia": 2024,
+          "taxa_conclusao_acumulada": 35.51401869,
+          "taxa_desistencia_acumulada": 19.62616822
+        },
+        {
+          "codigo_curso": 13969,
+          "nome_curso": "CIÊNCIAS CONTÁBEIS",
+          "area_avaliacao": "CIÊNCIAS CONTÁBEIS",
+          "ano": 2022,
+          "cpc_continuo": 3.759851342,
+          "cpc_faixa": "4",
+          "conceito_enade_continuo": 4.071,
+          "idd": 3.614050011,
+          "notas": {
+            "formacao_geral": 4.441041835,
+            "componente_especifico": 3.948823611,
+            "idd": 3.614050011,
+            "organizacao_didatico_pedagogica": 2.766932985,
+            "infraestrutura": 2.877059717,
+            "oportunidade_ampliacao": 3.118629326,
+            "mestres": 4.853658536,
+            "doutores": 3.414634145,
+            "regime_trabalho": 5.0
+          },
+          "historico": [
+            {
+              "ano": 2015,
+              "cpc_continuo": 3.0682016729,
+              "cpc_faixa": "4"
+            },
+            {
+              "ano": 2018,
+              "cpc_continuo": 2.950419402,
+              "cpc_faixa": "4"
+            },
+            {
+              "ano": 2022,
+              "cpc_continuo": 3.759851342,
+              "cpc_faixa": "4"
+            }
+          ],
+          "ano_ingresso_referencia": 2020,
+          "ano_referencia": 2024,
+          "taxa_conclusao_acumulada": 30.68181818,
+          "taxa_desistencia_acumulada": 20.45454545
+        },
+        {
+          "codigo_curso": 13970,
+          "nome_curso": "CIÊNCIAS ECONÔMICAS",
+          "area_avaliacao": "CIÊNCIAS ECONÔMICAS",
+          "ano": 2022,
+          "cpc_continuo": 3.354583457,
+          "cpc_faixa": "4",
+          "conceito_enade_continuo": 3.411,
+          "idd": 3.121536417,
+          "notas": {
+            "formacao_geral": 3.763381867,
+            "componente_especifico": 3.2941734,
+            "idd": 3.121536417,
+            "organizacao_didatico_pedagogica": 1.484375,
+            "infraestrutura": 2.081165675,
+            "oportunidade_ampliacao": 2.361453202,
+            "mestres": 4.535519129,
+            "doutores": 3.93442623,
+            "regime_trabalho": 5.0
+          },
+          "historico": [
+            {
+              "ano": 2015,
+              "cpc_continuo": 2.1140878476,
+              "cpc_faixa": "3"
+            },
+            {
+              "ano": 2018,
+              "cpc_continuo": 2.909474842,
+              "cpc_faixa": "3"
+            },
+            {
+              "ano": 2022,
+              "cpc_continuo": 3.354583457,
+              "cpc_faixa": "4"
+            }
+          ],
+          "ano_ingresso_referencia": 2020,
+          "ano_referencia": 2024,
+          "taxa_conclusao_acumulada": 12.19512195,
+          "taxa_desistencia_acumulada": 53.65853659
+        },
+        {
+          "codigo_curso": 13971,
+          "nome_curso": "ESTATÍSTICA",
+          "area_avaliacao": null,
+          "ano": null,
+          "cpc_continuo": null,
+          "cpc_faixa": null,
+          "conceito_enade_continuo": null,
+          "idd": null,
+          "notas": null,
+          "historico": [],
+          "ano_ingresso_referencia": 2020,
+          "ano_referencia": 2024,
+          "taxa_conclusao_acumulada": 10.76923077,
+          "taxa_desistencia_acumulada": 67.69230769
+        },
+        {
+          "codigo_curso": 13972,
+          "nome_curso": "FÍSICA",
+          "area_avaliacao": "FÍSICA (BACHARELADO)",
+          "ano": 2017,
+          "cpc_continuo": 3.597482807,
+          "cpc_faixa": "4",
+          "conceito_enade_continuo": 3.3321425541,
+          "idd": 3.704416275,
+          "notas": {
+            "formacao_geral": null,
+            "componente_especifico": null,
+            "idd": 3.704416275,
+            "organizacao_didatico_pedagogica": 0.753435818,
+            "infraestrutura": 2.560592255,
+            "oportunidade_ampliacao": 1.43168814,
+            "mestres": 5.0,
+            "doutores": 4.427860597,
+            "regime_trabalho": 5.0
+          },
+          "historico": [
+            {
+              "ano": 2017,
+              "cpc_continuo": 3.597482807,
+              "cpc_faixa": "4"
+            }
+          ],
+          "ano_ingresso_referencia": 2020,
+          "ano_referencia": 2024,
+          "taxa_conclusao_acumulada": 13.46153846,
+          "taxa_desistencia_acumulada": 63.46153846
+        },
+        {
+          "codigo_curso": 13974,
+          "nome_curso": "CIÊNCIAS BIOLÓGICAS",
+          "area_avaliacao": "CIÊNCIAS BIOLÓGICAS (LICENCIATURA)",
+          "ano": 2021,
+          "cpc_continuo": 3.235,
+          "cpc_faixa": "4",
+          "conceito_enade_continuo": 3.835,
+          "idd": 2.145,
+          "notas": {
+            "formacao_geral": 3.856,
+            "componente_especifico": 3.828,
+            "idd": 2.145,
+            "organizacao_didatico_pedagogica": 2.204,
+            "infraestrutura": 3.141,
+            "oportunidade_ampliacao": 2.171,
+            "mestres": 4.465,
+            "doutores": 4.245,
+            "regime_trabalho": 4.923
+          },
+          "historico": [
+            {
+              "ano": 2017,
+              "cpc_continuo": 3.302492826,
+              "cpc_faixa": "4"
+            },
+            {
+              "ano": 2021,
+              "cpc_continuo": 3.235,
+              "cpc_faixa": "4"
+            }
+          ],
+          "ano_ingresso_referencia": 2020,
+          "ano_referencia": 2024,
+          "taxa_conclusao_acumulada": 34.54545455,
+          "taxa_desistencia_acumulada": 41.81818182
+        },
+        {
+          "codigo_curso": 13975,
+          "nome_curso": "GEOLOGIA",
+          "area_avaliacao": null,
+          "ano": null,
+          "cpc_continuo": null,
+          "cpc_faixa": null,
+          "conceito_enade_continuo": null,
+          "idd": null,
+          "notas": null,
+          "historico": [],
+          "ano_ingresso_referencia": 2020,
+          "ano_referencia": 2024,
+          "taxa_conclusao_acumulada": 9.090909091,
+          "taxa_desistencia_acumulada": 63.63636364
+        },
+        {
+          "codigo_curso": 13976,
+          "nome_curso": "GEOGRAFIA",
+          "area_avaliacao": "GEOGRAFIA (LICENCIATURA)",
+          "ano": 2021,
+          "cpc_continuo": 3.301,
+          "cpc_faixa": "4",
+          "conceito_enade_continuo": 3.561,
+          "idd": 2.314,
+          "notas": {
+            "formacao_geral": 3.456,
+            "componente_especifico": 3.596,
+            "idd": 2.314,
+            "organizacao_didatico_pedagogica": 2.472,
+            "infraestrutura": 3.149,
+            "oportunidade_ampliacao": 2.698,
+            "mestres": 4.327,
+            "doutores": 4.462,
+            "regime_trabalho": 5.0
+          },
+          "historico": [
+            {
+              "ano": 2017,
+              "cpc_continuo": 2.624146541,
+              "cpc_faixa": "3"
+            },
+            {
+              "ano": 2021,
+              "cpc_continuo": 3.301,
+              "cpc_faixa": "4"
+            }
+          ],
+          "ano_ingresso_referencia": 2020,
+          "ano_referencia": 2024,
+          "taxa_conclusao_acumulada": 31.14754098,
+          "taxa_desistencia_acumulada": 44.26229508
+        },
+        {
+          "codigo_curso": 13977,
+          "nome_curso": "MATEMÁTICA",
+          "area_avaliacao": "MATEMÁTICA (BACHARELADO)",
+          "ano": 2017,
+          "cpc_continuo": 3.011760876,
+          "cpc_faixa": "4",
+          "conceito_enade_continuo": 2.8414717424,
+          "idd": 2.101327896,
+          "notas": {
+            "formacao_geral": null,
+            "componente_especifico": null,
+            "idd": 2.101327896,
+            "organizacao_didatico_pedagogica": 2.863555353,
+            "infraestrutura": 2.954348729,
+            "oportunidade_ampliacao": 2.084989698,
+            "mestres": 3.88333421,
+            "doutores": 4.180952543,
+            "regime_trabalho": 5.0
+          },
+          "historico": [
+            {
+              "ano": 2017,
+              "cpc_continuo": 3.011760876,
+              "cpc_faixa": "4"
+            }
+          ],
+          "ano_ingresso_referencia": 2020,
+          "ano_referencia": 2024,
+          "taxa_conclusao_acumulada": 17.94871795,
+          "taxa_desistencia_acumulada": 66.66666667
+        },
+        {
+          "codigo_curso": 13980,
+          "nome_curso": "CIÊNCIA DA COMPUTAÇÃO",
+          "area_avaliacao": "CIÊNCIA DA COMPUTAÇÃO (BACHARELADO)",
+          "ano": 2021,
+          "cpc_continuo": 3.398,
+          "cpc_faixa": "4",
+          "conceito_enade_continuo": 3.324,
+          "idd": 2.627,
+          "notas": {
+            "formacao_geral": 3.325,
+            "componente_especifico": 3.324,
+            "idd": 2.627,
+            "organizacao_didatico_pedagogica": 2.627,
+            "infraestrutura": 3.111,
+            "oportunidade_ampliacao": 3.169,
+            "mestres": 4.826,
+            "doutores": 4.347,
+            "regime_trabalho": 4.906
+          },
+          "historico": [
+            {
+              "ano": 2017,
+              "cpc_continuo": 3.684137355,
+              "cpc_faixa": "4"
+            },
+            {
+              "ano": 2021,
+              "cpc_continuo": 3.398,
+              "cpc_faixa": "4"
+            }
+          ],
+          "ano_ingresso_referencia": 2020,
+          "ano_referencia": 2024,
+          "taxa_conclusao_acumulada": 50.0,
+          "taxa_desistencia_acumulada": 17.14285714
+        },
+        {
+          "codigo_curso": 13981,
+          "nome_curso": "BIBLIOTECONOMIA",
+          "area_avaliacao": null,
+          "ano": null,
+          "cpc_continuo": null,
+          "cpc_faixa": null,
+          "conceito_enade_continuo": null,
+          "idd": null,
+          "notas": null,
+          "historico": [],
+          "ano_ingresso_referencia": 2020,
+          "ano_referencia": 2024,
+          "taxa_conclusao_acumulada": 37.14285714,
+          "taxa_desistencia_acumulada": 50.0
+        },
+        {
+          "codigo_curso": 13982,
+          "nome_curso": "CIÊNCIAS SOCIAIS",
+          "area_avaliacao": "CIÊNCIAS SOCIAIS (LICENCIATURA)",
+          "ano": 2021,
+          "cpc_continuo": 2.987,
+          "cpc_faixa": "4",
+          "conceito_enade_continuo": 3.703,
+          "idd": 2.047,
+          "notas": {
+            "formacao_geral": 2.405,
+            "componente_especifico": 4.136,
+            "idd": 2.047,
+            "organizacao_didatico_pedagogica": 1.379,
+            "infraestrutura": 1.066,
+            "oportunidade_ampliacao": 1.886,
+            "mestres": 4.2,
+            "doutores": 4.333,
+            "regime_trabalho": 4.811
+          },
+          "historico": [
+            {
+              "ano": 2017,
+              "cpc_continuo": 3.274923094,
+              "cpc_faixa": "4"
+            },
+            {
+              "ano": 2021,
+              "cpc_continuo": 2.987,
+              "cpc_faixa": "4"
+            }
+          ],
+          "ano_ingresso_referencia": 2020,
+          "ano_referencia": 2024,
+          "taxa_conclusao_acumulada": 28.57142857,
+          "taxa_desistencia_acumulada": 57.14285714
+        },
+        {
+          "codigo_curso": 13984,
+          "nome_curso": "HISTÓRIA",
+          "area_avaliacao": "HISTÓRIA (LICENCIATURA)",
+          "ano": 2021,
+          "cpc_continuo": 3.423,
+          "cpc_faixa": "4",
+          "conceito_enade_continuo": 4.203,
+          "idd": 2.611,
+          "notas": {
+            "formacao_geral": 4.075,
+            "componente_especifico": 4.246,
+            "idd": 2.611,
+            "organizacao_didatico_pedagogica": 2.298,
+            "infraestrutura": 2.219,
+            "oportunidade_ampliacao": 2.203,
+            "mestres": 4.282,
+            "doutores": 4.23,
+            "regime_trabalho": 5.0
+          },
+          "historico": [
+            {
+              "ano": 2017,
+              "cpc_continuo": 2.875755319,
+              "cpc_faixa": "3"
+            },
+            {
+              "ano": 2021,
+              "cpc_continuo": 3.423,
+              "cpc_faixa": "4"
+            }
+          ],
+          "ano_ingresso_referencia": 2020,
+          "ano_referencia": 2024,
+          "taxa_conclusao_acumulada": 45.97701149,
+          "taxa_desistencia_acumulada": 37.93103448
+        },
+        {
+          "codigo_curso": 13985,
+          "nome_curso": "LETRAS",
+          "area_avaliacao": null,
+          "ano": null,
+          "cpc_continuo": null,
+          "cpc_faixa": null,
+          "conceito_enade_continuo": null,
+          "idd": null,
+          "notas": null,
+          "historico": [],
+          "ano_ingresso_referencia": 2010,
+          "ano_referencia": 2019,
+          "taxa_conclusao_acumulada": 0.0,
+          "taxa_desistencia_acumulada": 100.0
+        },
+        {
+          "codigo_curso": 13986,
+          "nome_curso": "PSICOLOGIA",
+          "area_avaliacao": "PSICOLOGIA",
+          "ano": 2022,
+          "cpc_continuo": 2.904505235,
+          "cpc_faixa": "3",
+          "conceito_enade_continuo": 3.823,
+          "idd": 1.563478001,
+          "notas": {
+            "formacao_geral": 3.698621991,
+            "componente_especifico": 3.86574741,
+            "idd": 1.563478001,
+            "organizacao_didatico_pedagogica": 2.114092549,
+            "infraestrutura": 2.343966635,
+            "oportunidade_ampliacao": 2.792528841,
+            "mestres": 4.24863388,
+            "doutores": 3.68852459,
+            "regime_trabalho": 5.0
+          },
+          "historico": [
+            {
+              "ano": 2015,
+              "cpc_continuo": 3.9087247071,
+              "cpc_faixa": "4"
+            },
+            {
+              "ano": 2018,
+              "cpc_continuo": 3.49999943,
+              "cpc_faixa": "4"
+            },
+            {
+              "ano": 2022,
+              "cpc_continuo": 2.904505235,
+              "cpc_faixa": "3"
+            }
+          ],
+          "ano_ingresso_referencia": 2020,
+          "ano_referencia": 2024,
+          "taxa_conclusao_acumulada": 25.27472527,
+          "taxa_desistencia_acumulada": 25.27472527
+        },
+        {
+          "codigo_curso": 13987,
+          "nome_curso": "ARQUITETURA E URBANISMO",
+          "area_avaliacao": "ARQUITETURA E URBANISMO",
+          "ano": 2023,
+          "cpc_continuo": 3.863,
+          "cpc_faixa": "4",
+          "conceito_enade_continuo": 4.642,
+          "idd": 3.273,
+          "notas": {
+            "formacao_geral": 4.410661443,
+            "componente_especifico": 4.718462791,
+            "idd": 3.273,
+            "organizacao_didatico_pedagogica": 2.609,
+            "infraestrutura": 2.557,
+            "oportunidade_ampliacao": 2.794,
+            "mestres": 4.779,
+            "doutores": 4.412,
+            "regime_trabalho": 5.0
+          },
+          "historico": [
+            {
+              "ano": 2017,
+              "cpc_continuo": 3.09744023,
+              "cpc_faixa": "4"
+            },
+            {
+              "ano": 2019,
+              "cpc_continuo": 3.272,
+              "cpc_faixa": "4"
+            },
+            {
+              "ano": 2023,
+              "cpc_continuo": 3.863,
+              "cpc_faixa": "4"
+            }
+          ],
+          "ano_ingresso_referencia": 2020,
+          "ano_referencia": 2024,
+          "taxa_conclusao_acumulada": 19.44444444,
+          "taxa_desistencia_acumulada": 18.05555556
+        },
+        {
+          "codigo_curso": 13988,
+          "nome_curso": "ENGENHARIA CIVIL",
+          "area_avaliacao": "ENGENHARIA CIVIL",
+          "ano": 2023,
+          "cpc_continuo": 3.968,
+          "cpc_faixa": "5",
+          "conceito_enade_continuo": 4.489,
+          "idd": 4.066,
+          "notas": {
+            "formacao_geral": 4.163244245,
+            "componente_especifico": 4.597914834,
+            "idd": 4.066,
+            "organizacao_didatico_pedagogica": 1.644,
+            "infraestrutura": 2.027,
+            "oportunidade_ampliacao": 2.919,
+            "mestres": 4.614,
+            "doutores": 4.191,
+            "regime_trabalho": 5.0
+          },
+          "historico": [
+            {
+              "ano": 2017,
+              "cpc_continuo": 3.298957389,
+              "cpc_faixa": "4"
+            },
+            {
+              "ano": 2019,
+              "cpc_continuo": 3.367,
+              "cpc_faixa": "4"
+            },
+            {
+              "ano": 2023,
+              "cpc_continuo": 3.968,
+              "cpc_faixa": "5"
+            }
+          ],
+          "ano_ingresso_referencia": 2020,
+          "ano_referencia": 2024,
+          "taxa_conclusao_acumulada": 14.96062992,
+          "taxa_desistencia_acumulada": 40.94488189
+        },
+        {
+          "codigo_curso": 13989,
+          "nome_curso": "ENGENHARIA ELÉTRICA",
+          "area_avaliacao": "ENGENHARIA ELÉTRICA",
+          "ano": 2023,
+          "cpc_continuo": 2.755,
+          "cpc_faixa": "3",
+          "conceito_enade_continuo": 3.202,
+          "idd": 1.243,
+          "notas": {
+            "formacao_geral": 3.597419983,
+            "componente_especifico": 3.069631467,
+            "idd": 1.243,
+            "organizacao_didatico_pedagogica": 1.977,
+            "infraestrutura": 2.604,
+            "oportunidade_ampliacao": 3.468,
+            "mestres": 4.231,
+            "doutores": 4.145,
+            "regime_trabalho": 5.0
+          },
+          "historico": [
+            {
+              "ano": 2017,
+              "cpc_continuo": 3.128139317,
+              "cpc_faixa": "4"
+            },
+            {
+              "ano": 2019,
+              "cpc_continuo": 3.179,
+              "cpc_faixa": "4"
+            },
+            {
+              "ano": 2023,
+              "cpc_continuo": 2.755,
+              "cpc_faixa": "3"
+            }
+          ],
+          "ano_ingresso_referencia": 2020,
+          "ano_referencia": 2024,
+          "taxa_conclusao_acumulada": 9.174311927,
+          "taxa_desistencia_acumulada": 44.95412844
+        },
+        {
+          "codigo_curso": 13990,
+          "nome_curso": "ENGENHARIA MECÂNICA",
+          "area_avaliacao": "ENGENHARIA MECÂNICA",
+          "ano": 2023,
+          "cpc_continuo": 3.647,
+          "cpc_faixa": "4",
+          "conceito_enade_continuo": 4.146,
+          "idd": 3.413,
+          "notas": {
+            "formacao_geral": 4.009091372,
+            "componente_especifico": 4.191606332,
+            "idd": 3.413,
+            "organizacao_didatico_pedagogica": 1.56,
+            "infraestrutura": 1.924,
+            "oportunidade_ampliacao": 3.143,
+            "mestres": 4.459,
+            "doutores": 4.144,
+            "regime_trabalho": 5.0
+          },
+          "historico": [
+            {
+              "ano": 2017,
+              "cpc_continuo": 2.756372069,
+              "cpc_faixa": "3"
+            },
+            {
+              "ano": 2019,
+              "cpc_continuo": 3.015,
+              "cpc_faixa": "4"
+            },
+            {
+              "ano": 2023,
+              "cpc_continuo": 3.647,
+              "cpc_faixa": "4"
+            }
+          ],
+          "ano_ingresso_referencia": 2020,
+          "ano_referencia": 2024,
+          "taxa_conclusao_acumulada": 13.88888889,
+          "taxa_desistencia_acumulada": 38.88888889
+        },
+        {
+          "codigo_curso": 13991,
+          "nome_curso": "ENGENHARIA QUÍMICA",
+          "area_avaliacao": "ENGENHARIA QUÍMICA",
+          "ano": 2023,
+          "cpc_continuo": 2.616,
+          "cpc_faixa": "3",
+          "conceito_enade_continuo": 3.008,
+          "idd": 1.191,
+          "notas": {
+            "formacao_geral": 3.22895103,
+            "componente_especifico": 2.934682055,
+            "idd": 1.191,
+            "organizacao_didatico_pedagogica": 0.816,
+            "infraestrutura": 1.568,
+            "oportunidade_ampliacao": 2.68,
+            "mestres": 4.842,
+            "doutores": 4.353,
+            "regime_trabalho": 5.0
+          },
+          "historico": [
+            {
+              "ano": 2017,
+              "cpc_continuo": 3.515615016,
+              "cpc_faixa": "4"
+            },
+            {
+              "ano": 2019,
+              "cpc_continuo": 3.134,
+              "cpc_faixa": "4"
+            },
+            {
+              "ano": 2023,
+              "cpc_continuo": 2.616,
+              "cpc_faixa": "3"
+            }
+          ],
+          "ano_ingresso_referencia": 2020,
+          "ano_referencia": 2024,
+          "taxa_conclusao_acumulada": 5.128205128,
+          "taxa_desistencia_acumulada": 66.66666667
+        },
+        {
+          "codigo_curso": 13992,
+          "nome_curso": "ENGENHARIA DE PESCA",
+          "area_avaliacao": null,
+          "ano": null,
+          "cpc_continuo": null,
+          "cpc_faixa": null,
+          "conceito_enade_continuo": null,
+          "idd": null,
+          "notas": null,
+          "historico": [],
+          "ano_ingresso_referencia": 2020,
+          "ano_referencia": 2024,
+          "taxa_conclusao_acumulada": 6.862745098,
+          "taxa_desistencia_acumulada": 67.64705882
+        },
+        {
+          "codigo_curso": 13993,
+          "nome_curso": "ENGENHARIA DE ALIMENTOS",
+          "area_avaliacao": "ENGENHARIA DE ALIMENTOS",
+          "ano": 2023,
+          "cpc_continuo": 2.566,
+          "cpc_faixa": "3",
+          "conceito_enade_continuo": 2.736,
+          "idd": 1.683,
+          "notas": {
+            "formacao_geral": 2.603039074,
+            "componente_especifico": 2.780629889,
+            "idd": 1.683,
+            "organizacao_didatico_pedagogica": 1.099,
+            "infraestrutura": 1.308,
+            "oportunidade_ampliacao": 2.096,
+            "mestres": 3.611,
+            "doutores": 3.894,
+            "regime_trabalho": 5.0
+          },
+          "historico": [
+            {
+              "ano": 2017,
+              "cpc_continuo": 2.858572631,
+              "cpc_faixa": "3"
+            },
+            {
+              "ano": 2019,
+              "cpc_continuo": 2.674,
+              "cpc_faixa": "3"
+            },
+            {
+              "ano": 2023,
+              "cpc_continuo": 2.566,
+              "cpc_faixa": "3"
+            }
+          ],
+          "ano_ingresso_referencia": 2020,
+          "ano_referencia": 2024,
+          "taxa_conclusao_acumulada": 0.0,
+          "taxa_desistencia_acumulada": 43.26923077
+        },
+        {
+          "codigo_curso": 13994,
+          "nome_curso": "ENFERMAGEM",
+          "area_avaliacao": "ENFERMAGEM",
+          "ano": 2023,
+          "cpc_continuo": 3.742,
+          "cpc_faixa": "4",
+          "conceito_enade_continuo": 4.45,
+          "idd": 2.645,
+          "notas": {
+            "formacao_geral": 4.87640018,
+            "componente_especifico": 4.307654111,
+            "idd": 2.645,
+            "organizacao_didatico_pedagogica": 3.845,
+            "infraestrutura": 3.303,
+            "oportunidade_ampliacao": 3.459,
+            "mestres": 4.778,
+            "doutores": 4.353,
+            "regime_trabalho": 5.0
+          },
+          "historico": [
+            {
+              "ano": 2016,
+              "cpc_continuo": 3.7129436522,
+              "cpc_faixa": "4"
+            },
+            {
+              "ano": 2019,
+              "cpc_continuo": 3.764,
+              "cpc_faixa": "4"
+            },
+            {
+              "ano": 2023,
+              "cpc_continuo": 3.742,
+              "cpc_faixa": "4"
+            }
+          ],
+          "ano_ingresso_referencia": 2020,
+          "ano_referencia": 2024,
+          "taxa_conclusao_acumulada": 28.23529412,
+          "taxa_desistencia_acumulada": 29.41176471
+        },
+        {
+          "codigo_curso": 13995,
+          "nome_curso": "FARMÁCIA",
+          "area_avaliacao": "FARMÁCIA",
+          "ano": 2023,
+          "cpc_continuo": 4.026,
+          "cpc_faixa": "5",
+          "conceito_enade_continuo": 4.926,
+          "idd": 3.997,
+          "notas": {
+            "formacao_geral": 4.845367745,
+            "componente_especifico": 4.952713483,
+            "idd": 3.997,
+            "organizacao_didatico_pedagogica": 1.258,
+            "infraestrutura": 1.774,
+            "oportunidade_ampliacao": 2.443,
+            "mestres": 4.551,
+            "doutores": 4.541,
+            "regime_trabalho": 5.0
+          },
+          "historico": [
+            {
+              "ano": 2016,
+              "cpc_continuo": 3.454795725,
+              "cpc_faixa": "4"
+            },
+            {
+              "ano": 2019,
+              "cpc_continuo": 3.652,
+              "cpc_faixa": "4"
+            },
+            {
+              "ano": 2023,
+              "cpc_continuo": 4.026,
+              "cpc_faixa": "5"
+            }
+          ],
+          "ano_ingresso_referencia": 2020,
+          "ano_referencia": 2024,
+          "taxa_conclusao_acumulada": 4.464285714,
+          "taxa_desistencia_acumulada": 33.92857143
+        },
+        {
+          "codigo_curso": 13996,
+          "nome_curso": "MEDICINA",
+          "area_avaliacao": "MEDICINA",
+          "ano": 2023,
+          "cpc_continuo": 3.418,
+          "cpc_faixa": "4",
+          "conceito_enade_continuo": 3.97,
+          "idd": 2.439,
+          "notas": {
+            "formacao_geral": 4.439853557,
+            "componente_especifico": 3.812949216,
+            "idd": 2.439,
+            "organizacao_didatico_pedagogica": 2.329,
+            "infraestrutura": 2.768,
+            "oportunidade_ampliacao": 2.916,
+            "mestres": 4.835,
+            "doutores": 4.313,
+            "regime_trabalho": 5.0
+          },
+          "historico": [
+            {
+              "ano": 2016,
+              "cpc_continuo": 3.4970118719,
+              "cpc_faixa": "4"
+            },
+            {
+              "ano": 2019,
+              "cpc_continuo": 3.704,
+              "cpc_faixa": "4"
+            },
+            {
+              "ano": 2023,
+              "cpc_continuo": 3.418,
+              "cpc_faixa": "4"
+            }
+          ],
+          "ano_ingresso_referencia": 2020,
+          "ano_referencia": 2024,
+          "taxa_conclusao_acumulada": 2.43902439,
+          "taxa_desistencia_acumulada": 8.536585366
+        },
+        {
+          "codigo_curso": 13997,
+          "nome_curso": "ODONTOLOGIA",
+          "area_avaliacao": "ODONTOLOGIA",
+          "ano": 2023,
+          "cpc_continuo": 3.765,
+          "cpc_faixa": "4",
+          "conceito_enade_continuo": 4.247,
+          "idd": 2.813,
+          "notas": {
+            "formacao_geral": 4.805249375,
+            "componente_especifico": 4.06064111,
+            "idd": 2.813,
+            "organizacao_didatico_pedagogica": 3.276,
+            "infraestrutura": 3.69,
+            "oportunidade_ampliacao": 3.841,
+            "mestres": 4.83,
+            "doutores": 4.453,
+            "regime_trabalho": 5.0
+          },
+          "historico": [
+            {
+              "ano": 2016,
+              "cpc_continuo": 3.1982430373,
+              "cpc_faixa": "4"
+            },
+            {
+              "ano": 2019,
+              "cpc_continuo": 3.292,
+              "cpc_faixa": "4"
+            },
+            {
+              "ano": 2023,
+              "cpc_continuo": 3.765,
+              "cpc_faixa": "4"
+            }
+          ],
+          "ano_ingresso_referencia": 2020,
+          "ano_referencia": 2024,
+          "taxa_conclusao_acumulada": 32.55813953,
+          "taxa_desistencia_acumulada": 30.23255814
+        },
+        {
+          "codigo_curso": 13998,
+          "nome_curso": "ADMINISTRAÇÃO",
+          "area_avaliacao": "ADMINISTRAÇÃO",
+          "ano": 2022,
+          "cpc_continuo": 3.552624955,
+          "cpc_faixa": "4",
+          "conceito_enade_continuo": 4.336,
+          "idd": 3.296390845,
+          "notas": {
+            "formacao_geral": 4.335907853,
+            "componente_especifico": 4.336104812,
+            "idd": 3.296390845,
+            "organizacao_didatico_pedagogica": 1.581444681,
+            "infraestrutura": 2.374226208,
+            "oportunidade_ampliacao": 2.814821077,
+            "mestres": 4.69331873,
+            "doutores": 3.31325301,
+            "regime_trabalho": 5.0
+          },
+          "historico": [
+            {
+              "ano": 2015,
+              "cpc_continuo": 3.5908226579,
+              "cpc_faixa": "4"
+            },
+            {
+              "ano": 2018,
+              "cpc_continuo": 3.391261485,
+              "cpc_faixa": "4"
+            },
+            {
+              "ano": 2022,
+              "cpc_continuo": 3.552624955,
+              "cpc_faixa": "4"
+            }
+          ],
+          "ano_ingresso_referencia": 2020,
+          "ano_referencia": 2024,
+          "taxa_conclusao_acumulada": 17.20430108,
+          "taxa_desistencia_acumulada": 37.6344086
+        },
+        {
+          "codigo_curso": 13999,
+          "nome_curso": "CIÊNCIAS ATUARIAIS",
+          "area_avaliacao": null,
+          "ano": null,
+          "cpc_continuo": null,
+          "cpc_faixa": null,
+          "conceito_enade_continuo": null,
+          "idd": null,
+          "notas": null,
+          "historico": [],
+          "ano_ingresso_referencia": 2020,
+          "ano_referencia": 2024,
+          "taxa_conclusao_acumulada": 30.0,
+          "taxa_desistencia_acumulada": 60.0
+        },
+        {
+          "codigo_curso": 14000,
+          "nome_curso": "EDUCAÇÃO FÍSICA",
+          "area_avaliacao": "EDUCAÇÃO FÍSICA (LICENCIATURA)",
+          "ano": 2021,
+          "cpc_continuo": 3.652,
+          "cpc_faixa": "4",
+          "conceito_enade_continuo": 4.526,
+          "idd": 2.791,
+          "notas": {
+            "formacao_geral": 4.204,
+            "componente_especifico": 4.633,
+            "idd": 2.791,
+            "organizacao_didatico_pedagogica": 3.242,
+            "infraestrutura": 2.294,
+            "oportunidade_ampliacao": 3.152,
+            "mestres": 4.611,
+            "doutores": 4.083,
+            "regime_trabalho": 5.0
+          },
+          "historico": [
+            {
+              "ano": 2017,
+              "cpc_continuo": 3.415438123,
+              "cpc_faixa": "4"
+            },
+            {
+              "ano": 2021,
+              "cpc_continuo": 3.652,
+              "cpc_faixa": "4"
+            }
+          ],
+          "ano_ingresso_referencia": 2020,
+          "ano_referencia": 2024,
+          "taxa_conclusao_acumulada": 26.2295082,
+          "taxa_desistencia_acumulada": 50.81967213
+        },
+        {
+          "codigo_curso": 14001,
+          "nome_curso": "DESIGN - MODA",
+          "area_avaliacao": null,
+          "ano": null,
+          "cpc_continuo": null,
+          "cpc_faixa": null,
+          "conceito_enade_continuo": null,
+          "idd": null,
+          "notas": null,
+          "historico": [],
+          "ano_ingresso_referencia": 2020,
+          "ano_referencia": 2024,
+          "taxa_conclusao_acumulada": 37.31343284,
+          "taxa_desistencia_acumulada": 23.88059701
+        },
+        {
+          "codigo_curso": 14002,
+          "nome_curso": "SECRETARIADO EXECUTIVO",
+          "area_avaliacao": "SECRETARIADO EXECUTIVO",
+          "ano": 2022,
+          "cpc_continuo": 2.765572529,
+          "cpc_faixa": "3",
+          "conceito_enade_continuo": 3.907,
+          "idd": 0.79879046,
+          "notas": {
+            "formacao_geral": 4.383761672,
+            "componente_especifico": 3.749380115,
+            "idd": 0.79879046,
+            "organizacao_didatico_pedagogica": 2.948387096,
+            "infraestrutura": 2.73546627,
+            "oportunidade_ampliacao": 3.578945148,
+            "mestres": 4.487603304,
+            "doutores": 3.636363635,
+            "regime_trabalho": 5.0
+          },
+          "historico": [
+            {
+              "ano": 2015,
+              "cpc_continuo": 3.5745125214,
+              "cpc_faixa": "4"
+            },
+            {
+              "ano": 2018,
+              "cpc_continuo": 3.159564537,
+              "cpc_faixa": "4"
+            },
+            {
+              "ano": 2022,
+              "cpc_continuo": 2.765572529,
+              "cpc_faixa": "3"
+            }
+          ],
+          "ano_ingresso_referencia": 2020,
+          "ano_referencia": 2024,
+          "taxa_conclusao_acumulada": 16.66666667,
+          "taxa_desistencia_acumulada": 45.83333333
+        },
+        {
+          "codigo_curso": 23947,
+          "nome_curso": "JORNALISMO",
+          "area_avaliacao": "JORNALISMO",
+          "ano": 2022,
+          "cpc_continuo": 3.57193598,
+          "cpc_faixa": "4",
+          "conceito_enade_continuo": 4.218,
+          "idd": 3.391648671,
+          "notas": {
+            "formacao_geral": 4.377515155,
+            "componente_especifico": 4.16536767,
+            "idd": 3.391648671,
+            "organizacao_didatico_pedagogica": 3.153337819,
+            "infraestrutura": 2.076822005,
+            "oportunidade_ampliacao": 3.03346401,
+            "mestres": 3.07692308,
+            "doutores": 3.46153846,
+            "regime_trabalho": 5.0
+          },
+          "historico": [
+            {
+              "ano": 2015,
+              "cpc_continuo": 2.5866927232,
+              "cpc_faixa": "3"
+            },
+            {
+              "ano": 2018,
+              "cpc_continuo": 3.508308396,
+              "cpc_faixa": "4"
+            },
+            {
+              "ano": 2022,
+              "cpc_continuo": 3.57193598,
+              "cpc_faixa": "4"
+            }
+          ],
+          "ano_ingresso_referencia": 2020,
+          "ano_referencia": 2024,
+          "taxa_conclusao_acumulada": 55.35714286,
+          "taxa_desistencia_acumulada": 19.64285714
+        },
+        {
+          "codigo_curso": 25821,
+          "nome_curso": "LETRAS - PORTUGUÊS E ITALIANO",
+          "area_avaliacao": null,
+          "ano": null,
+          "cpc_continuo": null,
+          "cpc_faixa": null,
+          "conceito_enade_continuo": null,
+          "idd": null,
+          "notas": null,
+          "historico": [],
+          "ano_ingresso_referencia": 2020,
+          "ano_referencia": 2024,
+          "taxa_conclusao_acumulada": 0.0,
+          "taxa_desistencia_acumulada": 66.66666667
+        },
+        {
+          "codigo_curso": 25822,
+          "nome_curso": "LETRAS - PORTUGUÊS E ALEMÃO",
+          "area_avaliacao": null,
+          "ano": null,
+          "cpc_continuo": null,
+          "cpc_faixa": null,
+          "conceito_enade_continuo": null,
+          "idd": null,
+          "notas": null,
+          "historico": [],
+          "ano_ingresso_referencia": 2020,
+          "ano_referencia": 2024,
+          "taxa_conclusao_acumulada": 0.0,
+          "taxa_desistencia_acumulada": 73.91304348
+        },
+        {
+          "codigo_curso": 27263,
+          "nome_curso": "LETRAS - PORTUGUÊS E ESPANHOL",
+          "area_avaliacao": "LETRAS-PORTUGUÊS E ESPANHOL (LICENCIATURA)",
+          "ano": 2021,
+          "cpc_continuo": 3.389,
+          "cpc_faixa": "4",
+          "conceito_enade_continuo": 3.652,
+          "idd": 2.439,
+          "notas": {
+            "formacao_geral": 3.136,
+            "componente_especifico": 3.823,
+            "idd": 2.439,
+            "organizacao_didatico_pedagogica": 3.243,
+            "infraestrutura": 2.952,
+            "oportunidade_ampliacao": 3.282,
+            "mestres": 4.388,
+            "doutores": 4.19,
+            "regime_trabalho": 5.0
+          },
+          "historico": [
+            {
+              "ano": 2017,
+              "cpc_continuo": 3.530819541,
+              "cpc_faixa": "4"
+            },
+            {
+              "ano": 2021,
+              "cpc_continuo": 3.389,
+              "cpc_faixa": "4"
+            }
+          ],
+          "ano_ingresso_referencia": 2020,
+          "ano_referencia": 2024,
+          "taxa_conclusao_acumulada": 0.0,
+          "taxa_desistencia_acumulada": 48.07692308
+        },
+        {
+          "codigo_curso": 29489,
+          "nome_curso": "LETRAS - LÍNGUA PORTUGUESA",
+          "area_avaliacao": "LETRAS-PORTUGUÊS (LICENCIATURA)",
+          "ano": 2021,
+          "cpc_continuo": 3.327,
+          "cpc_faixa": "4",
+          "conceito_enade_continuo": 4.088,
+          "idd": 2.331,
+          "notas": {
+            "formacao_geral": 4.048,
+            "componente_especifico": 4.102,
+            "idd": 2.331,
+            "organizacao_didatico_pedagogica": 2.096,
+            "infraestrutura": 2.535,
+            "oportunidade_ampliacao": 2.268,
+            "mestres": 4.387,
+            "doutores": 4.326,
+            "regime_trabalho": 5.0
+          },
+          "historico": [
+            {
+              "ano": 2017,
+              "cpc_continuo": 3.449270271,
+              "cpc_faixa": "4"
+            },
+            {
+              "ano": 2021,
+              "cpc_continuo": 3.327,
+              "cpc_faixa": "4"
+            }
+          ],
+          "ano_ingresso_referencia": 2020,
+          "ano_referencia": 2024,
+          "taxa_conclusao_acumulada": 47.5,
+          "taxa_desistencia_acumulada": 26.25
+        },
+        {
+          "codigo_curso": 33013,
+          "nome_curso": "LETRAS - PORTUGUÊS E INGLÊS",
+          "area_avaliacao": "LETRAS-PORTUGUÊS E INGLÊS (LICENCIATURA)",
+          "ano": 2021,
+          "cpc_continuo": 3.551,
+          "cpc_faixa": "4",
+          "conceito_enade_continuo": 4.489,
+          "idd": 2.556,
+          "notas": {
+            "formacao_geral": 3.222,
+            "componente_especifico": 4.911,
+            "idd": 2.556,
+            "organizacao_didatico_pedagogica": 2.376,
+            "infraestrutura": 2.951,
+            "oportunidade_ampliacao": 2.485,
+            "mestres": 4.628,
+            "doutores": 4.324,
+            "regime_trabalho": 5.0
+          },
+          "historico": [
+            {
+              "ano": 2017,
+              "cpc_continuo": 4.113884255,
+              "cpc_faixa": "5"
+            },
+            {
+              "ano": 2021,
+              "cpc_continuo": 3.551,
+              "cpc_faixa": "4"
+            }
+          ],
+          "ano_ingresso_referencia": 2020,
+          "ano_referencia": 2024,
+          "taxa_conclusao_acumulada": 29.41176471,
+          "taxa_desistencia_acumulada": 33.82352941
+        },
+        {
+          "codigo_curso": 34433,
+          "nome_curso": "LETRAS - PORTUGUÊS E FRANCÊS",
+          "area_avaliacao": null,
+          "ano": null,
+          "cpc_continuo": null,
+          "cpc_faixa": null,
+          "conceito_enade_continuo": null,
+          "idd": null,
+          "notas": null,
+          "historico": [],
+          "ano_ingresso_referencia": 2020,
+          "ano_referencia": 2024,
+          "taxa_conclusao_acumulada": 9.302325581,
+          "taxa_desistencia_acumulada": 74.41860465
+        },
+        {
+          "codigo_curso": 37265,
+          "nome_curso": "ENGENHARIA DE PRODUÇÃO",
+          "area_avaliacao": "ENGENHARIA DE PRODUÇÃO",
+          "ano": 2023,
+          "cpc_continuo": 3.365,
+          "cpc_faixa": "4",
+          "conceito_enade_continuo": 3.947,
+          "idd": 2.37,
+          "notas": {
+            "formacao_geral": 4.055717222,
+            "componente_especifico": 3.91044863,
+            "idd": 2.37,
+            "organizacao_didatico_pedagogica": 2.55,
+            "infraestrutura": 2.705,
+            "oportunidade_ampliacao": 3.351,
+            "mestres": 4.481,
+            "doutores": 4.167,
+            "regime_trabalho": 5.0
+          },
+          "historico": [
+            {
+              "ano": 2017,
+              "cpc_continuo": 3.602480379,
+              "cpc_faixa": "4"
+            },
+            {
+              "ano": 2023,
+              "cpc_continuo": 3.365,
+              "cpc_faixa": "4"
+            }
+          ],
+          "ano_ingresso_referencia": 2020,
+          "ano_referencia": 2024,
+          "taxa_conclusao_acumulada": 39.39393939,
+          "taxa_desistencia_acumulada": 25.75757576
+        },
+        {
+          "codigo_curso": 37267,
+          "nome_curso": "COMUNICAÇÃO SOCIAL - PUBLICIDADE E PROPAGANDA",
+          "area_avaliacao": "PUBLICIDADE E PROPAGANDA",
+          "ano": 2022,
+          "cpc_continuo": 3.468110352,
+          "cpc_faixa": "4",
+          "conceito_enade_continuo": 4.243,
+          "idd": 2.931210827,
+          "notas": {
+            "formacao_geral": 4.477593375,
+            "componente_especifico": 4.166077877,
+            "idd": 2.931210827,
+            "organizacao_didatico_pedagogica": 3.314755664,
+            "infraestrutura": 1.86405852,
+            "oportunidade_ampliacao": 3.022285235,
+            "mestres": 4.224683543,
+            "doutores": 3.2278481,
+            "regime_trabalho": 5.0
+          },
+          "historico": [
+            {
+              "ano": 2015,
+              "cpc_continuo": 3.2708698677,
+              "cpc_faixa": "4"
+            },
+            {
+              "ano": 2018,
+              "cpc_continuo": 3.040978524,
+              "cpc_faixa": "4"
+            },
+            {
+              "ano": 2022,
+              "cpc_continuo": 3.468110352,
+              "cpc_faixa": "4"
+            }
+          ],
+          "ano_ingresso_referencia": 2020,
+          "ano_referencia": 2024,
+          "taxa_conclusao_acumulada": 45.0,
+          "taxa_desistencia_acumulada": 28.33333333
+        },
+        {
+          "codigo_curso": 37274,
+          "nome_curso": "FILOSOFIA",
+          "area_avaliacao": "FILOSOFIA (LICENCIATURA)",
+          "ano": 2021,
+          "cpc_continuo": 2.968,
+          "cpc_faixa": "4",
+          "conceito_enade_continuo": 3.103,
+          "idd": 2.266,
+          "notas": {
+            "formacao_geral": 2.207,
+            "componente_especifico": 3.402,
+            "idd": 2.266,
+            "organizacao_didatico_pedagogica": 1.446,
+            "infraestrutura": 1.771,
+            "oportunidade_ampliacao": 2.229,
+            "mestres": 4.166,
+            "doutores": 4.09,
+            "regime_trabalho": 5.0
+          },
+          "historico": [
+            {
+              "ano": 2017,
+              "cpc_continuo": 2.891580035,
+              "cpc_faixa": "3"
+            },
+            {
+              "ano": 2021,
+              "cpc_continuo": 2.968,
+              "cpc_faixa": "4"
+            }
+          ],
+          "ano_ingresso_referencia": 2020,
+          "ano_referencia": 2024,
+          "taxa_conclusao_acumulada": 28.57142857,
+          "taxa_desistencia_acumulada": 64.28571429
+        },
+        {
+          "codigo_curso": 38202,
+          "nome_curso": "ADMINISTRAÇÃO",
+          "area_avaliacao": "ADMINISTRAÇÃO",
+          "ano": 2022,
+          "cpc_continuo": 4.061334326,
+          "cpc_faixa": "5",
+          "conceito_enade_continuo": 4.793,
+          "idd": 4.52220892,
+          "notas": {
+            "formacao_geral": 4.730580078,
+            "componente_especifico": 4.813969447,
+            "idd": 4.52220892,
+            "organizacao_didatico_pedagogica": 1.369142872,
+            "infraestrutura": 2.236854517,
+            "oportunidade_ampliacao": 2.551261925,
+            "mestres": 4.581339711,
+            "doutores": 3.486842105,
+            "regime_trabalho": 5.0
+          },
+          "historico": [
+            {
+              "ano": 2015,
+              "cpc_continuo": 3.5360952337,
+              "cpc_faixa": "4"
+            },
+            {
+              "ano": 2018,
+              "cpc_continuo": 3.198544536,
+              "cpc_faixa": "4"
+            },
+            {
+              "ano": 2022,
+              "cpc_continuo": 4.061334326,
+              "cpc_faixa": "5"
+            }
+          ],
+          "ano_ingresso_referencia": 2020,
+          "ano_referencia": 2024,
+          "taxa_conclusao_acumulada": 24.17582418,
+          "taxa_desistencia_acumulada": 39.56043956
+        },
+        {
+          "codigo_curso": 38204,
+          "nome_curso": "CIÊNCIAS CONTÁBEIS",
+          "area_avaliacao": "CIÊNCIAS CONTÁBEIS",
+          "ano": 2022,
+          "cpc_continuo": 3.56195353,
+          "cpc_faixa": "4",
+          "conceito_enade_continuo": 4.094,
+          "idd": 3.421924602,
+          "notas": {
+            "formacao_geral": 4.247076336,
+            "componente_especifico": 4.043170916,
+            "idd": 3.421924602,
+            "organizacao_didatico_pedagogica": 2.351785876,
+            "infraestrutura": 2.063027295,
+            "oportunidade_ampliacao": 2.858828607,
+            "mestres": 4.62962963,
+            "doutores": 3.14814815,
+            "regime_trabalho": 5.0
+          },
+          "historico": [
+            {
+              "ano": 2015,
+              "cpc_continuo": 2.565328113,
+              "cpc_faixa": "3"
+            },
+            {
+              "ano": 2018,
+              "cpc_continuo": 2.9189011,
+              "cpc_faixa": "3"
+            },
+            {
+              "ano": 2022,
+              "cpc_continuo": 3.56195353,
+              "cpc_faixa": "4"
+            }
+          ],
+          "ano_ingresso_referencia": 2020,
+          "ano_referencia": 2024,
+          "taxa_conclusao_acumulada": 15.73033708,
+          "taxa_desistencia_acumulada": 39.3258427
+        },
+        {
+          "codigo_curso": 38206,
+          "nome_curso": "CIÊNCIAS ECONÔMICAS",
+          "area_avaliacao": "CIÊNCIAS ECONÔMICAS",
+          "ano": 2022,
+          "cpc_continuo": 3.460819073,
+          "cpc_faixa": "4",
+          "conceito_enade_continuo": 3.345,
+          "idd": 3.286904579,
+          "notas": {
+            "formacao_geral": 3.59174114,
+            "componente_especifico": 3.264039282,
+            "idd": 3.286904579,
+            "organizacao_didatico_pedagogica": 2.026460383,
+            "infraestrutura": 2.387339183,
+            "oportunidade_ampliacao": 2.455611646,
+            "mestres": 4.543010745,
+            "doutores": 3.951612905,
+            "regime_trabalho": 5.0
+          },
+          "historico": [
+            {
+              "ano": 2015,
+              "cpc_continuo": 2.7013698349,
+              "cpc_faixa": "3"
+            },
+            {
+              "ano": 2018,
+              "cpc_continuo": 2.864686562,
+              "cpc_faixa": "3"
+            },
+            {
+              "ano": 2022,
+              "cpc_continuo": 3.460819073,
+              "cpc_faixa": "4"
+            }
+          ],
+          "ano_ingresso_referencia": 2020,
+          "ano_referencia": 2024,
+          "taxa_conclusao_acumulada": 18.18181818,
+          "taxa_desistencia_acumulada": 61.36363636
+        },
+        {
+          "codigo_curso": 38208,
+          "nome_curso": "DIREITO",
+          "area_avaliacao": "DIREITO",
+          "ano": 2022,
+          "cpc_continuo": 3.328060778,
+          "cpc_faixa": "4",
+          "conceito_enade_continuo": 4.418,
+          "idd": 2.364017455,
+          "notas": {
+            "formacao_geral": 4.489108564,
+            "componente_especifico": 4.394719604,
+            "idd": 2.364017455,
+            "organizacao_didatico_pedagogica": 1.328103658,
+            "infraestrutura": 2.292294591,
+            "oportunidade_ampliacao": 2.27146615,
+            "mestres": 4.803571426,
+            "doutores": 4.07142857,
+            "regime_trabalho": 5.0
+          },
+          "historico": [
+            {
+              "ano": 2015,
+              "cpc_continuo": 3.1652723268,
+              "cpc_faixa": "4"
+            },
+            {
+              "ano": 2018,
+              "cpc_continuo": 3.528003438,
+              "cpc_faixa": "4"
+            },
+            {
+              "ano": 2022,
+              "cpc_continuo": 3.328060778,
+              "cpc_faixa": "4"
+            }
+          ],
+          "ano_ingresso_referencia": 2020,
+          "ano_referencia": 2024,
+          "taxa_conclusao_acumulada": 24.54545455,
+          "taxa_desistencia_acumulada": 31.81818182
+        },
+        {
+          "codigo_curso": 38217,
+          "nome_curso": "QUÍMICA",
+          "area_avaliacao": "QUÍMICA (LICENCIATURA)",
+          "ano": 2021,
+          "cpc_continuo": 3.28,
+          "cpc_faixa": "4",
+          "conceito_enade_continuo": 2.66,
+          "idd": 2.618,
+          "notas": {
+            "formacao_geral": 2.912,
+            "componente_especifico": 2.576,
+            "idd": 2.618,
+            "organizacao_didatico_pedagogica": 2.583,
+            "infraestrutura": 3.32,
+            "oportunidade_ampliacao": 2.51,
+            "mestres": 4.66,
+            "doutores": 4.562,
+            "regime_trabalho": 5.0
+          },
+          "historico": [
+            {
+              "ano": 2017,
+              "cpc_continuo": 3.616997525,
+              "cpc_faixa": "4"
+            },
+            {
+              "ano": 2021,
+              "cpc_continuo": 3.28,
+              "cpc_faixa": "4"
+            }
+          ],
+          "ano_ingresso_referencia": 2020,
+          "ano_referencia": 2024,
+          "taxa_conclusao_acumulada": 12.6984127,
+          "taxa_desistencia_acumulada": 65.07936508
+        },
+        {
+          "codigo_curso": 38239,
+          "nome_curso": "FÍSICA",
+          "area_avaliacao": "FÍSICA (LICENCIATURA)",
+          "ano": 2021,
+          "cpc_continuo": 3.194,
+          "cpc_faixa": "4",
+          "conceito_enade_continuo": 2.974,
+          "idd": 2.281,
+          "notas": {
+            "formacao_geral": 3.024,
+            "componente_especifico": 2.958,
+            "idd": 2.281,
+            "organizacao_didatico_pedagogica": 2.199,
+            "infraestrutura": 3.789,
+            "oportunidade_ampliacao": 2.925,
+            "mestres": 4.54,
+            "doutores": 4.387,
+            "regime_trabalho": 5.0
+          },
+          "historico": [
+            {
+              "ano": 2017,
+              "cpc_continuo": 3.326106913,
+              "cpc_faixa": "4"
+            },
+            {
+              "ano": 2021,
+              "cpc_continuo": 3.194,
+              "cpc_faixa": "4"
+            }
+          ],
+          "ano_ingresso_referencia": 2020,
+          "ano_referencia": 2024,
+          "taxa_conclusao_acumulada": 24.07407407,
+          "taxa_desistencia_acumulada": 51.85185185
+        },
+        {
+          "codigo_curso": 38246,
+          "nome_curso": "MATEMÁTICA",
+          "area_avaliacao": "MATEMÁTICA (LICENCIATURA)",
+          "ano": 2021,
+          "cpc_continuo": 2.74,
+          "cpc_faixa": "3",
+          "conceito_enade_continuo": 2.294,
+          "idd": 1.935,
+          "notas": {
+            "formacao_geral": 2.392,
+            "componente_especifico": 2.261,
+            "idd": 1.935,
+            "organizacao_didatico_pedagogica": 0.815,
+            "infraestrutura": 2.044,
+            "oportunidade_ampliacao": 2.583,
+            "mestres": 4.718,
+            "doutores": 4.312,
+            "regime_trabalho": 5.0
+          },
+          "historico": [
+            {
+              "ano": 2017,
+              "cpc_continuo": 2.940973213,
+              "cpc_faixa": "3"
+            },
+            {
+              "ano": 2021,
+              "cpc_continuo": 2.74,
+              "cpc_faixa": "3"
+            }
+          ],
+          "ano_ingresso_referencia": 2020,
+          "ano_referencia": 2024,
+          "taxa_conclusao_acumulada": 25.71428571,
+          "taxa_desistencia_acumulada": 58.57142857
+        },
+        {
+          "codigo_curso": 38273,
+          "nome_curso": "PEDAGOGIA",
+          "area_avaliacao": "PEDAGOGIA (LICENCIATURA)",
+          "ano": 2021,
+          "cpc_continuo": 3.149,
+          "cpc_faixa": "4",
+          "conceito_enade_continuo": 2.704,
+          "idd": 2.394,
+          "notas": {
+            "formacao_geral": 2.223,
+            "componente_especifico": 2.865,
+            "idd": 2.394,
+            "organizacao_didatico_pedagogica": 3.035,
+            "infraestrutura": 2.447,
+            "oportunidade_ampliacao": 2.085,
+            "mestres": 4.564,
+            "doutores": 4.337,
+            "regime_trabalho": 5.0
+          },
+          "historico": [
+            {
+              "ano": 2017,
+              "cpc_continuo": 2.816663588,
+              "cpc_faixa": "3"
+            },
+            {
+              "ano": 2021,
+              "cpc_continuo": 3.149,
+              "cpc_faixa": "4"
+            }
+          ],
+          "ano_ingresso_referencia": 2020,
+          "ano_referencia": 2024,
+          "taxa_conclusao_acumulada": 23.33333333,
+          "taxa_desistencia_acumulada": 30.0
+        },
+        {
+          "codigo_curso": 50392,
+          "nome_curso": "ZOOTECNIA",
+          "area_avaliacao": "ZOOTECNIA",
+          "ano": 2023,
+          "cpc_continuo": 3.966,
+          "cpc_faixa": "5",
+          "conceito_enade_continuo": 4.507,
+          "idd": 3.772,
+          "notas": {
+            "formacao_geral": 4.848297214,
+            "componente_especifico": 4.39345388,
+            "idd": 3.772,
+            "organizacao_didatico_pedagogica": 1.961,
+            "infraestrutura": 2.439,
+            "oportunidade_ampliacao": 2.064,
+            "mestres": 4.704,
+            "doutores": 4.643,
+            "regime_trabalho": 5.0
+          },
+          "historico": [
+            {
+              "ano": 2016,
+              "cpc_continuo": 3.4331124629,
+              "cpc_faixa": "4"
+            },
+            {
+              "ano": 2019,
+              "cpc_continuo": 3.135,
+              "cpc_faixa": "4"
+            },
+            {
+              "ano": 2023,
+              "cpc_continuo": 3.966,
+              "cpc_faixa": "5"
+            }
+          ],
+          "ano_ingresso_referencia": 2020,
+          "ano_referencia": 2024,
+          "taxa_conclusao_acumulada": 6.557377049,
+          "taxa_desistencia_acumulada": 47.54098361
+        },
+        {
+          "codigo_curso": 69190,
+          "nome_curso": "ENGENHARIA DE TELEINFORMÁTICA",
+          "area_avaliacao": "ENGENHARIA DA COMPUTAÇÃO",
+          "ano": 2017,
+          "cpc_continuo": 2.733822821,
+          "cpc_faixa": "3",
+          "conceito_enade_continuo": 2.8590713046,
+          "idd": 1.447110295,
+          "notas": {
+            "formacao_geral": null,
+            "componente_especifico": null,
+            "idd": 1.447110295,
+            "organizacao_didatico_pedagogica": 1.522358225,
+            "infraestrutura": 1.472033449,
+            "oportunidade_ampliacao": 1.70965783,
+            "mestres": 5.0,
+            "doutores": 4.499999881,
+            "regime_trabalho": 5.0
+          },
+          "historico": [
+            {
+              "ano": 2017,
+              "cpc_continuo": 2.733822821,
+              "cpc_faixa": "3"
+            }
+          ],
+          "ano_ingresso_referencia": 2014,
+          "ano_referencia": 2023,
+          "taxa_conclusao_acumulada": 0.793650794,
+          "taxa_desistencia_acumulada": 99.20634921
+        },
+        {
+          "codigo_curso": 99252,
+          "nome_curso": "ADMINISTRAÇÃO",
+          "area_avaliacao": "ADMINISTRAÇÃO",
+          "ano": 2015,
+          "cpc_continuo": null,
+          "cpc_faixa": "Curso não reconhecido até 31/12/2015",
+          "conceito_enade_continuo": 2.98072052,
+          "idd": 0.0,
+          "notas": {
+            "formacao_geral": null,
+            "componente_especifico": null,
+            "idd": 0.0,
+            "organizacao_didatico_pedagogica": 1.4885400919,
+            "infraestrutura": 0.5487497445,
+            "oportunidade_ampliacao": 0.8309665816,
+            "mestres": 5.0,
+            "doutores": 3.2142857143,
+            "regime_trabalho": 5.0
+          },
+          "historico": [
+            {
+              "ano": 2015,
+              "cpc_continuo": null,
+              "cpc_faixa": "Curso não reconhecido até 31/12/2015"
+            }
+          ],
+          "ano_ingresso_referencia": null,
+          "ano_referencia": null,
+          "taxa_conclusao_acumulada": null,
+          "taxa_desistencia_acumulada": null
+        },
+        {
+          "codigo_curso": 99567,
+          "nome_curso": "QUÍMICA",
+          "area_avaliacao": "QUÍMICA (BACHARELADO)",
+          "ano": 2021,
+          "cpc_continuo": 3.212,
+          "cpc_faixa": "4",
+          "conceito_enade_continuo": 2.743,
+          "idd": 2.569,
+          "notas": {
+            "formacao_geral": 3.435,
+            "componente_especifico": 2.512,
+            "idd": 2.569,
+            "organizacao_didatico_pedagogica": 3.086,
+            "infraestrutura": 2.903,
+            "oportunidade_ampliacao": 2.396,
+            "mestres": 4.345,
+            "doutores": 4.181,
+            "regime_trabalho": 5.0
+          },
+          "historico": [
+            {
+              "ano": 2017,
+              "cpc_continuo": 3.591999655,
+              "cpc_faixa": "4"
+            },
+            {
+              "ano": 2021,
+              "cpc_continuo": 3.212,
+              "cpc_faixa": "4"
+            }
+          ],
+          "ano_ingresso_referencia": 2020,
+          "ano_referencia": 2024,
+          "taxa_conclusao_acumulada": 11.66666667,
+          "taxa_desistencia_acumulada": 61.66666667
+        },
+        {
+          "codigo_curso": 99572,
+          "nome_curso": "ENGENHARIA METALÚRGICA",
+          "area_avaliacao": null,
+          "ano": null,
+          "cpc_continuo": null,
+          "cpc_faixa": null,
+          "conceito_enade_continuo": null,
+          "idd": null,
+          "notas": null,
+          "historico": [],
+          "ano_ingresso_referencia": 2020,
+          "ano_referencia": 2024,
+          "taxa_conclusao_acumulada": 0.0,
+          "taxa_desistencia_acumulada": 65.07936508
+        },
+        {
+          "codigo_curso": 100021,
+          "nome_curso": "MÚSICA",
+          "area_avaliacao": "MÚSICA (LICENCIATURA)",
+          "ano": 2021,
+          "cpc_continuo": 3.193,
+          "cpc_faixa": "4",
+          "conceito_enade_continuo": 3.445,
+          "idd": 2.222,
+          "notas": {
+            "formacao_geral": 3.091,
+            "componente_especifico": 3.563,
+            "idd": 2.222,
+            "organizacao_didatico_pedagogica": 2.613,
+            "infraestrutura": 2.768,
+            "oportunidade_ampliacao": 3.196,
+            "mestres": 4.318,
+            "doutores": 4.09,
+            "regime_trabalho": 5.0
+          },
+          "historico": [
+            {
+              "ano": 2017,
+              "cpc_continuo": 2.335169011,
+              "cpc_faixa": "3"
+            },
+            {
+              "ano": 2021,
+              "cpc_continuo": 3.193,
+              "cpc_faixa": "4"
+            }
+          ],
+          "ano_ingresso_referencia": 2020,
+          "ano_referencia": 2024,
+          "taxa_conclusao_acumulada": 2.272727273,
+          "taxa_desistencia_acumulada": 72.72727273
+        },
+        {
+          "codigo_curso": 100256,
+          "nome_curso": "EDUCAÇÃO FÍSICA",
+          "area_avaliacao": "EDUCAÇÃO FÍSICA (BACHARELADO)",
+          "ano": 2021,
+          "cpc_continuo": 3.458,
+          "cpc_faixa": "4",
+          "conceito_enade_continuo": 4.354,
+          "idd": 2.579,
+          "notas": {
+            "formacao_geral": 3.988,
+            "componente_especifico": 4.475,
+            "idd": 2.579,
+            "organizacao_didatico_pedagogica": 2.877,
+            "infraestrutura": 1.959,
+            "oportunidade_ampliacao": 3.115,
+            "mestres": 4.383,
+            "doutores": 3.928,
+            "regime_trabalho": 5.0
+          },
+          "historico": [
+            {
+              "ano": 2016,
+              "cpc_continuo": 3.3042203873,
+              "cpc_faixa": "4"
+            },
+            {
+              "ano": 2019,
+              "cpc_continuo": 3.238,
+              "cpc_faixa": "4"
+            },
+            {
+              "ano": 2021,
+              "cpc_continuo": 3.458,
+              "cpc_faixa": "4"
+            }
+          ],
+          "ano_ingresso_referencia": 2020,
+          "ano_referencia": 2024,
+          "taxa_conclusao_acumulada": 30.1369863,
+          "taxa_desistencia_acumulada": 43.83561644
+        },
+        {
+          "codigo_curso": 100367,
+          "nome_curso": "QUÍMICA (LICENCIATURA)",
+          "area_avaliacao": "QUÍMICA (LICENCIATURA)",
+          "ano": 2021,
+          "cpc_continuo": 2.723,
+          "cpc_faixa": "3",
+          "conceito_enade_continuo": 1.716,
+          "idd": 2.048,
+          "notas": {
+            "formacao_geral": 2.761,
+            "componente_especifico": 1.368,
+            "idd": 2.048,
+            "organizacao_didatico_pedagogica": 2.335,
+            "infraestrutura": 2.145,
+            "oportunidade_ampliacao": 1.24,
+            "mestres": 5.0,
+            "doutores": 4.0,
+            "regime_trabalho": 5.0
+          },
+          "historico": [
+            {
+              "ano": 2017,
+              "cpc_continuo": 2.325728774,
+              "cpc_faixa": "3"
+            },
+            {
+              "ano": 2021,
+              "cpc_continuo": 2.723,
+              "cpc_faixa": "3"
+            }
+          ],
+          "ano_ingresso_referencia": null,
+          "ano_referencia": null,
+          "taxa_conclusao_acumulada": null,
+          "taxa_desistencia_acumulada": null
+        },
+        {
+          "codigo_curso": 100369,
+          "nome_curso": "MATEMÁTICA (LICENCIATURA)",
+          "area_avaliacao": "MATEMÁTICA (LICENCIATURA)",
+          "ano": 2017,
+          "cpc_continuo": 2.889696649,
+          "cpc_faixa": "3",
+          "conceito_enade_continuo": 1.4296046553,
+          "idd": 2.236145258,
+          "notas": {
+            "formacao_geral": null,
+            "componente_especifico": null,
+            "idd": 2.236145258,
+            "organizacao_didatico_pedagogica": 2.984668758,
+            "infraestrutura": 2.622202986,
+            "oportunidade_ampliacao": 1.804478101,
+            "mestres": 5.0,
+            "doutores": 4.473684132,
+            "regime_trabalho": 5.0
+          },
+          "historico": [
+            {
+              "ano": 2017,
+              "cpc_continuo": 2.889696649,
+              "cpc_faixa": "3"
+            }
+          ],
+          "ano_ingresso_referencia": null,
+          "ano_referencia": null,
+          "taxa_conclusao_acumulada": null,
+          "taxa_desistencia_acumulada": null
+        },
+        {
+          "codigo_curso": 100375,
+          "nome_curso": "LETRAS-PORTUGUÊS (LICENCIATURA)",
+          "area_avaliacao": "LETRAS-PORTUGUÊS (LICENCIATURA)",
+          "ano": 2017,
+          "cpc_continuo": 3.222447097,
+          "cpc_faixa": "4",
+          "conceito_enade_continuo": 2.556605835,
+          "idd": 2.560182095,
+          "notas": {
+            "formacao_geral": null,
+            "componente_especifico": null,
+            "idd": 2.560182095,
+            "organizacao_didatico_pedagogica": 2.197415917,
+            "infraestrutura": 2.418772995,
+            "oportunidade_ampliacao": 1.172694277,
+            "mestres": 5.0,
+            "doutores": 5.0,
+            "regime_trabalho": 5.0
+          },
+          "historico": [
+            {
+              "ano": 2017,
+              "cpc_continuo": 3.222447097,
+              "cpc_faixa": "4"
+            }
+          ],
+          "ano_ingresso_referencia": null,
+          "ano_referencia": null,
+          "taxa_conclusao_acumulada": null,
+          "taxa_desistencia_acumulada": null
+        },
+        {
+          "codigo_curso": 100376,
+          "nome_curso": "Letras - Inglês",
+          "area_avaliacao": "Letras - Inglês",
+          "ano": 2017,
+          "cpc_continuo": 3.051453911,
+          "cpc_faixa": "4",
+          "conceito_enade_continuo": 1.6949087594,
+          "idd": 2.6078794,
+          "notas": {
+            "formacao_geral": null,
+            "componente_especifico": null,
+            "idd": 2.6078794,
+            "organizacao_didatico_pedagogica": 1.848404272,
+            "infraestrutura": 2.6225962,
+            "oportunidade_ampliacao": 1.198169698,
+            "mestres": 5.0,
+            "doutores": 5.0,
+            "regime_trabalho": 5.0
+          },
+          "historico": [
+            {
+              "ano": 2017,
+              "cpc_continuo": 3.051453911,
+              "cpc_faixa": "4"
+            }
+          ],
+          "ano_ingresso_referencia": null,
+          "ano_referencia": null,
+          "taxa_conclusao_acumulada": null,
+          "taxa_desistencia_acumulada": null
+        },
+        {
+          "codigo_curso": 111294,
+          "nome_curso": "OCEANOGRAFIA",
+          "area_avaliacao": null,
+          "ano": null,
+          "cpc_continuo": null,
+          "cpc_faixa": null,
+          "conceito_enade_continuo": null,
+          "idd": null,
+          "notas": null,
+          "historico": [],
+          "ano_ingresso_referencia": 2020,
+          "ano_referencia": 2024,
+          "taxa_conclusao_acumulada": 30.0,
+          "taxa_desistencia_acumulada": 42.5
+        },
+        {
+          "codigo_curso": 113757,
+          "nome_curso": "FÍSICA (LICENCIATURA)",
+          "area_avaliacao": "FÍSICA (LICENCIATURA)",
+          "ano": 2021,
+          "cpc_continuo": 3.256,
+          "cpc_faixa": "4",
+          "conceito_enade_continuo": 1.95,
+          "idd": 3.076,
+          "notas": {
+            "formacao_geral": 2.222,
+            "componente_especifico": 1.86,
+            "idd": 3.076,
+            "organizacao_didatico_pedagogica": 3.096,
+            "infraestrutura": 2.917,
+            "oportunidade_ampliacao": 1.925,
+            "mestres": 5.0,
+            "doutores": 4.09,
+            "regime_trabalho": 5.0
+          },
+          "historico": [
+            {
+              "ano": 2017,
+              "cpc_continuo": 3.032097095,
+              "cpc_faixa": "4"
+            },
+            {
+              "ano": 2021,
+              "cpc_continuo": 3.256,
+              "cpc_faixa": "4"
+            }
+          ],
+          "ano_ingresso_referencia": null,
+          "ano_referencia": null,
+          "taxa_conclusao_acumulada": null,
+          "taxa_desistencia_acumulada": null
+        },
+        {
+          "codigo_curso": 116834,
+          "nome_curso": "CIÊNCIAS SOCIAIS",
+          "area_avaliacao": "CIÊNCIAS SOCIAIS (LICENCIATURA)",
+          "ano": 2021,
+          "cpc_continuo": 2.455,
+          "cpc_faixa": "3",
+          "conceito_enade_continuo": 3.078,
+          "idd": 0.789,
+          "notas": {
+            "formacao_geral": 2.875,
+            "componente_especifico": 3.146,
+            "idd": 0.789,
+            "organizacao_didatico_pedagogica": 2.115,
+            "infraestrutura": 1.888,
+            "oportunidade_ampliacao": 2.228,
+            "mestres": 3.701,
+            "doutores": 4.107,
+            "regime_trabalho": 4.816
+          },
+          "historico": [
+            {
+              "ano": 2017,
+              "cpc_continuo": 2.857993914,
+              "cpc_faixa": "3"
+            },
+            {
+              "ano": 2021,
+              "cpc_continuo": 2.455,
+              "cpc_faixa": "3"
+            }
+          ],
+          "ano_ingresso_referencia": 2020,
+          "ano_referencia": 2024,
+          "taxa_conclusao_acumulada": 20.68965517,
+          "taxa_desistencia_acumulada": 62.06896552
+        },
+        {
+          "codigo_curso": 122364,
+          "nome_curso": "ENGENHARIA DE TELEINFORMÁTICA",
+          "area_avaliacao": null,
+          "ano": null,
+          "cpc_continuo": null,
+          "cpc_faixa": null,
+          "conceito_enade_continuo": null,
+          "idd": null,
+          "notas": null,
+          "historico": [],
+          "ano_ingresso_referencia": 2012,
+          "ano_referencia": 2021,
+          "taxa_conclusao_acumulada": 0.0,
+          "taxa_desistencia_acumulada": 100.0
+        },
+        {
+          "codigo_curso": 150090,
+          "nome_curso": "TEATRO",
+          "area_avaliacao": null,
+          "ano": null,
+          "cpc_continuo": null,
+          "cpc_faixa": null,
+          "conceito_enade_continuo": null,
+          "idd": null,
+          "notas": null,
+          "historico": [],
+          "ano_ingresso_referencia": 2020,
+          "ano_referencia": 2024,
+          "taxa_conclusao_acumulada": 9.302325581,
+          "taxa_desistencia_acumulada": 60.46511628
+        },
+        {
+          "codigo_curso": 150091,
+          "nome_curso": "DANÇA",
+          "area_avaliacao": null,
+          "ano": null,
+          "cpc_continuo": null,
+          "cpc_faixa": null,
+          "conceito_enade_continuo": null,
+          "idd": null,
+          "notas": null,
+          "historico": [],
+          "ano_ingresso_referencia": 2020,
+          "ano_referencia": 2024,
+          "taxa_conclusao_acumulada": 9.090909091,
+          "taxa_desistencia_acumulada": 45.45454545
+        },
+        {
+          "codigo_curso": 150092,
+          "nome_curso": "DANÇA",
+          "area_avaliacao": null,
+          "ano": null,
+          "cpc_continuo": null,
+          "cpc_faixa": null,
+          "conceito_enade_continuo": null,
+          "idd": null,
+          "notas": null,
+          "historico": [],
+          "ano_ingresso_referencia": 2020,
+          "ano_referencia": 2024,
+          "taxa_conclusao_acumulada": 5.0,
+          "taxa_desistencia_acumulada": 65.0
+        },
+        {
+          "codigo_curso": 150093,
+          "nome_curso": "CINEMA E AUDIOVISUAL",
+          "area_avaliacao": null,
+          "ano": null,
+          "cpc_continuo": null,
+          "cpc_faixa": null,
+          "conceito_enade_continuo": null,
+          "idd": null,
+          "notas": null,
+          "historico": [],
+          "ano_ingresso_referencia": 2020,
+          "ano_referencia": 2024,
+          "taxa_conclusao_acumulada": 2.127659574,
+          "taxa_desistencia_acumulada": 38.29787234
+        },
+        {
+          "codigo_curso": 150111,
+          "nome_curso": "JORNALISMO",
+          "area_avaliacao": null,
+          "ano": null,
+          "cpc_continuo": null,
+          "cpc_faixa": null,
+          "conceito_enade_continuo": null,
+          "idd": null,
+          "notas": null,
+          "historico": [],
+          "ano_ingresso_referencia": 2010,
+          "ano_referencia": 2019,
+          "taxa_conclusao_acumulada": 80.35714285714286,
+          "taxa_desistencia_acumulada": 19.642857142857142
+        },
+        {
+          "codigo_curso": 150112,
+          "nome_curso": "ENGENHARIA AMBIENTAL E SANITÁRIA",
+          "area_avaliacao": "ENGENHARIA AMBIENTAL",
+          "ano": 2023,
+          "cpc_continuo": 2.897,
+          "cpc_faixa": "3",
+          "conceito_enade_continuo": 3.407,
+          "idd": 1.448,
+          "notas": {
+            "formacao_geral": 3.306979267,
+            "componente_especifico": 3.440831845,
+            "idd": 1.448,
+            "organizacao_didatico_pedagogica": 2.378,
+            "infraestrutura": 2.872,
+            "oportunidade_ampliacao": 3.132,
+            "mestres": 3.946,
+            "doutores": 4.253,
+            "regime_trabalho": 5.0
+          },
+          "historico": [
+            {
+              "ano": 2017,
+              "cpc_continuo": 3.410014058,
+              "cpc_faixa": "4"
+            },
+            {
+              "ano": 2019,
+              "cpc_continuo": 3.306,
+              "cpc_faixa": "4"
+            },
+            {
+              "ano": 2023,
+              "cpc_continuo": 2.897,
+              "cpc_faixa": "3"
+            }
+          ],
+          "ano_ingresso_referencia": 2020,
+          "ano_referencia": 2024,
+          "taxa_conclusao_acumulada": 8.888888889,
+          "taxa_desistencia_acumulada": 53.33333333
+        },
+        {
+          "codigo_curso": 150113,
+          "nome_curso": "ENGENHARIA DE PETRÓLEO",
+          "area_avaliacao": "ENGENHARIA",
+          "ano": 2017,
+          "cpc_continuo": 3.159097167,
+          "cpc_faixa": "4",
+          "conceito_enade_continuo": 3.2100511231,
+          "idd": 2.270652294,
+          "notas": {
+            "formacao_geral": null,
+            "componente_especifico": null,
+            "idd": 2.270652294,
+            "organizacao_didatico_pedagogica": 1.54390698,
+            "infraestrutura": 2.620070958,
+            "oportunidade_ampliacao": 2.674883257,
+            "mestres": 4.881434356,
+            "doutores": 4.450549483,
+            "regime_trabalho": 5.0
+          },
+          "historico": [
+            {
+              "ano": 2017,
+              "cpc_continuo": 3.159097167,
+              "cpc_faixa": "4"
+            }
+          ],
+          "ano_ingresso_referencia": 2020,
+          "ano_referencia": 2024,
+          "taxa_conclusao_acumulada": 4.347826087,
+          "taxa_desistencia_acumulada": 63.04347826
+        },
+        {
+          "codigo_curso": 150114,
+          "nome_curso": "BIOTECNOLOGIA",
+          "area_avaliacao": null,
+          "ano": null,
+          "cpc_continuo": null,
+          "cpc_faixa": null,
+          "conceito_enade_continuo": null,
+          "idd": null,
+          "notas": null,
+          "historico": [],
+          "ano_ingresso_referencia": 2020,
+          "ano_referencia": 2024,
+          "taxa_conclusao_acumulada": 32.69230769,
+          "taxa_desistencia_acumulada": 46.15384615
+        },
+        {
+          "codigo_curso": 150115,
+          "nome_curso": "CIÊNCIAS AMBIENTAIS",
+          "area_avaliacao": null,
+          "ano": null,
+          "cpc_continuo": null,
+          "cpc_faixa": null,
+          "conceito_enade_continuo": null,
+          "idd": null,
+          "notas": null,
+          "historico": [],
+          "ano_ingresso_referencia": 2020,
+          "ano_referencia": 2024,
+          "taxa_conclusao_acumulada": 41.86046512,
+          "taxa_desistencia_acumulada": 39.53488372
+        },
+        {
+          "codigo_curso": 150116,
+          "nome_curso": "ENGENHARIA DE ENERGIAS RENOVÁVEIS",
+          "area_avaliacao": "ENGENHARIA",
+          "ano": 2017,
+          "cpc_continuo": 3.574669008,
+          "cpc_faixa": "4",
+          "conceito_enade_continuo": 4.1477092949,
+          "idd": 3.043345213,
+          "notas": {
+            "formacao_geral": null,
+            "componente_especifico": null,
+            "idd": 3.043345213,
+            "organizacao_didatico_pedagogica": 1.448957793,
+            "infraestrutura": 2.241234384,
+            "oportunidade_ampliacao": 3.206535661,
+            "mestres": 4.770436745,
+            "doutores": 4.308510721,
+            "regime_trabalho": 5.0
+          },
+          "historico": [
+            {
+              "ano": 2017,
+              "cpc_continuo": 3.574669008,
+              "cpc_faixa": "4"
+            }
+          ],
+          "ano_ingresso_referencia": 2020,
+          "ano_referencia": 2024,
+          "taxa_conclusao_acumulada": 10.63829787,
+          "taxa_desistencia_acumulada": 34.04255319
+        },
+        {
+          "codigo_curso": 150123,
+          "nome_curso": "GASTRONOMIA",
+          "area_avaliacao": null,
+          "ano": null,
+          "cpc_continuo": null,
+          "cpc_faixa": null,
+          "conceito_enade_continuo": null,
+          "idd": null,
+          "notas": null,
+          "historico": [],
+          "ano_ingresso_referencia": 2020,
+          "ano_referencia": 2024,
+          "taxa_conclusao_acumulada": 30.0,
+          "taxa_desistencia_acumulada": 43.33333333
+        },
+        {
+          "codigo_curso": 313974,
+          "nome_curso": "CIÊNCIAS BIOLÓGICAS",
+          "area_avaliacao": "CIÊNCIAS BIOLÓGICAS (BACHARELADO)",
+          "ano": 2021,
+          "cpc_continuo": 2.913,
+          "cpc_faixa": "3",
+          "conceito_enade_continuo": 3.371,
+          "idd": 1.753,
+          "notas": {
+            "formacao_geral": 3.447,
+            "componente_especifico": 3.345,
+            "idd": 1.753,
+            "organizacao_didatico_pedagogica": 1.789,
+            "infraestrutura": 2.928,
+            "oportunidade_ampliacao": 2.23,
+            "mestres": 4.12,
+            "doutores": 4.074,
+            "regime_trabalho": 4.92
+          },
+          "historico": [
+            {
+              "ano": 2017,
+              "cpc_continuo": 3.45960248,
+              "cpc_faixa": "4"
+            },
+            {
+              "ano": 2021,
+              "cpc_continuo": 2.913,
+              "cpc_faixa": "3"
+            }
+          ],
+          "ano_ingresso_referencia": 2020,
+          "ano_referencia": 2024,
+          "taxa_conclusao_acumulada": 25.92592593,
+          "taxa_desistencia_acumulada": 20.37037037
+        },
+        {
+          "codigo_curso": 313976,
+          "nome_curso": "GEOGRAFIA",
+          "area_avaliacao": "GEOGRAFIA (BACHARELADO)",
+          "ano": 2021,
+          "cpc_continuo": 3.234,
+          "cpc_faixa": "4",
+          "conceito_enade_continuo": 3.485,
+          "idd": 2.127,
+          "notas": {
+            "formacao_geral": 3.416,
+            "componente_especifico": 3.508,
+            "idd": 2.127,
+            "organizacao_didatico_pedagogica": 2.683,
+            "infraestrutura": 3.14,
+            "oportunidade_ampliacao": 2.127,
+            "mestres": 4.722,
+            "doutores": 4.347,
+            "regime_trabalho": 5.0
+          },
+          "historico": [
+            {
+              "ano": 2017,
+              "cpc_continuo": 3.274538434,
+              "cpc_faixa": "4"
+            },
+            {
+              "ano": 2021,
+              "cpc_continuo": 3.234,
+              "cpc_faixa": "4"
+            }
+          ],
+          "ano_ingresso_referencia": 2020,
+          "ano_referencia": 2024,
+          "taxa_conclusao_acumulada": 13.33333333,
+          "taxa_desistencia_acumulada": 65.0
+        },
+        {
+          "codigo_curso": 313982,
+          "nome_curso": "CIÊNCIAS SOCIAIS",
+          "area_avaliacao": "CIÊNCIAS SOCIAIS (BACHARELADO)",
+          "ano": 2021,
+          "cpc_continuo": 2.67,
+          "cpc_faixa": "3",
+          "conceito_enade_continuo": 2.261,
+          "idd": 2.41,
+          "notas": {
+            "formacao_geral": 2.306,
+            "componente_especifico": 2.246,
+            "idd": 2.41,
+            "organizacao_didatico_pedagogica": 1.668,
+            "infraestrutura": 1.359,
+            "oportunidade_ampliacao": 1.494,
+            "mestres": 3.448,
+            "doutores": 3.676,
+            "regime_trabalho": 4.448
+          },
+          "historico": [
+            {
+              "ano": 2017,
+              "cpc_continuo": 3.770296778,
+              "cpc_faixa": "4"
+            },
+            {
+              "ano": 2021,
+              "cpc_continuo": 2.67,
+              "cpc_faixa": "3"
+            }
+          ],
+          "ano_ingresso_referencia": 2020,
+          "ano_referencia": 2024,
+          "taxa_conclusao_acumulada": 20.68965517,
+          "taxa_desistencia_acumulada": 55.17241379
+        },
+        {
+          "codigo_curso": 313984,
+          "nome_curso": "HISTÓRIA",
+          "area_avaliacao": "HISTÓRIA (BACHARELADO)",
+          "ano": 2021,
+          "cpc_continuo": null,
+          "cpc_faixa": "SC",
+          "conceito_enade_continuo": null,
+          "idd": null,
+          "notas": {
+            "formacao_geral": null,
+            "componente_especifico": null,
+            "idd": null,
+            "organizacao_didatico_pedagogica": null,
+            "infraestrutura": null,
+            "oportunidade_ampliacao": null,
+            "mestres": 5.0,
+            "doutores": 5.0,
+            "regime_trabalho": 5.0
+          },
+          "historico": [
+            {
+              "ano": 2017,
+              "cpc_continuo": 2.949912186,
+              "cpc_faixa": "4"
+            },
+            {
+              "ano": 2021,
+              "cpc_continuo": null,
+              "cpc_faixa": "SC"
+            }
+          ],
+          "ano_ingresso_referencia": 2014,
+          "ano_referencia": 2023,
+          "taxa_conclusao_acumulada": 8.510638298,
+          "taxa_desistencia_acumulada": 91.4893617
+        },
+        {
+          "codigo_curso": 337274,
+          "nome_curso": "FILOSOFIA",
+          "area_avaliacao": "FILOSOFIA (BACHARELADO)",
+          "ano": 2021,
+          "cpc_continuo": 2.901,
+          "cpc_faixa": "3",
+          "conceito_enade_continuo": 3.015,
+          "idd": 1.916,
+          "notas": {
+            "formacao_geral": 3.28,
+            "componente_especifico": 2.927,
+            "idd": 1.916,
+            "organizacao_didatico_pedagogica": 1.816,
+            "infraestrutura": 1.664,
+            "oportunidade_ampliacao": 3.471,
+            "mestres": 4.285,
+            "doutores": 4.166,
+            "regime_trabalho": 5.0
+          },
+          "historico": [
+            {
+              "ano": 2017,
+              "cpc_continuo": 2.7984984,
+              "cpc_faixa": "3"
+            },
+            {
+              "ano": 2021,
+              "cpc_continuo": 2.901,
+              "cpc_faixa": "3"
+            }
+          ],
+          "ano_ingresso_referencia": 2020,
+          "ano_referencia": 2024,
+          "taxa_conclusao_acumulada": 6.060606061,
+          "taxa_desistencia_acumulada": 87.87878788
+        },
+        {
+          "codigo_curso": 416834,
+          "nome_curso": "CIÊNCIAS SOCIAIS",
+          "area_avaliacao": "CIÊNCIAS SOCIAIS (BACHARELADO)",
+          "ano": 2021,
+          "cpc_continuo": 2.507,
+          "cpc_faixa": "3",
+          "conceito_enade_continuo": 1.944,
+          "idd": 1.438,
+          "notas": {
+            "formacao_geral": 2.839,
+            "componente_especifico": 1.645,
+            "idd": 1.438,
+            "organizacao_didatico_pedagogica": 2.515,
+            "infraestrutura": 2.038,
+            "oportunidade_ampliacao": 2.537,
+            "mestres": 3.749,
+            "doutores": 4.2,
+            "regime_trabalho": 4.666
+          },
+          "historico": [
+            {
+              "ano": 2017,
+              "cpc_continuo": 2.870535082,
+              "cpc_faixa": "3"
+            },
+            {
+              "ano": 2021,
+              "cpc_continuo": 2.507,
+              "cpc_faixa": "3"
+            }
+          ],
+          "ano_ingresso_referencia": 2020,
+          "ano_referencia": 2024,
+          "taxa_conclusao_acumulada": 6.060606061,
+          "taxa_desistencia_acumulada": 72.72727273
+        },
+        {
+          "codigo_curso": 1122966,
+          "nome_curso": "FISIOTERAPIA",
+          "area_avaliacao": "FISIOTERAPIA",
+          "ano": 2023,
+          "cpc_continuo": 4.322,
+          "cpc_faixa": "5",
+          "conceito_enade_continuo": 4.923,
+          "idd": 3.759,
+          "notas": {
+            "formacao_geral": 5.0,
+            "componente_especifico": 4.896737844,
+            "idd": 3.759,
+            "organizacao_didatico_pedagogica": 4.232,
+            "infraestrutura": 3.81,
+            "oportunidade_ampliacao": 3.772,
+            "mestres": 4.753,
+            "doutores": 4.589,
+            "regime_trabalho": 5.0
+          },
+          "historico": [
+            {
+              "ano": 2016,
+              "cpc_continuo": 3.480427982,
+              "cpc_faixa": "4"
+            },
+            {
+              "ano": 2019,
+              "cpc_continuo": 3.981,
+              "cpc_faixa": "5"
+            },
+            {
+              "ano": 2023,
+              "cpc_continuo": 4.322,
+              "cpc_faixa": "5"
+            }
+          ],
+          "ano_ingresso_referencia": 2020,
+          "ano_referencia": 2024,
+          "taxa_conclusao_acumulada": 43.75,
+          "taxa_desistencia_acumulada": 37.5
+        },
+        {
+          "codigo_curso": 1127861,
+          "nome_curso": "CIÊNCIA DE DADOS",
+          "area_avaliacao": null,
+          "ano": null,
+          "cpc_continuo": null,
+          "cpc_faixa": null,
+          "conceito_enade_continuo": null,
+          "idd": null,
+          "notas": null,
+          "historico": [],
+          "ano_ingresso_referencia": 2020,
+          "ano_referencia": 2024,
+          "taxa_conclusao_acumulada": 2.43902439,
+          "taxa_desistencia_acumulada": 68.29268293
+        },
+        {
+          "codigo_curso": 1128911,
+          "nome_curso": "LETRAS - INGLÊS",
+          "area_avaliacao": "Letras - Inglês",
+          "ano": 2021,
+          "cpc_continuo": 3.29,
+          "cpc_faixa": "4",
+          "conceito_enade_continuo": 3.377,
+          "idd": 2.501,
+          "notas": {
+            "formacao_geral": 3.774,
+            "componente_especifico": 3.244,
+            "idd": 2.501,
+            "organizacao_didatico_pedagogica": 2.296,
+            "infraestrutura": 3.321,
+            "oportunidade_ampliacao": 2.79,
+            "mestres": 4.105,
+            "doutores": 4.322,
+            "regime_trabalho": 5.0
+          },
+          "historico": [
+            {
+              "ano": 2017,
+              "cpc_continuo": 3.640356264,
+              "cpc_faixa": "4"
+            },
+            {
+              "ano": 2021,
+              "cpc_continuo": 3.29,
+              "cpc_faixa": "4"
+            }
+          ],
+          "ano_ingresso_referencia": 2020,
+          "ano_referencia": 2024,
+          "taxa_conclusao_acumulada": 14.54545455,
+          "taxa_desistencia_acumulada": 47.27272727
+        },
+        {
+          "codigo_curso": 1128914,
+          "nome_curso": "LETRAS - ESPANHOL",
+          "area_avaliacao": null,
+          "ano": null,
+          "cpc_continuo": null,
+          "cpc_faixa": null,
+          "conceito_enade_continuo": null,
+          "idd": null,
+          "notas": null,
+          "historico": [],
+          "ano_ingresso_referencia": 2020,
+          "ano_referencia": 2024,
+          "taxa_conclusao_acumulada": 5.555555556,
+          "taxa_desistencia_acumulada": 66.66666667
+        },
+        {
+          "codigo_curso": 1167971,
+          "nome_curso": "DESIGN",
+          "area_avaliacao": "DESIGN",
+          "ano": 2021,
+          "cpc_continuo": 3.133,
+          "cpc_faixa": "4",
+          "conceito_enade_continuo": 3.899,
+          "idd": 1.835,
+          "notas": {
+            "formacao_geral": 3.627,
+            "componente_especifico": 3.989,
+            "idd": 1.835,
+            "organizacao_didatico_pedagogica": 3.409,
+            "infraestrutura": 3.448,
+            "oportunidade_ampliacao": 3.24,
+            "mestres": 4.085,
+            "doutores": 3.472,
+            "regime_trabalho": 5.0
+          },
+          "historico": [
+            {
+              "ano": 2015,
+              "cpc_continuo": null,
+              "cpc_faixa": "Curso não reconhecido até 31/12/2015"
+            },
+            {
+              "ano": 2018,
+              "cpc_continuo": 3.445816035,
+              "cpc_faixa": "4"
+            },
+            {
+              "ano": 2021,
+              "cpc_continuo": 3.133,
+              "cpc_faixa": "4"
+            }
+          ],
+          "ano_ingresso_referencia": 2020,
+          "ano_referencia": 2024,
+          "taxa_conclusao_acumulada": 37.5,
+          "taxa_desistencia_acumulada": 27.08333333
+        },
+        {
+          "codigo_curso": 1168345,
+          "nome_curso": "FINANÇAS",
+          "area_avaliacao": null,
+          "ano": null,
+          "cpc_continuo": null,
+          "cpc_faixa": null,
+          "conceito_enade_continuo": null,
+          "idd": null,
+          "notas": null,
+          "historico": [],
+          "ano_ingresso_referencia": 2020,
+          "ano_referencia": 2024,
+          "taxa_conclusao_acumulada": 11.32075472,
+          "taxa_desistencia_acumulada": 60.37735849
+        },
+        {
+          "codigo_curso": 1186730,
+          "nome_curso": "GESTÃO DA QUALIDADE",
+          "area_avaliacao": "TECNOLOGIA EM GESTÃO DA QUALIDADE",
+          "ano": 2018,
+          "cpc_continuo": 2.801809915,
+          "cpc_faixa": "3",
+          "conceito_enade_continuo": 2.381325955,
+          "idd": 2.121444324,
+          "notas": {
+            "formacao_geral": 3.597320538,
+            "componente_especifico": 1.975994428,
+            "idd": 2.121444324,
+            "organizacao_didatico_pedagogica": 3.407521756,
+            "infraestrutura": 2.706740004,
+            "oportunidade_ampliacao": 2.235523419,
+            "mestres": 3.4,
+            "doutores": 3.374999958,
+            "regime_trabalho": 5.0
+          },
+          "historico": [
+            {
+              "ano": 2018,
+              "cpc_continuo": 2.801809915,
+              "cpc_faixa": "3"
+            }
+          ],
+          "ano_ingresso_referencia": 2019,
+          "ano_referencia": 2024,
+          "taxa_conclusao_acumulada": 83.33333333,
+          "taxa_desistencia_acumulada": 16.66666667
+        },
+        {
+          "codigo_curso": 1191425,
+          "nome_curso": "LETRAS - LIBRAS",
+          "area_avaliacao": null,
+          "ano": null,
+          "cpc_continuo": null,
+          "cpc_faixa": null,
+          "conceito_enade_continuo": null,
+          "idd": null,
+          "notas": null,
+          "historico": [],
+          "ano_ingresso_referencia": 2020,
+          "ano_referencia": 2024,
+          "taxa_conclusao_acumulada": 18.18181818,
+          "taxa_desistencia_acumulada": 48.48484848
+        },
+        {
+          "codigo_curso": 1191427,
+          "nome_curso": "EDUCAÇÃO FÍSICA",
+          "area_avaliacao": "EDUCAÇÃO FÍSICA (LICENCIATURA)",
+          "ano": 2021,
+          "cpc_continuo": 3.562,
+          "cpc_faixa": "4",
+          "conceito_enade_continuo": 4.315,
+          "idd": 3.081,
+          "notas": {
+            "formacao_geral": 3.355,
+            "componente_especifico": 4.635,
+            "idd": 3.081,
+            "organizacao_didatico_pedagogica": 2.108,
+            "infraestrutura": 1.722,
+            "oportunidade_ampliacao": 2.185,
+            "mestres": 4.551,
+            "doutores": 4.038,
+            "regime_trabalho": 5.0
+          },
+          "historico": [
+            {
+              "ano": 2017,
+              "cpc_continuo": 4.115439826,
+              "cpc_faixa": "5"
+            },
+            {
+              "ano": 2021,
+              "cpc_continuo": 3.562,
+              "cpc_faixa": "4"
+            }
+          ],
+          "ano_ingresso_referencia": 2020,
+          "ano_referencia": 2024,
+          "taxa_conclusao_acumulada": 9.677419355,
+          "taxa_desistencia_acumulada": 67.74193548
+        },
+        {
+          "codigo_curso": 1191555,
+          "nome_curso": "EDUCAÇÃO FÍSICA",
+          "area_avaliacao": "EDUCAÇÃO FÍSICA (BACHARELADO)",
+          "ano": 2021,
+          "cpc_continuo": 3.769,
+          "cpc_faixa": "4",
+          "conceito_enade_continuo": 4.404,
+          "idd": 3.177,
+          "notas": {
+            "formacao_geral": 3.831,
+            "componente_especifico": 4.595,
+            "idd": 3.177,
+            "organizacao_didatico_pedagogica": 3.08,
+            "infraestrutura": 2.123,
+            "oportunidade_ampliacao": 3.026,
+            "mestres": 4.533,
+            "doutores": 4.324,
+            "regime_trabalho": 5.0
+          },
+          "historico": [
+            {
+              "ano": 2016,
+              "cpc_continuo": 3.7717938436,
+              "cpc_faixa": "4"
+            },
+            {
+              "ano": 2019,
+              "cpc_continuo": 3.358,
+              "cpc_faixa": "4"
+            },
+            {
+              "ano": 2021,
+              "cpc_continuo": 3.769,
+              "cpc_faixa": "4"
+            }
+          ],
+          "ano_ingresso_referencia": 2020,
+          "ano_referencia": 2024,
+          "taxa_conclusao_acumulada": 25.71428571,
+          "taxa_desistencia_acumulada": 51.42857143
+        },
+        {
+          "codigo_curso": 1216500,
+          "nome_curso": "ADMINISTRAÇÃO PÚBLICA",
+          "area_avaliacao": "ADMINISTRAÇÃO PÚBLICA",
+          "ano": 2022,
+          "cpc_continuo": 2.152751369,
+          "cpc_faixa": "3",
+          "conceito_enade_continuo": 2.483,
+          "idd": 2.647770134,
+          "notas": {
+            "formacao_geral": 2.412677767,
+            "componente_especifico": 2.507135394,
+            "idd": 2.647770134,
+            "organizacao_didatico_pedagogica": 2.683873998,
+            "infraestrutura": 1.772893588,
+            "oportunidade_ampliacao": 1.075695809,
+            "mestres": 0.500000004,
+            "doutores": 2.5,
+            "regime_trabalho": 0.0
+          },
+          "historico": [
+            {
+              "ano": 2022,
+              "cpc_continuo": 2.152751369,
+              "cpc_faixa": "3"
+            }
+          ],
+          "ano_ingresso_referencia": null,
+          "ano_referencia": null,
+          "taxa_conclusao_acumulada": null,
+          "taxa_desistencia_acumulada": null
+        },
+        {
+          "codigo_curso": 1259004,
+          "nome_curso": "LICENCIATURA INTERCULTURAL INDÍGENA",
+          "area_avaliacao": null,
+          "ano": null,
+          "cpc_continuo": null,
+          "cpc_faixa": null,
+          "conceito_enade_continuo": null,
+          "idd": null,
+          "notas": null,
+          "historico": [],
+          "ano_ingresso_referencia": 2017,
+          "ano_referencia": 2024,
+          "taxa_conclusao_acumulada": 68.0,
+          "taxa_desistencia_acumulada": 30.0
+        },
+        {
+          "codigo_curso": 1313213,
+          "nome_curso": "ENGENHARIA DE COMPUTAÇÃO",
+          "area_avaliacao": "ENGENHARIA DE COMPUTAÇÃO I",
+          "ano": 2023,
+          "cpc_continuo": 3.074,
+          "cpc_faixa": "4",
+          "conceito_enade_continuo": 3.457,
+          "idd": 1.789,
+          "notas": {
+            "formacao_geral": 3.163544894,
+            "componente_especifico": 3.555237174,
+            "idd": 1.789,
+            "organizacao_didatico_pedagogica": 2.143,
+            "infraestrutura": 2.979,
+            "oportunidade_ampliacao": 3.603,
+            "mestres": 4.627,
+            "doutores": 4.231,
+            "regime_trabalho": 5.0
+          },
+          "historico": [
+            {
+              "ano": 2017,
+              "cpc_continuo": 2.914568851,
+              "cpc_faixa": "3"
+            },
+            {
+              "ano": 2019,
+              "cpc_continuo": 2.799,
+              "cpc_faixa": "3"
+            },
+            {
+              "ano": 2023,
+              "cpc_continuo": 3.074,
+              "cpc_faixa": "4"
+            }
+          ],
+          "ano_ingresso_referencia": 2020,
+          "ano_referencia": 2024,
+          "taxa_conclusao_acumulada": 17.91044776,
+          "taxa_desistencia_acumulada": 41.79104478
+        },
+        {
+          "codigo_curso": 1313214,
+          "nome_curso": "ENGENHARIA DE TELECOMUNICAÇÕES",
+          "area_avaliacao": null,
+          "ano": null,
+          "cpc_continuo": null,
+          "cpc_faixa": null,
+          "conceito_enade_continuo": null,
+          "idd": null,
+          "notas": null,
+          "historico": [],
+          "ano_ingresso_referencia": 2020,
+          "ano_referencia": 2024,
+          "taxa_conclusao_acumulada": 0.0,
+          "taxa_desistencia_acumulada": 66.66666667
+        },
+        {
+          "codigo_curso": 1314354,
+          "nome_curso": "ECONOMIA ECOLóGICA",
+          "area_avaliacao": null,
+          "ano": null,
+          "cpc_continuo": null,
+          "cpc_faixa": null,
+          "conceito_enade_continuo": null,
+          "idd": null,
+          "notas": null,
+          "historico": [],
+          "ano_ingresso_referencia": 2020,
+          "ano_referencia": 2024,
+          "taxa_conclusao_acumulada": 6.382978723,
+          "taxa_desistencia_acumulada": 63.82978723
+        },
+        {
+          "codigo_curso": 1314356,
+          "nome_curso": "GESTÃO DE POLÍTICAS PÚBLICAS",
+          "area_avaliacao": null,
+          "ano": null,
+          "cpc_continuo": null,
+          "cpc_faixa": null,
+          "conceito_enade_continuo": null,
+          "idd": null,
+          "notas": null,
+          "historico": [],
+          "ano_ingresso_referencia": 2020,
+          "ano_referencia": 2024,
+          "taxa_conclusao_acumulada": 13.46153846,
+          "taxa_desistencia_acumulada": 63.46153846
+        },
+        {
+          "codigo_curso": 1330754,
+          "nome_curso": "SISTEMAS E MÍDIAS DIGITAIS",
+          "area_avaliacao": null,
+          "ano": null,
+          "cpc_continuo": null,
+          "cpc_faixa": null,
+          "conceito_enade_continuo": null,
+          "idd": null,
+          "notas": null,
+          "historico": [],
+          "ano_ingresso_referencia": 2020,
+          "ano_referencia": 2024,
+          "taxa_conclusao_acumulada": 16.07142857,
+          "taxa_desistencia_acumulada": 25.0
+        },
+        {
+          "codigo_curso": 1398030,
+          "nome_curso": "LICENCIATURA INTERCULTURAL INDÍGENA",
+          "area_avaliacao": null,
+          "ano": null,
+          "cpc_continuo": null,
+          "cpc_faixa": null,
+          "conceito_enade_continuo": null,
+          "idd": null,
+          "notas": null,
+          "historico": [],
+          "ano_ingresso_referencia": 2017,
+          "ano_referencia": 2024,
+          "taxa_conclusao_acumulada": 73.72262774,
+          "taxa_desistencia_acumulada": 24.81751825
+        },
+        {
+          "codigo_curso": 5000499,
+          "nome_curso": "SISTEMAS E MÍDIAS DIGITAIS",
+          "area_avaliacao": null,
+          "ano": null,
+          "cpc_continuo": null,
+          "cpc_faixa": null,
+          "conceito_enade_continuo": null,
+          "idd": null,
+          "notas": null,
+          "historico": [],
+          "ano_ingresso_referencia": 2020,
+          "ano_referencia": 2024,
+          "taxa_conclusao_acumulada": 30.88235294,
+          "taxa_desistencia_acumulada": 29.41176471
+        }
+      ]
+    },
+    {
+      "slug": "quixada",
+      "nome": "UFC Campus Quixadá",
+      "cursos": [
+        {
+          "codigo_curso": 106167,
+          "nome_curso": "SISTEMAS DE INFORMAÇÃO",
+          "area_avaliacao": "SISTEMAS DE INFORMAÇÃO",
+          "ano": 2021,
+          "cpc_continuo": 3.011,
+          "cpc_faixa": "4",
+          "conceito_enade_continuo": 2.095,
+          "idd": 2.046,
+          "notas": {
+            "formacao_geral": 2.071,
+            "componente_especifico": 2.103,
+            "idd": 2.046,
+            "organizacao_didatico_pedagogica": 3.348,
+            "infraestrutura": 4.041,
+            "oportunidade_ampliacao": 3.781,
+            "mestres": 5.0,
+            "doutores": 3.852,
+            "regime_trabalho": 5.0
+          },
+          "historico": [
+            {
+              "ano": 2017,
+              "cpc_continuo": 3.346667324,
+              "cpc_faixa": "4"
+            },
+            {
+              "ano": 2021,
+              "cpc_continuo": 3.011,
+              "cpc_faixa": "4"
+            }
+          ],
+          "ano_ingresso_referencia": 2020,
+          "ano_referencia": 2024,
+          "taxa_conclusao_acumulada": 13.7254902,
+          "taxa_desistencia_acumulada": 41.17647059
+        },
+        {
+          "codigo_curso": 150117,
+          "nome_curso": "ENGENHARIA DE SOFTWARE",
+          "area_avaliacao": null,
+          "ano": null,
+          "cpc_continuo": null,
+          "cpc_faixa": null,
+          "conceito_enade_continuo": null,
+          "idd": null,
+          "notas": null,
+          "historico": [],
+          "ano_ingresso_referencia": 2020,
+          "ano_referencia": 2024,
+          "taxa_conclusao_acumulada": 19.23076923,
+          "taxa_desistencia_acumulada": 42.30769231
+        },
+        {
+          "codigo_curso": 1127191,
+          "nome_curso": "REDES DE COMPUTADORES",
+          "area_avaliacao": "TECNOLOGIA EM REDES DE COMPUTADORES",
+          "ano": 2021,
+          "cpc_continuo": 3.582,
+          "cpc_faixa": "4",
+          "conceito_enade_continuo": 3.758,
+          "idd": 2.433,
+          "notas": {
+            "formacao_geral": 3.494,
+            "componente_especifico": 3.846,
+            "idd": 2.433,
+            "organizacao_didatico_pedagogica": 3.928,
+            "infraestrutura": 4.408,
+            "oportunidade_ampliacao": 4.231,
+            "mestres": 5.0,
+            "doutores": 4.054,
+            "regime_trabalho": 5.0
+          },
+          "historico": [
+            {
+              "ano": 2017,
+              "cpc_continuo": 3.7518204,
+              "cpc_faixa": "4"
+            },
+            {
+              "ano": 2021,
+              "cpc_continuo": 3.582,
+              "cpc_faixa": "4"
+            }
+          ],
+          "ano_ingresso_referencia": 2020,
+          "ano_referencia": 2024,
+          "taxa_conclusao_acumulada": 6.12244898,
+          "taxa_desistencia_acumulada": 73.46938776
+        },
+        {
+          "codigo_curso": 1270596,
+          "nome_curso": "CIÊNCIA DA COMPUTAÇÃO",
+          "area_avaliacao": "CIÊNCIA DA COMPUTAÇÃO (BACHARELADO)",
+          "ano": 2021,
+          "cpc_continuo": 3.304,
+          "cpc_faixa": "4",
+          "conceito_enade_continuo": 2.425,
+          "idd": 2.595,
+          "notas": {
+            "formacao_geral": 2.031,
+            "componente_especifico": 2.556,
+            "idd": 2.595,
+            "organizacao_didatico_pedagogica": 3.714,
+            "infraestrutura": 4.005,
+            "oportunidade_ampliacao": 3.934,
+            "mestres": 5.0,
+            "doutores": 3.888,
+            "regime_trabalho": 5.0
+          },
+          "historico": [
+            {
+              "ano": 2017,
+              "cpc_continuo": 4.085750086,
+              "cpc_faixa": "5"
+            },
+            {
+              "ano": 2021,
+              "cpc_continuo": 3.304,
+              "cpc_faixa": "4"
+            }
+          ],
+          "ano_ingresso_referencia": 2020,
+          "ano_referencia": 2024,
+          "taxa_conclusao_acumulada": 16.66666667,
+          "taxa_desistencia_acumulada": 44.44444444
+        },
+        {
+          "codigo_curso": 1299933,
+          "nome_curso": "ENGENHARIA DE COMPUTAÇÃO",
+          "area_avaliacao": "ENGENHARIA DA COMPUTAÇÃO",
+          "ano": 2019,
+          "cpc_continuo": 3.513,
+          "cpc_faixa": "4",
+          "conceito_enade_continuo": 3.401,
+          "idd": 3.328,
+          "notas": {
+            "formacao_geral": 3.218,
+            "componente_especifico": 3.4626,
+            "idd": 3.328,
+            "organizacao_didatico_pedagogica": 3.558,
+            "infraestrutura": 4.001,
+            "oportunidade_ampliacao": 3.504,
+            "mestres": 3.468,
+            "doutores": 3.191,
+            "regime_trabalho": 5.0
+          },
+          "historico": [
+            {
+              "ano": 2019,
+              "cpc_continuo": 3.513,
+              "cpc_faixa": "4"
+            }
+          ],
+          "ano_ingresso_referencia": 2020,
+          "ano_referencia": 2024,
+          "taxa_conclusao_acumulada": 8.163265306,
+          "taxa_desistencia_acumulada": 65.30612245
+        },
+        {
+          "codigo_curso": 1304876,
+          "nome_curso": "DESIGN DIGITAL",
+          "area_avaliacao": null,
+          "ano": null,
+          "cpc_continuo": null,
+          "cpc_faixa": null,
+          "conceito_enade_continuo": null,
+          "idd": null,
+          "notas": null,
+          "historico": [],
+          "ano_ingresso_referencia": 2020,
+          "ano_referencia": 2024,
+          "taxa_conclusao_acumulada": 18.86792453,
+          "taxa_desistencia_acumulada": 30.18867925
+        }
+      ]
+    },
+    {
+      "slug": "russas",
+      "nome": "UFC Campus Russas",
+      "cursos": [
+        {
+          "codigo_curso": 1272130,
+          "nome_curso": "ENGENHARIA DE SOFTWARE",
+          "area_avaliacao": null,
+          "ano": null,
+          "cpc_continuo": null,
+          "cpc_faixa": null,
+          "conceito_enade_continuo": null,
+          "idd": null,
+          "notas": null,
+          "historico": [],
+          "ano_ingresso_referencia": 2020,
+          "ano_referencia": 2024,
+          "taxa_conclusao_acumulada": 14.28571429,
+          "taxa_desistencia_acumulada": 51.42857143
+        },
+        {
+          "codigo_curso": 1299927,
+          "nome_curso": "CIÊNCIA DA COMPUTAÇÃO",
+          "area_avaliacao": "CIÊNCIA DA COMPUTAÇÃO (BACHARELADO)",
+          "ano": 2021,
+          "cpc_continuo": 3.353,
+          "cpc_faixa": "4",
+          "conceito_enade_continuo": 2.597,
+          "idd": 2.964,
+          "notas": {
+            "formacao_geral": 2.556,
+            "componente_especifico": 2.611,
+            "idd": 2.964,
+            "organizacao_didatico_pedagogica": 3.066,
+            "infraestrutura": 3.777,
+            "oportunidade_ampliacao": 3.453,
+            "mestres": 4.636,
+            "doutores": 3.787,
+            "regime_trabalho": 5.0
+          },
+          "historico": [
+            {
+              "ano": 2021,
+              "cpc_continuo": 3.353,
+              "cpc_faixa": "4"
+            }
+          ],
+          "ano_ingresso_referencia": 2020,
+          "ano_referencia": 2024,
+          "taxa_conclusao_acumulada": 5.882352941,
+          "taxa_desistencia_acumulada": 49.41176471
+        },
+        {
+          "codigo_curso": 1299931,
+          "nome_curso": "ENGENHARIA CIVIL",
+          "area_avaliacao": "ENGENHARIA CIVIL",
+          "ano": 2023,
+          "cpc_continuo": 3.172,
+          "cpc_faixa": "4",
+          "conceito_enade_continuo": 2.837,
+          "idd": 2.067,
+          "notas": {
+            "formacao_geral": 2.802721088,
+            "componente_especifico": 2.848466854,
+            "idd": 2.067,
+            "organizacao_didatico_pedagogica": 3.527,
+            "infraestrutura": 3.674,
+            "oportunidade_ampliacao": 4.087,
+            "mestres": 4.222,
+            "doutores": 4.259,
+            "regime_trabalho": 5.0
+          },
+          "historico": [
+            {
+              "ano": 2019,
+              "cpc_continuo": 3.617,
+              "cpc_faixa": "4"
+            },
+            {
+              "ano": 2023,
+              "cpc_continuo": 3.172,
+              "cpc_faixa": "4"
+            }
+          ],
+          "ano_ingresso_referencia": 2020,
+          "ano_referencia": 2024,
+          "taxa_conclusao_acumulada": 10.25641026,
+          "taxa_desistencia_acumulada": 61.53846154
+        },
+        {
+          "codigo_curso": 1299935,
+          "nome_curso": "ENGENHARIA DE PRODUÇÃO",
+          "area_avaliacao": "ENGENHARIA DE PRODUÇÃO",
+          "ano": 2023,
+          "cpc_continuo": 3.196,
+          "cpc_faixa": "4",
+          "conceito_enade_continuo": 3.231,
+          "idd": 2.478,
+          "notas": {
+            "formacao_geral": 2.983529003,
+            "componente_especifico": 3.313076598,
+            "idd": 2.478,
+            "organizacao_didatico_pedagogica": 2.361,
+            "infraestrutura": 2.594,
+            "oportunidade_ampliacao": 2.834,
+            "mestres": 4.271,
+            "doutores": 4.063,
+            "regime_trabalho": 5.0
+          },
+          "historico": [
+            {
+              "ano": 2019,
+              "cpc_continuo": 4.253,
+              "cpc_faixa": "5"
+            },
+            {
+              "ano": 2023,
+              "cpc_continuo": 3.196,
+              "cpc_faixa": "4"
+            }
+          ],
+          "ano_ingresso_referencia": 2020,
+          "ano_referencia": 2024,
+          "taxa_conclusao_acumulada": 13.33333333,
+          "taxa_desistencia_acumulada": 57.77777778
+        },
+        {
+          "codigo_curso": 1299936,
+          "nome_curso": "ENGENHARIA MECÂNICA",
+          "area_avaliacao": "ENGENHARIA MECÂNICA",
+          "ano": 2023,
+          "cpc_continuo": 2.768,
+          "cpc_faixa": "3",
+          "conceito_enade_continuo": 2.544,
+          "idd": 1.521,
+          "notas": {
+            "formacao_geral": 3.467542261,
+            "componente_especifico": 2.236529141,
+            "idd": 1.521,
+            "organizacao_didatico_pedagogica": 2.613,
+            "infraestrutura": 3.131,
+            "oportunidade_ampliacao": 3.366,
+            "mestres": 4.2,
+            "doutores": 4.0,
+            "regime_trabalho": 5.0
+          },
+          "historico": [
+            {
+              "ano": 2019,
+              "cpc_continuo": 3.73,
+              "cpc_faixa": "4"
+            },
+            {
+              "ano": 2023,
+              "cpc_continuo": 2.768,
+              "cpc_faixa": "3"
+            }
+          ],
+          "ano_ingresso_referencia": 2020,
+          "ano_referencia": 2024,
+          "taxa_conclusao_acumulada": 2.0,
+          "taxa_desistencia_acumulada": 64.0
+        }
+      ]
+    },
+    {
+      "slug": "sobral",
+      "nome": "UFC Campus Sobral",
+      "cursos": [
+        {
+          "codigo_curso": 54490,
+          "nome_curso": "MEDICINA",
+          "area_avaliacao": "MEDICINA",
+          "ano": 2023,
+          "cpc_continuo": 3.173,
+          "cpc_faixa": "4",
+          "conceito_enade_continuo": 3.849,
+          "idd": 2.732,
+          "notas": {
+            "formacao_geral": 3.989200837,
+            "componente_especifico": 3.802327365,
+            "idd": 2.732,
+            "organizacao_didatico_pedagogica": 4.039,
+            "infraestrutura": 4.333,
+            "oportunidade_ampliacao": 4.267,
+            "mestres": 3.071,
+            "doutores": 1.435,
+            "regime_trabalho": 5.0
+          },
+          "historico": [
+            {
+              "ano": 2016,
+              "cpc_continuo": 2.8607386754,
+              "cpc_faixa": "3"
+            },
+            {
+              "ano": 2019,
+              "cpc_continuo": 3.136,
+              "cpc_faixa": "4"
+            },
+            {
+              "ano": 2023,
+              "cpc_continuo": 3.173,
+              "cpc_faixa": "4"
+            }
+          ],
+          "ano_ingresso_referencia": 2020,
+          "ano_referencia": 2024,
+          "taxa_conclusao_acumulada": 2.409638554,
+          "taxa_desistencia_acumulada": 14.45783133
+        },
+        {
+          "codigo_curso": 99300,
+          "nome_curso": "ENGENHARIA DE COMPUTAÇÃO",
+          "area_avaliacao": "ENGENHARIA DE COMPUTAÇÃO I",
+          "ano": 2023,
+          "cpc_continuo": 3.052,
+          "cpc_faixa": "4",
+          "conceito_enade_continuo": 2.652,
+          "idd": 2.261,
+          "notas": {
+            "formacao_geral": 3.445383976,
+            "componente_especifico": 2.387566666,
+            "idd": 2.261,
+            "organizacao_didatico_pedagogica": 2.905,
+            "infraestrutura": 2.854,
+            "oportunidade_ampliacao": 2.676,
+            "mestres": 5.0,
+            "doutores": 3.684,
+            "regime_trabalho": 5.0
+          },
+          "historico": [
+            {
+              "ano": 2017,
+              "cpc_continuo": 2.748164697,
+              "cpc_faixa": "3"
+            },
+            {
+              "ano": 2019,
+              "cpc_continuo": 2.529,
+              "cpc_faixa": "3"
+            },
+            {
+              "ano": 2023,
+              "cpc_continuo": 3.052,
+              "cpc_faixa": "4"
+            }
+          ],
+          "ano_ingresso_referencia": 2020,
+          "ano_referencia": 2024,
+          "taxa_conclusao_acumulada": 4.04040404,
+          "taxa_desistencia_acumulada": 44.44444444
+        },
+        {
+          "codigo_curso": 99302,
+          "nome_curso": "ENGENHARIA ELÉTRICA",
+          "area_avaliacao": "ENGENHARIA ELÉTRICA",
+          "ano": 2023,
+          "cpc_continuo": 3.138,
+          "cpc_faixa": "4",
+          "conceito_enade_continuo": 2.989,
+          "idd": 2.32,
+          "notas": {
+            "formacao_geral": 2.848316498,
+            "componente_especifico": 3.035477941,
+            "idd": 2.32,
+            "organizacao_didatico_pedagogica": 2.56,
+            "infraestrutura": 2.941,
+            "oportunidade_ampliacao": 2.897,
+            "mestres": 5.0,
+            "doutores": 3.78,
+            "regime_trabalho": 5.0
+          },
+          "historico": [
+            {
+              "ano": 2017,
+              "cpc_continuo": 3.159931235,
+              "cpc_faixa": "4"
+            },
+            {
+              "ano": 2019,
+              "cpc_continuo": 2.904,
+              "cpc_faixa": "3"
+            },
+            {
+              "ano": 2023,
+              "cpc_continuo": 3.138,
+              "cpc_faixa": "4"
+            }
+          ],
+          "ano_ingresso_referencia": 2020,
+          "ano_referencia": 2024,
+          "taxa_conclusao_acumulada": 1.960784314,
+          "taxa_desistencia_acumulada": 55.88235294
+        },
+        {
+          "codigo_curso": 99306,
+          "nome_curso": "CIÊNCIAS ECONÔMICAS",
+          "area_avaliacao": "CIÊNCIAS ECONÔMICAS",
+          "ano": 2022,
+          "cpc_continuo": 2.760215304,
+          "cpc_faixa": "3",
+          "conceito_enade_continuo": 2.128,
+          "idd": 1.914441467,
+          "notas": {
+            "formacao_geral": 2.991029158,
+            "componente_especifico": 1.840373036,
+            "idd": 1.914441467,
+            "organizacao_didatico_pedagogica": 2.040693683,
+            "infraestrutura": 2.369005456,
+            "oportunidade_ampliacao": 2.138709794,
+            "mestres": 4.527777782,
+            "doutores": 4.166666665,
+            "regime_trabalho": 5.0
+          },
+          "historico": [
+            {
+              "ano": 2015,
+              "cpc_continuo": 2.398537443,
+              "cpc_faixa": "3"
+            },
+            {
+              "ano": 2018,
+              "cpc_continuo": 2.699781931,
+              "cpc_faixa": "3"
+            },
+            {
+              "ano": 2022,
+              "cpc_continuo": 2.760215304,
+              "cpc_faixa": "3"
+            }
+          ],
+          "ano_ingresso_referencia": 2020,
+          "ano_referencia": 2024,
+          "taxa_conclusao_acumulada": 16.66666667,
+          "taxa_desistencia_acumulada": 50.0
+        },
+        {
+          "codigo_curso": 99308,
+          "nome_curso": "ODONTOLOGIA",
+          "area_avaliacao": "ODONTOLOGIA",
+          "ano": 2023,
+          "cpc_continuo": 4.171,
+          "cpc_faixa": "5",
+          "conceito_enade_continuo": 4.298,
+          "idd": 3.644,
+          "notas": {
+            "formacao_geral": 4.337790828,
+            "componente_especifico": 4.284920861,
+            "idd": 3.644,
+            "organizacao_didatico_pedagogica": 4.174,
+            "infraestrutura": 4.548,
+            "oportunidade_ampliacao": 4.167,
+            "mestres": 4.688,
+            "doutores": 4.429,
+            "regime_trabalho": 5.0
+          },
+          "historico": [
+            {
+              "ano": 2016,
+              "cpc_continuo": 3.9313664878,
+              "cpc_faixa": "4"
+            },
+            {
+              "ano": 2019,
+              "cpc_continuo": 4.095,
+              "cpc_faixa": "5"
+            },
+            {
+              "ano": 2023,
+              "cpc_continuo": 4.171,
+              "cpc_faixa": "5"
+            }
+          ],
+          "ano_ingresso_referencia": 2020,
+          "ano_referencia": 2024,
+          "taxa_conclusao_acumulada": 61.53846154,
+          "taxa_desistencia_acumulada": 17.30769231
+        },
+        {
+          "codigo_curso": 99310,
+          "nome_curso": "PSICOLOGIA",
+          "area_avaliacao": "PSICOLOGIA",
+          "ano": 2022,
+          "cpc_continuo": 3.740574854,
+          "cpc_faixa": "4",
+          "conceito_enade_continuo": 4.153,
+          "idd": 2.919371037,
+          "notas": {
+            "formacao_geral": 4.480158902,
+            "componente_especifico": 4.044280739,
+            "idd": 2.919371037,
+            "organizacao_didatico_pedagogica": 3.44905095,
+            "infraestrutura": 3.055522054,
+            "oportunidade_ampliacao": 3.676975443,
+            "mestres": 4.713541666,
+            "doutores": 4.375,
+            "regime_trabalho": 5.0
+          },
+          "historico": [
+            {
+              "ano": 2015,
+              "cpc_continuo": 3.0418123561,
+              "cpc_faixa": "4"
+            },
+            {
+              "ano": 2018,
+              "cpc_continuo": 3.201270726,
+              "cpc_faixa": "4"
+            },
+            {
+              "ano": 2022,
+              "cpc_continuo": 3.740574854,
+              "cpc_faixa": "4"
+            }
+          ],
+          "ano_ingresso_referencia": 2020,
+          "ano_referencia": 2024,
+          "taxa_conclusao_acumulada": 35.0,
+          "taxa_desistencia_acumulada": 28.33333333
+        },
+        {
+          "codigo_curso": 150099,
+          "nome_curso": "MÚSICA",
+          "area_avaliacao": "MÚSICA (LICENCIATURA)",
+          "ano": 2021,
+          "cpc_continuo": 2.809,
+          "cpc_faixa": "3",
+          "conceito_enade_continuo": 2.397,
+          "idd": 1.77,
+          "notas": {
+            "formacao_geral": 2.174,
+            "componente_especifico": 2.471,
+            "idd": 1.77,
+            "organizacao_didatico_pedagogica": 3.651,
+            "infraestrutura": 1.895,
+            "oportunidade_ampliacao": 3.545,
+            "mestres": 4.431,
+            "doutores": 3.636,
+            "regime_trabalho": 5.0
+          },
+          "historico": [
+            {
+              "ano": 2017,
+              "cpc_continuo": 3.380883569,
+              "cpc_faixa": "4"
+            },
+            {
+              "ano": 2021,
+              "cpc_continuo": 2.809,
+              "cpc_faixa": "3"
+            }
+          ],
+          "ano_ingresso_referencia": 2020,
+          "ano_referencia": 2024,
+          "taxa_conclusao_acumulada": 28.94736842,
+          "taxa_desistencia_acumulada": 52.63157895
+        },
+        {
+          "codigo_curso": 150118,
+          "nome_curso": "FINANÇAS",
+          "area_avaliacao": null,
+          "ano": null,
+          "cpc_continuo": null,
+          "cpc_faixa": null,
+          "conceito_enade_continuo": null,
+          "idd": null,
+          "notas": null,
+          "historico": [],
+          "ano_ingresso_referencia": 2020,
+          "ano_referencia": 2024,
+          "taxa_conclusao_acumulada": 2.0,
+          "taxa_desistencia_acumulada": 74.0
+        }
+      ]
+    }
+  ]
+}

@@ -1,19 +1,51 @@
-import { DataState } from "@/components/layout/DataState";
+import { useEffect } from "react";
+import { Outlet, useLocation } from "react-router-dom";
 
+import { CampusSelect } from "@/components/layout/CampusSelect";
+import { PageHeader } from "@/components/layout/PageHeader";
+import { SubTabs } from "@/components/layout/SubTabs";
+import { carregarMapa } from "@/pages/qualidade/mapa-loader";
+
+const SUB_ABAS = [
+    { to: "campus", label: "Visão do campus" },
+    { to: "curso", label: "Por curso" },
+    { to: "mapa", label: "Mapa" },
+    { to: "comparacoes", label: "Comparações" },
+];
+
+/** Aba Qualidade: por que o CPC de cada curso é o que é, onde dá pra melhorar
+ * e como ele se compara ao país. Dividida em sub-abas com rota própria
+ * (``/qualidade/campus``, ``/qualidade/curso/:codigo``, ``/qualidade/mapa``,
+ * ``/qualidade/comparacoes``); cada uma é uma
+ * página filha, desenhada no ``Outlet``. */
 export function QualidadePage() {
+    // a sub-aba (campus, curso, mapa…) sem o código do curso: trocar de curso
+    // em "Por curso" não reanima a página
+    const subAba = useLocation().pathname.split("/")[2] ?? "";
+
+    // baixa o código do Mapa quando o navegador ficar ocioso
+    useEffect(() => {
+        const ocioso =
+            window.requestIdleCallback ?? ((fn: () => void) => setTimeout(fn, 1500));
+        ocioso(() => void carregarMapa());
+    }, []);
+
     return (
-        <DataState
-            render={(data) => (
-                <div>
-                    <h1 className="text-2xl font-bold">Qualidade</h1>
-                    <p className="text-white/80">
-                        {data.comparacao_cursos.ranking_cpc.length} curso(s) com CPC
-                        avaliado
-                    </p>
-                    {/* TODO: ranking_cpc, notas_por_dimensao (radar) e
-              evolucao_cpc_comparada — comparacao_cursos + medias_nacionais */}
-                </div>
-            )}
-        />
+        <>
+            <PageHeader
+                title="Qualidade dos cursos"
+                subtitle={
+                    <>
+                        Conceitos do MEC (CPC) dos cursos do UFC Campus <CampusSelect />
+                    </>
+                }
+                tabs={(tom) => (
+                    <SubTabs label="Seções da qualidade" items={SUB_ABAS} tom={tom} />
+                )}
+            />
+            <div key={subAba} className="entrada">
+                <Outlet />
+            </div>
+        </>
     );
 }

@@ -37,7 +37,7 @@ def build(
     )
     return {
         "evolucao_cpc": _evolucao_cpc_nacional(pares_qualidade),
-        "perfil_radar": _perfil_radar_nacional(pares_qualidade),
+        "perfil_radar": _perfil_radar_nacional(pares_qualidade, data.qualidade),
         "curva_sobrevivencia": _curva_sobrevivencia_nacional(pares_trajetoria),
         "heatmap_evasao_anual": _heatmap_evasao_nacional(pares_trajetoria),
         "campus": _campus_nacional(pares_qualidade, pares_trajetoria),
@@ -78,24 +78,32 @@ def _evolucao_cpc_nacional(pares_qualidade: pd.DataFrame) -> list[dict[str, obje
     )
 
 
-def _perfil_radar_nacional(pares_qualidade: pd.DataFrame) -> list[dict[str, object]]:
-    """Contraparte nacional: notas padronizadas médias por área.
+def _perfil_radar_nacional(
+    pares_qualidade: pd.DataFrame, local_qualidade: pd.DataFrame
+) -> list[dict[str, object]]:
+    """Contraparte nacional: notas padronizadas médias por área e ano.
 
-    Usa o ano mais recente disponível para cada área.
+    Só os pares (área, ano) em que algum curso do campus foi avaliado: as
+    notas são padronizadas dentro de cada edição do Enade, então o curso só
+    se compara com a média da mesma área *no mesmo ano* — a edição mais
+    recente da área pode ser outra.
     """
-    if pares_qualidade.empty:
+    if pares_qualidade.empty or local_qualidade.empty:
         return []
-    max_ano_por_area = pares_qualidade.groupby("area_avaliacao")["ano"].transform("max")
-    latest = pares_qualidade[pares_qualidade["ano"] == max_ano_por_area]
+    chaves = local_qualidade[["area_avaliacao", "ano"]].drop_duplicates()
+    pares = pares_qualidade.merge(chaves, on=["area_avaliacao", "ano"])
+    if pares.empty:
+        return []
+    group_cols = ["area_avaliacao", "ano"]
     radar_cols = list(course_profile.RADAR_FIELDS.values())
-    means = latest.groupby("area_avaliacao")[radar_cols].mean()
+    means = pares.groupby(group_cols)[radar_cols].mean()
     means = means.rename(
         columns={column: label for label, column in course_profile.RADAR_FIELDS.items()}
     )
-    means["quantidade_cursos_considerados"] = latest.groupby("area_avaliacao")[
+    means["quantidade_cursos_considerados"] = pares.groupby(group_cols)[
         "codigo_curso"
     ].nunique()
-    return records(means.round(2).reset_index().sort_values("area_avaliacao"))
+    return records(means.round(2).reset_index().sort_values(group_cols))
 
 
 def _curva_sobrevivencia_nacional(

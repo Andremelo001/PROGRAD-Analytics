@@ -1,5 +1,7 @@
-import { NavLink } from "react-router-dom";
+import { useRef } from "react";
+import { NavLink, useLocation } from "react-router-dom";
 
+import { useActiveIndicator } from "@/hooks/useActiveIndicator";
 import { cn } from "@/lib/utils";
 
 interface NavItem {
@@ -16,16 +18,36 @@ const NAV_ITEMS: NavItem[] = [
 ];
 
 /** Navegação principal em abas sobre a faixa escura: texto claro, a aba
- * ativa em branco com sublinhado limão sobre uma hairline contínua. Abaixo de
+ * ativa em branco com sublinhado limão sobre uma hairline contínua — o
+ * sublinhado desliza até a aba escolhida. Abaixo de
  * lg (linha própria, largura toda) ficam centralizadas; em lg+ ficam à
  * direita da saudação. */
 export function Sidebar() {
+    const listRef = useRef<HTMLUListElement>(null);
+    const { pathname } = useLocation();
+    // só a aba principal importa (/qualidade/mapa e /qualidade/curso são a
+    // mesma aba): trocar de sub-aba não remede
+    const indicador = useActiveIndicator(listRef, pathname.split("/")[1] ?? "");
+
     return (
         <nav
             aria-label="Navegação principal"
             className="-mx-1 [scrollbar-width:none] overflow-x-auto"
         >
-            <ul className="flex min-w-max justify-center border-b border-white/15 px-1 lg:justify-start">
+            <ul
+                ref={listRef}
+                className="relative flex min-w-max justify-center border-b border-white/15 px-1 lg:justify-start"
+            >
+                <span
+                    aria-hidden
+                    className={cn(
+                        "bg-lime absolute -bottom-px left-0 h-0.5",
+                        indicador.animar &&
+                            "transition-[transform,width] duration-300 ease-out motion-reduce:transition-none",
+                        !indicador.visivel && "opacity-0"
+                    )}
+                    style={indicador.style}
+                />
                 {NAV_ITEMS.map(({ to, label, end }) => (
                     <li key={to}>
                         <NavLink
@@ -33,10 +55,10 @@ export function Sidebar() {
                             end={end}
                             className={({ isActive }) =>
                                 cn(
-                                    "relative -mb-px block border-b-2 px-2 pb-3 text-[13px] whitespace-nowrap transition-colors outline-none focus-visible:text-white sm:px-5 sm:text-[15px]",
+                                    "relative block px-2 pb-[11px] text-[13px] whitespace-nowrap transition-colors duration-300 outline-none focus-visible:text-white sm:px-4 sm:text-[14px]",
                                     isActive
-                                        ? "border-lime font-semibold text-white"
-                                        : "border-transparent text-white/50 hover:text-white/80"
+                                        ? "font-semibold text-white"
+                                        : "text-white/50 hover:text-white/80"
                                 )
                             }
                         >

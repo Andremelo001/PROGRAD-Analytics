@@ -71,7 +71,7 @@ def _tendencia_ingressantes(data: ScopedData) -> list[dict[str, object]]:
 
 
 def _distribuicao_cpc_faixa(
-    kpis_por_curso: list[dict[str, object]]
+    kpis_por_curso: list[dict[str, object]],
 ) -> list[dict[str, object]]:
     counts: dict[object, int] = {}
     for row in kpis_por_curso:

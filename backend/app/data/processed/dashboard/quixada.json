@@ -1,5 +1,5 @@
 {
-  "gerado_em": "2026-09-30T00:31:03+00:00",
+  "gerado_em": "2026-10-04T10:23:52+00:00",
   "escopo": {
     "codigo_ies": 583,
     "nome_ies": "UNIVERSIDADE FEDERAL DO CEARÁ",
@@ -150,7 +150,10 @@
         "ano": 2017,
         "cpc_continuo": 3.346667324,
         "cpc_faixa": "4",
-        "conceito_enade_continuo": 3.2722934654
+        "conceito_enade_continuo": 3.2722934654,
+        "n_concluintes_inscritos": 42,
+        "n_concluintes_participantes": 34,
+        "taxa_participacao": 81.0
       },
       {
         "codigo_curso": 106167,
@@ -159,7 +162,10 @@
         "ano": 2021,
         "cpc_continuo": 3.011,
         "cpc_faixa": "4",
-        "conceito_enade_continuo": 2.095
+        "conceito_enade_continuo": 2.095,
+        "n_concluintes_inscritos": 47,
+        "n_concluintes_participantes": 43,
+        "taxa_participacao": 91.5
       },
       {
         "codigo_curso": 1127191,
@@ -168,7 +174,10 @@
         "ano": 2017,
         "cpc_continuo": 3.7518204,
         "cpc_faixa": "4",
-        "conceito_enade_continuo": 4.119942897
+        "conceito_enade_continuo": 4.119942897,
+        "n_concluintes_inscritos": 26,
+        "n_concluintes_participantes": 25,
+        "taxa_participacao": 96.2
       },
       {
         "codigo_curso": 1127191,
@@ -177,7 +186,10 @@
         "ano": 2021,
         "cpc_continuo": 3.582,
         "cpc_faixa": "4",
-        "conceito_enade_continuo": 3.758
+        "conceito_enade_continuo": 3.758,
+        "n_concluintes_inscritos": 33,
+        "n_concluintes_participantes": 29,
+        "taxa_participacao": 87.9
       },
       {
         "codigo_curso": 1270596,
@@ -186,7 +198,10 @@
         "ano": 2017,
         "cpc_continuo": 4.085750086,
         "cpc_faixa": "5",
-        "conceito_enade_continuo": 4.042607136
+        "conceito_enade_continuo": 4.042607136,
+        "n_concluintes_inscritos": 10,
+        "n_concluintes_participantes": 10,
+        "taxa_participacao": 100.0
       },
       {
         "codigo_curso": 1270596,
@@ -195,7 +210,10 @@
         "ano": 2021,
         "cpc_continuo": 3.304,
         "cpc_faixa": "4",
-        "conceito_enade_continuo": 2.425
+        "conceito_enade_continuo": 2.425,
+        "n_concluintes_inscritos": 35,
+        "n_concluintes_participantes": 29,
+        "taxa_participacao": 82.9
       },
       {
         "codigo_curso": 1299933,
@@ -204,7 +222,10 @@
         "ano": 2019,
         "cpc_continuo": 3.513,
         "cpc_faixa": "4",
-        "conceito_enade_continuo": 3.401
+        "conceito_enade_continuo": 3.401,
+        "n_concluintes_inscritos": 14,
+        "n_concluintes_participantes": 14,
+        "taxa_participacao": 100.0
       }
     ],
     "perfil_radar": [
@@ -212,6 +233,10 @@
         "codigo_curso": 106167,
         "nome_curso": "SISTEMAS DE INFORMAÇÃO",
         "area_avaliacao": "SISTEMAS DE INFORMAÇÃO",
+        "ano": 2021,
+        "cpc_continuo": 3.011,
+        "cpc_faixa": "4",
+        "conceito_enade_continuo": 2.095,
         "formacao_geral": 2.071,
         "componente_especifico": 2.103,
         "idd": 2.046,
@@ -226,6 +251,10 @@
         "codigo_curso": 1127191,
         "nome_curso": "REDES DE COMPUTADORES",
         "area_avaliacao": "TECNOLOGIA EM REDES DE COMPUTADORES",
+        "ano": 2021,
+        "cpc_continuo": 3.582,
+        "cpc_faixa": "4",
+        "conceito_enade_continuo": 3.758,
         "formacao_geral": 3.494,
         "componente_especifico": 3.846,
         "idd": 2.433,
@@ -240,6 +269,10 @@
         "codigo_curso": 1270596,
         "nome_curso": "CIÊNCIA DA COMPUTAÇÃO",
         "area_avaliacao": "CIÊNCIA DA COMPUTAÇÃO (BACHARELADO)",
+        "ano": 2021,
+        "cpc_continuo": 3.304,
+        "cpc_faixa": "4",
+        "conceito_enade_continuo": 2.425,
         "formacao_geral": 2.031,
         "componente_especifico": 2.556,
         "idd": 2.595,
@@ -254,6 +287,10 @@
         "codigo_curso": 1299933,
         "nome_curso": "ENGENHARIA DE COMPUTAÇÃO",
         "area_avaliacao": "ENGENHARIA DA COMPUTAÇÃO",
+        "ano": 2019,
+        "cpc_continuo": 3.513,
+        "cpc_faixa": "4",
+        "conceito_enade_continuo": 3.401,
         "formacao_geral": 3.218,
         "componente_especifico": 3.4626,
         "idd": 3.328,
@@ -5781,6 +5818,10 @@
         "codigo_curso": 106167,
         "nome_curso": "SISTEMAS DE INFORMAÇÃO",
         "area_avaliacao": "SISTEMAS DE INFORMAÇÃO",
+        "ano": 2021,
+        "cpc_continuo": 3.011,
+        "cpc_faixa": "4",
+        "conceito_enade_continuo": 2.095,
         "formacao_geral": 2.071,
         "componente_especifico": 2.103,
         "idd": 2.046,
@@ -5795,6 +5836,10 @@
         "codigo_curso": 1127191,
         "nome_curso": "REDES DE COMPUTADORES",
         "area_avaliacao": "TECNOLOGIA EM REDES DE COMPUTADORES",
+        "ano": 2021,
+        "cpc_continuo": 3.582,
+        "cpc_faixa": "4",
+        "conceito_enade_continuo": 3.758,
         "formacao_geral": 3.494,
         "componente_especifico": 3.846,
         "idd": 2.433,
@@ -5809,6 +5854,10 @@
         "codigo_curso": 1270596,
         "nome_curso": "CIÊNCIA DA COMPUTAÇÃO",
         "area_avaliacao": "CIÊNCIA DA COMPUTAÇÃO (BACHARELADO)",
+        "ano": 2021,
+        "cpc_continuo": 3.304,
+        "cpc_faixa": "4",
+        "conceito_enade_continuo": 2.425,
         "formacao_geral": 2.031,
         "componente_especifico": 2.556,
         "idd": 2.595,
@@ -5823,6 +5872,10 @@
         "codigo_curso": 1299933,
         "nome_curso": "ENGENHARIA DE COMPUTAÇÃO",
         "area_avaliacao": "ENGENHARIA DA COMPUTAÇÃO",
+        "ano": 2019,
+        "cpc_continuo": 3.513,
+        "cpc_faixa": "4",
+        "conceito_enade_continuo": 3.401,
         "formacao_geral": 3.218,
         "componente_especifico": 3.4626,
         "idd": 3.328,
@@ -5842,7 +5895,10 @@
         "ano": 2017,
         "cpc_continuo": 3.346667324,
         "cpc_faixa": "4",
-        "conceito_enade_continuo": 3.2722934654
+        "conceito_enade_continuo": 3.2722934654,
+        "n_concluintes_inscritos": 42,
+        "n_concluintes_participantes": 34,
+        "taxa_participacao": 81.0
       },
       {
         "codigo_curso": 106167,
@@ -5851,7 +5907,10 @@
         "ano": 2021,
         "cpc_continuo": 3.011,
         "cpc_faixa": "4",
-        "conceito_enade_continuo": 2.095
+        "conceito_enade_continuo": 2.095,
+        "n_concluintes_inscritos": 47,
+        "n_concluintes_participantes": 43,
+        "taxa_participacao": 91.5
       },
       {
         "codigo_curso": 1127191,
@@ -5860,7 +5919,10 @@
         "ano": 2017,
         "cpc_continuo": 3.7518204,
         "cpc_faixa": "4",
-        "conceito_enade_continuo": 4.119942897
+        "conceito_enade_continuo": 4.119942897,
+        "n_concluintes_inscritos": 26,
+        "n_concluintes_participantes": 25,
+        "taxa_participacao": 96.2
       },
       {
         "codigo_curso": 1127191,
@@ -5869,7 +5931,10 @@
         "ano": 2021,
         "cpc_continuo": 3.582,
         "cpc_faixa": "4",
-        "conceito_enade_continuo": 3.758
+        "conceito_enade_continuo": 3.758,
+        "n_concluintes_inscritos": 33,
+        "n_concluintes_participantes": 29,
+        "taxa_participacao": 87.9
       },
       {
         "codigo_curso": 1270596,
@@ -5878,7 +5943,10 @@
         "ano": 2017,
         "cpc_continuo": 4.085750086,
         "cpc_faixa": "5",
-        "conceito_enade_continuo": 4.042607136
+        "conceito_enade_continuo": 4.042607136,
+        "n_concluintes_inscritos": 10,
+        "n_concluintes_participantes": 10,
+        "taxa_participacao": 100.0
       },
       {
         "codigo_curso": 1270596,
@@ -5887,7 +5955,10 @@
         "ano": 2021,
         "cpc_continuo": 3.304,
         "cpc_faixa": "4",
-        "conceito_enade_continuo": 2.425
+        "conceito_enade_continuo": 2.425,
+        "n_concluintes_inscritos": 35,
+        "n_concluintes_participantes": 29,
+        "taxa_participacao": 82.9
       },
       {
         "codigo_curso": 1299933,
@@ -5896,7 +5967,10 @@
         "ano": 2019,
         "cpc_continuo": 3.513,
         "cpc_faixa": "4",
-        "conceito_enade_continuo": 3.401
+        "conceito_enade_continuo": 3.401,
+        "n_concluintes_inscritos": 14,
+        "n_concluintes_participantes": 14,
+        "taxa_participacao": 100.0
       }
     ]
   },
@@ -10839,6 +10913,21 @@
     "perfil_radar": [
       {
         "area_avaliacao": "CIÊNCIA DA COMPUTAÇÃO (BACHARELADO)",
+        "ano": 2017,
+        "formacao_geral": null,
+        "componente_especifico": null,
+        "idd": 2.52,
+        "organizacao_didatico_pedagogica": 2.91,
+        "infraestrutura": 3.14,
+        "oportunidade_ampliacao": 3.01,
+        "mestres": 3.96,
+        "doutores": 2.51,
+        "regime_trabalho": 3.97,
+        "quantidade_cursos_considerados": 311
+      },
+      {
+        "area_avaliacao": "CIÊNCIA DA COMPUTAÇÃO (BACHARELADO)",
+        "ano": 2021,
         "formacao_geral": 2.45,
         "componente_especifico": 2.1,
         "idd": 2.63,
@@ -10852,6 +10941,7 @@
       },
       {
         "area_avaliacao": "ENGENHARIA DA COMPUTAÇÃO",
+        "ano": 2019,
         "formacao_geral": 2.79,
         "componente_especifico": 1.87,
         "idd": 2.38,
@@ -10865,6 +10955,21 @@
       },
       {
         "area_avaliacao": "SISTEMAS DE INFORMAÇÃO",
+        "ano": 2017,
+        "formacao_geral": null,
+        "componente_especifico": null,
+        "idd": 2.63,
+        "organizacao_didatico_pedagogica": 3.11,
+        "infraestrutura": 3.24,
+        "oportunidade_ampliacao": 3.18,
+        "mestres": 3.81,
+        "doutores": 1.96,
+        "regime_trabalho": 3.89,
+        "quantidade_cursos_considerados": 471
+      },
+      {
+        "area_avaliacao": "SISTEMAS DE INFORMAÇÃO",
+        "ano": 2021,
         "formacao_geral": 2.35,
         "componente_especifico": 2.22,
         "idd": 2.41,
@@ -10878,6 +10983,21 @@
       },
       {
         "area_avaliacao": "TECNOLOGIA EM REDES DE COMPUTADORES",
+        "ano": 2017,
+        "formacao_geral": null,
+        "componente_especifico": null,
+        "idd": 2.77,
+        "organizacao_didatico_pedagogica": 3.11,
+        "infraestrutura": 3.01,
+        "oportunidade_ampliacao": 2.91,
+        "mestres": 3.58,
+        "doutores": 1.68,
+        "regime_trabalho": 3.7,
+        "quantidade_cursos_considerados": 184
+      },
+      {
+        "area_avaliacao": "TECNOLOGIA EM REDES DE COMPUTADORES",
+        "ano": 2021,
         "formacao_geral": 2.17,
         "componente_especifico": 2.23,
         "idd": 2.08,
