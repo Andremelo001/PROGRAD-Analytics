@@ -256,12 +256,12 @@ export function IngressantesTrendCard({
                                     >
                                         <stop
                                             offset="0%"
-                                            stopColor={CHART.brand}
+                                            stopColor={CHART.comparacao.a}
                                             stopOpacity={0.28}
                                         />
                                         <stop
                                             offset="100%"
-                                            stopColor={CHART.brand}
+                                            stopColor={CHART.comparacao.a}
                                             stopOpacity={0}
                                         />
                                     </linearGradient>
@@ -295,7 +295,7 @@ export function IngressantesTrendCard({
                                 <path
                                     d={curva(linhaSerie)}
                                     fill="none"
-                                    stroke={CHART.brand}
+                                    stroke={CHART.comparacao.a}
                                     strokeWidth={2.5}
                                     strokeLinecap="round"
                                 />
@@ -327,7 +327,7 @@ export function IngressantesTrendCard({
                                     <Ponto
                                         cx={fx}
                                         cy={fy}
-                                        cor={CHART.brand}
+                                        cor={CHART.comparacao.a}
                                         fundo={CHART.surface}
                                         pilula={CHART.lime}
                                         texto={formatInteger(foco.valor)}
@@ -373,7 +373,7 @@ export function IngressantesTrendCard({
                         )}
                     </div>
                     <div className="text-text-secondary mt-3 flex flex-wrap gap-x-5 gap-y-1 text-[12px]">
-                        <Legenda cor={CHART.brand} label={nomeSerie} />
+                        <Legenda cor={CHART.comparacao.a} label={nomeSerie} />
                         <Legenda cor={CHART.comparacao.b} label="Média nacional" />
                     </div>
                 </>

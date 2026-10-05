@@ -4,7 +4,7 @@ import { formatDecimal } from "@/lib/format";
 import { cn } from "@/lib/utils";
 
 /** Diferença numa nota 0-5 (CPC, componente) em pílula: limão quando sobe /
- * fica acima, vermelha quando cai / fica abaixo, neutra até ±``limiar``. O
+ * fica acima (azul nas cores acessíveis), vermelha quando cai / fica abaixo, neutra até ±``limiar``. O
  * sinal e a seta vão escritos — a cor nunca vai sozinha. */
 export function DeltaPill({
     diff,
@@ -29,7 +29,7 @@ export function DeltaPill({
                 same
                     ? "bg-page text-text-secondary"
                     : diff > 0
-                      ? "bg-lime text-on-lime"
+                      ? "bg-good text-on-good"
                       : "bg-status-critical text-white"
             )}
         >

@@ -1,11 +1,12 @@
-import { useLayoutEffect, useRef, useState } from "react";
+import { useLayoutEffect, useRef, useState, type ReactNode } from "react";
 
 import { cn } from "@/lib/utils";
 
-// Última posição da pílula: ao trocar de modo a página de comparação é
-// montada de novo (inclusive este botão), então a pílula parte de onde
-// estava e desliza até a opção nova — como o destaque das abas.
-let ultima: { left: number; width: number } | null = null;
+// Última posição da pílula de cada grupo (pelo ``label``): ao trocar de modo
+// a página de comparação é montada de novo (inclusive este botão), então a
+// pílula parte de onde estava e desliza até a opção nova — como o destaque
+// das abas. Por grupo, pra um seletor não herdar a posição de outro.
+const ultimas = new Map<string, { left: number; width: number }>();
 
 /** Botão de dois (ou mais) modos em pílula, com a opção ativa numa pílula
  * escura que desliza até a escolhida (mesma animação das abas). */
@@ -17,11 +18,12 @@ export function ModoToggle<T extends string>({
 }: {
     label: string;
     value: T;
-    options: { value: T; label: string }[];
+    /** ``icon`` opcional, antes do texto. */
+    options: { value: T; label: string; icon?: ReactNode }[];
     onChange: (value: T) => void;
 }) {
     const ref = useRef<HTMLDivElement>(null);
-    const [pos, setPos] = useState(ultima);
+    const [pos, setPos] = useState(() => ultimas.get(label) ?? null);
     const [animar, setAnimar] = useState(false);
 
     useLayoutEffect(() => {
@@ -37,6 +39,7 @@ export function ModoToggle<T extends string>({
         const nova = medir();
         if (!nova) return;
         let frame = 0;
+        const ultima = ultimas.get(label);
         if (ultima && ultima.left !== nova.left) {
             // desenha na posição antiga e, no quadro seguinte, desliza
             frame = requestAnimationFrame(() => {
@@ -47,11 +50,11 @@ export function ModoToggle<T extends string>({
             setPos(nova);
             frame = requestAnimationFrame(() => setAnimar(true));
         }
-        ultima = nova;
+        ultimas.set(label, nova);
         const observer = new ResizeObserver(() => {
             const m = medir();
             if (m) {
-                ultima = m;
+                ultimas.set(label, m);
                 setPos(m);
             }
         });
@@ -60,7 +63,7 @@ export function ModoToggle<T extends string>({
             cancelAnimationFrame(frame);
             observer.disconnect();
         };
-    }, [value]);
+    }, [value, label]);
 
     return (
         <div
@@ -91,12 +94,13 @@ export function ModoToggle<T extends string>({
                     aria-checked={value === o.value}
                     onClick={() => value !== o.value && onChange(o.value)}
                     className={cn(
-                        "focus-visible:ring-lime/60 relative rounded-full px-3 py-1.5 text-[12px] whitespace-nowrap transition-colors duration-300 outline-none focus-visible:ring-2 sm:px-4 sm:text-[13px]",
+                        "focus-visible:ring-lime/60 relative flex items-center gap-1.5 rounded-full px-3 py-1.5 text-[12px] whitespace-nowrap transition-colors duration-300 outline-none focus-visible:ring-2 sm:px-4 sm:text-[13px]",
                         value === o.value
                             ? "text-surface font-semibold"
                             : "text-text-secondary hover:text-ink"
                     )}
                 >
+                    {o.icon}
                     {o.label}
                 </button>
             ))}

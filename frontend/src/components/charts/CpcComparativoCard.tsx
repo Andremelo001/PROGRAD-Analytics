@@ -396,7 +396,7 @@ function DiffBadge({ diff }: { diff: number }) {
                 same
                     ? "bg-page text-text-secondary"
                     : diff > 0
-                      ? "bg-lime text-on-lime"
+                      ? "bg-good text-on-good"
                       : "bg-status-critical text-white"
             )}
         >

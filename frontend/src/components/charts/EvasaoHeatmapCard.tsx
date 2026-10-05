@@ -12,6 +12,7 @@ import type {
     HeatmapEvasaoNacionalCelula,
 } from "@/types/dashboard";
 import { useChartTheme } from "@/hooks/useChartTheme";
+import { useTheme } from "@/hooks/useTheme";
 
 interface Celula {
     taxa: number | null;
@@ -83,6 +84,8 @@ export function EvasaoHeatmapCard({
     className?: string;
 }) {
     const CHART = useChartTheme();
+    // as cores das células mudam com as cores acessíveis; o texto acompanha
+    const { coresAcessiveis } = useTheme();
     const [hover, setHover] = useState<{ codigo: number; ano: number } | null>(null);
     const { anos, linhas } = useMemo(
         () => buildLinhas(cursos, local, nacional),
@@ -145,7 +148,7 @@ export function EvasaoHeatmapCard({
     return (
         <Card
             title="Evasão anual por curso"
-            subtitle="Evasão de cada ano comparada à média nacional da área: verde abaixo, vermelho acima"
+            subtitle={`Evasão de cada ano comparada à média nacional da área: ${coresAcessiveis ? "azul abaixo, laranja acima" : "verde abaixo, vermelho acima"}`}
             className={className}
         >
             <div className="mt-3 flex flex-wrap items-center justify-between gap-x-6 gap-y-3 sm:flex-nowrap">
@@ -372,7 +375,7 @@ function DiffBadge({ diff }: { diff: number }) {
                 same
                     ? "bg-page text-text-secondary"
                     : diff < 0
-                      ? "bg-lime text-on-lime"
+                      ? "bg-good text-on-good"
                       : "bg-status-critical text-white"
             )}
         >

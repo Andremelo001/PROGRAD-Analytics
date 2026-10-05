@@ -66,7 +66,7 @@ export function StatTile({
                     <span
                         className={cn(
                             "flex items-center gap-1 rounded-lg px-2.5 py-1.5 text-[12px] leading-none font-semibold",
-                            tone === "good" && "bg-lime text-on-lime",
+                            tone === "good" && "bg-good text-on-good",
                             tone === "bad" && "bg-status-critical text-white",
                             tone === "neutral" && "bg-page text-text-secondary"
                         )}

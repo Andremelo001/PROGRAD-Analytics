@@ -15,7 +15,14 @@ export interface DashboardDataContextValue {
     setCampus: (slug: string) => void;
     /** ``true`` enquanto baixa o JSON de um campus recém-escolhido. */
     switching: boolean;
+    /** Campus ao abrir o painel (Configurações): ``ULTIMO_CAMPUS`` (o último
+     * escolhido) ou o slug de um campus fixo. */
+    campusAoAbrir: string;
+    setCampusAoAbrir: (valor: string) => void;
 }
+
+/** Valor de ``campusAoAbrir`` que abre no último campus escolhido (padrão). */
+export const ULTIMO_CAMPUS = "ultimo";
 
 export const DashboardDataContext = createContext<
     DashboardDataContextValue | undefined

@@ -31,6 +31,10 @@
      * junto, nunca cor sozinha. */
     --status-critical: #e5484d;
     --status-critical-text: #b42318;
+    /* Status "bom" em pílula (sobe, acima da média): o limão do sistema; nas
+     * cores acessíveis vira azul. */
+    --good: var(--lime);
+    --on-good: var(--on-lime);
 
     --background: hsl(0 0% 100%);
     --foreground: hsl(222.2 84% 4.9%);
@@ -93,6 +97,40 @@
     --ring: hsl(212.7 26.8% 83.9%);
 }
 
+/* Cores acessíveis (Configurações; classe ``cores-acessiveis`` no <html>):
+ * bom/ruim em azul × laranja no lugar de verde × vermelho — par que
+ * daltônicos de vermelho-verde (protan/deutan) distinguem. Validado com o
+ * validate_palette da skill dataviz contra a superfície de cada tema. A
+ * série principal (oliva) vira o mesmo azul, pra ler junto com "bom". */
+.cores-acessiveis {
+    --olive: #2f6fd0;
+    --olive-text: #1f58ad;
+    --status-critical: #e8710a;
+    --status-critical-text: #a64a04;
+    --good: #2f6fd0;
+    --on-good: #ffffff;
+}
+
+/* Dentro dos cards (``section``), também o limão de destaque (pílulas,
+ * ano em foco, marcadores) vira um azul claro: nos cards, tudo fica em azul
+ * e laranja. Fora deles (abas, navegação) o limão segue como acento. */
+.cores-acessiveis section {
+    --lime: #a9c8f2;
+}
+
+.dark.cores-acessiveis section {
+    --lime: #8db8f5;
+}
+
+.dark.cores-acessiveis {
+    --olive: #4689ea;
+    --olive-text: #8db8f5;
+    --status-critical: #e0731c;
+    --status-critical-text: #f6a462;
+    --good: #4689ea;
+    --on-good: #ffffff;
+}
+
 /* Tailwind v4 não lê mais tailwind.config.ts por padrão — @theme inline é
  * quem expõe essas variáveis como classes utilitárias (bg-background,
  * text-foreground, border-border, etc.), igual o tailwind.config.ts fazia
@@ -118,6 +156,8 @@
     --color-text-muted: var(--text-muted);
     --color-status-critical: var(--status-critical);
     --color-status-critical-text: var(--status-critical-text);
+    --color-good: var(--good);
+    --color-on-good: var(--on-good);
 
     --color-background: var(--background);
     --color-foreground: var(--foreground);

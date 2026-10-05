@@ -6,13 +6,15 @@
         <link rel="icon" type="image/png" href="/src/assets/brasao.png" />
         <title>PROGRAD Analytics</title>
         <!-- Aplica o tema antes da primeira pintura (sem "piscar" claro no modo
-             escuro): escolha salva > preferência do sistema. Mesma chave do
-             ThemeProvider. -->
+             escuro): escolha salva > preferência do sistema; e as cores
+             acessíveis, se ligadas. Mesmas chaves do ThemeProvider. -->
         <script>
             (function () {
                 var tema = null;
+                var cores = null;
                 try {
                     tema = localStorage.getItem("prograd-theme");
+                    cores = localStorage.getItem("prograd-cores-acessiveis");
                 } catch (e) {}
                 if (tema !== "light" && tema !== "dark") {
                     tema = matchMedia("(prefers-color-scheme: dark)").matches
@@ -20,6 +22,8 @@
                         : "light";
                 }
                 if (tema === "dark") document.documentElement.classList.add("dark");
+                if (cores === "1")
+                    document.documentElement.classList.add("cores-acessiveis");
             })();
         </script>
     </head>

@@ -91,6 +91,37 @@ export const CHART_DARK: ChartPalette = {
     comparacao: { a: "#869c20", b: "#7f5ef0" },
 };
 
+/** Cores acessíveis (daltonismo): tudo nos gráficos em azul e laranja.
+ * Bom/ruim e a série principal em azul × laranja no lugar de oliva ×
+ * vermelho; o par da comparação (A × B) no mesmo azul × laranja; o mapa de
+ * calor da evasão nas duas rampas; o mapa de presença na rampa azul das
+ * faixas; e o limão de destaque num azul claro. O par azul × laranja foi
+ * validado com o validate_palette da skill dataviz em cada tema. */
+const ACESSIVEL_RAMPAS = {
+    abaixo: ["#e3edfb", "#a7c6f1", "#2f6fd0", "#1b4a91"],
+    acima: ["#fdebdb", "#f6bd8b", "#e8710a", "#9a4404"],
+} as const;
+
+export const CHART_LIGHT_ACESSIVEL: ChartPalette = {
+    ...CHART_LIGHT,
+    brand: "#2f6fd0",
+    critical: "#e8710a",
+    lime: "#a9c8f2",
+    evasao: ACESSIVEL_RAMPAS,
+    presenca: { ramp: CHART_LIGHT.faixa.ramp, none: CHART_LIGHT.presenca.none },
+    comparacao: { a: "#2f6fd0", b: "#e8710a" },
+};
+
+export const CHART_DARK_ACESSIVEL: ChartPalette = {
+    ...CHART_DARK,
+    brand: "#4689ea",
+    critical: "#e0731c",
+    lime: "#8db8f5",
+    evasao: ACESSIVEL_RAMPAS,
+    presenca: { ramp: CHART_DARK.faixa.ramp, none: CHART_DARK.presenca.none },
+    comparacao: { a: "#4689ea", b: "#e0731c" },
+};
+
 /** Quais anos do eixo X mostrar: cada ano precisa de ~52px, então em telas
  * estreitas mostra um a cada ``step`` (contando a partir do último) e sempre
  * o ano em foco, sem vizinhos colados nele. ``width`` 0 = ainda não medido. */

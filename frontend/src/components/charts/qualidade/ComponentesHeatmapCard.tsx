@@ -6,6 +6,7 @@ import { rampColor } from "@/components/charts/chart-theme";
 import { DataTable } from "@/components/charts/DataTable";
 import { DeltaPill } from "@/components/charts/qualidade/DeltaPill";
 import { useChartTheme } from "@/hooks/useChartTheme";
+import { useTheme } from "@/hooks/useTheme";
 import { COMPONENTES, notaDe, type Componente } from "@/lib/cpc";
 import { formatDecimal } from "@/lib/format";
 import { media, type AvaliacaoCurso } from "@/lib/qualidade";
@@ -35,6 +36,8 @@ export function ComponentesHeatmapCard({
     className?: string;
 }) {
     const CHART = useChartTheme();
+    // as cores das células mudam com as cores acessíveis; o texto acompanha
+    const { coresAcessiveis } = useTheme();
     const navigate = useNavigate();
     const [hover, setHover] = useState<Hover | null>(null);
 
@@ -116,7 +119,7 @@ export function ComponentesHeatmapCard({
     return (
         <Card
             title="Componentes do CPC por curso"
-            subtitle="Nota de cada componente comparada à média nacional da área no mesmo ano: verde acima, vermelho abaixo"
+            subtitle={`Nota de cada componente comparada à média nacional da área no mesmo ano: ${coresAcessiveis ? "azul acima, laranja abaixo" : "verde acima, vermelho abaixo"}`}
             className={className}
         >
             <div className="mt-3 flex flex-wrap items-center justify-between gap-x-6 gap-y-3 sm:flex-nowrap">

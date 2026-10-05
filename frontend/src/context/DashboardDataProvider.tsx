@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useRef, useState, type ReactNode } from "react";
 
-import { DashboardDataContext } from "@/context/dashboard-data-context";
+import { DashboardDataContext, ULTIMO_CAMPUS } from "@/context/dashboard-data-context";
 import type { CampusIndex, CampusInfo, DashboardData } from "@/types/dashboard";
 
 // import.meta.env.BASE_URL já reflete o `base` do vite.config.ts (inclui o
@@ -8,7 +8,25 @@ import type { CampusIndex, CampusInfo, DashboardData } from "@/types/dashboard";
 // fetch funciona igual em dev e em produção sem configuração extra.
 const DATA_DIR = `${import.meta.env.BASE_URL}data/dashboard/`;
 const CAMPUS_STORAGE_KEY = "prograd-campus";
+const CAMPUS_INICIAL_STORAGE_KEY = "prograd-campus-inicial";
 const CAMPUS_PADRAO = "quixada";
+
+function ler(chave: string): string | null {
+    try {
+        return localStorage.getItem(chave);
+    } catch {
+        return null; // armazenamento bloqueado: segue sem lembrar
+    }
+}
+
+function gravar(chave: string, valor: string | null) {
+    try {
+        if (valor === null) localStorage.removeItem(chave);
+        else localStorage.setItem(chave, valor);
+    } catch {
+        // armazenamento bloqueado: só não lembra
+    }
+}
 
 async function fetchJson<T>(arquivo: string): Promise<T> {
     const response = await fetch(`${DATA_DIR}${arquivo}`);
@@ -18,16 +36,13 @@ async function fetchJson<T>(arquivo: string): Promise<T> {
     return (await response.json()) as T;
 }
 
-/** Campus inicial: o último escolhido (localStorage), senão Quixadá, senão o
- * primeiro do índice. */
+/** Campus inicial: o fixado nas Configurações ("Campus ao abrir o painel"),
+ * senão o último escolhido, senão Quixadá, senão o primeiro do índice. */
 function campusInicial(campi: CampusInfo[]): string | null {
-    let salvo: string | null = null;
-    try {
-        salvo = localStorage.getItem(CAMPUS_STORAGE_KEY);
-    } catch {
-        // armazenamento bloqueado: segue sem lembrar
-    }
     const existe = (slug: string | null) => campi.some((c) => c.slug === slug);
+    const fixo = ler(CAMPUS_INICIAL_STORAGE_KEY);
+    if (existe(fixo)) return fixo;
+    const salvo = ler(CAMPUS_STORAGE_KEY);
     if (existe(salvo)) return salvo;
     if (existe(CAMPUS_PADRAO)) return CAMPUS_PADRAO;
     return campi[0]?.slug ?? null;
@@ -44,6 +59,9 @@ export function DashboardDataProvider({ children }: { children: ReactNode }) {
     );
     const [error, setError] = useState<string | null>(null);
     const cache = useRef(new Map<string, DashboardData>());
+    const [campusAoAbrir, setCampusAoAbrirState] = useState(
+        () => ler(CAMPUS_INICIAL_STORAGE_KEY) ?? ULTIMO_CAMPUS
+    );
 
     useEffect(() => {
         let cancelled = false;
@@ -88,12 +106,19 @@ export function DashboardDataProvider({ children }: { children: ReactNode }) {
 
     const setCampus = useCallback((slug: string) => {
         setCampusState(slug);
-        try {
-            localStorage.setItem(CAMPUS_STORAGE_KEY, slug);
-        } catch {
-            // armazenamento bloqueado: só não lembra
-        }
+        gravar(CAMPUS_STORAGE_KEY, slug);
     }, []);
+
+    // fixar um campus já troca pra ele (o painel mostra o que vai abrir);
+    // "Último usado" mantém o campus atual
+    const setCampusAoAbrir = useCallback(
+        (valor: string) => {
+            setCampusAoAbrirState(valor);
+            gravar(CAMPUS_INICIAL_STORAGE_KEY, valor === ULTIMO_CAMPUS ? null : valor);
+            if (valor !== ULTIMO_CAMPUS) setCampus(valor);
+        },
+        [setCampus]
+    );
 
     return (
         <DashboardDataContext.Provider
@@ -105,6 +130,8 @@ export function DashboardDataProvider({ children }: { children: ReactNode }) {
                 campus,
                 setCampus,
                 switching: loaded !== null && campus !== loaded.slug && error === null,
+                campusAoAbrir,
+                setCampusAoAbrir,
             }}
         >
             {children}
