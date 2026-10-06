@@ -1,7 +1,8 @@
 import { useRef } from "react";
-import { NavLink, useLocation } from "react-router-dom";
+import { NavLink, useLocation, useNavigate } from "react-router-dom";
 
 import { useActiveIndicator } from "@/hooks/useActiveIndicator";
+import { ultimaSubaba } from "@/lib/ultima-subaba";
 import { cn } from "@/lib/utils";
 
 interface NavItem {
@@ -25,6 +26,7 @@ const NAV_ITEMS: NavItem[] = [
 export function Sidebar() {
     const listRef = useRef<HTMLUListElement>(null);
     const { pathname } = useLocation();
+    const navigate = useNavigate();
     // só a aba principal importa (/qualidade/mapa e /qualidade/curso são a
     // mesma aba): trocar de sub-aba não remede
     const indicador = useActiveIndicator(listRef, pathname.split("/")[1] ?? "");
@@ -53,6 +55,17 @@ export function Sidebar() {
                         <NavLink
                             to={to}
                             end={end}
+                            // Qualidade vai direto pra última sub-aba aberta: sem
+                            // passar por /qualidade (que redireciona), as abas não
+                            // desenham um quadro sem nenhuma ativa — nada pisca
+                            onClick={
+                                to === "/qualidade"
+                                    ? (e) => {
+                                          e.preventDefault();
+                                          navigate(ultimaSubaba());
+                                      }
+                                    : undefined
+                            }
                             className={({ isActive }) =>
                                 cn(
                                     "relative block px-2 pb-[11px] text-[13px] whitespace-nowrap transition-colors duration-300 outline-none focus-visible:text-white sm:px-4 sm:text-[14px]",

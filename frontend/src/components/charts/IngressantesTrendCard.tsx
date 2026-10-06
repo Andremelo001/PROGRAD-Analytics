@@ -78,12 +78,15 @@ function buildTicks(values: number[]): number[] {
     return Array.from({ length: count }, (_, i) => lo + i * step);
 }
 
-/** Curva suave que não passa do valor dos pontos (cúbica monotônica em x,
- * Fritsch–Carlson — a mesma ideia do ``monotoneX`` do d3). */
-function curva(pts: [number, number][]): string {
+type Pt = [number, number];
+/** Um trecho cúbico: início, dois controles e fim. */
+type Cubica = [Pt, Pt, Pt, Pt];
+
+/** Trechos da curva suave que não passa do valor dos pontos (cúbica
+ * monotônica em x, Fritsch–Carlson — a mesma ideia do ``monotoneX`` do d3). */
+function cubicas(pts: Pt[]): Cubica[] {
     const n = pts.length;
-    if (n === 0) return "";
-    if (n === 1) return `M${pts[0][0]},${pts[0][1]}`;
+    if (n < 2) return [];
     const dx = pts.slice(1).map((p, i) => p[0] - pts[i][0]);
     const m = pts.slice(1).map((p, i) => (p[1] - pts[i][1]) / dx[i]);
     const t = pts.map((_, i) => {
@@ -94,17 +97,111 @@ function curva(pts: [number, number][]): string {
             : (3 * (dx[i - 1] + dx[i])) /
                   ((2 * dx[i] + dx[i - 1]) / m[i - 1] + (dx[i] + 2 * dx[i - 1]) / m[i]);
     });
-    let d = `M${pts[0][0]},${pts[0][1]}`;
-    for (let i = 0; i < n - 1; i++) {
-        const h = dx[i] / 3;
-        d += `C${pts[i][0] + h},${pts[i][1] + h * t[i]},${pts[i + 1][0] - h},${pts[i + 1][1] - h * t[i + 1]},${pts[i + 1][0]},${pts[i + 1][1]}`;
+    return dx.map((d, i) => {
+        const h = d / 3;
+        const [a, b] = [pts[i], pts[i + 1]];
+        return [a, [a[0] + h, a[1] + h * t[i]], [b[0] - h, b[1] - h * t[i + 1]], b];
+    });
+}
+
+function curva(pts: Pt[]): string {
+    if (pts.length === 0) return "";
+    return (
+        `M${pts[0][0]},${pts[0][1]}` +
+        cubicas(pts)
+            .map(
+                ([, c1, c2, b]) =>
+                    `C${c1[0]},${c1[1]},${c2[0]},${c2[1]},${b[0]},${b[1]}`
+            )
+            .join("")
+    );
+}
+
+/** Pontos ao longo da curva (a cada poucos px), pra testar se uma pílula
+ * encosta nela. */
+function amostrar(pts: Pt[], passos = 24): Pt[] {
+    if (pts.length === 1) return [pts[0]];
+    return cubicas(pts).flatMap(([a, c1, c2, b]) =>
+        Array.from({ length: passos + 1 }, (_, k): Pt => {
+            const u = k / passos;
+            const v = 1 - u;
+            const f = (i: 0 | 1) =>
+                v ** 3 * a[i] +
+                3 * v * v * u * c1[i] +
+                3 * v * u * u * c2[i] +
+                u ** 3 * b[i];
+            return [f(0), f(1)];
+        })
+    );
+}
+
+interface Caixa {
+    x: number; // centro
+    y: number; // topo
+    w: number;
+}
+
+const PILULA_H = 24;
+
+/** Onde pôr a pílula de valor de um ponto: tenta, em ordem, logo acima/abaixo
+ * (o lado preferido primeiro), um pouco mais longe, e dos lados — sempre
+ * dentro do gráfico (desliza pra dentro nas bordas). Fica com a primeira
+ * posição que não encosta em nenhuma linha, ponto ou pílula já posta; se
+ * nenhuma escapar, a que encosta menos. */
+function posicionarPilula(
+    cx: number,
+    cy: number,
+    w: number,
+    emCima: boolean,
+    area: { x0: number; x1: number; y0: number; y1: number },
+    obstaculos: Pt[],
+    ocupadas: Caixa[]
+): Caixa {
+    const H = PILULA_H;
+    const prende = (c: number) =>
+        Math.min(Math.max(c, area.x0 + w / 2), area.x1 - w / 2);
+    const acima = (d: number) => cy - 10 - H - d;
+    const abaixo = (d: number) => cy + 10 + d;
+    const verticais = [0, 14, 30].flatMap((d) =>
+        emCima ? [acima(d), abaixo(d)] : [abaixo(d), acima(d)]
+    );
+    const candidatos: Caixa[] = [
+        ...verticais.map((y) => ({ x: prende(cx), y, w })),
+        // dos lados do ponto, na mesma altura e um pouco acima/abaixo
+        ...[cy - H / 2, cy - H, cy].flatMap((y) => [
+            { x: prende(cx - 14 - w / 2), y, w },
+            { x: prende(cx + 14 + w / 2), y, w },
+        ]),
+    ].filter((c) => c.y >= area.y0 && c.y + H <= area.y1);
+
+    const folga = 3;
+    const colisoes = (c: Caixa) => {
+        const [l, r] = [c.x - w / 2 - folga, c.x + w / 2 + folga];
+        const [t, b] = [c.y - folga, c.y + H + folga];
+        let n = 0;
+        for (const [px, py] of obstaculos)
+            if (px >= l && px <= r && py >= t && py <= b) n++;
+        for (const o of ocupadas)
+            if (
+                Math.abs(o.x - c.x) < (o.w + w) / 2 + folga &&
+                Math.abs(o.y - c.y) < H + folga
+            )
+                n += 100;
+        return n;
+    };
+    let melhor: Caixa | null = null;
+    let menor = Infinity;
+    for (const c of candidatos) {
+        const n = colisoes(c);
+        if (n === 0) return c;
+        if (n < menor) [melhor, menor] = [c, n];
     }
-    return d;
+    return melhor ?? { x: prende(cx), y: emCima ? acima(0) : abaixo(0), w };
 }
 
 /** Trechos contínuos (sem ano faltando) de uma série. */
-function trechos(pts: ([number, number] | null)[]): [number, number][][] {
-    const out: [number, number][][] = [[]];
+function trechos(pts: (Pt | null)[]): Pt[][] {
+    const out: Pt[][] = [[]];
     for (const p of pts) {
         if (p) out.at(-1)!.push(p);
         else if (out.at(-1)!.length) out.push([]);
@@ -113,9 +210,6 @@ function trechos(pts: ([number, number] | null)[]): [number, number][][] {
 }
 
 const PAD = { top: 14, right: 12, bottom: 32, left: 44 };
-/** Respiro (px) antes do primeiro e depois do último ano, pras pílulas
- * de valor caberem nas pontas. */
-const RESPIRO = 42;
 
 /** Ingressantes por ano, em duas linhas suaves: o campus (ou o curso), em
  * oliva com uma área esmaecida embaixo, e a média nacional, em violeta. No
@@ -164,16 +258,15 @@ export function IngressantesTrendCard({
     // escalas
     const plotW = Math.max(W - PAD.left - PAD.right, 1);
     const plotH = Math.max(H - PAD.top - PAD.bottom, 1);
-    const inset = Math.min(RESPIRO, plotW / 4);
+    // o primeiro e o último ano encostam nas laterais do gráfico; as pílulas
+    // de valor é que se ajustam pra dentro perto das bordas (``Ponto``)
     const x = (i: number) =>
-        PAD.left +
-        inset +
-        (serie.length > 1 ? (i * (plotW - 2 * inset)) / (serie.length - 1) : 0);
+        PAD.left + (serie.length > 1 ? (i * plotW) / (serie.length - 1) : plotW / 2);
     const [y0, y1] = [ticks[0], ticks.at(-1)!];
     const y = (v: number) => PAD.top + plotH - ((v - y0) / (y1 - y0 || 1)) * plotH;
     const base = PAD.top + plotH;
 
-    const linhaSerie = serie.map((p, i): [number, number] => [x(i), y(p.valor)]);
+    const linhaSerie = serie.map((p, i): Pt => [x(i), y(p.valor)]);
     const linhaNacional = trechos(
         serie.map((p, i) => (p.nacional === null ? null : [x(i), y(p.nacional)]))
     );
@@ -186,17 +279,58 @@ export function IngressantesTrendCard({
         if (serie.length === 0) return;
         const rect = e.currentTarget.getBoundingClientRect();
         const px = e.clientX - rect.left + PAD.left;
-        const passo = serie.length > 1 ? (plotW - 2 * inset) / (serie.length - 1) : 1;
-        const i = Math.round((px - PAD.left - inset) / passo);
+        const passo = serie.length > 1 ? plotW / (serie.length - 1) : 1;
+        const i = Math.round((px - PAD.left) / passo);
         setHover(Math.min(Math.max(i, 0), serie.length - 1));
     }
 
     const fx = foco ? x(sel) : 0;
     const fy = foco ? y(foco.valor) : 0;
     const fyN = foco?.nacional != null ? y(foco.nacional) : null;
-    // campus/curso embaixo da linha e média nacional em cima; se o campus
-    // está acima da média, invertem
+    // campus/curso embaixo da linha e média nacional em cima (invertem se o
+    // campus está acima da média); as pílulas fogem das linhas e dos pontos
     const campusEmCima = fyN !== null && fy < fyN;
+    const textoSerie = foco ? formatInteger(foco.valor) : "";
+    const textoNacional = foco?.nacional != null ? formatInteger(foco.nacional) : "";
+    const largura = (texto: string) => texto.length * 7 + 18;
+    const limitesPilula = { x0: PAD.left, x1: PAD.left + plotW, y0: 0, y1: base };
+    const obstaculos: Pt[] = foco
+        ? [
+              ...amostrar(linhaSerie),
+              ...linhaNacional.flatMap((t) => amostrar(t)),
+              // os dois pontos em foco (anel de ~7px)
+              ...[fy, fyN].flatMap((py) =>
+                  py === null
+                      ? []
+                      : [-7, 0, 7].flatMap((dx) =>
+                            [-7, 0, 7].map((dy): Pt => [fx + dx, py + dy])
+                        )
+              ),
+          ]
+        : [];
+    const pilulaNacional =
+        foco && fyN !== null
+            ? posicionarPilula(
+                  fx,
+                  fyN,
+                  largura(textoNacional),
+                  !campusEmCima,
+                  limitesPilula,
+                  obstaculos,
+                  []
+              )
+            : null;
+    const pilulaSerie = foco
+        ? posicionarPilula(
+              fx,
+              fy,
+              largura(textoSerie),
+              campusEmCima,
+              limitesPilula,
+              obstaculos,
+              pilulaNacional ? [pilulaNacional] : []
+          )
+        : null;
 
     return (
         <Card
@@ -312,27 +446,27 @@ export function IngressantesTrendCard({
                                 ))}
 
                                 {/* pontos em foco, cada um com a pílula do valor */}
-                                {foco && fyN !== null && (
+                                {fyN !== null && pilulaNacional && (
                                     <Ponto
                                         cx={fx}
                                         cy={fyN}
                                         cor={CHART.comparacao.b}
                                         fundo={CHART.surface}
-                                        texto={formatInteger(foco.nacional!)}
+                                        texto={textoNacional}
                                         textoCor="#ffffff"
-                                        emCima={!campusEmCima}
+                                        caixa={pilulaNacional}
                                     />
                                 )}
-                                {foco && (
+                                {pilulaSerie && (
                                     <Ponto
                                         cx={fx}
                                         cy={fy}
                                         cor={CHART.comparacao.a}
                                         fundo={CHART.surface}
                                         pilula={CHART.lime}
-                                        texto={formatInteger(foco.valor)}
+                                        texto={textoSerie}
                                         textoCor={CHART.onLime}
-                                        emCima={campusEmCima}
+                                        caixa={pilulaSerie}
                                     />
                                 )}
 
@@ -344,7 +478,15 @@ export function IngressantesTrendCard({
                                                 key={p.ano}
                                                 x={x(i)}
                                                 y={H - 10}
-                                                textAnchor="middle"
+                                                // nas pontas, o ano alinha pra dentro
+                                                textAnchor={
+                                                    serie.length > 1 && i === 0
+                                                        ? "start"
+                                                        : serie.length > 1 &&
+                                                            i === serie.length - 1
+                                                          ? "end"
+                                                          : "middle"
+                                                }
                                                 fontSize={11.5}
                                                 fontWeight={i === sel ? 700 : 400}
                                                 fill={
@@ -395,8 +537,8 @@ function Legenda({ cor, label }: { cor: string; label: string }) {
     );
 }
 
-/** Ponto em foco de uma linha, com uma pílula pequena do valor logo acima ou
- * logo abaixo dele. */
+/** Ponto em foco de uma linha, com a pílula do valor na posição escolhida
+ * por ``posicionarPilula``. */
 function Ponto({
     cx,
     cy,
@@ -405,7 +547,7 @@ function Ponto({
     pilula = cor,
     texto,
     textoCor,
-    emCima,
+    caixa,
 }: {
     cx: number;
     cy: number;
@@ -414,28 +556,22 @@ function Ponto({
     pilula?: string;
     texto: string;
     textoCor: string;
-    emCima: boolean;
+    caixa: Caixa;
 }) {
-    const w = texto.length * 7 + 18;
-    // sem espaço acima (ponto colado no topo do gráfico), a pílula vai pro
-    // lado esquerdo do ponto, na mesma altura
-    const lado = emCima && cy - 34 < 0;
-    const top = lado ? cy - 12 : emCima ? cy - 34 : cy + 10;
-    const centro = lado ? cx - 12 - w / 2 : cx;
     return (
         <g>
             <circle cx={cx} cy={cy} r={5} fill={fundo} stroke={cor} strokeWidth={2.5} />
             <rect
-                x={centro - w / 2}
-                y={top}
-                width={w}
-                height={24}
+                x={caixa.x - caixa.w / 2}
+                y={caixa.y}
+                width={caixa.w}
+                height={PILULA_H}
                 rx={8}
                 fill={pilula}
             />
             <text
-                x={centro}
-                y={top + 16}
+                x={caixa.x}
+                y={caixa.y + 16}
                 textAnchor="middle"
                 fontSize={12}
                 fontWeight={700}

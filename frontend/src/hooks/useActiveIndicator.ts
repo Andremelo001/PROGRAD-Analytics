@@ -1,4 +1,10 @@
-import { useLayoutEffect, useState, type CSSProperties, type RefObject } from "react";
+import {
+    useLayoutEffect,
+    useRef,
+    useState,
+    type CSSProperties,
+    type RefObject,
+} from "react";
 
 /** Posição do destaque deslizante de uma barra de abas: mede o link ativo
  * (``aria-current="page"``, que o ``NavLink`` põe sozinho) dentro de
@@ -12,6 +18,11 @@ export function useActiveIndicator(
 ): { style: CSSProperties; visivel: boolean; animar: boolean } {
     const [medida, setMedida] = useState<{ left: number; width: number } | null>(null);
     const [animar, setAnimar] = useState(false);
+    // o destaque só desliza de uma aba pra outra: quando ainda não havia aba
+    // ativa (ex.: voltar pra Qualidade passa por /qualidade antes de abrir a
+    // sub-aba lembrada), ele aparece direto no lugar, sem vir do canto
+    const ultimaRef = useRef<{ left: number; width: number } | null>(null);
+    const [surgiu, setSurgiu] = useState(true);
 
     useLayoutEffect(() => {
         const el = container.current;
@@ -22,14 +33,12 @@ export function useActiveIndicator(
             // ``li`` posicionado (a medida seria relativa a ele)
             const caixa = el.getBoundingClientRect();
             const alvo = ativo?.getBoundingClientRect();
-            setMedida(
-                alvo
-                    ? {
-                          left: alvo.left - caixa.left - el.clientLeft,
-                          width: alvo.width,
-                      }
-                    : null
-            );
+            const nova = alvo
+                ? { left: alvo.left - caixa.left - el.clientLeft, width: alvo.width }
+                : null;
+            setSurgiu(ultimaRef.current === null);
+            ultimaRef.current = nova;
+            setMedida(nova);
         };
         medir();
         const observer = new ResizeObserver(medir);
@@ -50,6 +59,6 @@ export function useActiveIndicator(
             ? { transform: `translateX(${medida.left}px)`, width: medida.width }
             : {},
         visivel: medida !== null,
-        animar,
+        animar: animar && !surgiu,
     };
 }

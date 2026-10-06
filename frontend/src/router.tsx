@@ -1,11 +1,11 @@
-import { createHashRouter, Navigate } from "react-router-dom";
+import { createHashRouter } from "react-router-dom";
 
 import { AppLayout } from "@/components/layout/AppLayout";
 import { CampusPage } from "@/pages/CampusPage";
 import { ConfiguracoesPage } from "@/pages/ConfiguracoesPage";
 import { CursoDetalhePage } from "@/pages/CursoDetalhePage";
 import { HomePage } from "@/pages/HomePage";
-import { QualidadePage } from "@/pages/QualidadePage";
+import { QualidadePage, VoltarSubaba } from "@/pages/QualidadePage";
 import { ComparacoesPage } from "@/pages/qualidade/ComparacoesPage";
 import { MapaPageLazy } from "@/pages/qualidade/MapaPageLazy";
 import { PorCursoPage } from "@/pages/qualidade/PorCursoPage";
@@ -26,7 +26,8 @@ export const router = createHashRouter([
                 path: "qualidade",
                 element: <QualidadePage />,
                 children: [
-                    { index: true, element: <Navigate to="campus" replace /> },
+                    // /qualidade sozinho (o link do menu) reabre a última sub-aba
+                    { index: true, element: <VoltarSubaba /> },
                     { path: "campus", element: <VisaoCampusPage /> },
                     { path: "curso/:codigo?", element: <PorCursoPage /> },
                     {

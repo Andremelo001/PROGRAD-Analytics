@@ -1,9 +1,10 @@
 import { useEffect } from "react";
-import { Outlet, useLocation } from "react-router-dom";
+import { Navigate, Outlet, useLocation } from "react-router-dom";
 
 import { CampusSelect } from "@/components/layout/CampusSelect";
 import { PageHeader } from "@/components/layout/PageHeader";
 import { SubTabs } from "@/components/layout/SubTabs";
+import { lembrarSubaba, ultimaSubaba } from "@/lib/ultima-subaba";
 import { carregarMapa } from "@/pages/qualidade/mapa-loader";
 
 const SUB_ABAS = [
@@ -21,7 +22,13 @@ const SUB_ABAS = [
 export function QualidadePage() {
     // a sub-aba (campus, curso, mapa…) sem o código do curso: trocar de curso
     // em "Por curso" não reanima a página
-    const subAba = useLocation().pathname.split("/")[2] ?? "";
+    const { pathname, search } = useLocation();
+    const subAba = pathname.split("/")[2] ?? "";
+
+    // lembra onde está, pra reabrir aqui ao voltar de outra aba
+    useEffect(() => {
+        if (subAba) lembrarSubaba(pathname + search);
+    }, [subAba, pathname, search]);
 
     // baixa o código do Mapa quando o navegador ficar ocioso
     useEffect(() => {
@@ -48,4 +55,9 @@ export function QualidadePage() {
             </div>
         </>
     );
+}
+
+/** ``/qualidade`` sozinho (o link do menu): reabre a última sub-aba. */
+export function VoltarSubaba() {
+    return <Navigate to={ultimaSubaba()} replace />;
 }

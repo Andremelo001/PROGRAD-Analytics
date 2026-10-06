@@ -1,4 +1,5 @@
 import { ArrowDown, ArrowUp, Info, Minus } from "lucide-react";
+import { useId } from "react";
 
 import { Card } from "@/components/cards/Card";
 import { formatPercent, formatPoints } from "@/lib/format";
@@ -104,8 +105,9 @@ export function StatTile({
 }
 
 /** Sparkline encostada no canto inferior direito do card (sai pela borda,
- * como no design): só a linha de 2px, sem área. Sem eixos: é contexto, não
- * leitura exata. */
+ * como no design): linha de 2px com a área esmaecida embaixo (o mesmo
+ * degradê do gráfico de Ingressantes). Sem eixos: é contexto, não leitura
+ * exata. */
 function Sparkline({
     serie,
     label,
@@ -115,6 +117,7 @@ function Sparkline({
     label: string;
     color: string;
 }) {
+    const gradId = useId();
     if (serie.length < 2) return null;
 
     const W = 160;
@@ -127,6 +130,7 @@ function Sparkline({
         y: 8 + (1 - (p.valor - min) / span) * (H - 16),
     }));
     const line = points.map((p, i) => `${i ? "L" : "M"}${p.x},${p.y}`).join(" ");
+    const area = `${line} L${W},${H} L0,${H} Z`;
     const first = serie[0];
     const last = serie.at(-1)!;
 
@@ -141,6 +145,13 @@ function Sparkline({
             <title>
                 {serie.map((p) => `${p.ano}: ${formatPercent(p.valor)}`).join(" · ")}
             </title>
+            <defs>
+                <linearGradient id={gradId} x1="0" x2="0" y1="0" y2="1">
+                    <stop offset="0%" stopColor={color} stopOpacity={0.28} />
+                    <stop offset="100%" stopColor={color} stopOpacity={0} />
+                </linearGradient>
+            </defs>
+            <path d={area} fill={`url(#${gradId})`} />
             <path
                 d={line}
                 fill="none"

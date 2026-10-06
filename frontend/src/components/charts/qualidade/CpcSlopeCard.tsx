@@ -21,7 +21,7 @@ const direcao = (diff: number): Direcao =>
     Math.abs(diff) < ESTAVEL ? "estavel" : diff > 0 ? "subiu" : "caiu";
 
 /** CPC de cada curso no ciclo anterior → no mais recente (slope chart), sobre
- * as faixas 3/4/5 de fundo (limites 2,945 e 3,945): dá pra ver quem subiu,
+ * a régua das faixas (à direita, limites tracejados): dá pra ver quem subiu,
  * quem caiu e quem trocou de faixa. Cada curso tem os próprios anos (as
  * áreas são avaliadas em anos diferentes), então as colunas são "ciclo
  * anterior" e "mais recente". Curso com um só ciclo vira um ponto vazado.
@@ -123,29 +123,59 @@ export function CpcSlopeCard({
                         role="img"
                         aria-label={`CPC de ${pares.length} cursos entre o ciclo anterior e o mais recente: ${contagem.subiu} subiram, ${contagem.caiu} caíram e ${contagem.estavel} ficaram estáveis.`}
                     >
-                        {faixas.map((f) => (
-                            <g key={f.faixa}>
-                                <rect
-                                    x={PAD.left}
-                                    width={plotW}
-                                    y={y(f.ate)}
-                                    height={y(f.de) - y(f.ate)}
-                                    fill={CHART.faixa.ramp[f.faixa - 1]}
-                                    opacity={0.12}
-                                />
-                                {y(f.de) - y(f.ate) > 16 && (
-                                    <text
-                                        x={PAD.left + plotW + 8}
-                                        y={(y(f.de) + y(f.ate)) / 2}
-                                        dominantBaseline="middle"
-                                        fontSize={CHART.tickFont}
-                                        fill={CHART.textMuted}
-                                    >
-                                        Faixa {f.faixa}
-                                    </text>
-                                )}
-                            </g>
+                        {/* grade horizontal leve, como nos outros gráficos */}
+                        {ticks.map((t) => (
+                            <line
+                                key={`g${t}`}
+                                x1={PAD.left}
+                                x2={PAD.left + plotW}
+                                y1={y(t)}
+                                y2={y(t)}
+                                stroke={CHART.deemphasis}
+                                strokeOpacity={0.7}
+                            />
                         ))}
+                        {/* os dois ciclos: um eixo vertical em cada ponta */}
+                        {[xA, xB].map((x) => (
+                            <line
+                                key={x}
+                                x1={x}
+                                x2={x}
+                                y1={PAD.top}
+                                y2={PAD.top + plotH}
+                                stroke={CHART.deemphasis}
+                            />
+                        ))}
+                        {/* faixas: em vez de pintar o fundo, uma régua fina na
+                            direita (na rampa azul das faixas) com o nome, e o
+                            limite entre elas tracejado */}
+                        {faixas.map((f) => {
+                            const topo = y(f.ate);
+                            const altura = y(f.de) - y(f.ate);
+                            return (
+                                <g key={f.faixa}>
+                                    <rect
+                                        x={PAD.left + plotW + 6}
+                                        width={4}
+                                        y={topo + 1}
+                                        height={Math.max(altura - 2, 0)}
+                                        rx={2}
+                                        fill={CHART.faixa.ramp[f.faixa - 1]}
+                                    />
+                                    {altura > 16 && (
+                                        <text
+                                            x={PAD.left + plotW + 15}
+                                            y={topo + altura / 2}
+                                            dominantBaseline="middle"
+                                            fontSize={CHART.tickFont}
+                                            fill={CHART.textMuted}
+                                        >
+                                            Faixa {f.faixa}
+                                        </text>
+                                    )}
+                                </g>
+                            );
+                        })}
                         {FAIXA_LIMITES.filter((l) => l > lo && l < hi).map((l) => (
                             <line
                                 key={l}
@@ -153,10 +183,9 @@ export function CpcSlopeCard({
                                 x2={PAD.left + plotW}
                                 y1={y(l)}
                                 y2={y(l)}
-                                stroke={CHART.textMuted}
-                                strokeDasharray="3 4"
+                                stroke={CHART.reference}
+                                strokeDasharray="4 4"
                                 strokeWidth={1}
-                                opacity={0.6}
                             />
                         ))}
                         {ticks.map((t) => (
