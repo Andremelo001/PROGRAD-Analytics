@@ -11,6 +11,7 @@ import {
 } from "@/components/charts/qualidade/BrasilQualidadeMapa";
 import { EstadoPainel } from "@/components/charts/qualidade/EstadoPainel";
 import { DataState } from "@/components/layout/DataState";
+import { MapaEsqueleto } from "@/components/layout/Esqueleto";
 import { useAlturaDisponivel } from "@/hooks/useAlturaDisponivel";
 import { useQualidadeArea } from "@/hooks/useQualidadeArea";
 import {
@@ -19,12 +20,10 @@ import {
     formatIndicador,
     INDICADORES,
     REDES,
-    REDES_CURTO,
     resumir,
     type Indicador,
     type Rede,
 } from "@/lib/area";
-import { toTitleCase } from "@/lib/format";
 import { buildAvaliacoes } from "@/lib/qualidade";
 import { UF_NOMES } from "@/lib/uf";
 import type { DashboardData } from "@/types/dashboard";
@@ -32,6 +31,7 @@ import type { DashboardData } from "@/types/dashboard";
 export function MapaPage() {
     return (
         <DataState
+            esqueleto={<MapaEsqueleto />}
             render={(data) => <Mapa key={data.escopo.codigo_municipio} data={data} />}
         />
     );
@@ -40,6 +40,13 @@ export function MapaPage() {
 const ehIndicador = (v: string | null): v is Indicador =>
     v !== null && v in INDICADORES;
 const ehRede = (v: string | null): v is Rede => v !== null && v in REDES;
+
+/** Rótulos da rede dentro da frase de filtros do mapa. */
+const REDES_FRASE: Record<Rede, string> = {
+    todas: "todas as redes",
+    publicas: "só rede pública",
+    privadas: "só rede privada",
+};
 
 /** Qualidade → Mapa: o mesmo curso (mesma área de avaliação e modalidade)
  * pelo Brasil, na edição mais recente do Enade da área. Curso, indicador,
@@ -129,14 +136,27 @@ function Mapa({ data }: { data: DashboardData }) {
           }))
         : [];
     const titulo = uf ? (UF_NOMES[uf] ?? uf) : "Brasil";
-    const contexto = visao
-        ? `${toTitleCase(curso.area!)} · Enade ${visao.ano}`
-        : toTitleCase(curso.area!);
 
+    // filtros como frase no cabeçalho (seletores "inline", como o do campus
+    // na saudação): "CPC médio ▾ em Redes de Computadores ▾ | todas as
+    // redes ▾" (o ano do Enade fica ao lado do título) — os três continuam à mão, sem pílulas escuras
     const filtros = (
-        <div className="flex flex-wrap items-center gap-2">
+        <p className="text-text-secondary mt-1.5 text-[13px] leading-relaxed">
             <ChartSelect
-                size="sm"
+                variant="inline"
+                tone="surface"
+                label="Indicador"
+                value={indicador}
+                options={Object.entries(INDICADORES).map(([value, { label }]) => ({
+                    value,
+                    label,
+                }))}
+                onChange={(v) => atualizar({ indicador: v })}
+            />{" "}
+            em{" "}
+            <ChartSelect
+                variant="inline"
+                tone="surface"
                 label="Curso"
                 value={String(curso.codigo)}
                 options={[...avaliacoes]
@@ -144,27 +164,19 @@ function Mapa({ data }: { data: DashboardData }) {
                     .map((a) => ({ value: String(a.codigo), label: a.nome }))}
                 onChange={(v) => atualizar({ curso: v, uf: null })}
             />
+            <span className="text-text-muted mx-1.5">|</span>
             <ChartSelect
-                size="sm"
-                label="Indicador"
-                value={indicador}
-                options={Object.entries(INDICADORES).map(([value, { curto }]) => ({
-                    value,
-                    label: curto,
-                }))}
-                onChange={(v) => atualizar({ indicador: v })}
-            />
-            <ChartSelect
-                size="sm"
+                variant="inline"
+                tone="surface"
                 label="Rede"
                 value={rede}
-                options={Object.entries(REDES_CURTO).map(([value, label]) => ({
+                options={Object.entries(REDES_FRASE).map(([value, label]) => ({
                     value,
                     label,
                 }))}
                 onChange={(v) => atualizar({ rede: v === "todas" ? null : v })}
             />
-        </div>
+        </p>
     );
 
     return (
@@ -173,12 +185,19 @@ function Mapa({ data }: { data: DashboardData }) {
             className="grid grid-cols-1 gap-5 lg:h-[var(--mapa-h)] lg:grid-cols-12 lg:gap-6"
             style={{ "--mapa-h": `${alturaDisponivel}px` } as CSSProperties}
         >
-            <Card
-                title={uf ? titulo : "Brasil por estado"}
-                subtitle={contexto}
-                className="lg:col-span-7"
-                action={filtros}
-            >
+            <Card className="lg:col-span-7">
+                {/* título com o ano do Enade ao lado (no estilo da frase de
+                    filtros), e a frase de filtros embaixo */}
+                <h2 className="text-[17px] leading-tight font-semibold tracking-[-0.01em]">
+                    {uf ? titulo : "Brasil por estado"}
+                    {visao && (
+                        <span className="text-text-muted text-[13px] font-normal tracking-normal">
+                            {" "}
+                            · Enade {visao.ano}
+                        </span>
+                    )}
+                </h2>
+                {filtros}
                 <div className="relative mt-4 lg:min-h-0 lg:flex-1">
                     {visao ? (
                         <BrasilQualidadeMapa

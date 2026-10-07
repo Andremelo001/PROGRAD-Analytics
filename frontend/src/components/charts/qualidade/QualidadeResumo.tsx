@@ -1,7 +1,8 @@
 import { Info } from "lucide-react";
-import type { ReactNode } from "react";
+import { useState, type ReactNode } from "react";
 
 import { Card } from "@/components/cards/Card";
+import { TextoAjustado } from "@/components/charts/TextoAjustado";
 import { DeltaPill } from "@/components/charts/qualidade/DeltaPill";
 import { useChartTheme } from "@/hooks/useChartTheme";
 import { useMediaQuery } from "@/hooks/useMediaQuery";
@@ -33,42 +34,8 @@ export function QualidadeResumo({
         (f) => avaliacoes.filter((a) => a.faixa === f).length
     );
     const comFaixa = porFaixa.reduce((a, b) => a + b, 0);
-    const faixasUsadas = porFaixa.filter((n) => n > 0).length;
-    // em 2 colunas (tablet) os tiles dividem a linha e são largos: ali o
-    // empilhado passaria da altura dos vizinhos, então fica sempre lado a lado
+    // tablet: tiles em 2 colunas (mais baixos) — rótulos e rosca menores
     const duasColunas = useMediaQuery("(min-width: 640px) and (max-width: 1023.98px)");
-    const empilhado = faixasUsadas <= 2 && !duasColunas;
-    // tamanho do medidor empilhado: no celular (um tile por linha) não
-    // divide altura com ninguém e pode crescer; no desktop, o maior que
-    // ainda cabe na altura dos outros três
-    const celular = useMediaQuery("(max-width: 639.98px)");
-    const larguraGauge = !empilhado ? 128 : celular ? 156 : 118;
-    // legenda: em linha embaixo do medidor (poucas faixas) ou em lista ao lado
-    const legendaFaixas = (
-        <span
-            className={cn(
-                "text-text-secondary flex text-[12px] leading-snug",
-                empilhado ? "flex-wrap justify-center gap-x-3" : "flex-col gap-1"
-            )}
-        >
-            {porFaixa.map((n, i) =>
-                n === 0 ? null : (
-                    <span
-                        key={i}
-                        className="flex items-center gap-1.5 whitespace-nowrap"
-                    >
-                        <span
-                            aria-hidden
-                            className="h-2 w-2 rounded-[3px]"
-                            style={{ background: CHART.faixa.ramp[i] }}
-                        />
-                        Faixa {i + 1}:{" "}
-                        <span className="text-ink font-semibold">{n}</span>
-                    </span>
-                )
-            )}
-        </span>
-    );
     const altas = porFaixa[3] + porFaixa[4];
     const pctAltas = comFaixa > 0 ? (100 * altas) / comFaixa : null;
     const pctAltasNacional = faixasNacional
@@ -92,35 +59,20 @@ export function QualidadeResumo({
                     ) : null
                 }
                 footer={
-                    cpcNacional === null
-                        ? "Sem média nacional para comparar"
-                        : `Média nacional das mesmas áreas: ${formatDecimal(cpcNacional)}`
+                    // uma linha só, como o rodapé do "Nas faixas 4 e 5": a letra
+                    // diminui um pouco se o tile for estreito
+                    <TextoAjustado maximo={12} minimo={10}>
+                        {cpcNacional === null
+                            ? "Sem média nacional para comparar"
+                            : `Média nacional das mesmas áreas: ${formatDecimal(cpcNacional)}`}
+                    </TextoAjustado>
                 }
             />
             <Tile
                 label="Cursos por faixa"
                 info="Faixa do CPC (1 a 5) na avaliação mais recente de cada curso."
             >
-                {/* poucas faixas (legenda curta): medidor no centro e a legenda
-                    numa linha embaixo; com mais faixas, a legenda vira uma lista
-                    à esquerda e o medidor vai pra direita — sempre na mesma
-                    altura que os outros três tiles ocupam */}
-                <div
-                    className={cn(
-                        "flex",
-                        empilhado
-                            ? "flex-col items-center gap-1"
-                            : "items-end justify-between gap-3"
-                    )}
-                >
-                    {!empilhado && legendaFaixas}
-                    <FaixasGauge
-                        porFaixa={porFaixa}
-                        total={comFaixa}
-                        largura={larguraGauge}
-                    />
-                    {empilhado && legendaFaixas}
-                </div>
+                <FaixasConteudo porFaixa={porFaixa} total={comFaixa} />
             </Tile>
             <Tile
                 label="Nas faixas 4 e 5"
@@ -142,11 +94,11 @@ export function QualidadeResumo({
                 }
             />
             <Tile
-                label="Sem CPC"
-                info="Cursos sem conceito na avaliação mais recente (SC) ou que ainda não passaram por avaliação — por exemplo, cursos novos, sem concluintes no Enade."
-                value={`${semCpc.length} de ${avaliacoes.length}`}
+                label="Cursos com CPC"
+                info="Cursos com CPC na avaliação mais recente. Os demais ainda não passaram por avaliação (ex.: cursos novos, sem concluintes no Enade) ou ficaram sem conceito (SC). Passe o mouse na rosca para ver cada parte."
+                value={`${avaliacoes.length - semCpc.length} de ${avaliacoes.length}`}
                 lateral={
-                    <SemCpcDonut
+                    <CpcDonut
                         tamanho={duasColunas ? 60 : 76}
                         total={avaliacoes.length}
                         nunca={nuncaAvaliados}
@@ -154,33 +106,24 @@ export function QualidadeResumo({
                     />
                 }
                 footer={
-                    semCpc.length === 0 ? (
-                        "Todos os cursos têm CPC"
-                    ) : (
-                        <span className="flex flex-wrap gap-x-3 gap-y-1 sm:max-lg:gap-x-2 sm:max-lg:text-[11px]">
-                            {nuncaAvaliados > 0 && (
-                                <ItemLegenda cor={CHART.brand}>
-                                    {nuncaAvaliados === 1
-                                        ? "Nunca avaliado"
-                                        : "Nunca avaliados"}
-                                    :{" "}
-                                    <span className="text-ink font-semibold">
-                                        {nuncaAvaliados}
-                                    </span>
-                                </ItemLegenda>
-                            )}
-                            {semConceito > 0 && (
-                                <ItemLegenda cor={CHART.critical}>
-                                    {/* em 2 colunas o tile é estreito: "SC" curto
-                                        (o ícone de informação explica) */}
-                                    {duasColunas ? "SC" : "Sem conceito"}:{" "}
-                                    <span className="text-ink font-semibold">
-                                        {semConceito}
-                                    </span>
-                                </ItemLegenda>
-                            )}
-                        </span>
-                    )
+                    <span className="flex flex-wrap gap-x-3 gap-y-1 text-[11px] sm:max-lg:gap-x-2 sm:max-lg:text-[10.5px]">
+                        <ItemLegenda cor={CHART.brand}>
+                            {/* em 2 colunas o tile é estreito: rótulos curtos (o
+                                título já diz "Com CPC") */}
+                            {duasColunas ? "Com" : "Com CPC"}:{" "}
+                            <span className="text-ink font-semibold">
+                                {avaliacoes.length - semCpc.length}
+                            </span>
+                        </ItemLegenda>
+                        {semCpc.length > 0 && (
+                            <ItemLegenda cor={CHART.reference}>
+                                {duasColunas ? "Sem" : "Sem CPC"}:{" "}
+                                <span className="text-ink font-semibold">
+                                    {semCpc.length}
+                                </span>
+                            </ItemLegenda>
+                        )}
+                    </span>
                 }
             />
         </div>
@@ -253,20 +196,54 @@ function Tile({
     );
 }
 
+/** Corpo do "Cursos por faixa": a legenda à esquerda, centrada na altura
+ * do medidor, e o medidor à direita. O tamanho do medidor é só CSS — a
+ * largura do tile menos a reserva da legenda mais longa ("Faixa 4: 46"),
+ * até um teto por tela — então é o mesmo em todos os campi desde o primeiro
+ * quadro (sem medir nada): trocar de campus muda só os números e os cortes. */
+function FaixasConteudo({ porFaixa, total }: { porFaixa: number[]; total: number }) {
+    const CHART = useChartTheme();
+    return (
+        // medidor preso embaixo (self-end): mesmo lugar em todo campus, mesmo
+        // quando a legenda é mais alta que ele (tiles estreitos)
+        <div className="flex gap-2.5">
+            <span className="text-text-secondary flex flex-col gap-1 self-center text-[11px] leading-snug">
+                {porFaixa.map((n, i) =>
+                    n === 0 ? null : (
+                        <span
+                            key={i}
+                            className="flex items-center gap-1.5 whitespace-nowrap"
+                        >
+                            <span
+                                aria-hidden
+                                className="h-2 w-2 rounded-[3px]"
+                                style={{ background: CHART.faixa.ramp[i] }}
+                            />
+                            Faixa {i + 1}:{" "}
+                            <span className="text-ink font-semibold">{n}</span>
+                        </span>
+                    )
+                )}
+            </span>
+            {/* reserva de 88px pra legenda; teto: celular 170, tablet 128 (tiles
+                mais baixos), desktop 140 */}
+            <div className="ml-auto w-[clamp(72px,calc(100%-88px),170px)] shrink-0 self-end sm:max-lg:w-[clamp(72px,calc(100%-88px),128px)] lg:w-[clamp(72px,calc(100%-88px),140px)]">
+                <FaixasGauge porFaixa={porFaixa} total={total} />
+            </div>
+        </div>
+    );
+}
+
 /** Meio anel (medidor) com os cursos por faixa: um segmento por faixa que
  * tem curso, da 1 (esquerda) à 5 (direita), na rampa azul das faixas, com
  * um respiro entre eles. O total fica no centro. */
-function FaixasGauge({
-    porFaixa,
-    total,
-    largura = 128,
-}: {
-    porFaixa: number[];
-    total: number;
-    largura?: number;
-}) {
+function FaixasGauge({ porFaixa, total }: { porFaixa: number[]; total: number }) {
     const CHART = useChartTheme();
-    const W = largura;
+    // faixa em foco (mouse ou toque): engrossa, as outras apagam e o centro
+    // mostra a quantidade dela — como na rosca do card ao lado
+    const [foco, setFoco] = useState<number | null>(null);
+    // desenho em 128 de largura; o tamanho na tela vem do CSS de quem usa
+    const W = 128;
     const R = W * 0.406; // raio até o meio do traço
     const T = W * 0.094; // espessura
     const escala = W / 128; // texto do centro acompanha o tamanho
@@ -298,12 +275,13 @@ function FaixasGauge({
                         ]
               );
     const ultimo = segmentos.length - 1;
+    const ativa = segmentos.find((s) => s.i === foco);
 
     return (
         <svg
             viewBox={`0 0 ${W} ${H}`}
-            className="block h-auto shrink-0"
-            style={{ width: W }}
+            className="block h-auto w-full overflow-visible"
+            onMouseLeave={() => setFoco(null)}
             role="img"
             aria-label={`${total} ${total === 1 ? "curso" : "cursos"} com faixa: ${segmentos.map((s) => `faixa ${s.i + 1}, ${s.n}`).join("; ")}`}
         >
@@ -324,22 +302,25 @@ function FaixasGauge({
                         )}
                         fill="none"
                         stroke={CHART.faixa.ramp[s.i]}
-                        strokeWidth={T}
-                    >
-                        <title>{`Faixa ${s.i + 1}: ${s.n} ${s.n === 1 ? "curso" : "cursos"}`}</title>
-                    </path>
+                        strokeWidth={foco === s.i ? T + 4 : T}
+                        opacity={foco !== null && foco !== s.i ? 0.35 : 1}
+                        pointerEvents="stroke"
+                        onMouseEnter={() => setFoco(s.i)}
+                        onClick={() => setFoco(foco === s.i ? null : s.i)}
+                        className="cursor-pointer transition-[opacity,stroke-width] duration-200"
+                    />
                 ))
             )}
             <text
                 x={cx}
-                y={cy - 13 * escala}
+                y={cy - 16 * escala}
                 textAnchor="middle"
                 fontSize={22 * escala}
                 fontWeight={600}
                 letterSpacing="-0.02em"
                 className="fill-ink tabular-nums"
             >
-                {total}
+                {ativa ? ativa.n : total}
             </text>
             <text
                 x={cx}
@@ -348,7 +329,11 @@ function FaixasGauge({
                 fontSize={Math.max(9, 10 * escala)}
                 className="fill-text-muted"
             >
-                {total === 1 ? "curso" : "cursos"}
+                {ativa
+                    ? `${ativa.n === 1 ? "curso" : "cursos"} na faixa ${ativa.i + 1}`
+                    : total === 1
+                      ? "curso"
+                      : "cursos"}
             </text>
         </svg>
     );
@@ -367,11 +352,11 @@ function ItemLegenda({ cor, children }: { cor: string; children: ReactNode }) {
     );
 }
 
-/** Rosca dos cursos do campus: o trilho cinza são os que têm CPC e os
- * segmentos coloridos, os sem CPC — nunca avaliados (cor da série) e sem
- * conceito (SC, cor de alerta), com um respiro entre eles. No centro, o % sem
- * CPC. */
-function SemCpcDonut({
+/** Rosca dos cursos do campus: com CPC (cor da série), nunca avaliados
+ * (cinza) e sem conceito (SC, cor de alerta), com um respiro entre as partes.
+ * No centro, o % com CPC; passar o mouse (ou tocar) numa parte mostra a
+ * quantidade e o nome dela, e apaga as outras. */
+function CpcDonut({
     total,
     nunca,
     sc,
@@ -383,26 +368,39 @@ function SemCpcDonut({
     tamanho?: number;
 }) {
     const CHART = useChartTheme();
+    const [foco, setFoco] = useState<string | null>(null);
     const S = tamanho;
     const T = Math.round(tamanho * 0.13);
     const R = (S - T) / 2;
     const c = S / 2;
     const volta = 2 * Math.PI * R;
     const respiro = 2.5;
-    const semCpc = nunca + sc;
-    const pct = total > 0 ? Math.round((100 * semCpc) / total) : 0;
-    // cada segmento é um traço tracejado no círculo, começando no topo
-    const segmentos = [
+    const com = total - nunca - sc;
+    const partes = [
+        // nome em linhas curtas: cabe dentro do anel
+        { chave: "com", n: com, cor: CHART.brand, nome: ["com CPC"] },
         {
+            chave: "nunca",
             n: nunca,
-            cor: CHART.brand,
-            nome: nunca === 1 ? "nunca avaliado" : "nunca avaliados",
+            cor: CHART.reference,
+            nome: ["nunca", nunca === 1 ? "avaliado" : "avaliados"],
         },
-        { n: sc, cor: CHART.critical, nome: "sem conceito (SC)" },
-    ].filter((s) => s.n > 0);
-    const inicio = segmentos.map((_, k) =>
-        segmentos.slice(0, k).reduce((t, s) => t + (s.n / total) * volta, 0)
+        { chave: "sc", n: sc, cor: CHART.critical, nome: ["sem", "conceito"] },
+    ].filter((p) => p.n > 0);
+    // comprimento de cada parte no anel, com um mínimo (~9px): uma parte
+    // pequena (ex.: 2 de 103) continua visível e dá pra passar o mouse nela
+    const MINIMO = 9;
+    const brutos = partes.map((p) => (p.n / Math.max(total, 1)) * volta);
+    const pequenas = brutos.filter((b) => b < MINIMO);
+    const resto = brutos.filter((b) => b >= MINIMO).reduce((t, b) => t + b, 0);
+    const escala = resto > 0 ? (volta - pequenas.length * MINIMO) / resto : 1;
+    const comprimentos = brutos.map((b) => (b < MINIMO ? MINIMO : b * escala));
+    const inicio = comprimentos.map((_, k) =>
+        comprimentos.slice(0, k).reduce((t, b) => t + b, 0)
     );
+    const ativa = partes.find((p) => p.chave === foco);
+    const pct = (n: number) => (total > 0 ? Math.round((100 * n) / total) : 0);
+    const pequeno = tamanho < 70;
 
     return (
         <svg
@@ -410,54 +408,92 @@ function SemCpcDonut({
             height={S}
             viewBox={`0 0 ${S} ${S}`}
             role="img"
-            aria-label={`${semCpc} de ${total} cursos sem CPC (${pct}%)`}
-            className="-rotate-90"
+            aria-label={`${com} de ${total} cursos com CPC (${pct(com)}%)${nunca ? `, ${nunca} nunca avaliados` : ""}${sc ? `, ${sc} sem conceito` : ""}`}
+            onMouseLeave={() => setFoco(null)}
+            className="overflow-visible"
         >
-            <circle
-                cx={c}
-                cy={c}
-                r={R}
-                fill="none"
-                stroke={CHART.deemphasis}
-                strokeWidth={T}
-            >
-                <title>{`${total - semCpc} com CPC`}</title>
-            </circle>
-            {total > 0 &&
-                segmentos.map((s, k) => {
-                    const comprimento = (s.n / total) * volta;
-                    const visivel = Math.max(
-                        comprimento - (semCpc < total ? respiro : 0),
-                        1
-                    );
-                    return (
-                        <circle
-                            key={s.nome}
-                            cx={c}
-                            cy={c}
-                            r={R}
-                            fill="none"
-                            stroke={s.cor}
-                            strokeWidth={T}
-                            strokeDasharray={`${visivel} ${volta - visivel}`}
-                            strokeDashoffset={-inicio[k]}
+            <g transform={`rotate(-90 ${c} ${c})`}>
+                {total === 0 ? (
+                    <circle
+                        cx={c}
+                        cy={c}
+                        r={R}
+                        fill="none"
+                        stroke={CHART.deemphasis}
+                        strokeWidth={T}
+                    />
+                ) : (
+                    partes.map((p, k) => {
+                        const comprimento = comprimentos[k];
+                        const visivel = Math.max(
+                            comprimento - (partes.length > 1 ? respiro : 0),
+                            1
+                        );
+                        const emFoco = foco === p.chave;
+                        return (
+                            <circle
+                                key={p.chave}
+                                cx={c}
+                                cy={c}
+                                r={R}
+                                fill="none"
+                                stroke={p.cor}
+                                strokeWidth={emFoco ? T + 4 : T}
+                                strokeDasharray={`${visivel} ${volta - visivel}`}
+                                strokeDashoffset={-inicio[k]}
+                                opacity={foco && !emFoco ? 0.35 : 1}
+                                pointerEvents="stroke"
+                                onMouseEnter={() => setFoco(p.chave)}
+                                onClick={() => setFoco(emFoco ? null : p.chave)}
+                                className="cursor-pointer transition-[opacity,stroke-width] duration-200"
+                            />
+                        );
+                    })
+                )}
+            </g>
+            {/* centro: o % com CPC, ou a parte em foco (quantidade e nome) */}
+            {ativa ? (
+                <>
+                    <text
+                        x={c}
+                        y={c - (ativa.nome.length > 1 ? 5 : 2) + (pequeno ? 1 : 0)}
+                        textAnchor="middle"
+                        fontSize={pequeno ? 13 : 16}
+                        fontWeight={600}
+                        className="fill-ink tabular-nums"
+                    >
+                        {ativa.n}
+                    </text>
+                    {ativa.nome.map((linha, i) => (
+                        <text
+                            key={linha}
+                            x={c}
+                            y={
+                                c +
+                                (ativa.nome.length > 1 ? 6 : 9) +
+                                i * (pequeno ? 8 : 9)
+                            }
+                            textAnchor="middle"
+                            fontSize={pequeno ? 7 : 8.5}
+                            className="fill-text-muted"
                         >
-                            <title>{`${s.n} ${s.nome}`}</title>
-                        </circle>
-                    );
-                })}
-            <text
-                x={c}
-                y={c}
-                textAnchor="middle"
-                dominantBaseline="central"
-                transform={`rotate(90 ${c} ${c})`}
-                fontSize={tamanho < 70 ? 13 : 15}
-                fontWeight={600}
-                className="fill-ink tabular-nums"
-            >
-                {pct}%
-            </text>
+                            {linha}
+                        </text>
+                    ))}
+                </>
+            ) : (
+                <text
+                    x={c}
+                    y={c}
+                    textAnchor="middle"
+                    dominantBaseline="central"
+                    fontSize={pequeno ? 13 : 15}
+                    fontWeight={600}
+                    className="fill-ink tabular-nums"
+                >
+                    {pct(com)}%
+                </text>
+            )}
         </svg>
     );
 }

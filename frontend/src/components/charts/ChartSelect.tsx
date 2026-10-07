@@ -1,6 +1,8 @@
 import { Check, ChevronDown } from "lucide-react";
 import { useEffect, useId, useRef, useState, type KeyboardEvent } from "react";
+import { createPortal } from "react-dom";
 
+import { rolarDentro } from "@/lib/rolar";
 import { cn } from "@/lib/utils";
 
 /** Largura máxima da lista e margem mínima até a borda da tela (px). */
@@ -52,6 +54,10 @@ export function ChartSelect({
     // da direita) troca quando não cabe na tela — no celular os seletores
     // descem pra esquerda do card e a lista sairia pela borda
     const [lado, setLado] = useState<"left" | "right">(inline ? "left" : "right");
+    // a lista abre num portal no <body>, com posição fixa medida do botão:
+    // dentro da faixa do topo (altura fixa, overflow escondido) ou de um card
+    // ela seria cortada ou ficaria por baixo dos cards seguintes
+    const [caixa, setCaixa] = useState<DOMRect | null>(null);
     const [active, setActive] = useState(0);
 
     const selectedIndex = Math.max(
@@ -64,6 +70,7 @@ export function ChartSelect({
     function openList() {
         const botao = rootRef.current?.getBoundingClientRect();
         if (botao) {
+            setCaixa(botao);
             const lista = Math.min(LISTA_MAX, window.innerWidth - 2 * MARGEM_TELA);
             const cabeDireita = window.innerWidth - botao.left - MARGEM_TELA >= lista;
             const cabeEsquerda = botao.right - MARGEM_TELA >= lista;
@@ -97,19 +104,38 @@ export function ChartSelect({
     // fica visível; clique fora fecha sem escolher
     useEffect(() => {
         if (!open) return;
-        listRef.current?.focus();
+        // sem rolar nada: no celular o foco (e o scrollIntoView) rolava até a
+        // faixa do topo — que tem overflow escondido —, empurrando o título e o
+        // seletor pra cima
+        listRef.current?.focus({ preventScroll: true });
         const onPointerDown = (event: PointerEvent) => {
-            if (!rootRef.current?.contains(event.target as Node)) setOpen(false);
+            const alvo = event.target as Node;
+            if (!rootRef.current?.contains(alvo) && !listRef.current?.contains(alvo))
+                setOpen(false);
+        };
+        // a lista acompanha o botão se a página rolar ou mudar de tamanho
+        const reposicionar = (event?: Event) => {
+            if (
+                event?.target instanceof Node &&
+                listRef.current?.contains(event.target)
+            )
+                return;
+            const botao = rootRef.current?.getBoundingClientRect();
+            if (botao) setCaixa(botao);
         };
         document.addEventListener("pointerdown", onPointerDown);
-        return () => document.removeEventListener("pointerdown", onPointerDown);
+        window.addEventListener("scroll", reposicionar, true);
+        window.addEventListener("resize", reposicionar);
+        return () => {
+            document.removeEventListener("pointerdown", onPointerDown);
+            window.removeEventListener("scroll", reposicionar, true);
+            window.removeEventListener("resize", reposicionar);
+        };
     }, [open]);
 
     useEffect(() => {
         if (open)
-            document
-                .getElementById(optionId(active))
-                ?.scrollIntoView({ block: "nearest" });
+            rolarDentro(listRef.current, document.getElementById(optionId(active)));
     });
 
     function onButtonKeyDown(event: KeyboardEvent<HTMLButtonElement>) {
@@ -209,53 +235,66 @@ export function ChartSelect({
                 )}
             </button>
 
-            {open && (
-                <ul
-                    ref={listRef}
-                    id={listId}
-                    role="listbox"
-                    tabIndex={-1}
-                    aria-label={label}
-                    aria-activedescendant={optionId(active)}
-                    onKeyDown={onListKeyDown}
-                    className={cn(
-                        // largura até 280px, mas nunca maior que a tela (16px
-                        // de margem de cada lado)
-                        "text-ink bg-popover absolute top-[calc(100%+6px)] z-40 max-h-72 w-max max-w-[min(280px,calc(100vw-32px))] min-w-full overflow-y-auto rounded-xl p-1.5 text-left font-normal shadow-[0_16px_40px_rgb(0_0_0/0.18)] outline-none",
-                        lado === "left" ? "left-0" : "right-0"
-                    )}
-                >
-                    {options.map((option, index) => {
-                        const isSelected = index === selectedIndex;
-                        return (
-                            <li
-                                key={option.value}
-                                id={optionId(index)}
-                                role="option"
-                                aria-selected={isSelected}
-                                onPointerEnter={() => setActive(index)}
-                                onClick={() => choose(index)}
-                                className={cn(
-                                    "flex cursor-pointer items-center justify-between gap-4 rounded-lg px-3 py-2 text-[13px]",
-                                    index === active && "bg-page",
-                                    isSelected && "font-semibold"
-                                )}
-                            >
-                                <span className="truncate">{option.label}</span>
-                                <Check
-                                    size={15}
-                                    strokeWidth={2.5}
-                                    aria-hidden
+            {open &&
+                caixa &&
+                createPortal(
+                    <ul
+                        ref={listRef}
+                        id={listId}
+                        role="listbox"
+                        tabIndex={-1}
+                        aria-label={label}
+                        aria-activedescendant={optionId(active)}
+                        onKeyDown={onListKeyDown}
+                        className={cn(
+                            // largura até 280px, mas nunca maior que a tela (16px
+                            // de margem de cada lado)
+                            "text-ink bg-popover fixed z-50 max-h-72 w-max max-w-[min(280px,calc(100vw-32px))] overflow-y-auto rounded-xl p-1.5 text-left font-normal shadow-[0_16px_40px_rgb(0_0_0/0.18)] outline-none"
+                        )}
+                        style={{
+                            top: caixa.bottom + 6,
+                            minWidth: caixa.width,
+                            ...(lado === "left"
+                                ? { left: caixa.left }
+                                : {
+                                      right:
+                                          document.documentElement.clientWidth -
+                                          caixa.right,
+                                  }),
+                        }}
+                    >
+                        {options.map((option, index) => {
+                            const isSelected = index === selectedIndex;
+                            return (
+                                <li
+                                    key={option.value}
+                                    id={optionId(index)}
+                                    role="option"
+                                    aria-selected={isSelected}
+                                    onPointerEnter={() => setActive(index)}
+                                    onClick={() => choose(index)}
                                     className={cn(
-                                        "text-olive-text shrink-0",
-                                        !isSelected && "invisible"
+                                        "flex cursor-pointer items-center justify-between gap-4 rounded-lg px-3 py-2 text-[13px]",
+                                        index === active && "bg-page",
+                                        isSelected && "font-semibold"
                                     )}
-                                />
-                            </li>
-                        );
-                    })}
-                </ul>
-            )}
+                                >
+                                    <span className="truncate">{option.label}</span>
+                                    <Check
+                                        size={15}
+                                        strokeWidth={2.5}
+                                        aria-hidden
+                                        className={cn(
+                                            "text-olive-text shrink-0",
+                                            !isSelected && "invisible"
+                                        )}
+                                    />
+                                </li>
+                            );
+                        })}
+                    </ul>,
+                    document.body
+                )}
         </div>
     );
 }

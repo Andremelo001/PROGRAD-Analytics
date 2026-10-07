@@ -1,25 +1,23 @@
 import type { ReactNode } from "react";
 
+import { PaginaEsqueleto } from "@/components/layout/Esqueleto";
 import { useDashboardData } from "@/hooks/useDashboardData";
 import type { DashboardData } from "@/types/dashboard";
 
 /** Evita repetir o boilerplate de loading/erro em toda página — só chama
- * `render(data)` quando o JSON do campus já carregou. Na troca de campus a
- * página segue com os dados anteriores até os novos chegarem. */
-export function DataState({ render }: { render: (data: DashboardData) => ReactNode }) {
+ * `render(data)` quando o JSON do campus já carregou; antes disso desenha o
+ * ``esqueleto`` da página (o desenho dela em blocos pulsando). Na troca de
+ * campus a página segue com os dados anteriores até os novos chegarem. */
+export function DataState({
+    render,
+    esqueleto = <PaginaEsqueleto />,
+}: {
+    render: (data: DashboardData) => ReactNode;
+    esqueleto?: ReactNode;
+}) {
     const { data, loading, error } = useDashboardData();
 
-    if (loading) {
-        return (
-            <p className="flex items-center gap-2 text-[14px] text-white/70">
-                <span
-                    aria-hidden
-                    className="border-t-lime h-4 w-4 animate-spin rounded-full border-2 border-white/20"
-                />
-                Carregando dados do painel…
-            </p>
-        );
-    }
+    if (loading) return esqueleto;
     const erro = error && (
         <p className="text-status-critical bg-popover mb-4 rounded-xl border border-current/20 px-4 py-3 text-[14px] font-medium">
             Erro ao carregar os dados: {error}

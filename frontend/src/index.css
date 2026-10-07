@@ -257,3 +257,38 @@
     background-position: right 4px top 4px;
     mask-image: linear-gradient(to left, black 10%, transparent 85%);
 }
+
+/* Esqueleto de carregamento (components/layout/Esqueleto.tsx): bloco na cor
+ * da tinta bem apagada, com um brilho que atravessa da esquerda pra direita.
+ * Com "reduzir movimento", só o bloco parado. */
+.esqueleto {
+    position: relative;
+    overflow: hidden;
+    background: color-mix(in srgb, var(--ink) 7%, transparent);
+}
+
+.esqueleto::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    transform: translateX(-100%);
+    background: linear-gradient(
+        90deg,
+        transparent,
+        color-mix(in srgb, var(--surface) 55%, transparent),
+        transparent
+    );
+    animation: brilho 1.5s ease-in-out infinite;
+}
+
+@keyframes brilho {
+    to {
+        transform: translateX(100%);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .esqueleto::after {
+        display: none;
+    }
+}

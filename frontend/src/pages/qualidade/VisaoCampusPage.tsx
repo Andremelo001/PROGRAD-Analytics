@@ -5,12 +5,14 @@ import { CpcRankingCard } from "@/components/charts/qualidade/CpcRankingCard";
 import { CpcSlopeCard } from "@/components/charts/qualidade/CpcSlopeCard";
 import { QualidadeResumo } from "@/components/charts/qualidade/QualidadeResumo";
 import { DataState } from "@/components/layout/DataState";
+import { VisaoCampusEsqueleto } from "@/components/layout/Esqueleto";
 import { buildAvaliacoes } from "@/lib/qualidade";
 import type { DashboardData } from "@/types/dashboard";
 
 export function VisaoCampusPage() {
     return (
         <DataState
+            esqueleto={<VisaoCampusEsqueleto />}
             render={(data) => (
                 <VisaoCampus key={data.escopo.codigo_municipio} data={data} />
             )}

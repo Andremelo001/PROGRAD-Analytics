@@ -1,5 +1,6 @@
 import { lazy, Suspense } from "react";
 
+import { MapaEsqueleto } from "@/components/layout/Esqueleto";
 import { carregarMapa, mapaCarregado } from "@/pages/qualidade/mapa-loader";
 
 // O Mapa traz a malha do Brasil (~190 KB): só é baixado quando a Qualidade
@@ -15,23 +16,5 @@ export function MapaPageLazy() {
         <Suspense fallback={<MapaEsqueleto />}>
             <MapaPage />
         </Suspense>
-    );
-}
-
-/** Mesmo desenho da página (mapa + painel) em cards vazios pulsando,
- * enquanto o código do Mapa chega: a troca de sub-aba não passa por uma tela
- * em branco. */
-function MapaEsqueleto() {
-    const card =
-        "bg-surface ring-card-ring rounded-[18px] shadow-[0_4px_24px_rgb(0_0_0/0.05)] ring-1 motion-safe:animate-pulse";
-    return (
-        <div
-            aria-busy
-            aria-label="Carregando o mapa"
-            className="grid grid-cols-1 gap-5 lg:grid-cols-12 lg:gap-6"
-        >
-            <div className={`${card} aspect-[1/1.05] lg:col-span-7`} />
-            <div className={`${card} min-h-80 lg:col-span-5`} />
-        </div>
     );
 }

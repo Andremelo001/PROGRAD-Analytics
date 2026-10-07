@@ -5,12 +5,21 @@ import { EvasaoHeatmapCard } from "@/components/charts/EvasaoHeatmapCard";
 import { IngressantesTrendCard } from "@/components/charts/IngressantesTrendCard";
 import { CampusSelect } from "@/components/layout/CampusSelect";
 import { DataState } from "@/components/layout/DataState";
+import { InicioEsqueleto } from "@/components/layout/Esqueleto";
 import { PageHeader } from "@/components/layout/PageHeader";
 import type { CurvaSobrevivenciaPonto, DashboardData } from "@/types/dashboard";
 
 export function HomePage() {
     return (
         <DataState
+            // a saudação já aparece no carregamento (senão os cards subiriam
+            // pro lugar dela e desceriam quando os dados chegassem)
+            esqueleto={
+                <>
+                    <CabecalhoInicio />
+                    <InicioEsqueleto />
+                </>
+            }
             render={(data) => <Home key={data.escopo.codigo_municipio} data={data} />}
         />
     );
@@ -52,15 +61,7 @@ function Home({ data }: { data: DashboardData }) {
 
     return (
         <>
-            <PageHeader
-                title="Olá, bem-vindo ao PROGRAD Analytics!"
-                subtitle={
-                    <>
-                        Acompanhe os indicadores da graduação do UFC Campus{" "}
-                        <CampusSelect />
-                    </>
-                }
-            />
+            <CabecalhoInicio />
 
             <div className="grid grid-cols-1 gap-5 lg:grid-cols-12 lg:gap-6">
                 <IngressantesTrendCard
@@ -110,5 +111,18 @@ function Home({ data }: { data: DashboardData }) {
                 />
             </div>
         </>
+    );
+}
+
+function CabecalhoInicio() {
+    return (
+        <PageHeader
+            title="Olá, bem-vindo ao PROGRAD Analytics!"
+            subtitle={
+                <>
+                    Acompanhe os indicadores da graduação do UFC Campus <CampusSelect />
+                </>
+            }
+        />
     );
 }

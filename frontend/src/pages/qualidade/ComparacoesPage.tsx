@@ -13,6 +13,7 @@ import { CursoBusca, type OpcaoCurso } from "@/components/charts/qualidade/Curso
 import { FaixaPill } from "@/components/charts/qualidade/FaixaPill";
 import { ModoToggle } from "@/components/charts/qualidade/ModoToggle";
 import { DataState } from "@/components/layout/DataState";
+import { CardEsqueleto, ComparacoesEsqueleto } from "@/components/layout/Esqueleto";
 import { useChartTheme } from "@/hooks/useChartTheme";
 import { useDashboardData } from "@/hooks/useDashboardData";
 import { useQualidadeArea } from "@/hooks/useQualidadeArea";
@@ -35,7 +36,12 @@ const MODOS: { value: Modo; label: string }[] = [
 ];
 
 export function ComparacoesPage() {
-    return <DataState render={() => <Comparacoes />} />;
+    return (
+        <DataState
+            esqueleto={<ComparacoesEsqueleto />}
+            render={() => <Comparacoes />}
+        />
+    );
 }
 
 /** Qualidade → Comparações: dois modos, "entre campi" (um campus da UFC
@@ -62,10 +68,10 @@ function Comparacoes() {
     }
 
     if (!resumo) {
-        return (
-            <p className="text-text-secondary text-[14px]">
-                {erro ?? "Carregando os campi…"}
-            </p>
+        return erro ? (
+            <p className="text-text-secondary text-[14px]">{erro}</p>
+        ) : (
+            <ComparacoesEsqueleto />
         );
     }
 
@@ -511,9 +517,21 @@ function ComparacaoCursos({ resumo, seletorModo, a, b, atualizar }: PropsModo) {
             {/* o conteúdo entra com a mesma animação das abas */}
             <div className="entrada grid grid-cols-1 items-start gap-5 lg:col-span-12 lg:grid-cols-12 lg:gap-6">
                 {!daArea ? (
-                    <p className="text-text-secondary text-[14px] lg:col-span-12">
-                        {erro ?? "Carregando os cursos da área…"}
-                    </p>
+                    erro ? (
+                        <p className="text-text-secondary text-[14px] lg:col-span-12">
+                            {erro}
+                        </p>
+                    ) : (
+                        // os cards da comparação em blocos, enquanto a área baixa
+                        <div
+                            role="status"
+                            aria-label="Carregando os cursos da área"
+                            className="grid grid-cols-1 gap-5 lg:col-span-12 lg:grid-cols-12 lg:gap-6"
+                        >
+                            <CardEsqueleto className="h-[360px] lg:col-span-5" />
+                            <CardEsqueleto className="h-[360px] lg:col-span-7" />
+                        </div>
+                    )
                 ) : !linhaA || !cursoB ? (
                     <Card
                         className="lg:col-span-12"

@@ -9,6 +9,7 @@ import { CursoResumoCard } from "@/components/charts/qualidade/CursoResumoCard";
 import { ParticipacaoEnadeCard } from "@/components/charts/qualidade/ParticipacaoEnadeCard";
 import { ProximaFaixaCard } from "@/components/charts/qualidade/ProximaFaixaCard";
 import { DataState } from "@/components/layout/DataState";
+import { PorCursoEsqueleto } from "@/components/layout/Esqueleto";
 import { useDashboardData } from "@/hooks/useDashboardData";
 import { buildAvaliacoes, type AvaliacaoCurso } from "@/lib/qualidade";
 import type { DashboardData } from "@/types/dashboard";
@@ -16,6 +17,7 @@ import type { DashboardData } from "@/types/dashboard";
 export function PorCursoPage() {
     return (
         <DataState
+            esqueleto={<PorCursoEsqueleto />}
             render={(data) => (
                 <PorCurso key={data.escopo.codigo_municipio} data={data} />
             )}

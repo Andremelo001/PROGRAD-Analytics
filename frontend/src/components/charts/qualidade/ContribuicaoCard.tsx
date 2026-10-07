@@ -1,7 +1,8 @@
-import { useLayoutEffect, useRef, useState, type ReactNode } from "react";
+import { useRef, useState } from "react";
 
 import { Card } from "@/components/cards/Card";
 import { DataTable } from "@/components/charts/DataTable";
+import { TextoAjustado } from "@/components/charts/TextoAjustado";
 import { useChartTheme } from "@/hooks/useChartTheme";
 import { useElementSize } from "@/hooks/useElementSize";
 import {
@@ -13,7 +14,6 @@ import {
 } from "@/lib/cpc";
 import { formatDecimal } from "@/lib/format";
 import type { AvaliacaoCurso } from "@/lib/qualidade";
-import { cn } from "@/lib/utils";
 
 /** Nome do eixo no radar: mais curto que o ``nome`` (cabe nas pontas) e
  * mais claro que o ``curto`` da tabela. */
@@ -355,46 +355,5 @@ function Radar({
                 );
             })}
         </svg>
-    );
-}
-
-/** Uma linha de texto em 13px que, quando não cabe, diminui a letra (até
- * 11px, ainda legível) pra mostrar tudo; se nem assim couber (celular), quebra
- * em duas linhas nesse tamanho. Remede a cada mudança de texto e quando a
- * largura muda. */
-function TextoAjustado({
-    children,
-    className,
-}: {
-    children: ReactNode;
-    className?: string;
-}) {
-    const ref = useRef<HTMLParagraphElement>(null);
-    useLayoutEffect(() => {
-        const el = ref.current;
-        if (!el) return;
-        const ajustar = () => {
-            let tamanho = 13;
-            el.style.whiteSpace = "nowrap";
-            el.style.fontSize = `${tamanho}px`;
-            while (el.scrollWidth > el.clientWidth && tamanho > 11) {
-                tamanho -= 0.5;
-                el.style.fontSize = `${tamanho}px`;
-            }
-            if (el.scrollWidth > el.clientWidth) el.style.whiteSpace = "normal";
-        };
-        ajustar();
-        const observer = new ResizeObserver(ajustar);
-        observer.observe(el);
-        return () => observer.disconnect();
-    });
-    return (
-        <p
-            ref={ref}
-            data-ajustado
-            className={cn("overflow-hidden text-[13px] leading-snug", className)}
-        >
-            {children}
-        </p>
     );
 }

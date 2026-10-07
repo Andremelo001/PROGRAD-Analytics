@@ -2,6 +2,7 @@ import { Check, ChevronDown, Search } from "lucide-react";
 import { useEffect, useId, useMemo, useRef, useState, type KeyboardEvent } from "react";
 
 import { normalizeForSearch } from "@/lib/format";
+import { rolarDentro } from "@/lib/rolar";
 import { cn } from "@/lib/utils";
 
 export interface OpcaoCurso {
@@ -48,6 +49,7 @@ export function CursoBusca({
     const id = useId();
     const rootRef = useRef<HTMLDivElement>(null);
     const inputRef = useRef<HTMLInputElement>(null);
+    const listaRef = useRef<HTMLUListElement>(null);
     const [open, setOpen] = useState(false);
     const [busca, setBusca] = useState("");
     const [ativo, setAtivo] = useState(0);
@@ -79,7 +81,7 @@ export function CursoBusca({
 
     useEffect(() => {
         if (!open) return;
-        inputRef.current?.focus();
+        inputRef.current?.focus({ preventScroll: true });
         const fora = (e: PointerEvent) => {
             if (!rootRef.current?.contains(e.target as Node)) setOpen(false);
         };
@@ -89,9 +91,7 @@ export function CursoBusca({
 
     useEffect(() => {
         if (open)
-            document
-                .getElementById(`${id}-${ativo}`)
-                ?.scrollIntoView({ block: "nearest" });
+            rolarDentro(listaRef.current, document.getElementById(`${id}-${ativo}`));
     });
 
     function escolher(i: number) {
@@ -200,6 +200,7 @@ export function CursoBusca({
 
             {open && (
                 <ul
+                    ref={listaRef}
                     id={`${id}-lista`}
                     role="listbox"
                     aria-label={label}
