@@ -17,8 +17,11 @@ const TELA_CHEIA_MIN = "(min-width: 1024px)";
  * sai da tela cheia. Sair da tela cheia pelo próprio
  * navegador também sai do modo (os dois andam juntos). Onde não há tela
  * cheia (ex.: iPhone), o modo funciona sem ela. */
-export function usePresentationMode() {
+export function usePresentationMode(disponivel = true) {
     const [presenting, setPresenting] = useState(false);
+    // ``disponivel`` falso (ex.: página Configurações): o atalho não liga o
+    // modo, e se ele estava ligado, sai
+    const disponivelRef = useRef(disponivel);
     const presentingRef = useRef(false);
     const fullscreenTimer = useRef<number | undefined>(undefined);
 
@@ -50,8 +53,15 @@ export function usePresentationMode() {
         }
     }, []);
 
-    const toggle = useCallback(() => set(!presentingRef.current), [set]);
+    const toggle = useCallback(() => {
+        if (disponivelRef.current || presentingRef.current) set(!presentingRef.current);
+    }, [set]);
     const exit = useCallback(() => set(false), [set]);
+
+    useEffect(() => {
+        disponivelRef.current = disponivel;
+        if (!disponivel) set(false);
+    }, [disponivel, set]);
 
     useEffect(() => {
         const onKeyDown = (event: KeyboardEvent) => {

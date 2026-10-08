@@ -3,7 +3,7 @@ import { useMemo, useRef, useState, type MouseEvent } from "react";
 
 import brazilDots from "@/assets/brazil-dots.json";
 import { Card } from "@/components/cards/Card";
-import { ChartSelect } from "@/components/charts/ChartSelect";
+import { CursoBusca } from "@/components/charts/qualidade/CursoBusca";
 import { DataTable } from "@/components/charts/DataTable";
 import { formatDecimal, formatInteger, formatPercent, toTitleCase } from "@/lib/format";
 import { UF_NOMES } from "@/lib/uf";
@@ -158,8 +158,10 @@ export function BrasilMapaCard({
                         <Info size={14} strokeWidth={2} aria-hidden />
                     </span>
                 </p>
-                <ChartSelect
-                    size="sm"
+                <CursoBusca
+                    compacto
+                    cor={CHART.brand}
+                    placeholder="Buscar curso…"
                     label="Curso exibido no mapa"
                     value={String(codigo ?? "")}
                     options={opcoes.map((c) => ({

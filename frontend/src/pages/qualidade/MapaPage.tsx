@@ -280,7 +280,10 @@ function Mapa({ data }: { data: DashboardData }) {
                     }
                     className="lg:absolute lg:inset-0"
                 >
-                    <div className="-mx-1 mt-5 -mr-3 min-h-0 flex-1 [scrollbar-width:thin] overflow-y-auto pr-3 pl-1">
+                    {/* folga de 4px em volta (compensada nas margens): o contorno do
+                        curso do campus na lista não é cortado pela rolagem, nem
+                        quando ele é o primeiro ou o último */}
+                    <div className="-mx-1 mt-4 -mr-3 min-h-0 flex-1 [scrollbar-width:thin] overflow-y-auto py-1 pr-3 pl-1">
                         {visao && (
                             <EstadoPainel
                                 titulo={titulo}

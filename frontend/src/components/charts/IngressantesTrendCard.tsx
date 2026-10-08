@@ -1,7 +1,7 @@
 import { useId, useMemo, useRef, useState, type PointerEvent } from "react";
 
 import { Card } from "@/components/cards/Card";
-import { ChartSelect } from "@/components/charts/ChartSelect";
+import { CursoBusca } from "@/components/charts/qualidade/CursoBusca";
 import { yearTickFilter } from "@/components/charts/chart-theme";
 import { DataTable } from "@/components/charts/DataTable";
 import { useChartTheme } from "@/hooks/useChartTheme";
@@ -337,7 +337,10 @@ export function IngressantesTrendCard({
             title="Ingressantes"
             subtitle={subtitulo}
             action={
-                <ChartSelect
+                <CursoBusca
+                    compacto
+                    cor={CHART.comparacao.a}
+                    placeholder="Buscar curso…"
                     label="Série exibida"
                     value={escolha}
                     options={[

@@ -1,4 +1,4 @@
-import type { ReactNode } from "react";
+import { useState, type ReactNode } from "react";
 
 import { DeltaPill } from "@/components/charts/qualidade/DeltaPill";
 import { FaixaPill } from "@/components/charts/qualidade/FaixaPill";
@@ -36,6 +36,11 @@ export function EstadoPainel({
         : -1;
     const campusForaDoTop = posicaoCampus >= TOP;
     const totalFaixas = resumo.faixas.reduce((a, b) => a + b, 0);
+    // faixa em foco (mouse na barra ou na legenda, ou toque): o pedaço dela
+    // engrossa, os outros apagam e o item da legenda se destaca — como nos
+    // medidores da Visão do campus
+    const [foco, setFoco] = useState<number | null>(null);
+    const corFaixa = (i: number) => (i < 5 ? CHART.faixa.ramp[i] : CHART.presenca.none);
 
     return (
         <div className="flex flex-col gap-6">
@@ -63,40 +68,45 @@ export function EstadoPainel({
 
             <Secao titulo="Cursos por faixa">
                 <div
-                    className="flex h-3 w-full gap-[2px] overflow-hidden rounded-full"
+                    className="flex h-4 w-full items-center gap-[2px]"
+                    onMouseLeave={() => setFoco(null)}
                     aria-hidden
                 >
                     {resumo.faixas.map((n, i) =>
                         n === 0 ? null : (
                             <span
                                 key={i}
-                                style={{
-                                    flexGrow: n,
-                                    background:
-                                        i < 5
-                                            ? CHART.faixa.ramp[i]
-                                            : CHART.presenca.none,
-                                }}
+                                onMouseEnter={() => setFoco(i)}
+                                onClick={() => setFoco(foco === i ? null : i)}
+                                className={cn(
+                                    "cursor-pointer transition-[height,opacity] duration-200 first:rounded-l-full last:rounded-r-full",
+                                    foco === i ? "h-4" : "h-3",
+                                    foco !== null && foco !== i && "opacity-35"
+                                )}
+                                style={{ flexGrow: n, background: corFaixa(i) }}
                             />
                         )
                     )}
                 </div>
-                <p className="text-text-secondary mt-2 flex flex-wrap gap-x-3 gap-y-1 text-[12px]">
+                <p
+                    className="text-text-secondary mt-2 flex flex-wrap gap-x-3 gap-y-1 text-[12px]"
+                    onMouseLeave={() => setFoco(null)}
+                >
                     {resumo.faixas.map((n, i) =>
                         n === 0 ? null : (
                             <span
                                 key={i}
-                                className="flex items-center gap-1.5 whitespace-nowrap"
+                                onMouseEnter={() => setFoco(i)}
+                                className={cn(
+                                    "flex items-center gap-1.5 whitespace-nowrap transition-opacity duration-200",
+                                    foco === i && "text-ink font-semibold",
+                                    foco !== null && foco !== i && "opacity-45"
+                                )}
                             >
                                 <span
                                     aria-hidden
                                     className="h-2 w-2 rounded-[3px]"
-                                    style={{
-                                        background:
-                                            i < 5
-                                                ? CHART.faixa.ramp[i]
-                                                : CHART.presenca.none,
-                                    }}
+                                    style={{ background: corFaixa(i) }}
                                 />
                                 {i < 5 ? `Faixa ${i + 1}` : "Sem conceito"}:{" "}
                                 <span className="text-ink font-semibold">{n}</span>

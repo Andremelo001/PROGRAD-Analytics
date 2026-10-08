@@ -42,14 +42,16 @@ export function AppLayout() {
     const [tabsSlot, setTabsSlot] = useState<HTMLDivElement | null>(null);
     const isLg = useMediaQuery("(min-width: 1024px)");
     const scrolled = useScrolled();
-    const { presenting, toggle, exit } = usePresentationMode();
+    const { pathname } = useLocation();
+    // Configurações não tem cards pra apresentar: sem o botão nem o atalho
+    const apresentavel = !pathname.startsWith("/configuracoes");
+    const { presenting, toggle, exit } = usePresentationMode(apresentavel);
     const topoRef = useRef<HTMLDivElement>(null);
     const topoAltura = useAltura(topoRef);
     // a faixa de trás é mais alta que o topo fixo: os dois sobem a altura
     // dela, no mesmo tempo, pra andarem juntos como um bloco só
     const faixaRef = useRef<HTMLDivElement>(null);
     const faixaAltura = useAltura(faixaRef);
-    const { pathname } = useLocation();
     const aba = pathname.split("/")[1] ?? "";
     const subAba = pathname.split("/")[2] ?? "";
 
@@ -84,6 +86,7 @@ export function AppLayout() {
 
             <div
                 ref={topoRef}
+                data-topo-fixo
                 inert={presenting}
                 className={cn(
                     "sticky top-0 z-30 transition-[transform,margin,box-shadow,opacity,background-color,backdrop-filter]",
@@ -136,9 +139,11 @@ export function AppLayout() {
                                 <ThemeToggle />
                                 {/* no celular não aparece: o cabeçalho já está no
                                     limite de largura, e lá não há atalho de teclado */}
-                                <span className="hidden sm:flex">
-                                    <PresentationToggle onClick={toggle} />
-                                </span>
+                                {apresentavel && (
+                                    <span className="hidden sm:flex">
+                                        <PresentationToggle onClick={toggle} />
+                                    </span>
+                                )}
                             </span>
                         </div>
                         <CourseSearch cursos={data?.cursos ?? []} />

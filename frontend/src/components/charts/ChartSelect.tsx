@@ -9,6 +9,27 @@ import { cn } from "@/lib/utils";
 const LISTA_MAX = 280;
 const MARGEM_TELA = 16;
 
+/** Onde a lista abre: logo abaixo do botão. Na faixa fixa do topo, em
+ * coordenadas da tela (``position: fixed`` — fica parada com o botão); no
+ * resto, em coordenadas da página (``absolute`` no <body> — rola junto com
+ * o botão, no mesmo quadro, sem precisar acompanhar a rolagem). */
+interface Posicao {
+    top: number;
+    esquerda: number;
+    direita: number;
+    largura: number;
+}
+
+function posicao(botao: DOMRect, fixo: boolean): Posicao {
+    const [dx, dy] = fixo ? [0, 0] : [window.scrollX, window.scrollY];
+    return {
+        top: botao.bottom + dy + 6,
+        esquerda: botao.left + dx,
+        direita: document.documentElement.clientWidth - botao.right - dx,
+        largura: botao.width,
+    };
+}
+
 interface Option {
     value: string;
     label: string;
@@ -57,7 +78,11 @@ export function ChartSelect({
     // a lista abre num portal no <body>, com posição fixa medida do botão:
     // dentro da faixa do topo (altura fixa, overflow escondido) ou de um card
     // ela seria cortada ou ficaria por baixo dos cards seguintes
-    const [caixa, setCaixa] = useState<DOMRect | null>(null);
+    const [caixa, setCaixa] = useState<Posicao | null>(null);
+    // camada da lista: abaixo da faixa fixa do topo (z-30) — ao rolar, a
+    // lista passa por baixo dela como o resto da página —, exceto quando o
+    // seletor está na própria faixa (o de campus), aí fica por cima
+    const [naFaixa, setNaFaixa] = useState(false);
     const [active, setActive] = useState(0);
 
     const selectedIndex = Math.max(
@@ -70,7 +95,9 @@ export function ChartSelect({
     function openList() {
         const botao = rootRef.current?.getBoundingClientRect();
         if (botao) {
-            setCaixa(botao);
+            const fixo = !!rootRef.current?.closest("[data-topo-fixo]");
+            setNaFaixa(fixo);
+            setCaixa(posicao(botao, fixo));
             const lista = Math.min(LISTA_MAX, window.innerWidth - 2 * MARGEM_TELA);
             const cabeDireita = window.innerWidth - botao.left - MARGEM_TELA >= lista;
             const cabeEsquerda = botao.right - MARGEM_TELA >= lista;
@@ -113,22 +140,20 @@ export function ChartSelect({
             if (!rootRef.current?.contains(alvo) && !listRef.current?.contains(alvo))
                 setOpen(false);
         };
-        // a lista acompanha o botão se a página rolar ou mudar de tamanho
-        const reposicionar = (event?: Event) => {
-            if (
-                event?.target instanceof Node &&
-                listRef.current?.contains(event.target)
-            )
-                return;
+        // rolar a página não mexe em nada (a lista já rola junto com o botão,
+        // ou fica parada com ele na faixa do topo); só remede se a janela
+        // mudar de tamanho
+        const reposicionar = () => {
             const botao = rootRef.current?.getBoundingClientRect();
-            if (botao) setCaixa(botao);
+            if (botao)
+                setCaixa(
+                    posicao(botao, !!rootRef.current?.closest("[data-topo-fixo]"))
+                );
         };
         document.addEventListener("pointerdown", onPointerDown);
-        window.addEventListener("scroll", reposicionar, true);
         window.addEventListener("resize", reposicionar);
         return () => {
             document.removeEventListener("pointerdown", onPointerDown);
-            window.removeEventListener("scroll", reposicionar, true);
             window.removeEventListener("resize", reposicionar);
         };
     }, [open]);
@@ -249,18 +274,15 @@ export function ChartSelect({
                         className={cn(
                             // largura até 280px, mas nunca maior que a tela (16px
                             // de margem de cada lado)
-                            "text-ink bg-popover fixed z-50 max-h-72 w-max max-w-[min(280px,calc(100vw-32px))] overflow-y-auto rounded-xl p-1.5 text-left font-normal shadow-[0_16px_40px_rgb(0_0_0/0.18)] outline-none"
+                            "text-ink bg-popover max-h-72 w-max max-w-[min(280px,calc(100vw-32px))] overflow-y-auto rounded-xl p-1.5 text-left font-normal shadow-[0_16px_40px_rgb(0_0_0/0.18)] outline-none",
+                            naFaixa ? "fixed z-50" : "absolute z-20"
                         )}
                         style={{
-                            top: caixa.bottom + 6,
-                            minWidth: caixa.width,
+                            top: caixa.top,
+                            minWidth: caixa.largura,
                             ...(lado === "left"
-                                ? { left: caixa.left }
-                                : {
-                                      right:
-                                          document.documentElement.clientWidth -
-                                          caixa.right,
-                                  }),
+                                ? { left: caixa.esquerda }
+                                : { right: caixa.direita }),
                         }}
                     >
                         {options.map((option, index) => {

@@ -13,7 +13,7 @@ import {
 
 import { Card } from "@/components/cards/Card";
 import { FocusMarker, YearTick } from "@/components/charts/ChartMarks";
-import { ChartSelect } from "@/components/charts/ChartSelect";
+import { CursoBusca } from "@/components/charts/qualidade/CursoBusca";
 import { DataTable } from "@/components/charts/DataTable";
 import { formatDecimal, formatInteger, toTitleCase } from "@/lib/format";
 import { cn } from "@/lib/utils";
@@ -143,7 +143,10 @@ export function CpcComparativoCard({
             }
             action={
                 opcoes.length > 0 && (
-                    <ChartSelect
+                    <CursoBusca
+                        compacto
+                        cor={CHART.brand}
+                        placeholder="Buscar curso…"
                         label="Curso comparado"
                         value={String(codigo ?? "")}
                         options={opcoes.map((c) => ({

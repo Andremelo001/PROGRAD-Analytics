@@ -205,7 +205,7 @@ export function CursoBusca({
                     role="listbox"
                     aria-label={label}
                     className={cn(
-                        "bg-popover text-ink absolute top-[calc(100%+6px)] z-40 max-h-80 overflow-y-auto rounded-xl p-1.5 shadow-[0_16px_40px_rgb(0_0_0/0.18)]",
+                        "bg-popover text-ink absolute top-[calc(100%+6px)] z-20 max-h-80 overflow-y-auto rounded-xl p-1.5 shadow-[0_16px_40px_rgb(0_0_0/0.18)]",
                         compacto
                             ? cn(
                                   "w-[min(280px,calc(100vw-32px))]",
